@@ -114,42 +114,33 @@ public class Utente {
                 '}';
     }
 
-    public String checkNotNullUtente(Utente u){
-        String canCU = "";
-        boolean areThereNull = false;
+    public boolean checkNotNullUtente(Utente u){
+        boolean canCU = true;
 
         if(u.getNome() == null || u.getNome().isEmpty() || u.getNome().isBlank()){
-            canCU += "NOME (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(u.getCognome() == null || u.getCognome().isEmpty() || u.getCognome().isBlank()){
-            canCU += "COGNOME (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(u.getSesso() == null || u.getSesso().isEmpty() || u.getSesso().isBlank()){
-            canCU += "SESSO (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(u.getSesso().length() != 1){
-            canCU += "SESSO (UN CARATTERE) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!u.getSesso().equals("M") || !u.getSesso().equals("F") || !u.getSesso().equals("P") || !u.getSesso().equals("N")){
-            canCU += "SESSO (SOLO M, F, P o N) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         if(u.getDataNascita() == null){
-            canCU += "DATA NASCITA (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(u.getIndirizzo() == null || u.getIndirizzo().isEmpty() || u.getIndirizzo().isBlank()){
-            canCU += "INDIRIZZO (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(u.getTelefono() == null || u.getTelefono().isEmpty() || u.getTelefono().isBlank()){
-            canCU += "TELEFONO (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         Cliente c = (Cliente) u;
@@ -157,27 +148,19 @@ public class Utente {
         String regex = "^[a-zA-Z]+@[a-zA-Z]+\\\\.(it|com|net|org|edu)$";
 
         if(c.getEmail() == null || c.getEmail().isEmpty() || c.getEmail().isBlank()){
-            canCU += "EMAIL (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, c.getEmail())){
-            canCU += "EMAIL (FORMATO NOME@CASELLAPOSTALE.COM/IT/NET/ORG/EDU) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         regex = "^[a-zA-Z0-9]+$";
 
         if(c.getPassword() == null || c.getPassword().isEmpty() || c.getPassword().isBlank()){
-            canCU += "PASSWORD (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, c.getPassword())){
-            canCU += "PASSWORD (QUALCHE CARATTERE E QUALCHE NUMERO) ";
-            areThereNull = true;
-        }
-
-        if(areThereNull){
-            canCU = "ALCUNI CAMPI DEVONO ESSERE COMPILATI O FORMATTATI BENE: " + canCU;
+            canCU = false;
         }
 
         return canCU;

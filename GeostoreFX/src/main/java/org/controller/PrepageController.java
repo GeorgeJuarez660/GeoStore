@@ -36,7 +36,7 @@ public class PrepageController {
     private void back(ActionEvent event) {
         System.out.println("Going back");
 
-        LoadPage.getFullSceneWithLang("welcome", null);
+        LoadPage.getFullScene("welcome", null);
     }
 
 }

@@ -72,31 +72,22 @@ public class Codice {
                 '}';
     }
 
-    public String checkNotNullCodice(Codice c){
-        String canCU = "";
-        boolean areThereNull = false;
+    public boolean checkNotNullCodice(Codice c){
+        boolean canCU = true;
 
         String regex = "^GS[A-Z]\\d{3}$";
 
         if(c.getCodice() == null || c.getCodice().isEmpty() || c.getCodice().isBlank()){
-            canCU += "CODICE (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, c.getCodice())){
-            canCU += "CODICE (FORMATO GSX123) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         if(c.getDescrizione() == null || c.getDescrizione().isEmpty() || c.getDescrizione().isBlank()){
-            canCU += "DESCRIZIONE (NULLO) ";
-            areThereNull = true;
-        }
-
-        if(areThereNull){
-            canCU = "ALCUNI CAMPI DEVONO ESSERE COMPILATI O FORMATTATI BENE: " + canCU;
+            canCU = false;
         }
 
         return canCU;
-
     }
 }

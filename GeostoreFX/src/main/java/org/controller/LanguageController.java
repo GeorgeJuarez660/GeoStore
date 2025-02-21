@@ -15,7 +15,7 @@ public class LanguageController {
     @FXML
     private void back(ActionEvent event) {
         System.out.println("Going back");
-        LoadPage.getFullSceneWithLang("welcome", null);
+        LoadPage.getFullScene("welcome", null);
     }
 
     @FXML
@@ -24,7 +24,7 @@ public class LanguageController {
         LoadPage.saveStage(event);
         LoadPage.loadingSceneWithLang("LOAD-CHL", null);
 
-        LoadPage.getFullSceneWithLang("welcome", "it");
+        LoadPage.getFullScene("welcome", "it");
     }
 
     @FXML
@@ -33,7 +33,7 @@ public class LanguageController {
         LoadPage.saveStage(event);
         LoadPage.loadingSceneWithLang("LOAD-CHL", null);
 
-        LoadPage.getFullSceneWithLang("welcome", "en");
+        LoadPage.getFullScene("welcome", "en");
     }
 
     @FXML
@@ -42,7 +42,7 @@ public class LanguageController {
         LoadPage.saveStage(event);
         LoadPage.loadingSceneWithLang("LOAD-CHL", null);
 
-        LoadPage.getFullSceneWithLang("welcome", "ja");
+        LoadPage.getFullScene("welcome", "ja");
     }
 
 

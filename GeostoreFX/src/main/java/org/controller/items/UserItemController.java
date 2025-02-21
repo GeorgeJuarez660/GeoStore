@@ -124,7 +124,7 @@ public class UserItemController implements Initializable {
         Service service = new Service();
 
         if(id.getText().equals(user.getId().toString())){
-            LoadPage.answerScene("negative", "NON PUOI ELIMINARE L'UTENTE LOGGATO");
+            LoadPage.answerScene("negative", "USR-DLN", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));

@@ -78,9 +78,9 @@ public class Service {
     public void registerUtente(Cliente user){
         int num = 0;
 
-        String checkNN = user.checkNotNullUtente(user);
+        boolean checkNN = user.checkNotNullUtente(user);
 
-        if(checkNN.isEmpty()){
+        if(checkNN){
             if(user instanceof Amministratore){
                 Amministratore admin = (Amministratore) user;
                 num = cor.getIDIfExistCode(admin.getCodeAdmin());
@@ -113,9 +113,9 @@ public class Service {
 
     public void creazioneUtente(Cliente user, Cliente userID){
         int num = 0;
-        String checkNN = user.checkNotNullUtente(user);
+        boolean checkNN = user.checkNotNullUtente(user);
 
-        if(checkNN.isEmpty()){
+        if(checkNN){
             if(user instanceof Amministratore){
                 Amministratore admin = (Amministratore) user;
                 num = cor.getIDIfExistCode(admin.getCodeAdmin());
@@ -132,27 +132,22 @@ public class Service {
                     if(Utility.getAge(user.getDataNascita())){
                         num = ur.insertUtenteWithDB(null, user);
 
-                        if(num > 0){
-                            Utility.sendResponse(num, "UTENTE CREATO", userID);
-                        }
-                        else{
-                            Utility.sendResponse(num, "CREAZIONE UTENTE", userID);
-                        }
+                        Utility.sendResponse(num, "USR-C", userID);
                     }
                     else{
-                        Utility.sendResponse(0, "L'UTENTE DEVE AVERE ALMENO 13 ANNI. CREAZIONE UTENTE", userID);
+                        Utility.sendResponse(0, "USR-CW", userID);
                     }
                 }
                 else{
-                    Utility.sendResponse(0, "L'UTENTE GIÀ ESISTE. CREAZIONE UTENTE", userID);
+                    Utility.sendResponse(0, "USR-CR", userID);
                 }
             }
             else{
-                Utility.sendResponse(0, "NON ESISTE TALE CODICE ADMIN DICHIARATO. CREAZIONE UTENTE", userID);
+                Utility.sendResponse(0, "USR-CA", userID);
             }
         }
         else{
-            Utility.sendResponse(0, checkNN + ". CREAZIONE UTENTE", userID);
+            Utility.sendResponse(0, "USR-CF", userID);
         }
 
     }
@@ -160,9 +155,9 @@ public class Service {
     public void modificaUtente(Utente u, Cliente userID){
         int num = 0;
 
-        String checkNN = u.checkNotNullUtente(u);
+        boolean checkNN = u.checkNotNullUtente(u);
 
-        if(checkNN.isEmpty()) {
+        if(checkNN) {
             if(u instanceof Amministratore){
                 Amministratore admin = (Amministratore) u;
                 num = cor.getIDIfExistCode(admin.getCodeAdmin());
@@ -176,23 +171,18 @@ public class Service {
                 if(Utility.getAge(u.getDataNascita())){
                     num = ur.updateUtenteWithDB(u.getId(), u);
 
-                    if(num > 0){
-                        Utility.sendResponse(num, "UTENTE MODIFICATO", userID);
-                    }
-                    else{
-                        Utility.sendResponse(num, "MODIFICA UTENTE", userID);
-                    }
+                    Utility.sendResponse(num, "USR-M", userID);
                 }
                 else{
-                    Utility.sendResponse(0, "L'UTENTE DEVE AVERE ALMENO 13 ANNI. MODIFICA UTENTE", userID);
+                    Utility.sendResponse(0, "USR-MW", userID);
                 }
             }
             else{
-                Utility.sendResponse(0, "NON ESISTE TALE CODICE ADMIN DICHIARATO. MODIFICA UTENTE", userID);
+                Utility.sendResponse(0, "USR-MA", userID);
             }
         }
         else{
-            Utility.sendResponse(0, checkNN + ". MODIFICA UTENTE", userID);
+            Utility.sendResponse(0, "USR-MF", userID);
         }
 
     }
@@ -200,12 +190,7 @@ public class Service {
     public void eliminazioneUtente(String IDkey, Cliente userID){
         int num = ur.deleteUtenteWithDB(Integer.parseInt(IDkey));
 
-        if(num > 0){
-            Utility.sendResponse(num, "UTENTE ELIMINATO", userID);
-        }
-        else{
-            Utility.sendResponse(num, "ELIMINAZIONE UTENTE", userID);
-        }
+        Utility.sendResponse(num, "USR-D", userID);
     }
 
     public Map<Integer, Codice> elencoCodici(){
@@ -223,27 +208,22 @@ public class Service {
     public void creazioneCodice(Codice code, Cliente user){
         int num = 0;
 
-        String checkNN = code.checkNotNullCodice(code);
+        boolean checkNN = code.checkNotNullCodice(code);
 
-        if(checkNN.isEmpty()) {
+        if(checkNN) {
             num = cor.checkDuplicatesCodice(code);
 
             if(num == 0){
                 num = cor.insertCodiceWithDB(null, code);
 
-                if(num > 0){
-                    Utility.sendResponse(num, "CODICE CREATO", user);
-                }
-                else{
-                    Utility.sendResponse(num, "CREAZIONE CODICE", user);
-                }
+                Utility.sendResponse(num, "COD-C", user);
             }
             else{
-                Utility.sendResponse(0, "IL CODICE GIÀ ESISTE. CREAZIONE CODICE", user);
+                Utility.sendResponse(0, "COD-CR", user);
             }
         }
         else{
-            Utility.sendResponse(0, checkNN + ". CREAZIONE CODICE", user);
+            Utility.sendResponse(0,"COD-CF", user);
         }
 
     }
@@ -251,33 +231,30 @@ public class Service {
     public void modificaCodice(Codice code, Cliente user){
         int num = 0;
 
-        String checkNN = code.checkNotNullCodice(code);
+        boolean checkNN = code.checkNotNullCodice(code);
 
-        if(checkNN.isEmpty()) {
+        if(checkNN) {
             num = cor.checkDuplicatesCodice(code);
 
             if(num == 0){
                 num = cor.updateCodiceWithDB(code.getId(), code);
 
-                if(num > 0){
-                    Utility.sendResponse(num, "CODICE MODIFICATO", user);
-                }
-                else{
-                    Utility.sendResponse(num, "MODIFICA CODICE", user);
-                }
+                Utility.sendResponse(num, "COD-M", user);
             }
             else{
-                Utility.sendResponse(0, "IL CODICE GIÀ ESISTE. MODIFICA CODICE", user);
+                Utility.sendResponse(0, "COD-MR", user);
             }
         }
         else{
-            Utility.sendResponse(0, checkNN + ". MODIFICA CODICE", user);
+            Utility.sendResponse(0, "COD-MF", user);
         }
 
     }
 
     public void eliminazioneCodice(String IDkey, Cliente user){
         int num = 0;
+
+        //TODO: informare ai clienti che il codice è stato eliminato e che sono stati aggiornati gli utenti
 
         num = cor.setNullAfterDeleteCode(Integer.parseInt(IDkey));
         if(num > 0){
@@ -289,12 +266,7 @@ public class Service {
 
         num = cor.deleteCodiceWithDB(Integer.parseInt(IDkey));
 
-        if(num > 0){
-            Utility.sendResponse(num, "CODICE ELIMINATO", user);
-        }
-        else{
-            Utility.sendResponse(num, "ELIMINAZIONE CODICE", user);
-        }
+        Utility.sendResponse(num, "COD-D", user);
 
     }
 
@@ -313,27 +285,22 @@ public class Service {
     public void associazioneCodice(CodiceAssociateDTO codeAssociate, Cliente user){
         int num = 0;
 
-        String checkNN = codeAssociate.checkNotNullCodiceAssociato(codeAssociate);
+        boolean checkNN = codeAssociate.checkNotNullCodiceAssociato(codeAssociate);
 
-        if(checkNN.isEmpty()) {
+        if(checkNN) {
             num = cor.checkAlreadyAssociatedCodice(codeAssociate.getIdCodice(), codeAssociate.getEmailUtente());
 
             if(num == 0){
                 num = cor.associateCodiceToUtenteWithDB(codeAssociate.getIdCodice(), codeAssociate.getEmailUtente());
 
-                if(num > 0){
-                    Utility.sendResponse(num, "CODICE ASSOCIATO", user);
-                }
-                else{
-                    Utility.sendResponse(num, "ASSOCIAZIONE CODICE", user);
-                }
+                Utility.sendResponse(num, "COD-AC", user);
             }
             else{
-                Utility.sendResponse(0, "IL CODICE È GIÀ STATO ASSOCIATO ALL'UTENTE. ASSOCIAZIONE CODICE", user);
+                Utility.sendResponse(0, "COD-ACR", user);
             }
         }
         else{
-            Utility.sendResponse(0, checkNN + ". ASSOCIAZIONE CODICE", user);
+            Utility.sendResponse(0, "COD-ACF", user);
         }
 
     }
@@ -341,9 +308,11 @@ public class Service {
     public void modificaAssociazioneCodice(CodiceAssociateDTO codeAssociate, Cliente user){
         int num = 0;
 
-        String checkNN = codeAssociate.checkNotNullCodiceAssociato(codeAssociate);
+        //TODO: informare ai clienti che il codice è stato dissociato al precedente utente
 
-        if(checkNN.isEmpty()) {
+        boolean checkNN = codeAssociate.checkNotNullCodiceAssociato(codeAssociate);
+
+        if(checkNN) {
             num = cor.checkAlreadyAssociatedCodice(codeAssociate.getIdCodice(), codeAssociate.getEmailUtente());
 
             if(num == 0){
@@ -360,19 +329,14 @@ public class Service {
 
                 num = cor.associateCodiceToUtenteWithDB(codeAssociate.getIdCodice(), codeAssociate.getEmailUtente());
 
-                if(num > 0){
-                    Utility.sendResponse(num, "CODICE ASSOCIATO", user);
-                }
-                else{
-                    Utility.sendResponse(num, "ASSOCIAZIONE CODICE", user);
-                }
+                Utility.sendResponse(num, "COD-AC", user);
             }
             else{
-                Utility.sendResponse(0, "IL CODICE È GIÀ STATO ASSOCIATO ALL'UTENTE. ASSOCIAZIONE CODICE", user);
+                Utility.sendResponse(0, "COD-ACR", user);
             }
         }
         else{
-            Utility.sendResponse(0, checkNN + ". ASSOCIAZIONE CODICE", user);
+            Utility.sendResponse(0, "COD-ACF", user);
         }
 
     }
@@ -384,12 +348,7 @@ public class Service {
 
         num = cor.dissociateCodiceToUtenteWithDB(codiceAssociateDTO.getIdCodice(), email);
 
-        if(num > 0){
-            Utility.sendResponse(num, "CODICE DISSOCIATO", user);
-        }
-        else{
-            Utility.sendResponse(num, "DISSOCIAZIONE CODICE", user);
-        }
+        Utility.sendResponse(num, "COD-AD", user);
     }
 
     public ArrayList<News> elencoNotizie(){
@@ -411,15 +370,10 @@ public class Service {
         if(notizia.checkNotNullNotizia(notizia)){
             num = nr.insertNotizieWithDB(notizia.getDataPub(), notizia.getDataMod(), notizia.getTesto(), notizia.getUtente().getId());
 
-            if(num > 0){
-                Utility.sendResponse(num, "NEWS CREATO", user);
-            }
-            else{
-                Utility.sendResponse(num, "CREAZIONE NEWS", user);
-            }
+            Utility.sendResponse(num, "NWS-C", user);
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE IL TESTO. CREAZIONE NEWS", user);
+            Utility.sendResponse(0, "NWS-CF", user);
         }
 
     }
@@ -437,15 +391,10 @@ public class Service {
         if(notizia.checkNotNullNotizia(notizia)){
             num = nr.updateNotizieWithDB(notizia.getId(), notizia.getDataMod(), notizia.getTesto(), notizia.getUtente().getId());
 
-            if(num > 0){
-                Utility.sendResponse(num, "NEWS MODIFICATO", user);
-            }
-            else{
-                Utility.sendResponse(num, "MODIFICA NEWS", user);
-            }
+            Utility.sendResponse(num, "NWS-M", user);
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE IL TESTO. MODIFICA NEWS", user);
+            Utility.sendResponse(0, "NWS-MF", user);
         }
 
     }
@@ -455,12 +404,7 @@ public class Service {
 
         num = nr.deleteNotizieWithDB(Integer.parseInt(IDKey));
 
-        if(num > 0){
-            Utility.sendResponse(num, "NEWS ELIMINATO", user);
-        }
-        else{
-            Utility.sendResponse(num, "ELIMINAZIONE NEWS", user);
-        }
+        Utility.sendResponse(num, "NWS-D", user);
     }
 
     public Map<Integer, Prodotto> elencoProdotti(){

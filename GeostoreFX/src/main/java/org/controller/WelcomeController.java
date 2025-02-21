@@ -28,7 +28,7 @@ public class WelcomeController {
         System.out.println("goes to prepage");
         LoadPage.saveStage(event);
 
-        LoadPage.getFullSceneWithLang("prepage", null);
+        LoadPage.getFullScene("prepage", null);
     }
 
     @FXML
@@ -42,7 +42,7 @@ public class WelcomeController {
         stage.setOnCloseRequest(e -> {
             e.consume(); //utilizzato per ritardare la chiusura imminente
             LoadPage.saveStageForClose(e);
-            LoadPage.getFullScene("goodbye");
+            LoadPage.getFullScene("goodbye", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
@@ -62,7 +62,7 @@ public class WelcomeController {
         System.out.println("goes to change language");
         LoadPage.saveStage(event);
 
-        LoadPage.getFullSceneWithLang("language", null);
+        LoadPage.getFullScene("language", null);
     }
 
 

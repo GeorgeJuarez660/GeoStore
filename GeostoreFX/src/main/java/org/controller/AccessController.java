@@ -50,32 +50,32 @@ public class AccessController {
         service = new Service();
 
         if(!password.getText().equals(confirmPassword.getText())){
-            LoadPage.answerSceneWithLang("negative", "PWD-NOMATCH", null);
+            LoadPage.answerScene("negative", "PWD-NOMATCH", null);
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(e -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.getFullSceneWithLang("register", null);
+                LoadPage.getFullScene("register", null);
             });
             delay.play();
         }
         else if(bornDate.getValue() == null){
-            LoadPage.answerSceneWithLang("negative", "BD-ERR", null);
+            LoadPage.answerScene("negative", "BD-ERR", null);
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(e -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.getFullSceneWithLang("register", null);
+                LoadPage.getFullScene("register", null);
             });
             delay.play();
         }
         else if(!Utility.getAge(Date.valueOf(bornDate.getValue()))){
-            LoadPage.answerSceneWithLang("negative", "AGE-ERR", null);
+            LoadPage.answerScene("negative", "AGE-ERR", null);
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(e -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.getFullSceneWithLang("register", null);
+                LoadPage.getFullScene("register", null);
             });
             delay.play();
         }
@@ -154,7 +154,7 @@ public class AccessController {
     private void back(ActionEvent event) {
         System.out.println("Going back");
 
-        LoadPage.getFullSceneWithLang("prepage", null);
+        LoadPage.getFullScene("prepage", null);
     }
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------

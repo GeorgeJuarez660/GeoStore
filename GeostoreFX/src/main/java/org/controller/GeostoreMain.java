@@ -28,7 +28,7 @@ public class GeostoreMain extends Application {
         stage.setOnCloseRequest(event -> {
             event.consume(); //utilizzato per ritardare la chiusura imminente
             LoadPage.saveStageForClose(event);
-            LoadPage.getFullScene("goodbye");
+            LoadPage.getFullScene("goodbye", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));

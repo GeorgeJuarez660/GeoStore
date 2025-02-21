@@ -154,10 +154,10 @@ public class Utility {
 
     public static void sendResponseLogin(Integer num, Cliente user){
         if(num > 0){
-            LoadPage.answerSceneWithLang("positive", "LOG-Y", null);
+            LoadPage.answerScene("positive", "LOG-Y", null);
         }
         else{
-            LoadPage.answerSceneWithLang("negative", "LOG-N", null);
+            LoadPage.answerScene("negative", "LOG-N", null);
         }
 
         if(num>0){
@@ -174,7 +174,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.getFullSceneWithLang("prepage", null);
+                LoadPage.getFullScene("prepage", null);
             });
             delay.play();
         }
@@ -183,27 +183,27 @@ public class Utility {
 
     public static void sendResponseRegister(Integer num){
         if(num > 0){
-            LoadPage.answerSceneWithLang("positive", "REG-Y", null);
+            LoadPage.answerScene("positive", "REG-Y", null);
         }
         else{
-            LoadPage.answerSceneWithLang("negative", "REG-N", null);
+            LoadPage.answerScene("negative", "REG-N", null);
         }
 
         //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
             // Dopo 2 secondi, carica la terza scena
-            LoadPage.getFullSceneWithLang("prepage", null);
+            LoadPage.getFullScene("prepage", null);
         });
         delay.play();
     }
 
     public static void sendResponse(Integer num, String dynamicEvent, Cliente user){
         if(num > 0){
-            LoadPage.answerScene("positive", dynamicEvent + " CON SUCCESSO");
+            LoadPage.answerScene("positive", dynamicEvent + "Y", null);
         }
         else{
-            LoadPage.answerScene("negative", dynamicEvent + " FALLITA");
+            LoadPage.answerScene("negative", dynamicEvent + "N", null);
         }
 
         //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
@@ -217,13 +217,13 @@ public class Utility {
 
     public static void sendResponseDeletedProducts(Integer num, Cliente user){
         if(num > 0){
-            LoadPage.answerScene("positive", "PRODOTTO ELIMINATO CON SUCCESSO");
+            LoadPage.answerScene("positive", "PRODOTTO ELIMINATO CON SUCCESSO", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.answerScene("info", "LA RICORDIAMO CHE SONO STATI EFFETTUATI DEI RIMBORSI AGLI UTENTI CHE AVEVANO ORDINATO QUESTO PRODOTTO");
+                LoadPage.answerScene("info", "LA RICORDIAMO CHE SONO STATI EFFETTUATI DEI RIMBORSI AGLI UTENTI CHE AVEVANO ORDINATO QUESTO PRODOTTO", null);
             });
             delay.play();
 
@@ -236,7 +236,7 @@ public class Utility {
             delay2.play();
         }
         else{
-            LoadPage.answerScene("negative", "ELIMINAZIONE PRODOTTO FALLITA");
+            LoadPage.answerScene("negative", "ELIMINAZIONE PRODOTTO FALLITA", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
@@ -250,13 +250,13 @@ public class Utility {
 
     public static void sendResponseDeletedOrders(Integer num, Cliente user){
         if(num > 0){
-            LoadPage.answerScene("positive", "ORDINE ELIMINATO CON SUCCESSO");
+            LoadPage.answerScene("positive", "ORDINE ELIMINATO CON SUCCESSO", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.answerScene("info", "LA RICORDIAMO CHE È STATO EFFETTUATO DEL RIMBORSO ALL'UTENTE CHE AVEVA ORDINATO QUESTO PRODOTTO");
+                LoadPage.answerScene("info", "LA RICORDIAMO CHE È STATO EFFETTUATO DEL RIMBORSO ALL'UTENTE CHE AVEVA ORDINATO QUESTO PRODOTTO", null);
             });
             delay.play();
 
@@ -269,7 +269,7 @@ public class Utility {
             delay2.play();
         }
         else{
-            LoadPage.answerScene("negative", "ELIMINAZIONE ORDINE FALLITA");
+            LoadPage.answerScene("negative", "ELIMINAZIONE ORDINE FALLITA", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
@@ -283,13 +283,13 @@ public class Utility {
 
     public static void sendResponseOrderedProducts(Integer num, String response, Cliente user){
         if(num > 0){
-            LoadPage.answerScene("positive", response);
+            LoadPage.answerScene("positive", response, null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.answerScene("info", "LA RICORDIAMO CHE IL PAGAMENTO È STATO EFFETTUATO CON SUCCESSO");
+                LoadPage.answerScene("info", "LA RICORDIAMO CHE IL PAGAMENTO È STATO EFFETTUATO CON SUCCESSO", null);
             });
             delay.play();
 
@@ -302,7 +302,7 @@ public class Utility {
             delay2.play();
         }
         else{
-            LoadPage.answerScene("negative", response);
+            LoadPage.answerScene("negative", response, null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(6));
@@ -316,13 +316,13 @@ public class Utility {
 
     public static void sendResponseDeletedCategories(Integer num, Cliente user){
         if(num > 0){
-            LoadPage.answerScene("positive", "CATEGORIA ELIMINATA CON SUCCESSO");
+            LoadPage.answerScene("positive", "CATEGORIA ELIMINATA CON SUCCESSO", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.answerScene("info", "LA RICORDIAMO CHE I PRODOTTI APPARTENENTI ALLA PRECEDENTE CATEGORIA SONO SPOSTATI SU N/A");
+                LoadPage.answerScene("info", "LA RICORDIAMO CHE I PRODOTTI APPARTENENTI ALLA PRECEDENTE CATEGORIA SONO SPOSTATI SU N/A", null);
             });
             delay.play();
 
@@ -335,7 +335,7 @@ public class Utility {
             delay2.play();
         }
         else{
-            LoadPage.answerScene("negative", "ELIMINAZIONE CATEGORIA FALLITA");
+            LoadPage.answerScene("negative", "ELIMINAZIONE CATEGORIA FALLITA", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
@@ -349,13 +349,13 @@ public class Utility {
 
     public static void sendResponseDeletedMaterials(Integer num, Cliente user){
         if(num > 0){
-            LoadPage.answerScene("positive", "MATERIA ELIMINATA CON SUCCESSO");
+            LoadPage.answerScene("positive", "MATERIA ELIMINATA CON SUCCESSO", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.answerScene("info", "LA RICORDIAMO CHE I PRODOTTI APPARTENENTI ALLA PRECEDENTE MATERIA SONO SPOSTATI SU N/A");
+                LoadPage.answerScene("info", "LA RICORDIAMO CHE I PRODOTTI APPARTENENTI ALLA PRECEDENTE MATERIA SONO SPOSTATI SU N/A", null);
             });
             delay.play();
 
@@ -368,7 +368,7 @@ public class Utility {
             delay2.play();
         }
         else{
-            LoadPage.answerScene("negative", "ELIMINAZIONE MATERIA FALLITA");
+            LoadPage.answerScene("negative", "ELIMINAZIONE MATERIA FALLITA", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));

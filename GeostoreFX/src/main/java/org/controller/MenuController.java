@@ -61,13 +61,13 @@ public class MenuController {
     private void logout(ActionEvent event){
         LoadPage.saveStage(event);
 
-        LoadPage.answerScene("positive", "LOGOUT EFFETTUATO CON SUCCESSO");
+        LoadPage.answerScene("positive", "LOG-O", null);
 
         //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(evt -> {
             // Dopo 2 secondi, carica la terza scena
-            LoadPage.getFullScene("prepage");
+            LoadPage.getFullScene("prepage", null);
         });
         delay.play();
 

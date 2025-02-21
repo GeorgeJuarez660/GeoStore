@@ -34,41 +34,15 @@ public class LoadPage {
     }
 
     @FXML
-    public static void getFullScene(String choosedScene) {
-        Pane view = null;
-        try {
-            // Costruisce il percorso completo del file FXML
-            URL fileUrl = GeostoreMain.class.getResource("/org/scenes/" + choosedScene + ".fxml");
-            if (fileUrl == null) {
-                throw new java.io.FileNotFoundException("Nessun file FXML trovato");
-            }
-
-            FXMLLoader loader = new FXMLLoader(fileUrl);
-            Pane newScene = loader.load();
-
-            //carica la scena
-            double prefWidth = savedStage.getWidth(); //dimensione rimane invariata o mantenuta dall'utente
-            double prefHeight = savedStage.getHeight();
-            Scene scene = new Scene(newScene);
-            savedStage.setWidth(prefWidth);
-            savedStage.setHeight(prefHeight); //inserendo dimensioni fisse
-            savedStage.setScene(scene);
-            savedStage.show();
-
-        } catch (Exception e) {
-            System.out.println("No page found. Please check FXMLLoader.");
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public static void getFullSceneWithLang(String choosedScene, String lang) {
+    public static void getFullScene(String choosedScene, String lang) {
         Pane view = null;
         try {
             // Costruisce il percorso completo del file FXML
             lang = lang != null ? lang : Translater.getLanguage(); //per prima cosa controlla la lingua per impostarla
             Locale locale = new Locale(lang); // Setti il linguaggio di default da prendere il resource
             ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
+            // Costruisce il percorso completo del file FXML
             URL fileUrl = GeostoreMain.class.getResource("/org/scenes/" + choosedScene + ".fxml");
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException("Nessun file FXML trovato");
@@ -78,8 +52,6 @@ public class LoadPage {
             Pane newScene = loader.load();
 
             Translater.setLanguage(lang); //conserva la lingua per la prossima volta
-
-            //changeButtonText(newScene, lang);
 
             //carica la scena
             double prefWidth = savedStage.getWidth(); //dimensione rimane invariata o mantenuta dall'utente
@@ -184,53 +156,7 @@ public class LoadPage {
     }
 
     @FXML
-    public static void answerScene(String choose, String response) {
-        try {
-            URL fileUrl = null;
-
-            // Costruisce il percorso completo del file FXML
-            if(choose.equals("positive")){
-                fileUrl = GeostoreMain.class.getResource("/org/scenes/positiveAnswer.fxml");
-                if (fileUrl == null) {
-                    throw new java.io.FileNotFoundException("Nessun file FXML trovato");
-                }
-            }
-            else if(choose.equals("negative")){
-                fileUrl = GeostoreMain.class.getResource("/org/scenes/negativeAnswer.fxml");
-                if (fileUrl == null) {
-                    throw new java.io.FileNotFoundException("Nessun file FXML trovato");
-                }
-            }
-            else if(choose.equals("info")){
-                fileUrl = GeostoreMain.class.getResource("/org/scenes/infoAnswer.fxml");
-                if (fileUrl == null) {
-                    throw new java.io.FileNotFoundException("Nessun file FXML trovato");
-                }
-            }
-
-            FXMLLoader loader = new FXMLLoader(fileUrl);
-            Pane newScene = loader.load();
-
-            AnswerController answerController = (AnswerController) loader.getController(); //Ottieni il controller della scena caricata
-            answerController.response(response);
-
-            //carica la scena
-            double prefWidth = savedStage.getWidth();
-            double prefHeight = savedStage.getHeight();
-            Scene scene = new Scene(newScene);
-            savedStage.setWidth(prefWidth);
-            savedStage.setHeight(prefHeight);
-            savedStage.setScene(scene);
-            savedStage.show();
-
-        } catch (Exception e) {
-            System.out.println("No page found. Please check FXMLLoader.");
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public static void answerSceneWithLang(String choose, String response, String lang) {
+    public static void answerScene(String choose, String response, String lang) {
         try {
             URL fileUrl = null;
 
@@ -262,7 +188,9 @@ public class LoadPage {
             Pane newScene = loader.load();
 
             AnswerController answerController = (AnswerController) loader.getController(); //Ottieni il controller della scena caricata
-            answerController.responseWithLang(response, resLang);
+            answerController.response(response, resLang);
+
+            Translater.setLanguage(lang); //conserva la lingua per la prossima volta
 
             //carica la scena
             double prefWidth = savedStage.getWidth();
