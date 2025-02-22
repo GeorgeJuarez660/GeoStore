@@ -7,11 +7,18 @@
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Prodotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Prodotto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/UserItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/UserItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/ProdottoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/ProdottoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Utente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/homepage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,27 +64,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GeostoreMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainPreview.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.GeostoreFX [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.GeostoreFX [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;featureDev/desktop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/giorg/OneDrive/Desktop/App/G&amp;P/Programming/Java/GeostoreFX/src/main/resources/org/images&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.36666667&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GeostoreMain.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainPreview.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Maven.GeostoreFX [clean].executor": "Run",
+    "Maven.GeostoreFX [install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "featureDev/desktop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/images",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.36666667",
+    "settings.editor.selected.configurable": "settings.sync"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\images" />
@@ -237,7 +244,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>347</line>
+          <line>353</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -272,7 +279,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>369</line>
+          <line>375</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -332,7 +339,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>1068</line>
+          <line>1061</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -457,7 +464,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
-          <line>251</line>
+          <line>231</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -486,9 +493,34 @@
           <option name="timeStamp" value="159" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>246</line>
-          <option name="timeStamp" value="160" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/UtenteRepository.java</url>
+          <line>316</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/AccessController.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="168" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

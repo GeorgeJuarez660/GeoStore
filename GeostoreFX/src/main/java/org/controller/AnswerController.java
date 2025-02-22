@@ -320,6 +320,82 @@ public class AnswerController {
             case "CAT-CN":
                 response.setText(resLang.getString("answer.category.noCreatedCategory"));
                 break;
+            case "CAT-CRN":
+                responseText = resLang.getString("answer.category.alreadyCreated");
+                responseText += " " + resLang.getString("answer.category.noCreatedCategory");
+                response.setText(responseText);
+                break;
+            case "CAT-CFN":
+                responseText = resLang.getString("answer.category.requiredFill");
+                responseText += " " + resLang.getString("answer.category.noCreatedCategory");
+                response.setText(responseText);
+                break;
+            case "CAT-UY":
+                response.setText(resLang.getString("answer.category.updatedCategory"));
+                break;
+            case "CAT-UN":
+                response.setText(resLang.getString("answer.category.noUpdatedCategory"));
+                break;
+            case "CAT-URN":
+                responseText = resLang.getString("answer.category.alreadyCreated");
+                responseText += " " + resLang.getString("answer.category.noUpdatedCategory");
+                response.setText(responseText);
+                break;
+            case "CAT-UFN":
+                responseText = resLang.getString("answer.category.requiredFill");
+                responseText += " " + resLang.getString("answer.category.noUpdatedCategory");
+                response.setText(responseText);
+                break;
+            case "CAT-DY":
+                response.setText(resLang.getString("answer.category.deletedCategory"));
+                break;
+            case "CAT-DN":
+                response.setText(resLang.getString("answer.category.noDeletedCategory"));
+                break;
+            case "CAT-IR":
+                response.setText(resLang.getString("answer.category.infoChanges"));
+                break;
+            case "MAT-CY":
+                response.setText(resLang.getString("answer.material.createdMaterial"));
+                break;
+            case "MAT-CN":
+                response.setText(resLang.getString("answer.material.noCreatedMaterial"));
+                break;
+            case "MAT-CRN":
+                responseText = resLang.getString("answer.material.alreadyCreated");
+                responseText += " " + resLang.getString("answer.material.noCreatedMaterial");
+                response.setText(responseText);
+                break;
+            case "MAT-CFN":
+                responseText = resLang.getString("answer.material.requiredFill");
+                responseText += " " + resLang.getString("answer.material.noCreatedMaterial");
+                response.setText(responseText);
+                break;
+            case "MAT-UY":
+                response.setText(resLang.getString("answer.material.updatedMaterial"));
+                break;
+            case "MAT-UN":
+                response.setText(resLang.getString("answer.material.noUpdatedMaterial"));
+                break;
+            case "MAT-URN":
+                responseText = resLang.getString("answer.material.alreadyCreated");
+                responseText += " " + resLang.getString("answer.material.noUpdatedMaterial");
+                response.setText(responseText);
+                break;
+            case "MAT-UFN":
+                responseText = resLang.getString("answer.material.requiredFill");
+                responseText += " " + resLang.getString("answer.material.noUpdatedMaterial");
+                response.setText(responseText);
+                break;
+            case "MAT-DY":
+                response.setText(resLang.getString("answer.material.deletedMaterial"));
+                break;
+            case "MAT-DN":
+                response.setText(resLang.getString("answer.material.noDeletedMaterial"));
+                break;
+            case "MAT-IR":
+                response.setText(resLang.getString("answer.material.infoChanges"));
+                break;
             default:
                 break;
         }

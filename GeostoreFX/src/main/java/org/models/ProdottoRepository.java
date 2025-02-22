@@ -611,7 +611,7 @@ public class ProdottoRepository implements prodottiCRUD {
         return num;
     }
 
-    public int updateIdAfterDeleteCategory(Integer idNew, Integer idOld) {
+    public int updateIdBeforeDeleteCategory(Integer idNew, Integer idOld) {
         String sql = "UPDATE `prodotti` SET `categoria` = ? WHERE categoria = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -631,13 +631,13 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel updateIdAfterDeleteCategory: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel updateIdBeforeDeleteCategory: " + e.getMessage());
         }
 
         return num;
     }
 
-    public int updateIdAfterDeleteMaterial(Integer idNew, Integer idOld) {
+    public int updateIdBeforeDeleteMaterial(Integer idNew, Integer idOld) {
         String sql = "UPDATE `prodotti` SET `materia` = ? WHERE materia = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -657,7 +657,7 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel updateIdAfterDeleteMaterial: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel updateIdBeforeDeleteMaterial: " + e.getMessage());
         }
 
         return num;

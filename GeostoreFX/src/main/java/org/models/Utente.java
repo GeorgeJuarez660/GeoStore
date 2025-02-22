@@ -145,7 +145,7 @@ public class Utente {
 
         Cliente c = (Cliente) u;
 
-        String regex = "^[a-zA-Z]+@[a-zA-Z]+\\\\.(it|com|net|org|edu)$";
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(it|com|net|org|edu)$";
 
         if(c.getEmail() == null || c.getEmail().isEmpty() || c.getEmail().isBlank()){
             canCU = false;
@@ -167,79 +167,59 @@ public class Utente {
 
     }
 
-    public String checkNotNullLoginCliente(Cliente c){
-        String canCU = "";
-        boolean areThereNull = false;
+    public boolean checkNotNullLoginCliente(Cliente c){
+        boolean canCU = true;
 
-        String regex = "^[a-zA-Z]+@[a-zA-Z]+\\\\.(it|com|net|org|edu)$";
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(it|com|net|org|edu)$";
 
         if(c.getEmail() == null || c.getEmail().isEmpty() || c.getEmail().isBlank()){
-            canCU += "EMAIL (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, c.getEmail())){
-            canCU += "EMAIL (FORMATO NOME@CASELLAPOSTALE.COM/IT/NET/ORG/EDU) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         regex = "^[a-zA-Z0-9]+$";
 
         if(c.getPassword() == null || c.getPassword().isEmpty() || c.getPassword().isBlank()){
-            canCU += "PASSWORD (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, c.getPassword())){
-            canCU += "PASSWORD (QUALCHE CARATTERE E QUALCHE NUMERO) ";
-            areThereNull = true;
-        }
-
-        if(areThereNull){
-            canCU = "ALCUNI CAMPI DEVONO ESSERE COMPILATI O FORMATTATI BENE: " + canCU;
+            canCU = false;
         }
 
         return canCU;
 
     }
 
-    public String checkNotNullLoginAdmin(Amministratore a){
-        String canCU = "";
-        boolean areThereNull = false;
+    public boolean checkNotNullLoginAdmin(Amministratore a){
+        boolean canCU = true;
 
-        String regex = "^[a-zA-Z]+@[a-zA-Z]+\\\\.(it|com|net|org|edu)$";
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(it|com|net|org|edu)$";
 
         if(a.getEmail() == null || a.getEmail().isEmpty() || a.getEmail().isBlank()){
-            canCU += "EMAIL (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, a.getEmail())){
-            canCU += "EMAIL (FORMATO NOME@CASELLAPOSTALE.COM/IT/NET/ORG/EDU) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         regex = "^[a-zA-Z0-9]+$";
 
         if(a.getPassword() == null || a.getPassword().isEmpty() || a.getPassword().isBlank()){
-            canCU += "PASSWORD (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, a.getPassword())){
-            canCU += "PASSWORD (QUALCHE CARATTERE E QUALCHE NUMERO) ";
-            areThereNull = true;
+            canCU = false;
         }
 
         regex = "^GS[A-Z]\\d{3}$";
 
         if(a.getCodeAdmin() == null || a.getCodeAdmin().isEmpty() || a.getCodeAdmin().isBlank()){
-            canCU += "CODICE (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         else if(!Pattern.matches(regex, a.getCodeAdmin())){
-            canCU += "CODICE (FORMATO GSX123) ";
-            areThereNull = true;
-        }
-
-        if(areThereNull){
-            canCU = "ALCUNI CAMPI DEVONO ESSERE COMPILATI O FORMATTATI BENE: " + canCU;
+            canCU = false;
         }
 
         return canCU;

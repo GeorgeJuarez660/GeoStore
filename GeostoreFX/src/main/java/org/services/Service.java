@@ -42,9 +42,9 @@ public class Service {
         if(user instanceof Amministratore){
             Amministratore admin = (Amministratore) user;
 
-            String checkNN = user.checkNotNullLoginAdmin(admin);
+            boolean checkNN = user.checkNotNullLoginAdmin(admin);
 
-            if(checkNN.isEmpty()){
+            if(checkNN){
                 admin = ur.checkAdmin(admin.getEmail(), admin.getPassword(), admin.getCodeAdmin());
 
                 if(admin.getEmail() != null && admin.getCodeAdmin() != null){
@@ -58,9 +58,9 @@ public class Service {
 
         }
         else{
-            String checkNN = user.checkNotNullLoginCliente(user);
+            boolean checkNN = user.checkNotNullLoginCliente(user);
 
-            if(checkNN.isEmpty()){
+            if(checkNN){
                 user = ur.checkCliente(user.getEmail(), user.getPassword());
 
                 if(user.getEmail() != null){
@@ -963,19 +963,16 @@ public class Service {
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setTesto("È stata allestita una nuova categoria: " + category.getNome() + ". Presto i prodotti di questa categoria saranno disponibili su Geostore");
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
+                }
 
-                    Utility.sendResponse(num, "CATEGORIA AGGIUNTA", user);
-                }
-                else{
-                    Utility.sendResponse(num, "CREAZIONE CATEGORIA", user);
-                }
+                Utility.sendResponse(num, "CAT-C", user);
             }
             else{
-                Utility.sendResponse(0, "LA CATEGORIA GIÀ ESISTE. CREAZIONE CATEGORIA", user);
+                Utility.sendResponse(0, "CAT-CR", user);
             }
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE IL NOME. CREAZIONE CATEGORIA", user);
+            Utility.sendResponse(0, "CAT-CF", user);
         }
 
     }
@@ -992,6 +989,7 @@ public class Service {
                 num = cr.updateCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
+                    //TODO: spostare la creazione notizia senza risposta in AnswerController?
                     //notizia per la modifica categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -999,19 +997,16 @@ public class Service {
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setTesto("È stato modificato il nome categoria: da " + c.getNome() + " è stata rimoninata in " + category.getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
+                }
 
-                    Utility.sendResponse(num, "CATEGORIA MODIFICATA", user);
-                }
-                else{
-                    Utility.sendResponse(num, "MODIFICA CATEGORIA", user);
-                }
+                Utility.sendResponse(num, "CAT-U", user);
             }
             else{
-                Utility.sendResponse(0, "LA CATEGORIA GIÀ ESISTE. MODIFICA CATEGORIA", user);
+                Utility.sendResponse(0, "CAT-UR", user);
             }
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE IL NOME. MODIFICA CATEGORIA", user);
+            Utility.sendResponse(0, "CAT-UF", user);
         }
 
     }
@@ -1019,7 +1014,7 @@ public class Service {
     public void eliminazioneCategoria(String IDKey, Cliente user){
         Categoria category = cr.getCategoriaWithDB(Integer.parseInt(IDKey));
 
-        int num = pr.updateIdAfterDeleteCategory(0, category.getId());
+        int num = pr.updateIdBeforeDeleteCategory(0, category.getId());
         if(num > 0){
             Utility.msgInf("GEOSTORE", "Prodotti aggiornati\n");
         }
@@ -1030,6 +1025,7 @@ public class Service {
         num = cr.deleteCategoriaWithDB(category.getId());
 
         if(num > 0){
+            //TODO: spostare la creazione notizia senza risposta in AnswerController?
             //notizia per l'eliminazione categoria
             News notiziaCreazione = new News();
             notiziaCreazione.setUtente(user);
@@ -1037,12 +1033,9 @@ public class Service {
             notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
             notiziaCreazione.setTesto("È stata dismessa la categoria " + category.getNome() + ". I prodotti appartenenti a questa categoria sono stati spostati in N/A");
             this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
+        }
 
-            Utility.sendResponseDeletedCategories(num, user);
-        }
-        else{
-            Utility.sendResponseDeletedCategories(num, user);
-        }
+        Utility.sendResponseDeletedCategories(num, user);
     }
 
     public HashMap<Integer, Categoria> ottieniCategorie() {
@@ -1098,19 +1091,14 @@ public class Service {
             if(num == 0){
                 num = mr.insertMateriaWithDB(material.getId(), material);
 
-                if(num > 0){
-                    Utility.sendResponse(num, "MATERIA AGGIUNTA", user);
-                }
-                else{
-                    Utility.sendResponse(num, "CREAZIONE MATERIA", user);
-                }
+                Utility.sendResponse(num, "MAT-C", user);
             }
-            else{
-                Utility.sendResponse(0, "LA MATERIA GIÀ ESISTE. CREAZIONE MATERIA", user);
+            else {
+                Utility.sendResponse(0, "MAT-CR", user);
             }
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE IL NOME. CREAZIONE MATERIA", user);
+            Utility.sendResponse(0, "MAT-CF", user);
         }
 
     }
@@ -1124,19 +1112,14 @@ public class Service {
             if(num == 0){
                 num = mr.updateMateriaWithDB(material.getId(), material);
 
-                if(num > 0){
-                    Utility.sendResponse(num, "MATERIA MODIFICATA", user);
-                }
-                else{
-                    Utility.sendResponse(num, "MODIFICA MATERIA", user);
-                }
+                Utility.sendResponse(num, "MAT-U", user);
             }
             else{
-                Utility.sendResponse(0, "LA MATERIA GIÀ ESISTE. MODIFICA MATERIA", user);
+                Utility.sendResponse(0, "MAT-UR", user);
             }
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE IL NOME. MODIFICA MATERIA", user);
+            Utility.sendResponse(0, "MAT-UF", user);
         }
 
     }
@@ -1144,7 +1127,7 @@ public class Service {
     public void eliminazioneMateria(String IDKey, Cliente user){
         Materia material = mr.getMateriaWithDB(Integer.parseInt(IDKey));
 
-        int num = pr.updateIdAfterDeleteMaterial(0, material.getId());
+        int num = pr.updateIdBeforeDeleteMaterial(0, material.getId());
         if(num > 0){
             Utility.msgInf("GEOSTORE", "Prodotti aggiornati\n");
         }
@@ -1154,12 +1137,7 @@ public class Service {
 
         num = mr.deleteMateriaWithDB(material.getId());
 
-        if(num > 0){
-            Utility.sendResponseDeletedMaterials(num, user);
-        }
-        else{
-            Utility.sendResponseDeletedMaterials(num, user);
-        }
+        Utility.sendResponseDeletedMaterials(num, user);
     }
 
     public HashMap<Integer, Materia> ottieniMaterie(){

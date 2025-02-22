@@ -40,7 +40,7 @@
                   <Image url="@../images/star.gif" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="**NEWS**" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%homepage.newsTitle" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -69,12 +69,12 @@
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" spacing="30.0">
          <children>
-            <Button fx:id="createNews" onAction="#creating" mnemonicParsing="false" prefHeight="10.0" prefWidth="140.0" style="-fx-background-color: #0495CD; -fx-background-radius: 15;" styleClass="label-font-min-btn" text="CREA NEWS" textFill="WHITE" wrapText="true">
+            <Button fx:id="createNews" onAction="#creating" mnemonicParsing="false" prefHeight="10.0" prefWidth="140.0" style="-fx-background-color: #0495CD; -fx-background-radius: 15;" styleClass="label-font-min-btn" text="%homepage.newsCreate" textFill="WHITE" wrapText="true">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
             </Button>
-            <Button onAction="#searching" mnemonicParsing="false" prefHeight="10.0" prefWidth="140.0" style="-fx-background-color: #0495CD; -fx-background-radius: 15;" styleClass="label-font-min-btn" text="CERCA NEWS" textFill="WHITE" wrapText="true" />
+            <Button onAction="#searching" mnemonicParsing="false" prefHeight="10.0" prefWidth="140.0" style="-fx-background-color: #0495CD; -fx-background-radius: 15;" styleClass="label-font-min-btn" text="%homepage.newsSearch" textFill="WHITE" wrapText="true" />
          </children>
          <VBox.margin>
             <Insets top="30.0" />
@@ -82,7 +82,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
-            <Button onAction="#loadInfo" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="INFO" textFill="WHITE" />
+            <Button onAction="#loadInfo" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%homepage.info" textFill="WHITE" />
          </children>
          <VBox.margin>
             <Insets top="30.0" />

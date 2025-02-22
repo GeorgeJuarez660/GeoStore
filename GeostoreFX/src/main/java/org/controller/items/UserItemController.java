@@ -130,7 +130,7 @@ public class UserItemController implements Initializable {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user);
+                LoadPage.goesToMenu(user, null);
             });
             delay.play();
         }
