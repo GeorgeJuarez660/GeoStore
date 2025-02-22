@@ -171,18 +171,18 @@ public class Service {
                 if(Utility.getAge(u.getDataNascita())){
                     num = ur.updateUtenteWithDB(u.getId(), u);
 
-                    Utility.sendResponse(num, "USR-M", userID);
+                    Utility.sendResponse(num, "USR-U", userID);
                 }
                 else{
-                    Utility.sendResponse(0, "USR-MW", userID);
+                    Utility.sendResponse(0, "USR-UW", userID);
                 }
             }
             else{
-                Utility.sendResponse(0, "USR-MA", userID);
+                Utility.sendResponse(0, "USR-UA", userID);
             }
         }
         else{
-            Utility.sendResponse(0, "USR-MF", userID);
+            Utility.sendResponse(0, "USR-UF", userID);
         }
 
     }
@@ -239,14 +239,14 @@ public class Service {
             if(num == 0){
                 num = cor.updateCodiceWithDB(code.getId(), code);
 
-                Utility.sendResponse(num, "COD-M", user);
+                Utility.sendResponse(num, "COD-U", user);
             }
             else{
-                Utility.sendResponse(0, "COD-MR", user);
+                Utility.sendResponse(0, "COD-UR", user);
             }
         }
         else{
-            Utility.sendResponse(0, "COD-MF", user);
+            Utility.sendResponse(0, "COD-UF", user);
         }
 
     }
@@ -391,10 +391,10 @@ public class Service {
         if(notizia.checkNotNullNotizia(notizia)){
             num = nr.updateNotizieWithDB(notizia.getId(), notizia.getDataMod(), notizia.getTesto(), notizia.getUtente().getId());
 
-            Utility.sendResponse(num, "NWS-M", user);
+            Utility.sendResponse(num, "NWS-U", user);
         }
         else{
-            Utility.sendResponse(0, "NWS-MF", user);
+            Utility.sendResponse(0, "NWS-UF", user);
         }
 
     }
@@ -430,12 +430,13 @@ public class Service {
     public void creazioneProdotto(Prodotto product, Cliente user){
         int num = 0;
 
-        String checkNN = product.checkNotNullProdotto(product);
+        boolean checkNN = product.checkNotNullProdotto(product);
 
-        if(checkNN.isEmpty()) {
+        if(checkNN) {
             num = pr.insertProdottoWithDB(product.getId(), product);
 
             if(num > 0){
+                //TODO: spostare la creazione notizia senza risposta in AnswerController?
                 //notizia per la creazione prodotto
                 News notiziaCreazione = new News();
                 notiziaCreazione.setUtente(user);
@@ -443,29 +444,27 @@ public class Service {
                 notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
                 notiziaCreazione.setTesto("È stato pubblicato un nuovo prodotto: " + product.getNome() + " a soli " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C. " + product.getDisponibilita().getCode() + " su GeoStore");
                 this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
+            }
 
-                Utility.sendResponse(num, "PRODOTTO CREATO", user);
-            }
-            else{
-                Utility.sendResponse(num, "CREAZIONE PRODOTTO", user);
-            }
+            Utility.sendResponse(num, "PRD-C", user);
         }
         else{
-            Utility.sendResponse(0, checkNN + ". CREAZIONE PRODOTTO", user);
+            Utility.sendResponse(0, "PRD-CF", user);
         }
     }
 
     public void modificaProdotto(Prodotto product, Cliente user){
         int num = 0;
 
-        String checkNN = product.checkNotNullProdotto(product);
+        boolean checkNN = product.checkNotNullProdotto(product);
 
-        if(checkNN.isEmpty()) {
+        if(checkNN) {
             Prodotto p = pr.getProdottoWithDB(product.getId()); //per la notizia della modifica da prodotto "old" a "new"
 
             num = pr.updateProdottoWithDB(product.getId(), product);
 
             if(num > 0){
+                //TODO: spostare la creazione notizia senza risposta in AnswerController?
                 //notizia per la modifica prodotto
                 News notiziaCreazione;
 
@@ -591,15 +590,12 @@ public class Service {
 
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
+            }
 
-                Utility.sendResponse(num, "PRODOTTO MODIFICATO", user);
-            }
-            else{
-                Utility.sendResponse(num, "MODIFICA PRODOTTO", user);
-            }
+            Utility.sendResponse(num, "PRD-U", user);
         }
         else{
-            Utility.sendResponse(0, checkNN + ". MODIFICA PRODOTTO", user);
+            Utility.sendResponse(0, "PRD-UF", user);
         }
     }
 
@@ -608,16 +604,17 @@ public class Service {
         HashMap<Integer, Ordine> ordini = or.getOrdiniByProductWithDB(Integer.parseInt(IDkey));
 
         for(Ordine ordine : ordini.values()){
-            //il prodotto è più cruciale rispetto all'ordine, motivo per cui vengono rimborsati anche se gli ordini sono in stato divrso da RIFIUTATO
+            //rimborso agli utenti durante l'eliminazione degli ordini in stato diverso da RIFIUTATO
             if(ordine.getStato().getId() != 3 && ordine.getStato().getId() != 5){
-                refundAfterDeleteOrder(ordine, ordine.getUtente());
+                refundBeforeDeleteOrUpdateOrder(ordine, ordine.getUtente());
             }
             else{
                 Utility.msgInf("GEOSTORE", "L'ordine è già stato rifiutato oppure consegnato\n");
             }
         }
 
-        int num = or.deleteOrdineAfterDeleteProduct(Integer.parseInt(IDkey));
+        //elimina gli ordini prima dell'eliminazione del prodotto
+        int num = or.deleteOrdineBeforeDeleteProduct(Integer.parseInt(IDkey));
 
         if(num > 0){
             Utility.msgInf("GEOSTORE", "Ordini eliminati\n");
@@ -630,6 +627,7 @@ public class Service {
         num = pr.deleteProdottoWithDB(Integer.parseInt(IDkey));
 
         if(num > 0){
+            //TODO: spostare la creazione notizia senza risposta in AnswerController?
             //notizia per l'eliminazione prodotto
             News notiziaCreazione = new News();
             notiziaCreazione.setUtente(user);
@@ -637,13 +635,9 @@ public class Service {
             notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
             notiziaCreazione.setTesto("È stato rimosso il prodotto " + product.getNome() + ". Sono stati effettuati i rimborsi agli utenti che avevano ordinato questo prodotto");
             this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
-
-            Utility.sendResponseDeletedProducts(num, user);
-        }
-        else{
-            Utility.sendResponseDeletedProducts(num, user);
         }
 
+        Utility.sendResponseDeletedProducts(num, user);
     }
 
     public Map<Integer, Ordine> elencoOrdini(){
@@ -673,19 +667,15 @@ public class Service {
             String response = canOrder.substring(4);
             if(firstchar == 'T'){
                 int num = or.insertOrdineWithDB(null, o);
-                if(num > 0){
-                    Utility.sendResponseOrderedProducts(num, response, user);
-                }
-                else{
-                    Utility.sendResponseOrderedProducts(num, response, user);
-                }
+
+                Utility.sendResponseOrderedProducts(num, response, user);
             }
             else{
                 Utility.sendResponseOrderedProducts(0, response, user);
             }
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE LA QUANTITÀ. ORDINAZIONE PRODOTTO", user);
+            Utility.sendResponse(0, "ODR-CF", user);
         }
     }
 
@@ -706,12 +696,7 @@ public class Service {
 
                     int num = or.updateOrdineWithDB(order.getId(), order);
 
-                    if(num > 0){
-                        Utility.sendResponse(num, response, user);
-                    }
-                    else{
-                        Utility.sendResponse(num, response, user);
-                    }
+                    Utility.sendResponse(num, response, user);
                 }
                 else{
                     Utility.sendResponse(0, response, user);
@@ -719,7 +704,7 @@ public class Service {
             }
         }
         else{
-            Utility.sendResponse(0, "DEVI OBBLIGATORIAMENTE INSERIRE LA QUANTITÀ. MODIFICA ORDINE", user);
+            Utility.sendResponse(0, "ODR-UF", user);
         }
 
     }
@@ -768,27 +753,27 @@ public class Service {
 
                     if(num > 0){
                         Utility.msgInf("GEOSTORE", "T - Pagamento riuscito\n");
-                        canOrder = "T - Pagamento riuscito".toUpperCase();
+                        canOrder = "T - ODR-C";
                     }
                     else{
                         Utility.msgInf("GEOSTORE", "F - Pagamento non riuscito\n");
-                        canOrder = "F - Pagamento non riuscito".toUpperCase();
+                        canOrder = "F - ODR-C";
                     }
 
                 }
                 else{
                     Utility.msgInf("GEOSTORE", "F - Non hai abbastanza denaro\n");
-                    canOrder = "F - Non hai abbastanza denaro".toUpperCase();
+                    canOrder = "F - ODR-CM";
                 }
             }
             else{
                 Utility.msgInf("GEOSTORE", "F - La quantità ordinata supera quella disponibile\n");
-                canOrder = "F - La quantità ordinata supera quella disponibile".toUpperCase();
+                canOrder = "F - ODR-CQ";
             }
         }
         else{
-            Utility.msgInf("GEOSTORE", "F - L'oggetto ordinato non è disponibile oppure è inesistente\n");
-            canOrder = "F - L'oggetto ordinato non è disponibile oppure è inesistente".toUpperCase();
+            Utility.msgInf("GEOSTORE", "F - Il prodotto ordinato non è disponibile oppure è inesistente\n");
+            canOrder = "F - ODR-CV";
         }
         return canOrder;
     }
@@ -863,16 +848,16 @@ public class Service {
 
                     if(num > 0){
                         Utility.msgInf("GEOSTORE", "Pagamento riuscito\n");
-                        response = "T - Pagamento riuscito. Ordine modificato".toUpperCase();
+                        response = "T - ODR-U";
                     }
                     else{
                         Utility.msgInf("GEOSTORE", "Pagamento non riuscito\n");
-                        response = "F - Pagamento non riuscito. Modifica ordine".toUpperCase();
+                        response = "F - ODR-U";
                     }
                 }
                 else{
                     Utility.msgInf("GEOSTORE", "Denaro insufficiente\n");
-                    response = "F - Denaro insufficiente. Modifica ordine".toUpperCase();
+                    response = "F - ODR-UM";
                 }
             }
             else if(choose.equals("A")){
@@ -892,19 +877,19 @@ public class Service {
 
                 if(num > 0){
                     Utility.msgInf("GEOSTORE", "Rimborso riuscito\n");
-                    response = "T - Rimborso riuscito. Ordine modificato".toUpperCase();
+                    response = "T - ODR-UR";
                 }
                 else{
                     Utility.msgInf("GEOSTORE", "Rimborso non riuscito\n");
-                    response = "F - Rimborso non riuscito. Modifica ordine".toUpperCase();
+                    response = "F - ODR-UR";
                 }
             }
             else if(choose.equals("N")){
-                response = "F - La quantita ordinata supera quella disponibile. Modifica ordine".toUpperCase();
+                response = "F - ODR-UQ";
             }
         }
         else{
-            response = "T - Nessun cambiamento. Ordine modificato".toUpperCase();
+            response = "T - ODR-UC";
         }
         return response;
     }
@@ -939,7 +924,7 @@ public class Service {
         else if(oOld.getStato().getId() == 1 && oNew.getStato().getId() == 3){
             Utente u = oOld.getUtente();
 
-            refundAfterDeleteOrder(oOld, u);
+            refundBeforeDeleteOrUpdateOrder(oOld, u);
         }
     }
 
@@ -949,17 +934,13 @@ public class Service {
         if(order.getStato().getId() == 1) {
             //solo l'ordine con stato ELABORAZIONE si può effettuare il rimborso
             Utente uOrd = order.getUtente();
-            refundAfterDeleteOrder(order, uOrd);
+            refundBeforeDeleteOrUpdateOrder(order, uOrd);
 
             int num = or.deleteOrdineWithDB(order.getId());
-            if (num > 0) {
-                Utility.sendResponseDeletedOrders(num, user);
-            } else {
-                Utility.sendResponseDeletedOrders(num, user);
-            }
+            Utility.sendResponseDeletedOrders(num, user);
         }
         else{
-            Utility.sendResponse(0, "Non puoi eliminare l'ordine perchè lo stato è in " + order.getStato().getCode() + ". Eliminazione ordine".toUpperCase(), user);
+            Utility.sendResponse(0, "ODR-DS", user);
         }
     }
 
@@ -974,6 +955,7 @@ public class Service {
                 num = cr.insertCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
+                    //TODO: spostare la creazione notizia senza risposta in AnswerController?
                     //notizia per la creazione categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -1071,7 +1053,7 @@ public class Service {
         return cr.getCategoriaWithDB(idCategoria);
     }
 
-    public void refundAfterDeleteOrder(Ordine o, Utente u){
+    public void refundBeforeDeleteOrUpdateOrder(Ordine o, Utente u){
         BigDecimal pagamento = o.getPrezzo_unitario().multiply(BigDecimal.valueOf(o.getQuantita()));
 
         if(u instanceof Amministratore){

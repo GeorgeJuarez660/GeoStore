@@ -74,28 +74,28 @@ public class AnswerController {
                 responseText += " " + resLang.getString("answer.user.noCreatedUser");
                 response.setText(responseText);
                 break;
-            case "USR-MY":
+            case "USR-UY":
                 response.setText(resLang.getString("answer.user.updatedUser"));
                 break;
-            case "USR-MN":
+            case "USR-UN":
                 response.setText(resLang.getString("answer.user.noUpdatedUser"));
                 break;
-            case "USR-MWN":
+            case "USR-UWN":
                 responseText = resLang.getString("answer.user.wrongAge");
                 responseText += " " + resLang.getString("answer.user.noUpdatedUser");
                 response.setText(responseText);
                 break;
-            case "USR-MRN":
+            case "USR-URN":
                 responseText = resLang.getString("answer.user.alreadyCreated");
                 responseText += " " + resLang.getString("answer.user.noUpdatedUser");
                 response.setText(responseText);
                 break;
-            case "USR-MAN":
+            case "USR-UAN":
                 responseText = resLang.getString("answer.user.noAdminCode");
                 responseText += " " + resLang.getString("answer.user.noUpdatedUser");
                 response.setText(responseText);
                 break;
-            case "USR-MFN":
+            case "USR-UFN":
                 responseText = resLang.getString("answer.user.requiredFill");
                 responseText += " " + resLang.getString("answer.user.noUpdatedUser");
                 response.setText(responseText);
@@ -127,18 +127,18 @@ public class AnswerController {
                 responseText += " " + resLang.getString("answer.code.noCreatedCode");
                 response.setText(responseText);
                 break;
-            case "COD-MY":
+            case "COD-UY":
                 response.setText(resLang.getString("answer.code.updatedCode"));
                 break;
-            case "COD-MN":
+            case "COD-UN":
                 response.setText(resLang.getString("answer.code.noUpdatedCode"));
                 break;
-            case "COD-MRN":
+            case "COD-URN":
                 responseText = resLang.getString("answer.code.alreadyCreated");
                 responseText += " " + resLang.getString("answer.code.noUpdatedCode");
                 response.setText(responseText);
                 break;
-            case "COD-MFN":
+            case "COD-UFN":
                 responseText = resLang.getString("answer.code.requiredFill");
                 responseText += " " + resLang.getString("answer.code.noUpdatedCode");
                 response.setText(responseText);
@@ -181,13 +181,13 @@ public class AnswerController {
                 responseText += " " + resLang.getString("answer.news.noCreatedNews");
                 response.setText(responseText);
                 break;
-            case "NWS-MY":
+            case "NWS-UY":
                 response.setText(resLang.getString("answer.news.updatedNews"));
                 break;
-            case "NWS-MN":
+            case "NWS-UN":
                 response.setText(resLang.getString("answer.news.noUpdatedNews"));
                 break;
-            case "NWS-MFN":
+            case "NWS-UFN":
                 responseText = resLang.getString("answer.news.requiredFill");
                 responseText += " " + resLang.getString("answer.news.noUpdatedNews");
                 response.setText(responseText);
@@ -197,6 +197,128 @@ public class AnswerController {
                 break;
             case "NWS-DN":
                 response.setText(resLang.getString("answer.news.noDeletedNews"));
+                break;
+            case "PRD-CY":
+                response.setText(resLang.getString("answer.product.createdProduct"));
+                break;
+            case "PRD-CN":
+                response.setText(resLang.getString("answer.product.noCreatedProduct"));
+                break;
+            case "PRD-CFN":
+                responseText = resLang.getString("answer.product.requiredFill");
+                responseText += " " + resLang.getString("answer.product.noCreatedProduct");
+                response.setText(responseText);
+                break;
+            case "PRD-UY":
+                response.setText(resLang.getString("answer.product.updatedProduct"));
+                break;
+            case "PRD-UN":
+                response.setText(resLang.getString("answer.product.noUpdatedProduct"));
+                break;
+            case "PRD-UFN":
+                responseText = resLang.getString("answer.product.requiredFill");
+                responseText += " " + resLang.getString("answer.product.noUpdatedProduct");
+                response.setText(responseText);
+                break;
+            case "PRD-DY":
+                response.setText(resLang.getString("answer.product.deletedProduct"));
+                break;
+            case "PRD-DN":
+                response.setText(resLang.getString("answer.product.noDeletedProduct"));
+                break;
+            case "PRD-IR":
+                response.setText(resLang.getString("answer.product.infoRefundDelete"));
+                break;
+            case "ODR-CY":
+                responseText = resLang.getString("answer.order.payed");
+                responseText += " " + resLang.getString("answer.order.orderedProduct");
+                response.setText(responseText);
+                break;
+            case "ODR-CN":
+                responseText = resLang.getString("answer.order.noPayed");
+                responseText += " " + resLang.getString("answer.order.noOrderedProduct");
+                response.setText(responseText);
+                break;
+            case "ODR-CMN":
+                responseText = resLang.getString("answer.order.insufficientMoney");
+                responseText += " " + resLang.getString("answer.order.noOrderedProduct");
+                response.setText(responseText);
+                break;
+            case "ODR-CQN":
+                responseText = resLang.getString("answer.order.limitQuantity");
+                responseText += " " + resLang.getString("answer.order.noOrderedProduct");
+                response.setText(responseText);
+                break;
+            case "ODR-CVN":
+                responseText = resLang.getString("answer.order.noAvailableProduct");
+                responseText += " " + resLang.getString("answer.order.noOrderedProduct");
+                response.setText(responseText);
+                break;
+            case "ODR-CFN":
+                responseText = resLang.getString("answer.order.requiredFill");
+                responseText += " " + resLang.getString("answer.order.noOrderedProduct");
+                response.setText(responseText);
+            case "ODR-IPR":
+                response.setText(resLang.getString("answer.order.infoPayment"));
+                break;
+            case "ODR-UY":
+                responseText = resLang.getString("answer.order.payed");
+                responseText += " " + resLang.getString("answer.order.updatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-UN":
+                responseText = resLang.getString("answer.order.noPayed");
+                responseText += " " + resLang.getString("answer.order.noUpdatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-URY":
+                responseText = resLang.getString("answer.order.refund");
+                responseText += " " + resLang.getString("answer.order.updatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-URN":
+                responseText = resLang.getString("answer.order.noRefund");
+                responseText += " " + resLang.getString("answer.order.noUpdatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-UMN":
+                responseText = resLang.getString("answer.order.insufficientMoney");
+                responseText += " " + resLang.getString("answer.order.noUpdatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-UQN":
+                responseText = resLang.getString("answer.order.limitQuantity");
+                responseText += " " + resLang.getString("answer.order.noUpdatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-UCY":
+                responseText = resLang.getString("answer.order.noChanges");
+                responseText += " " + resLang.getString("answer.order.updatedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-UFN":
+                responseText = resLang.getString("answer.order.requiredFill");
+                responseText += " " + resLang.getString("answer.order.noUpdatedOrder");
+                response.setText(responseText);
+            case "ODR-DY":
+                response.setText(resLang.getString("answer.order.deletedOrder"));
+                break;
+            case "ODR-DN":
+                response.setText(resLang.getString("answer.order.noDeletedOrder"));
+                break;
+            case "ODR-DSN":
+                responseText = resLang.getString("answer.order.noStatusElab");
+                responseText += " " + resLang.getString("answer.order.noDeletedOrder");
+                response.setText(responseText);
+                break;
+            case "ODR-IRR":
+                response.setText(resLang.getString("answer.order.infoRefund"));
+                break;
+            case "CAT-CY":
+                response.setText(resLang.getString("answer.category.createdCategory"));
+                break;
+            case "CAT-CN":
+                response.setText(resLang.getString("answer.category.noCreatedCategory"));
                 break;
             default:
                 break;

@@ -693,7 +693,7 @@ public class OrdineRepository implements ordiniCRUD {
         return num;
     }
 
-    public int deleteOrdineAfterDeleteProduct(Integer idProd) {
+    public int deleteOrdineBeforeDeleteProduct(Integer idProd) {
         String sql = "DELETE FROM `ordini` WHERE prodotto_id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;

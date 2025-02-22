@@ -113,32 +113,22 @@ public class Prodotto {
                 '}';
     }
 
-    public String checkNotNullProdotto(Prodotto p){
-        String canCU = "";
-        boolean areThereNull = false;
+    public boolean checkNotNullProdotto(Prodotto p){
+        boolean canCU = true;
 
         if(p.getNome() == null || p.getNome().isEmpty() || p.getNome().isBlank()){
-            canCU += "NOME (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(p.getDisponibilita() == null || p.getDisponibilita().getCode() == null){
-            canCU += "DISPONIBILITÀ (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(p.getCategoria() == null || p.getCategoria().getNome() == null){
-            canCU += "CATEGORIA (NULLO) ";
-            areThereNull = true;
+            canCU = false;
         }
         if(p.getMateria() == null || p.getMateria().getNome() == null){
-            canCU += "MATERIA (NULLO) ";
-            areThereNull = true;
-        }
-
-        if(areThereNull){
-            canCU = "ALCUNI CAMPI DEVONO ESSERE COMPILATI O FORMATTATI BENE: " + canCU;
+            canCU = false;
         }
 
         return canCU;
-
     }
 }
