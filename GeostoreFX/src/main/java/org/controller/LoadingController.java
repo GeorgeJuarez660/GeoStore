@@ -18,14 +18,7 @@ public class LoadingController {
 
     //------------------INITIALIZE-----------------------
 
-    public void response(String answer) {
-        System.out.println(answer);
-
-        response.setText(answer);
-
-    }
-
-    public void responseWithLang(String answer, ResourceBundle resLang) {
+    public void response(String answer, ResourceBundle resLang) {
         System.out.println(answer);
 
         switch (answer) {
@@ -37,6 +30,24 @@ public class LoadingController {
                 break;
             case "LOAD-CHL":
                 response.setText(resLang.getString("loading.language"));
+                break;
+            case "LOAD-CRT":
+                response.setText(resLang.getString("loading.create"));
+                break;
+            case "LOAD-UPT":
+                response.setText(resLang.getString("loading.update"));
+                break;
+            case "LOAD-DLT":
+                response.setText(resLang.getString("loading.delete"));
+                break;
+            case "LOAD-CSC":
+                response.setText(resLang.getString("loading.associate"));
+                break;
+            case "LOAD-USC":
+                response.setText(resLang.getString("loading.updateAssociate"));
+                break;
+            case "LOAD-DSC":
+                response.setText(resLang.getString("loading.dissociate"));
                 break;
             default:
                 break;

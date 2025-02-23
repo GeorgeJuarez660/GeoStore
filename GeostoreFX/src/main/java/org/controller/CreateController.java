@@ -277,7 +277,7 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
     private void create(ActionEvent event) throws ParseException { //button per creare
         System.out.println("Start creating");
         LoadPage.saveStage(event);
-        LoadPage.loadingScene("CREAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-CRT", null);
 
         service = new Service();
 

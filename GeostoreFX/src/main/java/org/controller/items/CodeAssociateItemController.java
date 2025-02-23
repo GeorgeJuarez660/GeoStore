@@ -78,7 +78,7 @@ public class CodeAssociateItemController implements Initializable {
     private void dissociating(){ //button per dissociare codice
         System.out.println("goes to dissociate code");
         System.out.println("Start deleting");
-        LoadPage.loadingScene("DISSOCIAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-DSC", null);
 
         Service service = new Service();
 

@@ -119,7 +119,7 @@ public class UserItemController implements Initializable {
     private void deleting(){ //button per eliminare utente
         System.out.println("goes to delete user");
         System.out.println("Start deleting");
-        LoadPage.loadingScene("ELIMINAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 

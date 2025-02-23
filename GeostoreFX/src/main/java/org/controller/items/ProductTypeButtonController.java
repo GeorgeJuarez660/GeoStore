@@ -100,7 +100,7 @@ public class ProductTypeButtonController implements Initializable {
         System.out.println("goes to delete category");
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante categoria)
         System.out.println("Start deleting");
-        LoadPage.loadingScene("ELIMINAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
@@ -115,7 +115,7 @@ public class ProductTypeButtonController implements Initializable {
         System.out.println("goes to delete material");
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante materia)
         System.out.println("Start deleting");
-        LoadPage.loadingScene("ELIMINAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 

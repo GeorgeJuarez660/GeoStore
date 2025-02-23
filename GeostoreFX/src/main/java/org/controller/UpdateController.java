@@ -289,7 +289,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
     private void update(ActionEvent event) throws ParseException { //button per modificare
         System.out.println("Start creating");
         LoadPage.saveStage(event);
-        LoadPage.loadingScene("MODIFICA IN CORSO...");
+        LoadPage.loadingScene("LOAD-UPT", null);
 
         service = new Service();
 

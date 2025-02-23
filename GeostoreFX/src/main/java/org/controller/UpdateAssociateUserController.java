@@ -92,7 +92,7 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
     private void update(ActionEvent event) throws ParseException { //button per modificare
         System.out.println("Start updating");
         LoadPage.saveStage(event);
-        LoadPage.loadingScene("MODIFICA ASSOCIAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-USC", null);
 
         service = new Service();
 

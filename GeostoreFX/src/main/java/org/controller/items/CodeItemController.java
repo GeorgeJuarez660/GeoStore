@@ -80,7 +80,7 @@ public class CodeItemController implements Initializable {
     private void deleting(){ //button per eliminare codice
         System.out.println("goes to delete codice");
         System.out.println("Start deleting");
-        LoadPage.loadingScene("ELIMINAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 

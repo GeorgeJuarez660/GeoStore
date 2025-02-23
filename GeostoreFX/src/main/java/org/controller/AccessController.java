@@ -44,7 +44,7 @@ public class AccessController {
     private void signup(ActionEvent event) {
         System.out.println("Signing up");
         LoadPage.saveStage(event);
-        LoadPage.loadingSceneWithLang("LOAD-REG", null);
+        LoadPage.loadingScene("LOAD-REG", null);
 
         Cliente user;
         service = new Service();
@@ -127,7 +127,7 @@ public class AccessController {
     private void signin(ActionEvent event) {
         System.out.println("Signing in");
         LoadPage.saveStage(event);
-        LoadPage.loadingSceneWithLang("LOAD-LOG", null);
+        LoadPage.loadingScene("LOAD-LOG", null);
 
         Cliente user;
         service = new Service();

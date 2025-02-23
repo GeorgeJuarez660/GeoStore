@@ -92,7 +92,7 @@ public class CreateAssociateUserController {// Questo è il BorderPane di menu.f
     private void create(ActionEvent event) throws ParseException { //button per creare
         System.out.println("Start creating");
         LoadPage.saveStage(event);
-        LoadPage.loadingScene("ASSOCIAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-CSC", null);
 
         service = new Service();
 

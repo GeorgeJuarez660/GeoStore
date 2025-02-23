@@ -214,39 +214,7 @@ public class LoadPage {
     }
 
     @FXML
-    public static void loadingScene(String response) {
-        try {
-            URL fileUrl = null;
-
-            // Costruisce il percorso completo del file FXML
-            fileUrl = GeostoreMain.class.getResource("/org/scenes/loading.fxml");
-            if (fileUrl == null) {
-                throw new java.io.FileNotFoundException("Nessun file FXML trovato");
-            }
-
-            FXMLLoader loader = new FXMLLoader(fileUrl);
-            Pane newScene = loader.load();
-
-            LoadingController loadingController = (LoadingController) loader.getController(); //Ottieni il controller della scena caricata
-            loadingController.response(response);
-
-            //carica la scena
-            double prefWidth = savedStage.getWidth();
-            double prefHeight = savedStage.getHeight();
-            Scene scene = new Scene(newScene);
-            savedStage.setWidth(prefWidth);
-            savedStage.setHeight(prefHeight);
-            savedStage.setScene(scene);
-            savedStage.show();
-
-        } catch (Exception e) {
-            System.out.println("No page found. Please check FXMLLoader.");
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public static void loadingSceneWithLang(String response, String lang) {
+    public static void loadingScene(String response, String lang) {
         try {
             URL fileUrl = null;
 
@@ -264,7 +232,7 @@ public class LoadPage {
             Pane newScene = loader.load();
 
             LoadingController loadingController = (LoadingController) loader.getController(); //Ottieni il controller della scena caricata
-            loadingController.responseWithLang(response, resLang);
+            loadingController.response(response, resLang);
 
             Translater.setLanguage(lang); //conserva la lingua per la prossima volta
 
@@ -282,8 +250,6 @@ public class LoadPage {
             e.printStackTrace();
         }
     }
-
-
 
     @FXML
     public static void getPartialScene(BorderPane fxmlLoader, String innerScene, Cliente user) {

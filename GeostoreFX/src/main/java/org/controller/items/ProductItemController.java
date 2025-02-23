@@ -93,7 +93,7 @@ public class ProductItemController implements Initializable {
     private void deleting(){ //button per eliminare prodotto
         System.out.println("goes to delete product");
         System.out.println("Start deleting");
-        LoadPage.loadingScene("ELIMINAZIONE IN CORSO...");
+        LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
