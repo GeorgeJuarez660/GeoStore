@@ -54,7 +54,7 @@ public class ChooseTUserController {
     @FXML
     private void lookCodes() {
         System.out.println("goes to code");
-        LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user);
+        LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user, null);
     }
 
     @FXML

@@ -290,37 +290,37 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
     private void back() { //button per tornare indietro
         System.out.println("Going back");
         if(this.itemScene != null && this.itemScene.equals("user")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
         }
         else if(this.itemScene != null && this.itemScene.contains("product")){
             if(this.itemScene.equals("product-O")){
                 if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("Q") || isAdmin.contains("O"))){
-                    LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user);
+                    LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
                 }
                 else{
-                    LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user);
+                    LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user, null);
                 }
             }
             else{
                 if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
-                    LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user);
+                    LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user, null);
                 }
                 else{
-                    LoadPage.getPartialScene(fxmlLoader, "chooseTProductCliente", user);
+                    LoadPage.getPartialScene(fxmlLoader, "chooseTProductCliente", user, null);
                 }
             }
 
         }
         else if(this.itemScene != null && (this.itemScene.contains("order"))){
             if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("Q") || isAdmin.contains("O"))){
-                LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user);
+                LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
             }
             else{
-                LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user);
+                LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user, null);
             }
         }
         else{
-            LoadPage.getPartialScene(fxmlLoader, "homepage", user);
+            LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
         }
     }
 

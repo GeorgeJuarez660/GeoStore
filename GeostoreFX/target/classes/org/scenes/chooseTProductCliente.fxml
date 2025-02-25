@@ -22,7 +22,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="50.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="Scegli la tipologia" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%choose.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -41,8 +41,8 @@
                <children>
                   <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="175.0" prefWidth="610.0" spacing="50.0">
                      <children>
-                        <Button onAction="#lookProducts" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="VISUALIZZA PRODOTTI IN GENERALE" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-                        <Button onAction="#lookAvailableProducts" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="VISUALIZZA PRODOTTI DISPONIBILI" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                        <Button onAction="#lookProducts" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="%choose.product.lookGeneralProducts" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                        <Button onAction="#lookAvailableProducts" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="%choose.product.lookAvailableProducts" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                      </children>
                   </HBox>
                </children>

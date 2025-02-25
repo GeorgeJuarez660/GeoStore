@@ -18,6 +18,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class HomepageController {
 
@@ -55,7 +56,7 @@ public class HomepageController {
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void title() {
+    public void title(ResourceBundle resLang) {
         System.out.println("homepage");
 
         String startMorning = "06:00";
@@ -74,16 +75,16 @@ public class HomepageController {
         String greetings = "";
 
         if(formatTime.compareTo(startMorning) >= 0 && formatTime.compareTo(endMorning) < 0){
-            greetings = "Buongiorno ";
+            greetings = resLang.getString("homepage.morningGreetings") + " ";
         }
         else if(formatTime.compareTo(startAfternoon) >= 0 && formatTime.compareTo(endAfternoon) < 0){
-            greetings = "Buon pomeriggio ";
+            greetings = resLang.getString("homepage.afternoonGreetings") + " ";
         }
         else if(formatTime.compareTo(startEvening) >= 0 && formatTime.compareTo(endEvening) < 0){
-            greetings = "Buonasera ";
+            greetings = resLang.getString("homepage.eveningGreetings") + " ";
         }
         else if(formatTime.compareTo(startNight) >= 0 || formatTime.compareTo(endNight) < 0){
-            greetings = "Buona permanenza notturna ";
+            greetings = resLang.getString("homepage.nightGreetings") + " ";
         }
         greetings += user.getNome();
         title.setText(greetings);
@@ -133,7 +134,7 @@ public class HomepageController {
     @FXML
     private void loadInfo(){ //button per andare alla pagina info
         System.out.println("goes to info");
-        LoadPage.getPartialScene(fxmlLoader, "info", user);
+        LoadPage.getPartialScene(fxmlLoader, "info", user, null);
     }
 
     @FXML

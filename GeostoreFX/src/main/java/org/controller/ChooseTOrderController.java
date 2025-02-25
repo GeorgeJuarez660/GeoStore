@@ -66,7 +66,7 @@ public class ChooseTOrderController {
     @FXML
     private void chooseDateTotalPrice() {
         System.out.println("goes to choose date total price");
-        LoadPage.getPartialScene(fxmlLoader, "orderTotalPriceChooseDate", user);
+        LoadPage.getPartialScene(fxmlLoader, "orderTotalPriceChooseDate", user, null);
     }
 
 }

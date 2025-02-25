@@ -50,10 +50,10 @@ public class OrderTotalPriceController {
     private void back() { //button per tornare indietro
         System.out.println("Going back");
         if(isAdmin){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
         }
         else{
-            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user, null);
         }
     }
 

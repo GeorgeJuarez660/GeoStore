@@ -250,11 +250,11 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
     private void back() { //button per tornare indietro
         System.out.println("Going back");
         if(this.itemScene != null && this.itemScene.equals("user")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
         }
         else if(this.itemScene != null && this.itemScene.equals("user-P")){
             if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("U") || isAdmin.contains("N"))){
-                LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user);
+                LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
             }
             else {
                 System.out.println("goes to user");
@@ -266,22 +266,22 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
             }
         }
         else if(this.itemScene != null && this.itemScene.equals("code")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user, null);
         }
         else if(this.itemScene != null && this.itemScene.equals("product")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user, null);
         }
         else if(this.itemScene != null && this.itemScene.equals("order")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
         }
         else if(this.itemScene != null && this.itemScene.equals("category")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTCategoryAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTCategoryAdmin", user, null);
         }
         else if(this.itemScene != null && this.itemScene.equals("material")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTMaterialAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTMaterialAdmin", user, null);
         }
         else{
-            LoadPage.getPartialScene(fxmlLoader, "homepage", user);
+            LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
         }
     }
 

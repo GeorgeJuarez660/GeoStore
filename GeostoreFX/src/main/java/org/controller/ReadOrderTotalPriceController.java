@@ -104,6 +104,6 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
     private void research() { //button per scegliere il giorno
         System.out.println("Going back");
 
-        LoadPage.getPartialScene(fxmlLoader, "orderTotalPriceChooseDate", user);
+        LoadPage.getPartialScene(fxmlLoader, "orderTotalPriceChooseDate", user, null);
     }
 }

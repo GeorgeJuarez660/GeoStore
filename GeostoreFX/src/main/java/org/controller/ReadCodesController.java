@@ -190,7 +190,7 @@ public class ReadCodesController {// Questo è il BorderPane di menu.fxml
     private void back() { //button per tornare indietro
         System.out.println("Going back");
         if(this.itemScene != null && this.itemScene.contains("code")){
-            LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user, null);
         }
     }
 

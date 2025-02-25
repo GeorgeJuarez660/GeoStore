@@ -252,16 +252,21 @@ public class LoadPage {
     }
 
     @FXML
-    public static void getPartialScene(BorderPane fxmlLoader, String innerScene, Cliente user) {
+    public static void getPartialScene(BorderPane fxmlLoader, String innerScene, Cliente user, String lang) {
         Pane view = null;
         try {
+
+            lang = lang != null ? lang : Translater.getLanguage(); //per prima cosa controlla la lingua per impostarla
+            Locale locale = new Locale(lang); // Setti il linguaggio di default da prendere il resource
+            ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
             // Costruisce il percorso completo del file FXML
             URL fileUrl = GeostoreMain.class.getResource("/org/scenes/" + innerScene + ".fxml");
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
 
-            FXMLLoader loader = new FXMLLoader(fileUrl);
+            FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
             Pane newScene = loader.load();
             Object controller = loader.getController(); // Ottieni il controller della scena caricata
 
@@ -269,7 +274,7 @@ public class LoadPage {
             if(controller instanceof HomepageController){
                 HomepageController homepageController = (HomepageController) controller;
                 homepageController.save(fxmlLoader, user);
-                homepageController.title(); //andare a homepage
+                homepageController.title(resLang); //andare a homepage
                 homepageController.showButtonCreateNews();
                 homepageController.loadNews();
             }
@@ -309,6 +314,8 @@ public class LoadPage {
             // Carica il file FXML
             // Imposta la scena caricata come contenuto centrale del BorderPane
             fxmlLoader.setCenter(newScene);
+
+            Translater.setLanguage(lang); //conserva la lingua per la prossima volta
 
         } catch (Exception e) {
             System.out.println("No page found. Please check FXMLLoader.");

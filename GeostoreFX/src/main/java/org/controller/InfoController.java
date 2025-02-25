@@ -54,6 +54,6 @@ public class InfoController {
     private void back() { //button per andare alla homepage
         System.out.println("Going back");
 
-        LoadPage.getPartialScene(fxmlLoader, "homepage", user);
+        LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
     }
 }

@@ -8,9 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 import org.models.Amministratore;
 import org.models.Cliente;
-import org.models.Utente;
 import org.services.LoadPage;
-import org.sqlite.util.StringUtils;
 import org.utility.PartialSceneDTO;
 
 public class MenuController {
@@ -52,7 +50,7 @@ public class MenuController {
 
     public void loadHomepage() {
         System.out.println("goes to homepage");
-        LoadPage.getPartialScene(fxmlLoader, "homepage", user);
+        LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
     }
 
     //------------------BUTTONS-----------------------
@@ -77,7 +75,7 @@ public class MenuController {
     private void user(){
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("U") || isAdmin.contains("N"))){
             System.out.println("goes to user");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
         }
         else{
             System.out.println("goes to user");
@@ -93,11 +91,11 @@ public class MenuController {
     private void product(){
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
             System.out.println("goes to product");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user, null);
         }
         else{
             System.out.println("goes to product");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTProductCliente", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTProductCliente", user, null);
         }
     }
 
@@ -105,11 +103,11 @@ public class MenuController {
     private void order(){
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("Q") || isAdmin.contains("O"))){
             System.out.println("goes to order");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
         }
         else{
             System.out.println("goes to order");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTOrderCliente", user, null);
         }
     }
 
@@ -117,7 +115,7 @@ public class MenuController {
     private void category(){
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
             System.out.println("goes to category");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTCategoryAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTCategoryAdmin", user, null);
         }
         else{
             System.out.println("goes to category");
@@ -134,7 +132,7 @@ public class MenuController {
     private void material(){
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
             System.out.println("goes to material");
-            LoadPage.getPartialScene(fxmlLoader, "chooseTMaterialAdmin", user);
+            LoadPage.getPartialScene(fxmlLoader, "chooseTMaterialAdmin", user, null);
         }
         else{
             System.out.println("goes to material");
