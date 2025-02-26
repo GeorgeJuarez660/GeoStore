@@ -113,6 +113,6 @@ public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
         partialSceneDTO.setItemScene("user-P");
         partialSceneDTO.setUser(user);
         String idKey = user.getId().toString();
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 }

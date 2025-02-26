@@ -97,7 +97,7 @@ public class OrderItemController implements Initializable {
         partialSceneDTO.setItemScene("order");
         partialSceneDTO.setUser(user);
         String idKey = id.getText();
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML

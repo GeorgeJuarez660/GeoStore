@@ -38,7 +38,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="50.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="Codici admin" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%choose.code.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -57,13 +57,13 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="610.0">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createCode" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="CREA CODICE" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createCode" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="%choose.code.create" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="175.0" prefWidth="610.0" spacing="50.0">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookAssociatedCodes" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="VISUALIZZA UTENTI ASSOCIATI AI CODICI" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookCodes" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="VISUALIZZA CODICI ADMIN" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookAssociatedCodes" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="%choose.code.lookAssociatedUsers" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookCodes" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" text="%choose.code.lookCodes" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                      </children>
                   </HBox>
                </children>

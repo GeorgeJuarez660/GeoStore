@@ -161,7 +161,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
                 partialSceneDTO.setInnerScene("readProductType");
                 partialSceneDTO.setItemScene("category");
                 partialSceneDTO.setUser(user);
-                LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+                LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
             }
             else if(this.itemScene.equals("product-M")){
                 System.out.println("goes to material");
@@ -170,7 +170,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
                 partialSceneDTO.setInnerScene("readProductType");
                 partialSceneDTO.setItemScene("material");
                 partialSceneDTO.setUser(user);
-                LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+                LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
             }
         }
     }

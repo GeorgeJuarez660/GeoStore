@@ -144,7 +144,7 @@ public class HomepageController {
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -154,7 +154,7 @@ public class HomepageController {
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
 }

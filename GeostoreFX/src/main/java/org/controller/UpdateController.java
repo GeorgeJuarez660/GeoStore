@@ -262,7 +262,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                 partialSceneDTO.setFxmlLoader(fxmlLoader);
                 partialSceneDTO.setInnerScene("readProfileUser");
                 partialSceneDTO.setUser(user);
-                LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+                LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
             }
         }
         else if(this.itemScene != null && this.itemScene.equals("code")){

@@ -86,7 +86,7 @@ public class ProductItemController implements Initializable {
         partialSceneDTO.setItemScene("product");
         partialSceneDTO.setUser(user);
         String idKey = id.getText();
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML
@@ -109,7 +109,7 @@ public class ProductItemController implements Initializable {
         partialSceneDTO.setItemScene("order");
         partialSceneDTO.setUser(user);
         String idKey = id.getText();
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
 

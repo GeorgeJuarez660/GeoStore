@@ -71,7 +71,7 @@ public class CodeAssociateItemController implements Initializable {
         partialSceneDTO.setInnerScene("updateAssociateCode");
         partialSceneDTO.setUser(user);
         String emailKey = email.getText();
-        LoadPage.getPartialSceneCRU(partialSceneDTO, emailKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, emailKey, null);
     }
 
     @FXML

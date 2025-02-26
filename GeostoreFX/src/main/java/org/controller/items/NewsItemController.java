@@ -79,7 +79,7 @@ public class NewsItemController implements Initializable {
         partialSceneDTO.setInnerScene("update");
         partialSceneDTO.setUser(user);
         String idKey = id.getText().replace("#", "");
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML

@@ -79,7 +79,7 @@ public class ProductTypeButtonController implements Initializable {
         partialSceneDTO.setItemScene("category");
         partialSceneDTO.setUser(user);
         String idKey = id.getText().replace("#", "");
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML
@@ -92,7 +92,7 @@ public class ProductTypeButtonController implements Initializable {
         partialSceneDTO.setItemScene("material");
         partialSceneDTO.setUser(user);
         String idKey = id.getText().replace("#", "");
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML
@@ -131,7 +131,7 @@ public class ProductTypeButtonController implements Initializable {
         partialSceneDTO.setItemScene("product-C");
         partialSceneDTO.setUser(user);
         String idKey = id.getText().replace("#", "");
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML
@@ -143,7 +143,7 @@ public class ProductTypeButtonController implements Initializable {
         partialSceneDTO.setItemScene("product-M");
         partialSceneDTO.setUser(user);
         String idKey = id.getText().replace("#", "");
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
 

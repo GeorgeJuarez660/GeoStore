@@ -37,7 +37,7 @@ public class ChooseTUserController {
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readProfileUser");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -48,7 +48,7 @@ public class ChooseTUserController {
         partialSceneDTO.setInnerScene("read");
         partialSceneDTO.setItemScene("user");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -65,7 +65,7 @@ public class ChooseTUserController {
         partialSceneDTO.setInnerScene("create");
         partialSceneDTO.setItemScene("user");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
 }

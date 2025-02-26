@@ -324,16 +324,21 @@ public class LoadPage {
     }
 
     @FXML
-    public static void getPartialSceneCRU(PartialSceneDTO partialSceneDTO, String IDkey) {
+    public static void getPartialSceneCRU(PartialSceneDTO partialSceneDTO, String IDkey, String lang) {
         Pane view = null;
         try {
+
+            lang = lang != null ? lang : Translater.getLanguage(); //per prima cosa controlla la lingua per impostarla
+            Locale locale = new Locale(lang); // Setti il linguaggio di default da prendere il resource
+            ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
             // Costruisce il percorso completo del file FXML
             URL fileUrl = GeostoreMain.class.getResource("/org/scenes/" + partialSceneDTO.getInnerScene() + ".fxml");
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
 
-            FXMLLoader loader = new FXMLLoader(fileUrl);
+            FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
             Pane newScene = loader.load();
             Object controller = loader.getController(); // Ottieni il controller della scena caricata
 
@@ -341,7 +346,7 @@ public class LoadPage {
             if(controller instanceof CreateController){
                 CreateController createController = (CreateController) controller;
                 createController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                createController.setTitle(partialSceneDTO.getItemScene());
+                createController.setTitle(partialSceneDTO.getItemScene(), resLang);
                 createController.loadMask(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof CreateAssociateUserController){

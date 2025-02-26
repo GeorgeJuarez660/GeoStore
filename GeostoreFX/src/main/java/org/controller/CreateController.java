@@ -17,6 +17,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 public class CreateController {// Questo è il BorderPane di menu.fxml
 
@@ -51,27 +52,27 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setTitle(String itemScene) {
+    public void setTitle(String itemScene, ResourceBundle resLang) {
         if(itemScene != null && itemScene.equals("user")){
-            title.setText("Creazione utente");
+            title.setText(resLang.getString("create.title.user"));
         }
         else if(itemScene != null && itemScene.equals("code")){
-            title.setText("Creazione codice");
+            title.setText(resLang.getString("create.title.code"));
         }
         else if(itemScene != null && itemScene.equals("product")){
-            title.setText("Creazione prodotto");
+            title.setText(resLang.getString("create.title.product"));
         }
         else if(itemScene != null && itemScene.equals("order")){
-            title.setText("Ordinazione prodotto");
+            title.setText(resLang.getString("create.title.order"));
         }
         else if(itemScene != null && itemScene.equals("category")){
-            title.setText("Creazione categoria");
+            title.setText(resLang.getString("create.title.category"));
         }
         else if(itemScene != null && itemScene.equals("material")){
-            title.setText("Creazione materia");
+            title.setText(resLang.getString("create.title.material"));
         }
         else{
-            title.setText("Creazione notizia");
+            title.setText(resLang.getString("create.title.news"));
         }
     }
 

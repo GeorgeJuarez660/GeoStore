@@ -38,7 +38,7 @@ public class ChooseTCategoryController {
         partialSceneDTO.setInnerScene("readProductType");
         partialSceneDTO.setItemScene("category");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -49,7 +49,7 @@ public class ChooseTCategoryController {
         partialSceneDTO.setInnerScene("create");
         partialSceneDTO.setItemScene("category");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
 }

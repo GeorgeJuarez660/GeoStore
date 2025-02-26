@@ -69,7 +69,7 @@ public class OrderTotalPriceController {
         String choosedDate = String.valueOf(date.getValue());
 
         if(choosedDate != null && !choosedDate.isEmpty() && !choosedDate.isBlank() && !choosedDate.equals("null")){
-            LoadPage.getPartialSceneCRU(partialSceneDTO, choosedDate);
+            LoadPage.getPartialSceneCRU(partialSceneDTO, choosedDate, null);
         }
     }
 }

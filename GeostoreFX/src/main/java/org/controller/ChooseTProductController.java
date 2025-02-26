@@ -38,7 +38,7 @@ public class ChooseTProductController {
         partialSceneDTO.setInnerScene("read");
         partialSceneDTO.setItemScene("product-2");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -49,7 +49,7 @@ public class ChooseTProductController {
         partialSceneDTO.setInnerScene("read");
         partialSceneDTO.setItemScene("product-1");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -60,7 +60,7 @@ public class ChooseTProductController {
         partialSceneDTO.setInnerScene("create");
         partialSceneDTO.setItemScene("product");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
 }

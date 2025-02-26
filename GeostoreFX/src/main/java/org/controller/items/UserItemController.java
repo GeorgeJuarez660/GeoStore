@@ -112,7 +112,7 @@ public class UserItemController implements Initializable {
         partialSceneDTO.setItemScene("user");
         partialSceneDTO.setUser(user);
         String idKey = id.getText();
-        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
     @FXML

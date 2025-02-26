@@ -201,7 +201,7 @@ public class ReadCodesController {// Questo è il BorderPane di menu.fxml
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("createAssociateCode");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML

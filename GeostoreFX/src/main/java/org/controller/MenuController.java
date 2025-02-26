@@ -83,7 +83,7 @@ public class MenuController {
             partialSceneDTO.setFxmlLoader(fxmlLoader);
             partialSceneDTO.setInnerScene("readProfileUser");
             partialSceneDTO.setUser(user);
-            LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+            LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
         }
     }
 
@@ -124,7 +124,7 @@ public class MenuController {
             partialSceneDTO.setInnerScene("readProductType");
             partialSceneDTO.setItemScene("category");
             partialSceneDTO.setUser(user);
-            LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+            LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
         }
     }
 
@@ -141,7 +141,7 @@ public class MenuController {
             partialSceneDTO.setInnerScene("readProductType");
             partialSceneDTO.setItemScene("material");
             partialSceneDTO.setUser(user);
-            LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+            LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
         }
     }
 

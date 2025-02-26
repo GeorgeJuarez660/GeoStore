@@ -38,7 +38,7 @@ public class ChooseTMaterialController {
         partialSceneDTO.setInnerScene("readProductType");
         partialSceneDTO.setItemScene("material");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
     @FXML
@@ -49,7 +49,7 @@ public class ChooseTMaterialController {
         partialSceneDTO.setInnerScene("create");
         partialSceneDTO.setItemScene("material");
         partialSceneDTO.setUser(user);
-        LoadPage.getPartialSceneCRU(partialSceneDTO, null);
+        LoadPage.getPartialSceneCRU(partialSceneDTO, null, null);
     }
 
 }
