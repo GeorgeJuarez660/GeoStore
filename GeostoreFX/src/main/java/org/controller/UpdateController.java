@@ -15,6 +15,7 @@ import org.utility.PartialSceneDTO;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.util.ResourceBundle;
 
 public class UpdateController {// Questo è il BorderPane di menu.fxml
 
@@ -49,27 +50,27 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setTitle(String itemScene) {
+    public void setTitle(String itemScene, ResourceBundle resLang) {
         if(itemScene != null && itemScene.contains("user")){
-            title.setText("Modifica utente");
+            title.setText(resLang.getString("update.title.user"));
         }
         else if(itemScene != null && itemScene.equals("code")){
-            title.setText("Modifica codice");
+            title.setText(resLang.getString("update.title.code"));
         }
         else if(itemScene != null && itemScene.equals("product")){
-            title.setText("Modifica prodotto");
+            title.setText(resLang.getString("update.title.product"));
         }
         else if(itemScene != null && itemScene.equals("order")){
-            title.setText("Modifica ordine");
+            title.setText(resLang.getString("update.title.order"));
         }
         else if(itemScene != null && itemScene.equals("category")){
-            title.setText("Modifica categoria");
+            title.setText(resLang.getString("update.title.category"));
         }
         else if(itemScene != null && itemScene.equals("material")){
-            title.setText("Modifica materia");
+            title.setText(resLang.getString("update.title.material"));
         }
         else{
-            title.setText("Modifica notizia");
+            title.setText(resLang.getString("update.title.news"));
         }
     }
 

@@ -15,6 +15,7 @@ import org.services.Service;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
 
@@ -49,12 +50,12 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setTitle(String itemScene) {
+    public void setTitle(String itemScene, ResourceBundle resLang) {
         if(itemScene != null && itemScene.equals("category")){
-            title.setText("Scegli categoria");
+            title.setText(resLang.getString("read.title.categories"));
         }
         else{
-            title.setText("Scegli materia");
+            title.setText(resLang.getString("read.title.materials"));
         }
     }
 

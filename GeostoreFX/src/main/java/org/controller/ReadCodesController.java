@@ -15,10 +15,7 @@ import org.services.Service;
 import org.utility.PartialSceneDTO;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReadCodesController {// Questo è il BorderPane di menu.fxml
 
@@ -58,14 +55,14 @@ public class ReadCodesController {// Questo è il BorderPane di menu.fxml
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setTitle(String itemScene) {
+    public void setTitle(String itemScene, ResourceBundle resLang) {
         if(itemScene != null && itemScene.contains("code")){
             String lastChar = itemScene.substring(itemScene.length() - 1);
             if(lastChar.equals("A")){
-                title.setText("Utenti associati ai codici admin");
+                title.setText(resLang.getString("read.title.associatedCodes"));
             }
             else{
-                title.setText("Lista di codici admin");
+                title.setText(resLang.getString("read.title.codes"));
             }
         }
     }

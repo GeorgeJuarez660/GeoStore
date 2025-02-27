@@ -16,10 +16,7 @@ import org.services.Service;
 import org.utility.PartialSceneDTO;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReadController {// Questo è il BorderPane di menu.fxml
 
@@ -56,33 +53,33 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setTitle(String itemScene) {
+    public void setTitle(String itemScene, ResourceBundle resLang) {
         if(itemScene != null && itemScene.equals("user")){
-            title.setText("Elenco profili utente");
+            title.setText(resLang.getString("read.title.users"));
         }
         else if(itemScene != null && itemScene.contains("product")){
             String lastChar = itemScene.substring(itemScene.length() - 1);
             if(lastChar.equals("1")){
-                title.setText("Elenco prodotti in generale");
+                title.setText(resLang.getString("read.title.products"));
             }
             else if(lastChar.equals("O")){ //per l'ordinazione prodotto
-                title.setText("Elenco prodotti da ordinare");
+                title.setText(resLang.getString("read.title.productsToOrder"));
             }
             else{
-                title.setText("Elenco prodotti disponibili");
+                title.setText(resLang.getString("read.title.availableProducts"));
             }
         }
         else if(itemScene != null && itemScene.contains("order")){
             String lastChar = itemScene.substring(itemScene.length() - 1);
             if(lastChar.equals("1")){
-                title.setText("Elenco ordini effettuati in generale");
+                title.setText(resLang.getString("read.title.orders"));
             }
             else{
-                title.setText("Elenco tuoi ordini effettuati");
+                title.setText(resLang.getString("read.title.yourOrders"));
             }
         }
         else{
-            title.setText("Elenco notizie");
+            title.setText(resLang.getString("read.title.news"));
         }
     }
 

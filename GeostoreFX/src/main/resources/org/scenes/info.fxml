@@ -38,7 +38,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="50.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="Informazioni" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%info.title" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -57,7 +57,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="Versione:" textAlignment="CENTER" textFill="#2352a4" wrapText="true">
+                        <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%info.version" textAlignment="CENTER" textFill="#2352a4" wrapText="true">
                            <font>
                               <Font size="13.0" />
                            </font>

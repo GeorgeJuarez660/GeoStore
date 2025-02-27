@@ -17,10 +17,7 @@ import org.services.Service;
 import org.utility.PartialSceneDTO;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
 
@@ -57,14 +54,14 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setTitle(String itemScene) {
+    public void setTitle(String itemScene, ResourceBundle resLang) {
         if(itemScene != null && itemScene.contains("product")){
             String lastChar = itemScene.substring(itemScene.length() - 1);
             if(lastChar.equals("C")){ //per via categoria
-                title.setText("Prodotti per categoria");
+                title.setText(resLang.getString("read.title.productsByCategories"));
             }
             else{ //per via materia
-                title.setText("Prodotti per materia");
+                title.setText(resLang.getString("read.title.productsByMaterials"));
             }
         }
     }
