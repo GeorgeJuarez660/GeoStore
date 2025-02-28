@@ -69,7 +69,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
-            <Button onAction="#searching" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="CERCA" textFill="WHITE" />
+            <Button onAction="#searching" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%read.button" textFill="WHITE" />
          </children>
          <VBox.margin>
             <Insets top="30.0" />

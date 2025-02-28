@@ -69,7 +69,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="567.0">
          <children>
-            <Button fx:id="associateUserBtn" mnemonicParsing="false" onAction="#associating" prefHeight="21.0" prefWidth="122.0" style="-fx-background-radius: 15; -fx-background-color: #0495cd;" styleClass="label-font-min2-btn" text="ASSOCIA UTENTE" textFill="WHITE">
+            <Button fx:id="associateUserBtn" mnemonicParsing="false" onAction="#associating" prefHeight="21.0" prefWidth="122.0" style="-fx-background-radius: 15; -fx-background-color: #0495cd;" styleClass="label-font-min2-btn" text="%read.associate.button" textFill="WHITE">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

@@ -14,7 +14,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label styleClass="label-font" text="Nome utente:" wrapText="true" textFill="#0495cd"/>
+                        <Label styleClass="label-font" text="%item.calculate.name" wrapText="true" textFill="#0495cd"/>
                         <Label fx:id="userName" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="XXX" wrapText="true" textFill="#03A8E8">
                            <HBox.margin>
                               <Insets left="7.0" />
@@ -27,7 +27,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="26.0" prefWidth="132.0" styleClass="label-font" text="Cognome utente:" wrapText="true" textFill="#0495cd"/>
+                        <Label prefHeight="26.0" prefWidth="132.0" styleClass="label-font" text="%item.calculate.surname" wrapText="true" textFill="#0495cd"/>
                         <Label fx:id="userSurname" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="XXX" wrapText="true" textFill="#03A8E8">
                            <HBox.margin>
                               <Insets left="7.0" />
@@ -40,7 +40,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="26.0" prefWidth="211.0" styleClass="label-font" text="Data totale ordine:" wrapText="true" textFill="#0495cd"/>
+                        <Label prefHeight="26.0" prefWidth="211.0" styleClass="label-font" text="%item.calculate.date" wrapText="true" textFill="#0495cd"/>
                         <Label fx:id="totalOrderDate" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="X" wrapText="true" textFill="#03A8E8">
                            <HBox.margin>
                               <Insets left="7.0" />
@@ -53,7 +53,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="168.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="26.0" prefWidth="252.0" styleClass="label-font" text="Prezzo totale speso:" wrapText="true" textFill="#0495cd" />
+                        <Label prefHeight="26.0" prefWidth="252.0" styleClass="label-font" text="%item.calculate.price" wrapText="true" textFill="#0495cd" />
                         <Label fx:id="totalOrderPrice" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="123 C" wrapText="true" textFill="#03A8E8">
                            <HBox.margin>
                               <Insets left="7.0" />
