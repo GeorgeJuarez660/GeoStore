@@ -16,6 +16,7 @@ import org.services.Service;
 import org.utility.PartialSceneDTO;
 
 import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
 
@@ -32,13 +33,14 @@ public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
     private Boolean isAdmin;
     private BorderPane fxmlLoader;
     private Service service;
+    private ResourceBundle resLang;
 
     @FXML
     private HBox item;
 
     //------------------INITIALIZE-----------------------
 
-    public void save(BorderPane fxmlLoader, Cliente utente){
+    public void save(BorderPane fxmlLoader, Cliente utente, ResourceBundle resLang){
 
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
@@ -54,10 +56,11 @@ public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
         }
 
         this.fxmlLoader = fxmlLoader;
+        this.resLang = resLang;
     }
 
-    public void setTitle(String value) {
-        title.setText(value);
+    public void setTitle() {
+        title.setText(resLang.getString("read.title.userProfile"));
     }
 
     public void loadItem(String itemScene){
@@ -73,7 +76,7 @@ public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
 
-            FXMLLoader loader = new FXMLLoader(fileUrl);
+            FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
             VBox userProfileItem = loader.load();
             UserItemController userItemController = loader.getController();
             userItemController.save(fxmlLoader, user);

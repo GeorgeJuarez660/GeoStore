@@ -32,13 +32,15 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
     private Service service;
     private String itemScene;
     private Boolean showSearch;
+    private ResourceBundle resLang;
 
     @FXML
     private VBox itemList;
 
     //------------------INITIALIZE-----------------------
 
-    public void save(BorderPane fxmlLoader, Cliente utente){
+    public void save(BorderPane fxmlLoader, Cliente utente, ResourceBundle resLang){
+
 
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
@@ -51,9 +53,10 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
         }
 
         this.fxmlLoader = fxmlLoader;
+        this.resLang = resLang;
     }
 
-    public void setTitle(String itemScene, ResourceBundle resLang) {
+    public void setTitle(String itemScene) {
         if(itemScene != null && itemScene.equals("user")){
             title.setText(resLang.getString("read.title.users"));
         }
@@ -171,7 +174,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                             throw new java.io.FileNotFoundException("FXML file can't be found");
                         }
 
-                        FXMLLoader loader = new FXMLLoader(fileUrl);
+                        FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                         HBox userItem = loader.load();
                         UserItemController userItemController = loader.getController();
                         userItemController.save(fxmlLoader, user);
@@ -199,7 +202,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                             throw new java.io.FileNotFoundException("FXML file can't be found");
                         }
 
-                        FXMLLoader loader = new FXMLLoader(fileUrl);
+                        FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                         HBox productItem = loader.load();
                         ProductItemController productItemController = loader.getController();
                         productItemController.save(fxmlLoader, user);
@@ -232,7 +235,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                             throw new java.io.FileNotFoundException("FXML file can't be found");
                         }
 
-                        FXMLLoader loader = new FXMLLoader(fileUrl);
+                        FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                         HBox productItem = loader.load();
                         OrderItemController orderItemController = loader.getController();
                         orderItemController.save(fxmlLoader, user);
@@ -260,7 +263,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                             throw new java.io.FileNotFoundException("FXML file can't be found");
                         }
 
-                        FXMLLoader loader = new FXMLLoader(fileUrl);
+                        FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                         HBox newsItem = loader.load();
                         NewsItemController newsItemController = loader.getController();
                         newsItemController.save(fxmlLoader, user);

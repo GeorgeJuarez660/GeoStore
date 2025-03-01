@@ -27,6 +27,7 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
     private BorderPane fxmlLoader;
     private Service service;
     private String itemScene;
+    private ResourceBundle resLang;
 
     @FXML
     private FlowPane buttonList; //per categorie/materie
@@ -35,7 +36,7 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
 
     //------------------INITIALIZE-----------------------
 
-    public void save(BorderPane fxmlLoader, Cliente utente){
+    public void save(BorderPane fxmlLoader, Cliente utente, ResourceBundle resLang){
 
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
@@ -48,9 +49,10 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
         }
 
         this.fxmlLoader = fxmlLoader;
+        this.resLang = resLang;
     }
 
-    public void setTitle(String itemScene, ResourceBundle resLang) {
+    public void setTitle(String itemScene) {
         if(itemScene != null && itemScene.equals("category")){
             title.setText(resLang.getString("read.title.categories"));
         }
@@ -91,7 +93,7 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
                             throw new java.io.FileNotFoundException("FXML file can't be found");
                         }
 
-                        FXMLLoader loader = new FXMLLoader(fileUrl);
+                        FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                         Button categoryButton = loader.load();
                         ProductTypeButtonController productTypeButtonController = loader.getController();
                         productTypeButtonController.save(fxmlLoader, user);
@@ -119,7 +121,7 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
                             throw new java.io.FileNotFoundException("FXML file can't be found");
                         }
 
-                        FXMLLoader loader = new FXMLLoader(fileUrl);
+                        FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                         Button categoryButton = loader.load();
                         ProductTypeButtonController productTypeButtonController = loader.getController();
                         productTypeButtonController.save(fxmlLoader, user);

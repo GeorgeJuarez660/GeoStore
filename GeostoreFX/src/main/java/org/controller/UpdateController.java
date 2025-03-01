@@ -30,12 +30,13 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
     private BorderPane fxmlLoader;
     private Service service;
     private String itemScene;
+    private ResourceBundle resLang;
 
     private Object maskController;
 
     //------------------INITIALIZE-----------------------
 
-    public void save(BorderPane fxmlLoader, Cliente utente){
+    public void save(BorderPane fxmlLoader, Cliente utente, ResourceBundle resLang){
 
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
@@ -48,9 +49,10 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         }
 
         this.fxmlLoader = fxmlLoader;
+        this.resLang = resLang;
     }
 
-    public void setTitle(String itemScene, ResourceBundle resLang) {
+    public void setTitle(String itemScene) {
         if(itemScene != null && itemScene.contains("user")){
             title.setText(resLang.getString("update.title.user"));
         }
@@ -85,7 +87,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 UserMaskController userMaskController = loader.getController();// Ottieni il controller della scena caricata
                 userMaskController.getValues(IDkey);
@@ -108,7 +110,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 CodeMaskController codeMaskController = loader.getController();// Ottieni il controller della scena caricata
                 codeMaskController.getValues(IDkey);
@@ -131,7 +133,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 ProductMaskController productMaskController = loader.getController();// Ottieni il controller della scena caricata
                 productMaskController.setAvailable();
@@ -157,7 +159,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 OrderMaskController orderMaskController = loader.getController();// Ottieni il controller della scena caricata
                 orderMaskController.setStatus();
@@ -181,7 +183,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 CategoryMaskController categoryMaskController = loader.getController();// Ottieni il controller della scena caricata
                 categoryMaskController.getValues(IDkey);
@@ -204,7 +206,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 MaterialMaskController materialMaskController = loader.getController();// Ottieni il controller della scena caricata
                 materialMaskController.getValues(IDkey);
@@ -227,7 +229,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox mask = loader.load();
                 NewsMaskController newsMaskController = loader.getController();// Ottieni il controller della scena caricata
                 newsMaskController.getValues(IDkey);

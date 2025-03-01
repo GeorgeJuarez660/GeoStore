@@ -15,7 +15,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Nome prodotto" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.product" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="8.0" />
                            </font>
@@ -29,7 +29,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Email utente" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -43,7 +43,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label styleClass="label-font-min2-title" text="Data ordine" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label styleClass="label-font-min2-title" text="%mask.order.date" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -53,7 +53,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Quantità" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.quantity" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -67,7 +67,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Prezzo unitario" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.price" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="7.0" />
                            </font>

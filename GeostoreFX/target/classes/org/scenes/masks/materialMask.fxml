@@ -14,7 +14,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="Nome materia" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%mask.material.name" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="8.0" />
                            </font>

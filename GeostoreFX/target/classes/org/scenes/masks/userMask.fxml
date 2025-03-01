@@ -16,7 +16,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Nome" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.name" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -30,7 +30,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Cognome" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.surname" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -44,7 +44,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label styleClass="label-font-min2-title" text="Sesso" textFill="WHITE" wrapText="true">
+                        <Label styleClass="label-font-min2-title" text="%mask.user.sex" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -58,7 +58,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Data nascita" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.bornDate" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -68,7 +68,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Telefono" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.phoneNumber" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -86,7 +86,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="120.0" styleClass="label-font-min2-title" text="Indirizzo" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="120.0" styleClass="label-font-min2-title" text="%mask.user.address" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -100,7 +100,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -114,7 +114,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label styleClass="label-font-min2-title" text="Password" textFill="WHITE" wrapText="true">
+                        <Label styleClass="label-font-min2-title" text="%mask.user.password" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -124,7 +124,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Codice admin" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.code" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -138,7 +138,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Portafoglio" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.wallet" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="9.0" />
                            </font>

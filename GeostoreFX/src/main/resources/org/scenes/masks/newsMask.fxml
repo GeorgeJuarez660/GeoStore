@@ -11,13 +11,13 @@
    <children>
       <HBox alignment="CENTER" prefHeight="63.0" prefWidth="310.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="Data:" textAlignment="CENTER" textFill="WHITE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%mask.news.date" textAlignment="CENTER" textFill="WHITE" />
             <DatePicker fx:id="date" disable="true" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 5;" styleClass="label-font-min-title" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="238.0" prefWidth="310.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="Testo:" textAlignment="CENTER" textFill="WHITE" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%mask.news.text" textAlignment="CENTER" textFill="WHITE" />
             <TextArea fx:id="text" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="208.0" prefWidth="208.0" styleClass="label-font-min-title" wrapText="true">
                <font>
                   <Font size="10.0" />

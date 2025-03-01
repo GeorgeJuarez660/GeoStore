@@ -17,6 +17,7 @@ import org.services.Service;
 import java.net.URL;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.ResourceBundle;
 
 public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.fxml
 
@@ -31,13 +32,14 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
     private Boolean isAdmin;
     private BorderPane fxmlLoader;
     private Service service;
+    private ResourceBundle resLang;
 
     @FXML
     private HBox item;
 
     //------------------INITIALIZE-----------------------
 
-    public void save(BorderPane fxmlLoader, Cliente utente){
+    public void save(BorderPane fxmlLoader, Cliente utente, ResourceBundle resLang){
 
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
@@ -53,14 +55,17 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
         }
 
         this.fxmlLoader = fxmlLoader;
+        this.resLang = resLang;
     }
 
-    public void setTitle(String value, String choosedDate) {
+    public void setTitle(String choosedDate) {
         Calendar calendario = Calendar.getInstance();
         calendario.setTime(Date.valueOf(choosedDate));
         int giorno = calendario.get(Calendar.DAY_OF_MONTH);
         int mese = calendario.get(Calendar.MONTH) + 1;
         int anno = calendario.get(Calendar.YEAR);
+
+        String value = resLang.getString("read.title.totalPriceOrders");
 
         value = value + " " + giorno + "/" + mese + "/" + anno;
 
@@ -81,7 +86,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
                     throw new java.io.FileNotFoundException("FXML file can't be found");
                 }
 
-                FXMLLoader loader = new FXMLLoader(fileUrl);
+                FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox userProfileItem = loader.load();
                 OrderTotalPriceItemController orderTotalPriceItemController = loader.getController();
                 orderTotalPriceItemController.setValues(ordine);

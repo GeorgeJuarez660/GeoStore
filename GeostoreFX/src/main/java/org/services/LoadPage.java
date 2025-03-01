@@ -345,66 +345,66 @@ public class LoadPage {
             // setta i il controller a seconda della scena caricata
             if(controller instanceof CreateController){
                 CreateController createController = (CreateController) controller;
-                createController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                createController.setTitle(partialSceneDTO.getItemScene(), resLang);
+                createController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                createController.setTitle(partialSceneDTO.getItemScene());
                 createController.loadMask(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof CreateAssociateUserController){
                 CreateAssociateUserController createAssociateUserController = (CreateAssociateUserController) controller;
-                createAssociateUserController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
+                createAssociateUserController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
                 createAssociateUserController.loadMask("codeAssociateMask");
             }
             else if(controller instanceof ReadController){
                 ReadController readController = (ReadController) controller;
-                readController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                readController.setTitle(partialSceneDTO.getItemScene(), resLang);
+                readController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                readController.setTitle(partialSceneDTO.getItemScene());
                 readController.showSearchBar(false);
                 readController.loadItems(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof ReadCodesController){
                 ReadCodesController readCodesController = (ReadCodesController) controller;
-                readCodesController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                readCodesController.setTitle(partialSceneDTO.getItemScene(), resLang);
+                readCodesController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                readCodesController.setTitle(partialSceneDTO.getItemScene());
                 readCodesController.showSearchBar(false);
                 readCodesController.enableAssociateCodici(partialSceneDTO.getItemScene());
                 readCodesController.loadItems(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof ReadProfileUserController){
                 ReadProfileUserController readProfileUserController = (ReadProfileUserController) controller;
-                readProfileUserController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                readProfileUserController.setTitle(resLang.getString("read.title.userProfile"));
+                readProfileUserController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                readProfileUserController.setTitle();
                 readProfileUserController.loadItem("userProfileItem");
                 readProfileUserController.enableBackBtn();
             }
             else if(controller instanceof ReadOrderTotalPriceController){
                 ReadOrderTotalPriceController readOrderTotalPriceController = (ReadOrderTotalPriceController) controller;
-                readOrderTotalPriceController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                readOrderTotalPriceController.setTitle(resLang.getString("read.title.totalPriceOrders"), IDkey);
+                readOrderTotalPriceController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                readOrderTotalPriceController.setTitle(IDkey);
                 readOrderTotalPriceController.loadItem("orderItemTotalPrice", IDkey);
             }
             else if(controller instanceof ReadProductTypeController){
                 ReadProductTypeController readProductTypeController = (ReadProductTypeController) controller;
-                readProductTypeController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                readProductTypeController.setTitle(partialSceneDTO.getItemScene(), resLang);
+                readProductTypeController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                readProductTypeController.setTitle(partialSceneDTO.getItemScene());
                 readProductTypeController.loadButtons(partialSceneDTO.getItemScene());
                 readProductTypeController.enableBackBtn();
             }
             else if(controller instanceof ReadProductsByCMController){
                 ReadProductsByCMController readProductsByCMController = (ReadProductsByCMController) controller;
-                readProductsByCMController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                readProductsByCMController.setTitle(partialSceneDTO.getItemScene(), resLang);
+                readProductsByCMController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                readProductsByCMController.setTitle(partialSceneDTO.getItemScene());
                 readProductsByCMController.showSearchBar(false);
                 readProductsByCMController.loadItems(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof UpdateController){
                 UpdateController updateController = (UpdateController) controller;
-                updateController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
-                updateController.setTitle(partialSceneDTO.getItemScene(), resLang);
+                updateController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
+                updateController.setTitle(partialSceneDTO.getItemScene());
                 updateController.loadMask(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof UpdateAssociateUserController){
                 UpdateAssociateUserController updateAssociateUserController = (UpdateAssociateUserController) controller;
-                updateAssociateUserController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser());
+                updateAssociateUserController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
                 updateAssociateUserController.loadMask("codeAssociateMask", IDkey);
             }
 

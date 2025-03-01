@@ -16,6 +16,7 @@ import org.services.Service;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.util.ResourceBundle;
 
 public class UpdateAssociateUserController {// Questo è il BorderPane di menu.fxml
 
@@ -30,12 +31,13 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
     private BorderPane fxmlLoader;
     private Service service;
     private String itemScene;
+    private ResourceBundle resLang;
 
     private Object maskController;
 
     //------------------INITIALIZE-----------------------
 
-    public void save(BorderPane fxmlLoader, Cliente utente){
+    public void save(BorderPane fxmlLoader, Cliente utente, ResourceBundle resLang){
 
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
@@ -48,6 +50,7 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
         }
 
         this.fxmlLoader = fxmlLoader;
+        this.resLang = resLang;
     }
 
     public void loadMask(String itemScene, String emailKey){
@@ -60,7 +63,7 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
                 throw new java.io.FileNotFoundException("FXML file can't be found");
             }
 
-            FXMLLoader loader = new FXMLLoader(fileUrl);
+            FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
             VBox mask = loader.load();
             CodeAssociateMaskController codeAssociateMaskController = loader.getController();
             codeAssociateMaskController.setAdminCode();
