@@ -12,9 +12,6 @@ import org.services.Service;
 import org.utility.PartialSceneDTO;
 
 import java.net.URL;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class ProductTypeButtonController implements Initializable {
@@ -55,9 +52,9 @@ public class ProductTypeButtonController implements Initializable {
         name.setText(categoria.getNome());
     }
 
-    public void setMaterialValues(Materia materia){
-        id.setText("#" + materia.getId().toString());
-        name.setText(materia.getNome());
+    public void setMaterialValues(Materiale materiale){
+        id.setText("#" + materiale.getId().toString());
+        name.setText(materiale.getNome());
     }
 
     public void enableButtons(){
@@ -119,7 +116,7 @@ public class ProductTypeButtonController implements Initializable {
 
         Service service = new Service();
 
-        service.eliminazioneMateria(id.getText().replace("#", ""), user);
+        service.eliminazioneMateriale(id.getText().replace("#", ""), user);
     }
 
     @FXML

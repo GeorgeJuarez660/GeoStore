@@ -14,12 +14,14 @@ import javafx.scene.text.TextAlignment;
 import org.controlsfx.control.PopOver;
 import org.models.*;
 import org.services.Service;
+import org.utility.Translater;
 import org.utility.Utility;
 
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -60,11 +62,11 @@ public class ProductMaskController implements Initializable {
 
     public void setMaterial(){
         service = new Service();
-        Map<Integer, Materia> mat = new HashMap<>();
-        mat = service.ottieniMaterie();
+        Map<Integer, Materiale> mat = new HashMap<>();
+        mat = service.ottieniMateriali();
 
-        for(Materia materia : mat.values()){
-            material.getItems().add(materia.getId() + " - " + materia.getNome());
+        for(Materiale materiale : mat.values()){
+            material.getItems().add(materiale.getId() + " - " + materiale.getNome());
         }
     }
 
@@ -79,7 +81,7 @@ public class ProductMaskController implements Initializable {
         price.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()));
         available.setValue(prodotto.getDisponibilita().getId() + " - " + prodotto.getDisponibilita().getCode());
         category.setValue(prodotto.getCategoria().getId() + " - " + prodotto.getCategoria().getNome());
-        material.setValue(prodotto.getMateria().getId() + " - " + prodotto.getMateria().getNome());
+        material.setValue(prodotto.getMateriale().getId() + " - " + prodotto.getMateriale().getNome());
         quantity.setText(prodotto.getQuantita_disp().toString());
 
         this.IDkey = IDkey;
@@ -121,13 +123,13 @@ public class ProductMaskController implements Initializable {
 
         prodotto.setCategoria(categoria);
 
-        Materia materia = new Materia();
+        Materiale materiale = new Materiale();
 
         if(material.getValue() != null){
-            materia.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
+            materiale.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
         }
 
-        prodotto.setMateria(materia);
+        prodotto.setMateriale(materiale);
 
         if(quantity != null && quantity.getText() != null && !quantity.getText().isEmpty() && !quantity.getText().isBlank()){
             prodotto.setQuantita_disp(Integer.parseInt(quantity.getText()));
@@ -170,13 +172,13 @@ public class ProductMaskController implements Initializable {
 
         prodotto.setCategoria(categoria);
 
-        Materia materia = new Materia();
+        Materiale materiale = new Materiale();
 
         if(material.getValue() != null){
-            materia.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
+            materiale.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
         }
 
-        prodotto.setMateria(materia);
+        prodotto.setMateriale(materiale);
 
         if(quantity != null && quantity.getText() != null && !quantity.getText().isEmpty() && !quantity.getText().isBlank()){
             prodotto.setQuantita_disp(Integer.parseInt(quantity.getText()));
@@ -216,11 +218,14 @@ public class ProductMaskController implements Initializable {
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
 
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
     @FXML
     private void showPopOver(MouseEvent event){
         if(popOver == null){ //controlla se è vuoto
             Label info = new Label(); // Crea un label
-            info.setText("CAMPO OBBLIGATORIO"); // Testo da visualizzare
+            info.setText(resLang.getString("popover.text")); // Testo da visualizzare
             info.setTextFill(Color.rgb(63, 81, 181));
             info.setFont(new Font("Press Start 2P", 9));
             info.setWrapText(true);

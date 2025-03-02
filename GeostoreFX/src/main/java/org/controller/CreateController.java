@@ -11,12 +11,9 @@ import org.controller.masks.*;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
-import org.utility.Utility;
 
 import java.net.URL;
-import java.sql.Date;
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class CreateController {// Questo è il BorderPane di menu.fxml
@@ -318,9 +315,9 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         }
         else if(maskController instanceof MaterialMaskController){
             MaterialMaskController materialMaskController = (MaterialMaskController) maskController;
-            Materia m = materialMaskController.setValues();
+            Materiale m = materialMaskController.setValues();
 
-            service.creazioneMateria(m, user);
+            service.creazioneMateriale(m, user);
         }
         else{
             NewsMaskController newsMaskController = (NewsMaskController) maskController;

@@ -12,12 +12,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import org.controlsfx.control.PopOver;
-import org.models.Categoria;
-import org.models.Materia;
+import org.models.Materiale;
 import org.services.Service;
+import org.utility.Translater;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MaterialMaskController implements Initializable {
@@ -36,10 +37,10 @@ public class MaterialMaskController implements Initializable {
     public void getValues(String IDkey){
 
         service = new Service();
-        Materia materia;
-        materia = service.ottieniMateria(Integer.parseInt(IDkey));
+        Materiale materiale;
+        materiale = service.ottieniMateriale(Integer.parseInt(IDkey));
 
-        name.setText(materia.getNome());
+        name.setText(materiale.getNome());
 
         this.IDkey = IDkey;
     }
@@ -47,31 +48,34 @@ public class MaterialMaskController implements Initializable {
     //------------------GETTING FROM CRUD CONTROLLER-----------------------
 
     //per la creazione materia
-    public Materia setValues() throws ParseException { //recuperato da mask
-        Materia materia = new Materia();
+    public Materiale setValues() throws ParseException { //recuperato da mask
+        Materiale materiale = new Materiale();
 
-        materia.setNome(name.getText().toUpperCase());
+        materiale.setNome(name.getText().toUpperCase());
 
-        return materia;
+        return materiale;
     }
 
     //per la modifica materia
-    public Materia setValuesWithID() throws ParseException { //recuperato da mask
-        Materia materia = new Materia();
+    public Materiale setValuesWithID() throws ParseException { //recuperato da mask
+        Materiale materiale = new Materiale();
 
-        materia.setId(Integer.parseInt(IDkey));
-        materia.setNome(name.getText().toUpperCase());
+        materiale.setId(Integer.parseInt(IDkey));
+        materiale.setNome(name.getText().toUpperCase());
 
-        return materia;
+        return materiale;
     }
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
+
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
     @FXML
     private void showPopOver(MouseEvent event){
         if(popOver == null){ //controlla se è vuoto
             Label info = new Label(); // Crea un label
-            info.setText("CAMPO OBBLIGATORIO"); // Testo da visualizzare
+            info.setText(resLang.getString("popover.text")); // Testo da visualizzare
             info.setTextFill(Color.rgb(63, 81, 181));
             info.setFont(new Font("Press Start 2P", 9));
             info.setWrapText(true);

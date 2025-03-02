@@ -17,15 +17,13 @@ import javafx.scene.text.TextAlignment;
 import org.controlsfx.control.PopOver;
 import org.models.*;
 import org.services.Service;
+import org.utility.Translater;
 import org.utility.Utility;
 
 import java.math.BigDecimal;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CodeMaskController implements Initializable {
 
@@ -85,11 +83,14 @@ public class CodeMaskController implements Initializable {
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
 
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
     @FXML
     private void showPopOver(MouseEvent event){
         if(popOver == null){ //controlla se è vuoto
             Label info = new Label(); // Crea un label
-            info.setText("CAMPO OBBLIGATORIO"); // Testo da visualizzare
+            info.setText(resLang.getString("popover.text")); // Testo da visualizzare
             info.setTextFill(Color.rgb(63, 81, 181));
             info.setFont(new Font("Press Start 2P", 9));
             info.setWrapText(true);
@@ -113,14 +114,14 @@ public class CodeMaskController implements Initializable {
     private void showPopOverCode(MouseEvent event){
         if(popOver == null){ //controlla se è vuoto
             Label info = new Label(); // Crea un label
-            info.setText("CAMPO OBBLIGATORIO"); // Testo da visualizzare
+            info.setText(resLang.getString("popover.text")); // Testo da visualizzare
             info.setTextFill(Color.rgb(63, 81, 181));
             info.setFont(new Font("Press Start 2P", 9));
             info.setWrapText(true);
             info.setTextAlignment(TextAlignment.CENTER);
 
             Label info2 = new Label(); // Crea un label
-            info2.setText("FORMATO: GSX123"); // Testo da visualizzare
+            info2.setText(resLang.getString("popover.code")); // Testo da visualizzare
             info2.setTextFill(Color.rgb(63, 81, 181));
             info2.setFont(new Font("Press Start 2P", 8));
             info2.setWrapText(true);

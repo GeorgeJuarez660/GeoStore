@@ -9,7 +9,7 @@ public class Prodotto {
     private String nome;
     private BigDecimal prezzo;
     private Disponibilita disponibilita;
-    private Materia materia;
+    private Materiale materiale;
     private Categoria categoria;
     private Integer quantita_disp;
 
@@ -50,12 +50,12 @@ public class Prodotto {
         this.disponibilita = disponibilita;
     }
 
-    public Materia getMateria() {
-        return materia;
+    public Materiale getMateriale() {
+        return materiale;
     }
 
-    public void setMateria(Materia materia) {
-        this.materia = materia;
+    public void setMateriale(Materiale materiale) {
+        this.materiale = materiale;
     }
 
     public Categoria getCategoria() {
@@ -79,23 +79,23 @@ public class Prodotto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Prodotto prodotto = (Prodotto) o;
-        return Objects.equals(id, prodotto.id) && Objects.equals(nome, prodotto.nome) && Objects.equals(prezzo, prodotto.prezzo) && Objects.equals(disponibilita, prodotto.disponibilita) && Objects.equals(materia, prodotto.materia) && Objects.equals(categoria, prodotto.categoria) && Objects.equals(quantita_disp, prodotto.quantita_disp);
+        return Objects.equals(id, prodotto.id) && Objects.equals(nome, prodotto.nome) && Objects.equals(prezzo, prodotto.prezzo) && Objects.equals(disponibilita, prodotto.disponibilita) && Objects.equals(materiale, prodotto.materiale) && Objects.equals(categoria, prodotto.categoria) && Objects.equals(quantita_disp, prodotto.quantita_disp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, prezzo, disponibilita, materia, categoria, quantita_disp);
+        return Objects.hash(id, nome, prezzo, disponibilita, materiale, categoria, quantita_disp);
     }
 
     public Prodotto() {
     }
 
-    public Prodotto(Integer id, String nome, BigDecimal prezzo, Disponibilita disponibilita, Materia materia, Categoria categoria, Integer quantita_disp) {
+    public Prodotto(Integer id, String nome, BigDecimal prezzo, Disponibilita disponibilita, Materiale materiale, Categoria categoria, Integer quantita_disp) {
         this.id = id;
         this.nome = nome;
         this.prezzo = prezzo;
         this.disponibilita = disponibilita;
-        this.materia = materia;
+        this.materiale = materiale;
         this.categoria = categoria;
         this.quantita_disp = quantita_disp;
     }
@@ -107,7 +107,7 @@ public class Prodotto {
                 ", nome='" + nome + '\'' +
                 ", prezzo=" + prezzo +
                 ", disponibilita='" + disponibilita + '\'' +
-                ", materia='" + materia + '\'' +
+                ", materiale='" + materiale + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", quantita_disp=" + quantita_disp +
                 '}';
@@ -125,7 +125,7 @@ public class Prodotto {
         if(p.getCategoria() == null || p.getCategoria().getNome() == null){
             canCU = false;
         }
-        if(p.getMateria() == null || p.getMateria().getNome() == null){
+        if(p.getMateriale() == null || p.getMateriale().getNome() == null){
             canCU = false;
         }
 

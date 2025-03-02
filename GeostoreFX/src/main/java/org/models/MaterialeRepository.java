@@ -2,7 +2,7 @@ package org.models;
 
 import org.services.DBConnection;
 import org.utility.Utility;
-import org.utility.crud.materieCRUD;
+import org.utility.crud.materialiCRUD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,14 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-public class MateriaRepository implements materieCRUD {
+public class MaterialeRepository implements materialiCRUD {
 
-    private HashMap<Integer, Materia> materie = new HashMap<>();
+    private HashMap<Integer, Materiale> materiali = new HashMap<>();
 
     //metodi override per operazioni CRUD con database
 
     @Override
-    public int insertMateriaWithDB(Integer id, Materia m) {
+    public int insertMaterialeWithDB(Integer id, Materiale m) {
         String sql = "INSERT INTO `materie`(`nome`) VALUES (?) ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -34,52 +34,52 @@ public class MateriaRepository implements materieCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel insertMateriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel insertMaterialeWithDB: " + e.getMessage());
         }
 
         return num;
     }
 
     @Override
-    public HashMap<Integer, Materia> getMaterieWithDB() {
+    public HashMap<Integer, Materiale> getMaterialiWithDB() {
         String sql = "SELECT * FROM Materie m";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
-        materie = new HashMap<>();
+        materiali = new HashMap<>();
 
         try{
             //Connessione al db
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
             rs = preparedStatement.executeQuery();
-            Materia mat;
+            Materiale mat;
 
             while(rs.next()){
-                mat = new Materia();
+                mat = new Materiale();
                 mat.setId(rs.getInt("id"));
                 mat.setNome(rs.getString("nome"));
 
-                materie.put(mat.getId(), mat);
+                materiali.put(mat.getId(), mat);
             }
             //chiudi la connessione
             rs.close();
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel getMaterieWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel getMaterialiWithDB: " + e.getMessage());
         }
 
-        return materie;
+        return materiali;
     }
 
     @Override
-    public Materia getMateriaWithDB(Integer id) {
+    public Materiale getMaterialeWithDB(Integer id) {
         String sql = "SELECT * FROM Materie m WHERE m.ID = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
-        Materia mat = null;
+        Materiale mat = null;
 
         try{
             //Connessione al db
@@ -89,7 +89,7 @@ public class MateriaRepository implements materieCRUD {
             rs = preparedStatement.executeQuery();
 
             while(rs.next()){
-                mat = new Materia();
+                mat = new Materiale();
                 mat.setId(rs.getInt("id"));
                 mat.setNome(rs.getString("nome"));
             }
@@ -98,13 +98,13 @@ public class MateriaRepository implements materieCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel getMateriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel getMaterialeWithDB: " + e.getMessage());
         }
         return mat;
     }
 
     @Override
-    public int updateMateriaWithDB(Integer id, Materia newM) {
+    public int updateMaterialeWithDB(Integer id, Materiale newM) {
         String sql = "UPDATE `materie` SET `nome` = ? WHERE id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -123,14 +123,14 @@ public class MateriaRepository implements materieCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel updateMateriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel updateMaterialeWithDB: " + e.getMessage());
         }
 
         return num;
     }
 
     @Override
-    public int deleteMateriaWithDB(Integer id) {
+    public int deleteMaterialeWithDB(Integer id) {
         String sql = "DELETE FROM `materie` WHERE id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -147,13 +147,13 @@ public class MateriaRepository implements materieCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel deleteMateriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel deleteMaterialeWithDB: " + e.getMessage());
         }
 
         return num;
     }
 
-    public int checkDuplicatesMateria(Materia m) {
+    public int checkDuplicatesMateriale(Materiale m) {
         String sql = "select count(*) as duplicates from materie m where nome = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -177,7 +177,7 @@ public class MateriaRepository implements materieCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel checkDuplicatesMateria: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel checkDuplicatesMateriale: " + e.getMessage());
         }
 
         return num;

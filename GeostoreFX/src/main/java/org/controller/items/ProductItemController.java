@@ -52,7 +52,7 @@ public class ProductItemController implements Initializable {
         price.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()) + " C");
         available.setText(prodotto.getDisponibilita().getCode());
         category.setText(prodotto.getCategoria().getNome());
-        material.setText(prodotto.getMateria().getNome());
+        material.setText(prodotto.getMateriale().getNome());
         quantity.setText(prodotto.getQuantita_disp().toString());
 
     }

@@ -31,7 +31,7 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.setBigDecimal(2, p.getPrezzo());
             preparedStatement.setInt(3, p.getDisponibilita().getId());
             preparedStatement.setInt(4, p.getCategoria().getId());
-            preparedStatement.setInt(5, p.getMateria().getId());
+            preparedStatement.setInt(5, p.getMateriale().getId());
             preparedStatement.setInt(6, p.getQuantita_disp());
 
             num = preparedStatement.executeUpdate();
@@ -76,10 +76,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -126,10 +126,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -177,10 +177,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -230,10 +230,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -243,13 +243,13 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel getProdottiViaCategoriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel getProdottiViaCategoriaByKeywordWithDB: " + e.getMessage());
         }
 
         return prodotti;
     }
 
-    public HashMap<Integer, Prodotto> getProdottiViaMateriaWithDB(Integer idMat) {
+    public HashMap<Integer, Prodotto> getProdottiViaMaterialeWithDB(Integer idMat) {
         String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materie m on(o.materia=m.id)\n" +
@@ -281,10 +281,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -294,13 +294,13 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel getProdottiViaMateriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel getProdottiViaMaterialeWithDB: " + e.getMessage());
         }
 
         return prodotti;
     }
 
-    public HashMap<Integer, Prodotto> getProdottiViaMateriaByKeywordWithDB(Integer idMat, String keyword) {
+    public HashMap<Integer, Prodotto> getProdottiViaMaterialeByKeywordWithDB(Integer idMat, String keyword) {
         String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materie m on(o.materia=m.id)\n" +
@@ -334,10 +334,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -347,7 +347,7 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel getProdottiViaMateriaWithDB: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel getProdottiViaMaterialeByKeywordWithDB: " + e.getMessage());
         }
 
         return prodotti;
@@ -383,10 +383,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
             }
             //chiudi la connessione
@@ -433,10 +433,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -481,10 +481,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
             }
             //chiudi la connessione
@@ -531,10 +531,10 @@ public class ProdottoRepository implements prodottiCRUD {
                 categoria.setId(rs.getInt("cat_id"));
                 categoria.setNome(rs.getString("cat_nome"));
                 prodotto.setCategoria(categoria);
-                Materia materia = new Materia();
-                materia.setId(rs.getInt("mat_id"));
-                materia.setNome(rs.getString("mat_nome"));
-                prodotto.setMateria(materia);
+                Materiale materiale = new Materiale();
+                materiale.setId(rs.getInt("mat_id"));
+                materiale.setNome(rs.getString("mat_nome"));
+                prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
                 prodotti.put(prodotto.getId(), prodotto);
@@ -567,7 +567,7 @@ public class ProdottoRepository implements prodottiCRUD {
             preparedStatement.setBigDecimal(2, newP.getPrezzo());
             preparedStatement.setInt(3, newP.getDisponibilita().getId());
             preparedStatement.setInt(4, newP.getCategoria().getId());
-            preparedStatement.setInt(5, newP.getMateria().getId());
+            preparedStatement.setInt(5, newP.getMateriale().getId());
             preparedStatement.setInt(6, newP.getQuantita_disp());
 
             preparedStatement.setInt(7, id);

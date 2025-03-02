@@ -16,10 +16,12 @@ import javafx.scene.text.TextAlignment;
 import org.controlsfx.control.PopOver;
 import org.models.*;
 import org.services.Service;
+import org.utility.Translater;
 
 import java.net.URL;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -127,11 +129,14 @@ public class CodeAssociateMaskController implements Initializable {
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
 
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
     @FXML
     private void showPopOver(MouseEvent event){
         if(popOver == null){ //controlla se è vuoto
             Label info = new Label(); // Crea un label
-            info.setText("CAMPO OBBLIGATORIO"); // Testo da visualizzare
+            info.setText(resLang.getString("popover.text")); // Testo da visualizzare
             info.setTextFill(Color.rgb(63, 81, 181));
             info.setFont(new Font("Press Start 2P", 9));
             info.setWrapText(true);

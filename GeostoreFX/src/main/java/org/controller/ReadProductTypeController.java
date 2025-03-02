@@ -72,13 +72,13 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
         this.itemScene = itemScene;
 
         Map<Integer, Categoria> categorie = new HashMap<>();
-        Map<Integer, Materia> materie = new HashMap<>();
+        Map<Integer, Materiale> materie = new HashMap<>();
 
         if(this.itemScene != null && this.itemScene.equals("category")) {//per vedere quale button riferisce
             categorie = service.ottieniCategorie();
         }
         else{
-            materie = service.ottieniMaterie();
+            materie = service.ottieniMateriali();
         }
 
         buttonList.getChildren().clear(); //pulisce prima di aggiungere
@@ -112,8 +112,8 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
             }
         }
         else{
-            for (Materia materia : materie.values()) {
-                if(materia.getId() != null && materia.getId() != 0){
+            for (Materiale materiale : materie.values()) {
+                if(materiale.getId() != null && materiale.getId() != 0){
                     try {
                         // Costruisce il percorso completo del file FXML
                         URL fileUrl = getClass().getResource("/org/scenes/items/materialButton.fxml"); //trova la scena pulsante material
@@ -125,7 +125,7 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
                         Button categoryButton = loader.load();
                         ProductTypeButtonController productTypeButtonController = loader.getController();
                         productTypeButtonController.save(fxmlLoader, user);
-                        productTypeButtonController.setMaterialValues(materia);
+                        productTypeButtonController.setMaterialValues(materiale);
                         productTypeButtonController.enableButtons();
                         buttonList.getChildren().add(categoryButton);
 

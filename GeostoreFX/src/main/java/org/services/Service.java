@@ -19,7 +19,7 @@ public class Service {
     CodiceRepository cor = new CodiceRepository();
     NewsRepository nr = new NewsRepository();
     CategoriaRepository cr = new CategoriaRepository();
-    MateriaRepository mr = new MateriaRepository();
+    MaterialeRepository mr = new MaterialeRepository();
     OrdineRepository or = new OrdineRepository();
     DisponibilitaRepository dr = new DisponibilitaRepository();
     StatusRepository sr = new StatusRepository();
@@ -502,12 +502,12 @@ public class Service {
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
-                if(!p.getMateria().equals(product.getMateria())){
+                if(!p.getMateriale().equals(product.getMateriale())){
                     notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("È stata modificata la materia del prodotto " + product.getNome() + " in un'altra categoria: da " + p.getCategoria().getNome() + " è stato spostato in " + product.getCategoria().getNome());
+                    notiziaCreazione.setTesto("È stato modificato il prodotto " + product.getNome() + " in un altro materiale: da " + p.getCategoria().getNome() + " è stato modificato in " + product.getCategoria().getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -1082,14 +1082,14 @@ public class Service {
         return pr.getProdottiViaCategoriaByKeywordWithDB(Integer.parseInt(IDCategoryKey), keyword);
     }
 
-    public void creazioneMateria(Materia material, Cliente user){
+    public void creazioneMateriale(Materiale material, Cliente user){
         int num = 0;
 
         if(material.checkNotNullMateria(material)){
-            num = mr.checkDuplicatesMateria(material);
+            num = mr.checkDuplicatesMateriale(material);
 
             if(num == 0){
-                num = mr.insertMateriaWithDB(material.getId(), material);
+                num = mr.insertMaterialeWithDB(material.getId(), material);
 
                 Utility.sendResponse(num, "MAT-C", user);
             }
@@ -1103,14 +1103,14 @@ public class Service {
 
     }
 
-    public void modificaMateria(Materia material, Cliente user){
+    public void modificaMateriale(Materiale material, Cliente user){
         int num = 0;
 
         if(material.checkNotNullMateria(material)) {
-            num = mr.checkDuplicatesMateria(material);
+            num = mr.checkDuplicatesMateriale(material);
 
             if(num == 0){
-                num = mr.updateMateriaWithDB(material.getId(), material);
+                num = mr.updateMaterialeWithDB(material.getId(), material);
 
                 Utility.sendResponse(num, "MAT-U", user);
             }
@@ -1124,8 +1124,8 @@ public class Service {
 
     }
 
-    public void eliminazioneMateria(String IDKey, Cliente user){
-        Materia material = mr.getMateriaWithDB(Integer.parseInt(IDKey));
+    public void eliminazioneMateriale(String IDKey, Cliente user){
+        Materiale material = mr.getMaterialeWithDB(Integer.parseInt(IDKey));
 
         int num = pr.updateIdBeforeDeleteMaterial(0, material.getId());
         if(num > 0){
@@ -1135,25 +1135,25 @@ public class Service {
             Utility.msgInf("GEOSTORE", "Prodotti non aggiornati\n");
         }
 
-        num = mr.deleteMateriaWithDB(material.getId());
+        num = mr.deleteMaterialeWithDB(material.getId());
 
         Utility.sendResponseDeletedMaterials(num, user);
     }
 
-    public HashMap<Integer, Materia> ottieniMaterie(){
-        return mr.getMaterieWithDB();
+    public HashMap<Integer, Materiale> ottieniMateriali(){
+        return mr.getMaterialiWithDB();
     }
 
-    public Materia ottieniMateria(Integer idMateria){
-        return mr.getMateriaWithDB(idMateria);
+    public Materiale ottieniMateriale(Integer idMateria){
+        return mr.getMaterialeWithDB(idMateria);
     }
 
-    public HashMap<Integer, Prodotto> prodottiViaMateria(String IDMaterialKey){
-        return pr.getProdottiViaMateriaWithDB(Integer.parseInt(IDMaterialKey));
+    public HashMap<Integer, Prodotto> prodottiViaMateriale(String IDMaterialKey){
+        return pr.getProdottiViaMaterialeWithDB(Integer.parseInt(IDMaterialKey));
     }
 
-    public Map<Integer, Prodotto> prodottiViaMateriaByKeyword(String IDMaterialKey, String keyword){
-        return pr.getProdottiViaMateriaByKeywordWithDB(Integer.parseInt(IDMaterialKey), keyword);
+    public Map<Integer, Prodotto> prodottiViaMaterialeByKeyword(String IDMaterialKey, String keyword){
+        return pr.getProdottiViaMaterialeByKeywordWithDB(Integer.parseInt(IDMaterialKey), keyword);
     }
 
     public HashMap<Integer, Disponibilita> ottieniDisponibilita(){

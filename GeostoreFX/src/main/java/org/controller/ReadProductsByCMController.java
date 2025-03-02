@@ -7,10 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.controller.items.NewsItemController;
-import org.controller.items.OrderItemController;
 import org.controller.items.ProductItemController;
-import org.controller.items.UserItemController;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
@@ -89,7 +86,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
                     prodotti = service.prodottiViaCategoriaByKeyword(typeKey, IDkey);
                 }
                 else{ //per prodotti via materia
-                    prodotti = service.prodottiViaMateriaByKeyword(typeKey, IDkey);
+                    prodotti = service.prodottiViaMaterialeByKeyword(typeKey, IDkey);
                 }
             }
 
@@ -105,7 +102,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
                     }
                 }
                 else{ //per prodotti via materia
-                    prodotti = service.prodottiViaMateria(IDkey);
+                    prodotti = service.prodottiViaMateriale(IDkey);
                     if(IDkey.matches(check)){
                         this.typeKey = IDkey;
                     }

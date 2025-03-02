@@ -2,7 +2,7 @@ package org.models;
 
 import java.util.Objects;
 
-public class Materia {
+public class Materiale {
     private Integer id = 0;
     private static Integer count=0;
     private String nome;
@@ -28,14 +28,14 @@ public class Materia {
         this.nome = nome;
     }
 
-    public Materia() {
+    public Materiale() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Materia ordine1 = (Materia) o;
+        Materiale ordine1 = (Materiale) o;
         return Objects.equals(id, ordine1.id) && Objects.equals(nome, ordine1.nome);
     }
 
@@ -44,7 +44,7 @@ public class Materia {
         return Objects.hash(id, nome);
     }
 
-    public Materia(Integer id, String nome) {
+    public Materiale(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -57,7 +57,7 @@ public class Materia {
                 '}';
     }
 
-    public boolean checkNotNullMateria(Materia m){
+    public boolean checkNotNullMateria(Materiale m){
         boolean canCU = true;
 
         if(m.getNome() == null || m.getNome().isEmpty() || m.getNome().isBlank()){
