@@ -17,6 +17,7 @@ import javafx.scene.text.TextAlignment;
 import org.controlsfx.control.PopOver;
 import org.models.Amministratore;
 import org.models.Cliente;
+import org.models.Codice;
 import org.models.Utente;
 import org.services.Service;
 import org.utility.Translater;
@@ -36,7 +37,7 @@ public class UserMaskController implements Initializable {
     @FXML
     private DatePicker bornDate;
     @FXML
-    private TextField name, surname, sex, address, phoneNumber, email, adminCode, wallet;
+    private TextField name, surname, gender, address, phoneNumber, email, adminCode, wallet;
     @FXML
     private PasswordField password;
 
@@ -62,7 +63,7 @@ public class UserMaskController implements Initializable {
 
         name.setText(utente.getNome());
         surname.setText(utente.getCognome());
-        sex.setText(utente.getSesso());
+        gender.setText(utente.getGenere());
         bornDate.setValue(LocalDate.of(anno, mese, giorno));
         address.setText(utente.getIndirizzo());
         phoneNumber.setText(utente.getTelefono());
@@ -71,7 +72,7 @@ public class UserMaskController implements Initializable {
             Amministratore admin = (Amministratore) utente;
             email.setText(admin.getEmail());
             password.setText(admin.getPassword());
-            adminCode.setText(admin.getCodeAdmin());
+            adminCode.setText(admin.getCodiceAdmin().getCodice());
             wallet.setText(Utility.formatValueBigDecimal(admin.getPortafoglio()));
         }
         else{
@@ -92,10 +93,12 @@ public class UserMaskController implements Initializable {
         if(adminCode != null && adminCode.getText() != null && !adminCode.getText().isEmpty() && !adminCode.getText().isBlank()){
             cliente = new Amministratore();
             Amministratore admin = (Amministratore) cliente;
-            admin.setCodeAdmin(adminCode.getText().toUpperCase());
+            Codice codice = new Codice();
+            codice.setCodice(adminCode.getText().toUpperCase());
+            admin.setCodeAdmin(codice);
             admin.setNome(Utility.getStringFirstLetterMaiusc(name.getText()));
             admin.setCognome(Utility.getStringFirstLetterMaiusc(surname.getText()));
-            admin.setSesso(sex.getText().toUpperCase());
+            admin.setGenere(gender.getText().toUpperCase());
             if(admin.checkCorrectBornDate(bornDate.getEditor().getText())){
                 admin.setDataNascita(Date.valueOf(bornDate.getValue()));
             }
@@ -117,7 +120,7 @@ public class UserMaskController implements Initializable {
             cliente = new Cliente();
             cliente.setNome(Utility.getStringFirstLetterMaiusc(name.getText()));
             cliente.setCognome(Utility.getStringFirstLetterMaiusc(surname.getText()));
-            cliente.setSesso(sex.getText().toUpperCase());
+            cliente.setGenere(gender.getText().toUpperCase());
             if(cliente.checkCorrectBornDate(bornDate.getEditor().getText())){
                 cliente.setDataNascita(Date.valueOf(bornDate.getValue()));
             }
@@ -144,10 +147,12 @@ public class UserMaskController implements Initializable {
             cliente = new Amministratore();
             Amministratore admin = (Amministratore) cliente;
             admin.setId(Integer.parseInt(IDkey));
-            admin.setCodeAdmin(adminCode.getText().toUpperCase());
+            Codice codice = new Codice();
+            codice.setCodice(adminCode.getText().toUpperCase());
+            admin.setCodeAdmin(codice);
             admin.setNome(Utility.getStringFirstLetterMaiusc(name.getText()));
             admin.setCognome(Utility.getStringFirstLetterMaiusc(surname.getText()));
-            admin.setSesso(sex.getText().toUpperCase());
+            admin.setGenere(gender.getText().toUpperCase());
             if(admin.checkCorrectBornDate(bornDate.getEditor().getText())){
                 admin.setDataNascita(Date.valueOf(bornDate.getValue()));
             }
@@ -170,7 +175,7 @@ public class UserMaskController implements Initializable {
             cliente.setId(Integer.parseInt(IDkey));
             cliente.setNome(Utility.getStringFirstLetterMaiusc(name.getText()));
             cliente.setCognome(Utility.getStringFirstLetterMaiusc(surname.getText()));
-            cliente.setSesso(sex.getText().toUpperCase());
+            cliente.setGenere(gender.getText().toUpperCase());
             if(cliente.checkCorrectBornDate(bornDate.getEditor().getText())){
                 cliente.setDataNascita(Date.valueOf(bornDate.getValue()));
             }
@@ -247,7 +252,7 @@ public class UserMaskController implements Initializable {
     }
 
     @FXML
-    private void showPopOverSex(MouseEvent event){
+    private void showPopOverGender(MouseEvent event){
         if(popOver == null){ //controlla se è vuoto
             Label info = new Label(); // Crea un label
             info.setText(resLang.getString("popover.text")); // Testo da visualizzare
@@ -257,7 +262,7 @@ public class UserMaskController implements Initializable {
             info.setTextAlignment(TextAlignment.CENTER);
 
             Label info2 = new Label(); // Crea un label
-            info2.setText(resLang.getString("popover.sex")); // Testo da visualizzare
+            info2.setText(resLang.getString("popover.gender")); // Testo da visualizzare
             info2.setTextFill(Color.rgb(63, 81, 181));
             info2.setFont(new Font("Press Start 2P", 8));
             info2.setWrapText(true);

@@ -41,7 +41,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
             user = admin;
-            isAdmin = admin.getCodeAdmin();
+            isAdmin = admin.getCodiceAdmin().getCodice();
         }
         else{
             user = utente;

@@ -16,7 +16,7 @@ public class UtenteRepository implements utentiCRUD {
 
     @Override
     public int insertUtenteWithDB(Integer id, Utente u) {
-        String sql = "INSERT INTO `utenti`(`nome`, `cognome`, `sesso`, `data_nascita`, `email`, `password`, `telefono`, `indirizzo`, `portafoglio`, `codice_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO `utenti`(`nome`, `cognome`, `genere`, `data_nascita`, `email`, `password`, `telefono`, `indirizzo`, `portafoglio`, `codice_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -29,7 +29,7 @@ public class UtenteRepository implements utentiCRUD {
 
             preparedStatement.setString(1, u.getNome());
             preparedStatement.setString(2, u.getCognome());
-            preparedStatement.setString(3, u.getSesso());
+            preparedStatement.setString(3, u.getGenere());
             preparedStatement.setDate(4, u.getDataNascita());
             preparedStatement.setString(7, u.getTelefono());
             preparedStatement.setString(8, u.getIndirizzo());
@@ -39,7 +39,7 @@ public class UtenteRepository implements utentiCRUD {
                 preparedStatement.setString(5, a.getEmail());
                 preparedStatement.setString(6, a.getPassword());
                 preparedStatement.setBigDecimal(9, a.getPortafoglio());
-                preparedStatement.setString(10, a.getCodeAdmin());
+                preparedStatement.setString(10, a.getCodiceAdmin().getCodice());
             }
             else if(u instanceof Cliente){
                 Cliente c = (Cliente) u;
@@ -90,13 +90,15 @@ public class UtenteRepository implements utentiCRUD {
                     foundAm.setId(rs.getInt("id"));
                     foundAm.setNome(rs.getString("nome"));
                     foundAm.setCognome(rs.getString("cognome"));
-                    foundAm.setSesso(rs.getString("sesso"));
+                    foundAm.setGenere(rs.getString("genere"));
                     foundAm.setDataNascita(rs.getDate("data_nascita"));
                     foundAm.setEmail(rs.getString("email"));
                     foundAm.setPassword(rs.getString("password"));
                     foundAm.setIndirizzo(rs.getString("indirizzo"));
                     foundAm.setTelefono(rs.getString("telefono"));
-                    foundAm.setCodeAdmin(rs.getString("codice"));
+                    Codice codice = new Codice();
+                    codice.setCodice(rs.getString("codice"));
+                    foundAm.setCodeAdmin(codice);
                     foundAm.setPortafoglio(rs.getBigDecimal("portafoglio"));
                     ut = foundAm;
                 }
@@ -105,7 +107,7 @@ public class UtenteRepository implements utentiCRUD {
                     foundCl.setId(rs.getInt("id"));
                     foundCl.setNome(rs.getString("nome"));
                     foundCl.setCognome(rs.getString("cognome"));
-                    foundCl.setSesso(rs.getString("sesso"));
+                    foundCl.setGenere(rs.getString("genere"));
                     foundCl.setDataNascita(rs.getDate("data_nascita"));
                     foundCl.setEmail(rs.getString("email"));
                     foundCl.setPassword(rs.getString("password"));
@@ -157,13 +159,15 @@ public class UtenteRepository implements utentiCRUD {
                     foundAdmin.setId(rs.getInt("id"));
                     foundAdmin.setNome(rs.getString("nome"));
                     foundAdmin.setCognome(rs.getString("cognome"));
-                    foundAdmin.setSesso(rs.getString("sesso"));
+                    foundAdmin.setGenere(rs.getString("genere"));
                     foundAdmin.setDataNascita(rs.getDate("data_nascita"));
                     foundAdmin.setEmail(rs.getString("email"));
                     foundAdmin.setPassword(rs.getString("password"));
                     foundAdmin.setIndirizzo(rs.getString("indirizzo"));
                     foundAdmin.setTelefono(rs.getString("telefono"));
-                    foundAdmin.setCodeAdmin(rs.getString("codice"));
+                    Codice codice = new Codice();
+                    codice.setCodice(rs.getString("codice"));
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio"));
                     utente = foundAdmin;
                 }
@@ -172,7 +176,7 @@ public class UtenteRepository implements utentiCRUD {
                     foundCliente.setId(rs.getInt("id"));
                     foundCliente.setNome(rs.getString("nome"));
                     foundCliente.setCognome(rs.getString("cognome"));
-                    foundCliente.setSesso(rs.getString("sesso"));
+                    foundCliente.setGenere(rs.getString("genere"));
                     foundCliente.setDataNascita(rs.getDate("data_nascita"));
                     foundCliente.setEmail(rs.getString("email"));
                     foundCliente.setPassword(rs.getString("password"));
@@ -224,13 +228,15 @@ public class UtenteRepository implements utentiCRUD {
                     foundAm.setId(rs.getInt("id"));
                     foundAm.setNome(rs.getString("nome"));
                     foundAm.setCognome(rs.getString("cognome"));
-                    foundAm.setSesso(rs.getString("sesso"));
+                    foundAm.setGenere(rs.getString("genere"));
                     foundAm.setDataNascita(rs.getDate("data_nascita"));
                     foundAm.setEmail(rs.getString("email"));
                     foundAm.setPassword(rs.getString("password"));
                     foundAm.setIndirizzo(rs.getString("indirizzo"));
                     foundAm.setTelefono(rs.getString("telefono"));
-                    foundAm.setCodeAdmin(rs.getString("codice"));
+                    Codice codice = new Codice();
+                    codice.setCodice(rs.getString("codice"));
+                    foundAm.setCodeAdmin(codice);
                     foundAm.setPortafoglio(rs.getBigDecimal("portafoglio"));
                     ut = foundAm;
                 }
@@ -239,7 +245,7 @@ public class UtenteRepository implements utentiCRUD {
                     foundCl.setId(rs.getInt("id"));
                     foundCl.setNome(rs.getString("nome"));
                     foundCl.setCognome(rs.getString("cognome"));
-                    foundCl.setSesso(rs.getString("sesso"));
+                    foundCl.setGenere(rs.getString("genere"));
                     foundCl.setDataNascita(rs.getDate("data_nascita"));
                     foundCl.setEmail(rs.getString("email"));
                     foundCl.setPassword(rs.getString("password"));
@@ -291,7 +297,7 @@ public class UtenteRepository implements utentiCRUD {
                 foundCliente.setId(rs.getInt("id"));
                 foundCliente.setNome(rs.getString("nome"));
                 foundCliente.setCognome(rs.getString("cognome"));
-                foundCliente.setSesso(rs.getString("sesso"));
+                foundCliente.setGenere(rs.getString("genere"));
                 foundCliente.setDataNascita(rs.getDate("data_nascita"));
                 foundCliente.setEmail(rs.getString("email"));
                 foundCliente.setPassword(rs.getString("password"));
@@ -355,13 +361,15 @@ public class UtenteRepository implements utentiCRUD {
                 foundAdmin.setId(rs.getInt("id"));
                 foundAdmin.setNome(rs.getString("nome"));
                 foundAdmin.setCognome(rs.getString("cognome"));
-                foundAdmin.setSesso(rs.getString("sesso"));
+                foundAdmin.setGenere(rs.getString("genere"));
                 foundAdmin.setDataNascita(rs.getDate("data_nascita"));
                 foundAdmin.setEmail(rs.getString("email"));
                 foundAdmin.setPassword(rs.getString("password"));
                 foundAdmin.setIndirizzo(rs.getString("indirizzo"));
                 foundAdmin.setTelefono(rs.getString("telefono"));
-                foundAdmin.setCodeAdmin(rs.getString("codice"));
+                Codice codice = new Codice();
+                codice.setCodice(rs.getString("codice"));
+                foundAdmin.setCodeAdmin(codice);
                 foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio"));
             }
             //chiudi la connessione
@@ -377,7 +385,7 @@ public class UtenteRepository implements utentiCRUD {
 
     @Override
     public int updateUtenteWithDB(Integer id, Utente newU) {
-        String sql = "UPDATE `utenti` SET `nome` = ?, `cognome` = ?, `sesso` = ?, `data_nascita` = ?, `email` = ?, `password` = ?, `telefono` = ?, `indirizzo` = ?, `codice_id` = ?, `portafoglio` = ? WHERE id = ? ";
+        String sql = "UPDATE `utenti` SET `nome` = ?, `cognome` = ?, `genere` = ?, `data_nascita` = ?, `email` = ?, `password` = ?, `telefono` = ?, `indirizzo` = ?, `codice_id` = ?, `portafoglio` = ? WHERE id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -390,7 +398,7 @@ public class UtenteRepository implements utentiCRUD {
 
             preparedStatement.setString(1, newU.getNome());
             preparedStatement.setString(2, newU.getCognome());
-            preparedStatement.setString(3, newU.getSesso());
+            preparedStatement.setString(3, newU.getGenere());
             preparedStatement.setDate(4, newU.getDataNascita());
             preparedStatement.setString(7, newU.getTelefono());
             preparedStatement.setString(8, newU.getIndirizzo());
@@ -399,7 +407,7 @@ public class UtenteRepository implements utentiCRUD {
                 Amministratore newA = (Amministratore) newU;
                 preparedStatement.setString(5, newA.getEmail());
                 preparedStatement.setString(6, newA.getPassword());
-                preparedStatement.setString(9, newA.getCodeAdmin());
+                preparedStatement.setString(9, newA.getCodiceAdmin().getCodice());
                 preparedStatement.setBigDecimal(10, newA.getPortafoglio());
             }
             else if(newU instanceof Cliente){
@@ -488,17 +496,17 @@ public class UtenteRepository implements utentiCRUD {
 
         if(u instanceof Amministratore){
             Amministratore a = (Amministratore) u;
-            adminCode = a.getCodeAdmin();
+            adminCode = a.getCodiceAdmin().getCodice();
         }
         else {
             adminCode = null;
         }
 
         if(adminCode != null){
-            sql = "select count(*) as duplicates from utenti u where nome = ? and cognome = ? and sesso = ? and email = ? and password = ? and telefono = ? and indirizzo = ? and codice_id = ?";
+            sql = "select count(*) as duplicates from utenti u where nome = ? and cognome = ? and genere = ? and email = ? and password = ? and telefono = ? and indirizzo = ? and codice_id = ?";
         }
         else{
-            sql = "select count(*) as duplicates from utenti u where nome = ? and cognome = ? and sesso = ? and email = ? and password = ? and telefono = ? and indirizzo = ?";
+            sql = "select count(*) as duplicates from utenti u where nome = ? and cognome = ? and genere = ? and email = ? and password = ? and telefono = ? and indirizzo = ?";
         }
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -512,7 +520,7 @@ public class UtenteRepository implements utentiCRUD {
 
             preparedStatement.setString(1, u.getNome());
             preparedStatement.setString(2, u.getCognome());
-            preparedStatement.setString(3, u.getSesso());
+            preparedStatement.setString(3, u.getGenere());
             preparedStatement.setString(6, u.getTelefono());
             preparedStatement.setString(7, u.getIndirizzo());
 
@@ -520,7 +528,7 @@ public class UtenteRepository implements utentiCRUD {
                 Amministratore a = (Amministratore) u;
                 preparedStatement.setString(4, a.getEmail());
                 preparedStatement.setString(5, a.getPassword());
-                preparedStatement.setString(8, a.getCodeAdmin());
+                preparedStatement.setString(8, a.getCodiceAdmin().getCodice());
             }
             else if(u instanceof Cliente){
                 Cliente c = (Cliente) u;

@@ -50,8 +50,8 @@ public class Cliente extends Utente {
         return Objects.hash(email, password, portafoglio);
     }
 
-    public Cliente(Integer id, String nome, String cognome, String sesso, Date dataNascita, String telefono, String indirizzo, String email, String password, BigDecimal portafoglio) {
-        super(id, nome, cognome, sesso, dataNascita, telefono, indirizzo);
+    public Cliente(Integer id, String nome, String cognome, String genere, Date dataNascita, String telefono, String indirizzo, String email, String password, BigDecimal portafoglio) {
+        super(id, nome, cognome, genere, dataNascita, telefono, indirizzo);
         this.email = email;
         this.password = password;
         this.portafoglio = portafoglio;

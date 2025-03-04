@@ -9,7 +9,7 @@ public class Utente {
     private static Integer count=0;
     private String nome;
     private String cognome;
-    private String sesso;
+    private String genere;
     private Date dataNascita;
     private String telefono;
     private String indirizzo;
@@ -43,12 +43,12 @@ public class Utente {
         this.cognome = cognome;
     }
 
-    public String getSesso() {
-        return sesso;
+    public String getGenere() {
+        return genere;
     }
 
-    public void setSesso(String sesso) {
-        this.sesso = sesso;
+    public void setGenere(String genere) {
+        this.genere = genere;
     }
 
     public Date getDataNascita() {
@@ -83,19 +83,19 @@ public class Utente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Utente cliente = (Utente) o;
-        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(cognome, cliente.cognome) && Objects.equals(sesso, cliente.sesso) && Objects.equals(dataNascita, cliente.dataNascita) && Objects.equals(telefono, cliente.telefono) && Objects.equals(indirizzo, cliente.indirizzo);
+        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(cognome, cliente.cognome) && Objects.equals(genere, cliente.genere) && Objects.equals(dataNascita, cliente.dataNascita) && Objects.equals(telefono, cliente.telefono) && Objects.equals(indirizzo, cliente.indirizzo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, cognome, sesso, dataNascita, telefono, indirizzo);
+        return Objects.hash(id, nome, cognome, genere, dataNascita, telefono, indirizzo);
     }
 
-    public Utente(Integer id, String nome, String cognome, String sesso, Date dataNascita, String telefono, String indirizzo) {
+    public Utente(Integer id, String nome, String cognome, String genere, Date dataNascita, String telefono, String indirizzo) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
-        this.sesso = sesso;
+        this.genere = genere;
         this.dataNascita = dataNascita;
         this.telefono = telefono;
         this.indirizzo = indirizzo;
@@ -107,7 +107,7 @@ public class Utente {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
-                ", sesso='" + sesso + '\'' +
+                ", genere='" + genere + '\'' +
                 ", dataNascita='" + dataNascita + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", indirizzo='" + indirizzo + '\'' +
@@ -123,13 +123,13 @@ public class Utente {
         if(u.getCognome() == null || u.getCognome().isEmpty() || u.getCognome().isBlank()){
             canCU = false;
         }
-        if(u.getSesso() == null || u.getSesso().isEmpty() || u.getSesso().isBlank()){
+        if(u.getGenere() == null || u.getGenere().isEmpty() || u.getGenere().isBlank()){
             canCU = false;
         }
-        else if(u.getSesso().length() != 1){
+        else if(u.getGenere().length() != 1){
             canCU = false;
         }
-        else if(!u.getSesso().equals("M") || !u.getSesso().equals("F") || !u.getSesso().equals("P") || !u.getSesso().equals("N")){
+        else if(!u.getGenere().equals("M") && !u.getGenere().equals("F") && !u.getGenere().equals("P") && !u.getGenere().equals("N")){
             canCU = false;
         }
 
@@ -215,10 +215,10 @@ public class Utente {
 
         regex = "^GS[A-Z]\\d{3}$";
 
-        if(a.getCodeAdmin() == null || a.getCodeAdmin().isEmpty() || a.getCodeAdmin().isBlank()){
+        if(a.getCodiceAdmin().getCodice() == null || a.getCodiceAdmin().getCodice().isEmpty() || a.getCodiceAdmin().getCodice().isBlank()){
             canCU = false;
         }
-        else if(!Pattern.matches(regex, a.getCodeAdmin())){
+        else if(!Pattern.matches(regex, a.getCodiceAdmin().getCodice())){
             canCU = false;
         }
 

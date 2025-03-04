@@ -67,8 +67,8 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Label styleClass="label-font" text="%access.sex" textFill="WHITE" wrapText="true" />
-                              <TextField fx:id="sex" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverSex" onMouseExited="#hidePopOver" styleClass="label-font" />
+                              <Label styleClass="label-font" text="%access.gender" textFill="WHITE" wrapText="true" />
+                              <TextField fx:id="gender" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverGender" onMouseExited="#hidePopOver" styleClass="label-font" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
@@ -122,7 +122,7 @@
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                            <children>
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%access.code" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
-                              <TextField fx:id="codeAdmin" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font" />
+                              <TextField fx:id="adminCode" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font" />
                            </children>
                         </HBox>
                      </children>

@@ -18,6 +18,7 @@ import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
 import org.models.Amministratore;
 import org.models.Cliente;
+import org.models.Codice;
 import org.models.UtenteRepository;
 import org.services.LoadPage;
 import org.services.Service;
@@ -29,7 +30,7 @@ import java.util.ResourceBundle;
 
 public class AccessController {
     @FXML
-    private TextField name, surname, sex, phoneNumber, address, email, codeAdmin;
+    private TextField name, surname, gender, phoneNumber, address, email, adminCode;
 
     @FXML
     private PasswordField password, confirmPassword;
@@ -83,12 +84,12 @@ public class AccessController {
             delay.play();
         }
         else{
-            if(codeAdmin != null && codeAdmin.getText() != null && !codeAdmin.getText().isEmpty() && !codeAdmin.getText().isBlank()){
+            if(adminCode != null && adminCode.getText() != null && !adminCode.getText().isEmpty() && !adminCode.getText().isBlank()){
                 user = new Amministratore();
                 Amministratore admin = (Amministratore) user;
                 admin.setNome(Utility.getStringFirstLetterMaiusc(name.getText()));
                 admin.setCognome(Utility.getStringFirstLetterMaiusc(surname.getText()));
-                admin.setSesso(sex.getText().toUpperCase());
+                admin.setGenere(gender.getText().toUpperCase());
                 if(admin.checkCorrectBornDate(bornDate.getEditor().getText())){
                     admin.setDataNascita(Date.valueOf(bornDate.getValue()));
                 }
@@ -100,14 +101,16 @@ public class AccessController {
                 admin.setEmail(email.getText().toLowerCase());
                 admin.setPassword(password.getText());
                 admin.setPortafoglio(Utility.insertBigDecimal("50"));
-                admin.setCodeAdmin(codeAdmin.getText().toUpperCase());
+                Codice codice = new Codice();
+                codice.setCodice(adminCode.getText().toUpperCase());
+                admin.setCodeAdmin(codice);
                 user = admin;
             }
             else{
                 user = new Cliente();
                 user.setNome(Utility.getStringFirstLetterMaiusc(name.getText()));
                 user.setCognome(Utility.getStringFirstLetterMaiusc(surname.getText()));
-                user.setSesso(sex.getText().toUpperCase());
+                user.setGenere(gender.getText().toUpperCase());
                 if(user.checkCorrectBornDate(bornDate.getEditor().getText())){
                     user.setDataNascita(Date.valueOf(bornDate.getValue()));
                 }
@@ -135,12 +138,14 @@ public class AccessController {
         Cliente user;
         service = new Service();
 
-        if(codeAdmin != null && codeAdmin.getText() != null && !codeAdmin.getText().isEmpty() && !codeAdmin.getText().isBlank()){
+        if(adminCode != null && adminCode.getText() != null && !adminCode.getText().isEmpty() && !adminCode.getText().isBlank()){
             user = new Amministratore();
             Amministratore admin = (Amministratore) user;
             admin.setEmail(email.getText().toLowerCase());
             admin.setPassword(password.getText());
-            admin.setCodeAdmin(codeAdmin.getText().toUpperCase());
+            Codice codice = new Codice();
+            codice.setCodice(adminCode.getText().toUpperCase());
+            admin.setCodeAdmin(codice);
             user = admin;
         }
         else{
@@ -190,7 +195,7 @@ public class AccessController {
     }
 
     @FXML
-    private void showPopOverSex(MouseEvent event){
+    private void showPopOverGender(MouseEvent event){
 
         Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
@@ -204,7 +209,7 @@ public class AccessController {
             info.setTextAlignment(TextAlignment.CENTER);
 
             Label info2 = new Label(); // Crea un label
-            info2.setText(resLang.getString("popover.sex")); // Testo da visualizzare
+            info2.setText(resLang.getString("popover.gender")); // Testo da visualizzare
             info2.setTextFill(Color.rgb(35, 82, 164));
             info2.setFont(new Font("Press Start 2P", 8));
             info2.setWrapText(true);

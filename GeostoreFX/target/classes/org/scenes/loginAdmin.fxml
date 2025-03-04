@@ -69,7 +69,7 @@
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="91.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                            <children>
                               <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%access.code" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
-                              <TextField fx:id="codeAdmin" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverCode" onMouseExited="#hidePopOver" styleClass="label-font" />
+                              <TextField fx:id="adminCode" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverCode" onMouseExited="#hidePopOver" styleClass="label-font" />
                            </children>
                         </HBox>
                      </children>

@@ -43,7 +43,7 @@ public class OrdineRepository implements ordiniCRUD {
 
     @Override
     public HashMap<Integer, Ordine> getOrdiniWithDB() {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id ) \n" +
@@ -77,10 +77,13 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
+                    foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
                     foundUtente = foundAdmin;
@@ -90,7 +93,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));
@@ -128,7 +131,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByEmailWithDB(String email) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id )\n" +
@@ -165,9 +168,11 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
@@ -178,7 +183,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));
@@ -216,7 +221,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByUserWithDB(Integer idUtente) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id = og.id )\n" +
@@ -251,9 +256,11 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
@@ -264,7 +271,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));
@@ -302,7 +309,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByUserAndKeywordWithDB(Integer idUtente, String keyword) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id )\n" +
@@ -339,9 +346,11 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
@@ -352,7 +361,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));
@@ -390,7 +399,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByProductWithDB(Integer idProdotto) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id = og.id )\n" +
@@ -425,9 +434,11 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
@@ -438,7 +449,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));
@@ -476,7 +487,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public Ordine getOrdineByUserWithDB(Integer idUtente, Integer idOrdine) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id=og.id)\n" +
@@ -511,9 +522,11 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
@@ -524,7 +537,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));
@@ -561,7 +574,7 @@ public class OrdineRepository implements ordiniCRUD {
 
     @Override
     public Ordine getOrdineWithDB(Integer id) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.sesso AS sesso_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id=og.id)\n" +
@@ -595,9 +608,11 @@ public class OrdineRepository implements ordiniCRUD {
                     foundAdmin.setId(rs.getInt("id_utente"));
                     foundAdmin.setNome(rs.getString("nome_utente"));
                     foundAdmin.setCognome(rs.getString("cognome_utente"));
-                    foundAdmin.setSesso(rs.getString("sesso_utente"));
+                    foundAdmin.setGenere(rs.getString("genere_utente"));
                     foundAdmin.setDataNascita(rs.getDate("dataNascita_utente"));
-                    foundAdmin.setCodeAdmin(codeAdmin);
+                    Codice codice = new Codice();
+                    codice.setCodice(codeAdmin);
+                    foundAdmin.setCodeAdmin(codice);
                     foundAdmin.setEmail(rs.getString("email_utente"));
                     foundAdmin.setTelefono(rs.getString("telefono_utente"));
                     foundAdmin.setPortafoglio(rs.getBigDecimal("portafoglio_utente"));
@@ -608,7 +623,7 @@ public class OrdineRepository implements ordiniCRUD {
                     foundCliente.setId(rs.getInt("id_utente"));
                     foundCliente.setNome(rs.getString("nome_utente"));
                     foundCliente.setCognome(rs.getString("cognome_utente"));
-                    foundCliente.setSesso(rs.getString("sesso_utente"));
+                    foundCliente.setGenere(rs.getString("genere_utente"));
                     foundCliente.setDataNascita(rs.getDate("dataNascita_utente"));
                     foundCliente.setEmail(rs.getString("email_utente"));
                     foundCliente.setTelefono(rs.getString("telefono_utente"));

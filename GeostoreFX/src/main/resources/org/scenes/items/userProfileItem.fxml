@@ -40,8 +40,8 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="26.0" prefWidth="89.0" styleClass="label-font" text="%item.user.sex" wrapText="true" textFill="#0495cd"/>
-                        <Label fx:id="sex" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="X" wrapText="true" textFill="#03A8E8">
+                        <Label prefHeight="26.0" prefWidth="89.0" styleClass="label-font" text="%item.user.gender" wrapText="true" textFill="#0495cd"/>
+                        <Label fx:id="gender" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="X" wrapText="true" textFill="#03A8E8">
                            <HBox.margin>
                               <Insets left="7.0" />
                            </HBox.margin>

@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class UserItemController implements Initializable {
 
     @FXML
-    private Label id, name, surname, sex, bornDate, phoneNumber, address, email, password, adminCode, wallet;
+    private Label id, name, surname, gender, bornDate, phoneNumber, address, email, password, adminCode, wallet;
     @FXML
     private Button update, delete;
 
@@ -36,10 +36,10 @@ public class UserItemController implements Initializable {
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
             user = admin;
-            isAdmin = admin.getCodeAdmin() != null && !admin.getCodeAdmin().isEmpty() && !admin.getCodeAdmin().isBlank() &&
-                    (admin.getCodeAdmin().contains("A")
-                    || admin.getCodeAdmin().contains("U")
-                    || admin.getCodeAdmin().contains("N"));
+            isAdmin = admin.getCodiceAdmin().getCodice() != null && !admin.getCodiceAdmin().getCodice().isEmpty() && !admin.getCodiceAdmin().getCodice().isBlank() &&
+                    (admin.getCodiceAdmin().getCodice().contains("A")
+                    || admin.getCodiceAdmin().getCodice().contains("U")
+                    || admin.getCodiceAdmin().getCodice().contains("N"));
         }
         else{
             user = utente;
@@ -67,13 +67,13 @@ public class UserItemController implements Initializable {
             }
             name.setText(admin.getNome());
             surname.setText(admin.getCognome());
-            sex.setText(admin.getSesso());
+            gender.setText(admin.getGenere());
             bornDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
             phoneNumber.setText(admin.getTelefono());
             address.setText(admin.getIndirizzo());
             email.setText(admin.getEmail());
             password.setText(admin.getPassword());
-            adminCode.setText(admin.getCodeAdmin());
+            adminCode.setText(admin.getCodiceAdmin().getCodice());
             wallet.setText(admin.getPortafoglio().toString()+" C");
         }
         else{
@@ -83,7 +83,7 @@ public class UserItemController implements Initializable {
             }
             name.setText(cliente.getNome());
             surname.setText(cliente.getCognome());
-            sex.setText(cliente.getSesso());
+            gender.setText(cliente.getGenere());
             bornDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
             phoneNumber.setText(cliente.getTelefono());
             address.setText(cliente.getIndirizzo());

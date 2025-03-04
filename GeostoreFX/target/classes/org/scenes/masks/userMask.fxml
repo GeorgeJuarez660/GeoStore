@@ -44,12 +44,12 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label styleClass="label-font-min2-title" text="%mask.user.sex" textFill="WHITE" wrapText="true">
+                        <Label styleClass="label-font-min2-title" text="%mask.user.gender" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="sex" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverSex" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="gender" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverGender" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>

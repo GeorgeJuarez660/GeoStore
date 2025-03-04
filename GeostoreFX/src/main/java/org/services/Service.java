@@ -45,9 +45,9 @@ public class Service {
             boolean checkNN = user.checkNotNullLoginAdmin(admin);
 
             if(checkNN){
-                admin = ur.checkAdmin(admin.getEmail(), admin.getPassword(), admin.getCodeAdmin());
+                admin = ur.checkAdmin(admin.getEmail(), admin.getPassword(), admin.getCodiceAdmin().getCodice());
 
-                if(admin.getEmail() != null && admin.getCodeAdmin() != null){
+                if(admin.getEmail() != null && admin.getCodiceAdmin().getCodice() != null){
                     num = 1;
                 }
                 user = admin;
@@ -82,9 +82,11 @@ public class Service {
 
         if(checkNN){
             if(user instanceof Amministratore){
+                Codice codice = new Codice();
                 Amministratore admin = (Amministratore) user;
-                num = cor.getIDIfExistCode(admin.getCodeAdmin());
-                admin.setCodeAdmin(String.valueOf(num));
+                num = cor.getIDIfExistCode(admin.getCodiceAdmin().getCodice());
+                codice.setCodice(String.valueOf(num));
+                admin.setCodeAdmin(codice);
             }
             else{
                 num = 1;
@@ -117,9 +119,11 @@ public class Service {
 
         if(checkNN){
             if(user instanceof Amministratore){
+                Codice codice = new Codice();
                 Amministratore admin = (Amministratore) user;
-                num = cor.getIDIfExistCode(admin.getCodeAdmin());
-                admin.setCodeAdmin(String.valueOf(num));
+                num = cor.getIDIfExistCode(admin.getCodiceAdmin().getCodice());
+                codice.setCodice(String.valueOf(num));
+                admin.setCodeAdmin(codice);
             }
             else{
                 num = 1;
@@ -159,9 +163,11 @@ public class Service {
 
         if(checkNN) {
             if(u instanceof Amministratore){
+                Codice codice = new Codice();
                 Amministratore admin = (Amministratore) u;
-                num = cor.getIDIfExistCode(admin.getCodeAdmin());
-                admin.setCodeAdmin(String.valueOf(num));
+                num = cor.getIDIfExistCode(admin.getCodiceAdmin().getCodice());
+                codice.setCodice(String.valueOf(num));
+                admin.setCodeAdmin(codice);
             }
             else{
                 num = 1;

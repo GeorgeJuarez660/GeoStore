@@ -42,7 +42,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
             user = admin;
-            isAdmin = admin.getCodeAdmin() != null && !admin.getCodeAdmin().isEmpty() && !admin.getCodeAdmin().isBlank();
+            isAdmin = admin.getCodiceAdmin().getCodice() != null && !admin.getCodiceAdmin().getCodice().isEmpty() && !admin.getCodiceAdmin().getCodice().isBlank();
         }
         else{
             user = utente;

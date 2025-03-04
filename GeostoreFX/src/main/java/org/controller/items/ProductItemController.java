@@ -32,10 +32,10 @@ public class ProductItemController implements Initializable {
         if(utente instanceof Amministratore){
             Amministratore admin = (Amministratore) utente;
             user = admin;
-            isAdmin = admin.getCodeAdmin() != null && !admin.getCodeAdmin().isEmpty() && !admin.getCodeAdmin().isBlank() &&
-                    (admin.getCodeAdmin().contains("A")
-                    || admin.getCodeAdmin().contains("P")
-                    || admin.getCodeAdmin().contains("Q"));
+            isAdmin = admin.getCodiceAdmin().getCodice() != null && !admin.getCodiceAdmin().getCodice().isEmpty() && !admin.getCodiceAdmin().getCodice().isBlank() &&
+                    (admin.getCodiceAdmin().getCodice().contains("A")
+                    || admin.getCodiceAdmin().getCodice().contains("P")
+                    || admin.getCodiceAdmin().getCodice().contains("Q"));
         }
         else{
             user = utente;
