@@ -18,7 +18,7 @@ public class MaterialeRepository implements materialiCRUD {
 
     @Override
     public int insertMaterialeWithDB(Integer id, Materiale m) {
-        String sql = "INSERT INTO `materie`(`nome`) VALUES (?) ";
+        String sql = "INSERT INTO `materiali`(`nome`) VALUES (?) ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -42,7 +42,7 @@ public class MaterialeRepository implements materialiCRUD {
 
     @Override
     public HashMap<Integer, Materiale> getMaterialiWithDB() {
-        String sql = "SELECT * FROM Materie m";
+        String sql = "SELECT * FROM Materiali m";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -75,7 +75,7 @@ public class MaterialeRepository implements materialiCRUD {
 
     @Override
     public Materiale getMaterialeWithDB(Integer id) {
-        String sql = "SELECT * FROM Materie m WHERE m.ID = ?";
+        String sql = "SELECT * FROM Materiali m WHERE m.ID = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -105,7 +105,7 @@ public class MaterialeRepository implements materialiCRUD {
 
     @Override
     public int updateMaterialeWithDB(Integer id, Materiale newM) {
-        String sql = "UPDATE `materie` SET `nome` = ? WHERE id = ? ";
+        String sql = "UPDATE `materiali` SET `nome` = ? WHERE id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -131,7 +131,7 @@ public class MaterialeRepository implements materialiCRUD {
 
     @Override
     public int deleteMaterialeWithDB(Integer id) {
-        String sql = "DELETE FROM `materie` WHERE id = ? ";
+        String sql = "DELETE FROM `materiali` WHERE id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -154,7 +154,7 @@ public class MaterialeRepository implements materialiCRUD {
     }
 
     public int checkDuplicatesMateriale(Materiale m) {
-        String sql = "select count(*) as duplicates from materie m where nome = ?";
+        String sql = "select count(*) as duplicates from materiali m where nome = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;

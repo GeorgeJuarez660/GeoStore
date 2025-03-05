@@ -16,7 +16,7 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public int insertProdottoWithDB(Integer id, Prodotto p) {
-        String sql = "INSERT INTO `prodotti`(`nome`,`prezzo`,`disponibilita`,`categoria`,`materia`,`quantita_disp`) VALUES (?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO `prodotti`(`nome`,`prezzo`,`disponibilita`,`categoria`,`materiale`,`quantita_disp`) VALUES (?, ?, ?, ?, ?, ?) ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -47,9 +47,9 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public HashMap<Integer, Prodotto> getProdottiWithDB() {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -96,9 +96,9 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiDispWithDB() {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n"+
                 "where o.disponibilita = 1 OR o.disponibilita = 3";
         Connection connection = null;
@@ -146,9 +146,9 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaCategoriaWithDB(Integer idCat) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
                 "where o.categoria = ?";
         Connection connection = null;
@@ -197,9 +197,9 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaCategoriaByKeywordWithDB(Integer idCat, String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
                 "where o.categoria = ? and o.nome LIKE ?";
         Connection connection = null;
@@ -250,11 +250,11 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaMaterialeWithDB(Integer idMat) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
-                "where o.materia = ?";
+                "where o.materiale = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -301,11 +301,11 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaMaterialeByKeywordWithDB(Integer idMat, String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
-                "where o.materia = ? and o.nome LIKE ?";
+                "where o.materiale = ? and o.nome LIKE ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -355,9 +355,9 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public Prodotto getProdottoWithDB(Integer id) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
                 "where o.id = ?";
         Connection connection = null;
@@ -401,9 +401,9 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottoByKeywordWithDB(String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
                 "where o.nome LIKE ?";
         Connection connection = null;
@@ -453,9 +453,9 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public Prodotto getProdottoDispWithDB(Integer id) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
                 "where o.id = ? AND (o.disponibilita = 1 OR o.disponibilita = 3)";
         Connection connection = null;
@@ -499,9 +499,9 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottoDispByKeywordWithDB(String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materia, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
-                "join materie m on(o.materia=m.id)\n" +
+                "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
                 "where o.nome LIKE ? AND (o.disponibilita = 1 OR o.disponibilita = 3)";
         Connection connection = null;

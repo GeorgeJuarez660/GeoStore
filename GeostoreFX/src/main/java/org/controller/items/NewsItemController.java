@@ -58,6 +58,8 @@ public class NewsItemController implements Initializable {
         String meseEsatto = String.format("%02d", mese);
 
         date.setText(giornoEsatto+"/"+meseEsatto+"/"+anno+":");
+
+        //TODO: spezzettare la stringa text e vedere in base a cosa sta scritto fare la traduzione
         text.setText(notizia.getTesto());
         id.setText("#"+notizia.getId().toString());
     }
