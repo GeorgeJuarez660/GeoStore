@@ -448,7 +448,7 @@ public class Service {
                 notiziaCreazione.setUtente(user);
                 notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                 notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                notiziaCreazione.setTesto("È stato pubblicato un nuovo prodotto: " + product.getNome() + " a soli " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C. " + product.getDisponibilita().getCode() + " su GeoStore");
+                notiziaCreazione.setTesto("PRD-CN1: " + product.getNome() + " PRD-CN2 " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C. " + product.getDisponibilita().getCode() + " PRD-CN3");
                 this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
             }
 
@@ -479,7 +479,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("È stato aggiornato il nome prodotto: da " + p.getNome() + " è stato rinominato in " + product.getNome());
+                    notiziaCreazione.setTesto("PRD-UNN1: PRD-UNN2 " + p.getNome() + " PRD-UNN3 " + product.getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -490,10 +490,10 @@ public class Service {
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
 
                     if(p.getPrezzo().compareTo(product.getPrezzo()) > 0){
-                        notiziaCreazione.setTesto("È stato diminuito il prezzo del prodotto " + product.getNome() + ": da " + Utility.formatValueBigDecimal(p.getPrezzo()) + " C il prodotto ora è a soli " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C");
+                        notiziaCreazione.setTesto("PRD-UNPD " + product.getNome() + ": PRD-UNP2 " + Utility.formatValueBigDecimal(p.getPrezzo()) + " C PRD-UNP3 " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C");
                     }
                     else{
-                        notiziaCreazione.setTesto("È stato aumentato il prezzo del prodotto " + product.getNome() + ": da " + Utility.formatValueBigDecimal(p.getPrezzo()) + " C il prodotto ora è a soli " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C");
+                        notiziaCreazione.setTesto("PRD-UNPI " + product.getNome() + ": PRD-UNP2 " + Utility.formatValueBigDecimal(p.getPrezzo()) + " C PRD-UNP3 " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C");
                     }
 
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
@@ -504,7 +504,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("È stato spostato il prodotto " + product.getNome() + " in un'altra categoria: da " + p.getCategoria().getNome() + " è stato spostato in " + product.getCategoria().getNome());
+                    notiziaCreazione.setTesto("PRD-UNC1 " + product.getNome() + " PRD-UNC2: PRD-UNC3 " + p.getCategoria().getNome() + " PRD-UNC4 " + product.getCategoria().getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -513,7 +513,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("È stato modificato il prodotto " + product.getNome() + " in un altro materiale: da " + p.getCategoria().getNome() + " è stato modificato in " + product.getCategoria().getNome());
+                    notiziaCreazione.setTesto("PRD-UNM1 " + product.getNome() + " PRD-UNM2: PRD-UNM3 " + p.getCategoria().getNome() + " PRD-UNM4 " + product.getCategoria().getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -523,19 +523,24 @@ public class Service {
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
 
-                    if(p.getDisponibilita().getId() == 1){
-                        if(product.getDisponibilita().getId() == 2){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 3){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + ". Approfittane! Sono rimasti solo " + product.getQuantita_disp() + " pezzi");
-                        }
-                        else if(product.getDisponibilita().getId() == 4){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                        else{
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è in stato " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
+                    if(product.getDisponibilita().getId() == 1){
+                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + " su GeoStore");
+                    }
+                    else if(product.getDisponibilita().getId() == 2){
+                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + " su GeoStore");
+                    }
+                    else if(product.getDisponibilita().getId() == 3){
+                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + ". Approfittane! Sono rimasti solo " + product.getQuantita_disp() + " pezzi");
+                    }
+                    else if(product.getDisponibilita().getId() == 4){
+                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
+                    }
+                    else{
+                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è in stato " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
+                    }
+
+                    /*if(!p.getDisponibilita().getId().equals(product.getDisponibilita().getId())){
+
                     }
                     else if(p.getDisponibilita().getId() == 2){
                         if(product.getDisponibilita().getId() == 1){
@@ -592,7 +597,7 @@ public class Service {
                         else{
                             notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
                         }
-                    }
+                    }*/
 
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
