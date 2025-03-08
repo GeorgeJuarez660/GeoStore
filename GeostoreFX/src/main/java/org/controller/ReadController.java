@@ -267,7 +267,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                         HBox newsItem = loader.load();
                         NewsItemController newsItemController = loader.getController();
                         newsItemController.save(fxmlLoader, user);
-                        newsItemController.setValues(notizia);
+                        newsItemController.setValues(notizia, resLang);
                         newsItemController.enableButtons();
                         itemList.getChildren().add(newsItem);
 

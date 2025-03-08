@@ -73,7 +73,7 @@ public class OrderItemController implements Initializable {
         String meseEsatto = String.format("%02d", mese);
 
         orderDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
-        status.setText(ordine.getStato().getCode());
+        status.setText(ordine.getStato().getDescrizione());
         orderQuantity.setText(ordine.getQuantita().toString());
         productPrice.setText(Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()) + " C");
 

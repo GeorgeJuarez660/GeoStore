@@ -119,13 +119,13 @@ public class Prodotto {
         if(p.getNome() == null || p.getNome().isEmpty() || p.getNome().isBlank()){
             canCU = false;
         }
-        if(p.getDisponibilita() == null || p.getDisponibilita().getCode() == null){
+        if(p.getDisponibilita() == null || p.getDisponibilita().getId() == null){
             canCU = false;
         }
-        if(p.getCategoria() == null || p.getCategoria().getNome() == null){
+        if(p.getCategoria() == null || p.getCategoria().getId() == null){
             canCU = false;
         }
-        if(p.getMateriale() == null || p.getMateriale().getNome() == null){
+        if(p.getMateriale() == null || p.getMateriale().getId() == null){
             canCU = false;
         }
 

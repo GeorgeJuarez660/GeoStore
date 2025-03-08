@@ -276,7 +276,7 @@ public class LoadPage {
                 homepageController.save(fxmlLoader, user);
                 homepageController.title(resLang); //andare a homepage
                 homepageController.showButtonCreateNews();
-                homepageController.loadNews();
+                homepageController.loadNews(resLang);
             }
             else if(controller instanceof InfoController){
                 InfoController infoController = (InfoController) controller;

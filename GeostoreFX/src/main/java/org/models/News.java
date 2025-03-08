@@ -2,6 +2,7 @@ package org.models;
 
 import java.sql.Date;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class News {
     private Integer id = 0;
@@ -95,5 +96,19 @@ public class News {
 
         return canCU;
 
+    }
+
+    public String dynamicText(String preText, ResourceBundle resLang){
+        if(preText.contains("PRD-CN1")){
+            preText = preText.replace("PRD-CN1", resLang.getString("auto.news.createdProduct.1st"));
+        }
+        if(preText.contains("PRD-CN2")){
+            preText = preText.replace("PRD-CN2", resLang.getString("auto.news.createdProduct.2nd"));
+        }
+        if(preText.contains("PRD-CN3")){
+            preText = preText.replace("PRD-CN3", resLang.getString("auto.news.createdProduct.3rd"));
+        }
+
+        return preText;
     }
 }

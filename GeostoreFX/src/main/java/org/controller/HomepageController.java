@@ -97,7 +97,7 @@ public class HomepageController {
         createNews.setManaged(isAdmin); //ignora la presenza
     }
 
-    public void loadNews(){
+    public void loadNews(ResourceBundle resLang){
         service = new Service();
         List<News> notizie = new ArrayList<>();
 
@@ -115,7 +115,7 @@ public class HomepageController {
                 HBox newsItem = loader.load();
                 NewsItemController newsItemController = loader.getController();
                 newsItemController.save(fxmlLoader, user);
-                newsItemController.setValues(notizia);
+                newsItemController.setValues(notizia, resLang);
                 newsItemController.enableButtons();
                 newsList.getChildren().add(newsItem);
 

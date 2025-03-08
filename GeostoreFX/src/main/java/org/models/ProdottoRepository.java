@@ -47,7 +47,7 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public HashMap<Integer, Prodotto> getProdottiWithDB() {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n";
@@ -71,6 +71,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -96,7 +97,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiDispWithDB() {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n"+
@@ -121,6 +122,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -146,7 +148,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaCategoriaWithDB(Integer idCat) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -172,6 +174,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -197,7 +200,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaCategoriaByKeywordWithDB(Integer idCat, String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -225,6 +228,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -250,7 +254,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaMaterialeWithDB(Integer idMat) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -276,6 +280,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -301,7 +306,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaMaterialeByKeywordWithDB(Integer idMat, String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -329,6 +334,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -355,7 +361,7 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public Prodotto getProdottoWithDB(Integer id) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -378,6 +384,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -401,7 +408,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottoByKeywordWithDB(String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -428,6 +435,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -453,7 +461,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public Prodotto getProdottoDispWithDB(Integer id) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -476,6 +484,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
@@ -499,7 +508,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottoDispByKeywordWithDB(String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -526,6 +535,7 @@ public class ProdottoRepository implements prodottiCRUD {
                 Disponibilita disponibilita = new Disponibilita();
                 disponibilita.setId(rs.getInt("disp_id"));
                 disponibilita.setCode(rs.getString("disp_code"));
+                disponibilita.setDescrizione(rs.getString("disp_desc"));
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));

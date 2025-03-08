@@ -47,7 +47,7 @@ public class NewsItemController implements Initializable {
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setValues(News notizia){
+    public void setValues(News notizia, ResourceBundle resLang){
         Calendar calendario = Calendar.getInstance();
         calendario.setTime(notizia.getDataPub());
         int giorno = calendario.get(Calendar.DAY_OF_MONTH);
@@ -60,7 +60,7 @@ public class NewsItemController implements Initializable {
         date.setText(giornoEsatto+"/"+meseEsatto+"/"+anno+":");
 
         //TODO: spezzettare la stringa text e vedere in base a cosa sta scritto fare la traduzione
-        text.setText(notizia.getTesto());
+        text.setText(notizia.dynamicText(notizia.getTesto(), resLang));
         id.setText("#"+notizia.getId().toString());
     }
 

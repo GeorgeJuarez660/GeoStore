@@ -508,15 +508,6 @@ public class Service {
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
-                if(!p.getMateriale().equals(product.getMateriale())){
-                    notiziaCreazione = new News();
-                    notiziaCreazione.setUtente(user);
-                    notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("PRD-UNM1 " + product.getNome() + " PRD-UNM2: PRD-UNM3 " + p.getCategoria().getNome() + " PRD-UNM4 " + product.getCategoria().getNome());
-                    this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
-                }
-
                 if(!p.getDisponibilita().equals(product.getDisponibilita())){
                     notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -524,19 +515,19 @@ public class Service {
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
 
                     if(product.getDisponibilita().getId() == 1){
-                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + " su GeoStore");
+                        notiziaCreazione.setTesto("PRD-UNA1 " + product.getNome() + " PRD-UNA2 " + product.getDisponibilita().getCode() + " PRD-UND3");
                     }
                     else if(product.getDisponibilita().getId() == 2){
-                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + " su GeoStore");
+                        notiziaCreazione.setTesto("PRD-UNA1 " + product.getNome() + " PRD-UNA2 " + product.getDisponibilita().getCode() + " PRD-UND3");
                     }
                     else if(product.getDisponibilita().getId() == 3){
-                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Approfittane! Sono rimasti solo " + product.getQuantita_disp() + " pezzi");
+                        notiziaCreazione.setTesto("PRD-UNA1 " + product.getNome() + " PRD-UNA2 " + product.getDisponibilita().getCode() + ". PRD-UNM3 " + product.getQuantita_disp() + " PRD-UNM4");
                     }
                     else if(product.getDisponibilita().getId() == 4){
-                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
+                        notiziaCreazione.setTesto("PRD-UNA1 " + product.getNome() + " PRD-UNA2 " + product.getDisponibilita().getCode() + ". PRD-UNR3");
                     }
                     else{
-                        notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è in stato " + product.getDisponibilita().getCode() + ". Presto sarà disponibile su GeoStore");
+                        notiziaCreazione.setTesto("PRD-UNA1 " + product.getNome() + " PRD-UNO2 " + product.getDisponibilita().getCode() + ". PRD-UNO3");
                     }
 
                     /*if(!p.getDisponibilita().getId().equals(product.getDisponibilita().getId())){
@@ -644,7 +635,7 @@ public class Service {
             notiziaCreazione.setUtente(user);
             notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
             notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-            notiziaCreazione.setTesto("È stato rimosso il prodotto " + product.getNome() + ". Sono stati effettuati i rimborsi agli utenti che avevano ordinato questo prodotto");
+            notiziaCreazione.setTesto("PRD-DN1 " + product.getNome() + ". PRD-DN2");
             this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
         }
 
@@ -972,7 +963,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("È stata allestita una nuova categoria: " + category.getNome() + ". Presto i prodotti di questa categoria saranno disponibili su Geostore");
+                    notiziaCreazione.setTesto("CAT-CN1: " + category.getNome() + ". CAT-CN2");
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -1006,7 +997,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("È stato modificato il nome categoria: da " + c.getNome() + " è stata rimoninata in " + category.getNome());
+                    notiziaCreazione.setTesto("CAT-UN1: CAT-UN2 " + c.getNome() + " CAT-UN3 " + category.getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -1042,7 +1033,7 @@ public class Service {
             notiziaCreazione.setUtente(user);
             notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
             notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-            notiziaCreazione.setTesto("È stata dismessa la categoria " + category.getNome() + ". I prodotti appartenenti a questa categoria sono stati spostati in N/A");
+            notiziaCreazione.setTesto("CAT-DN1 " + category.getNome() + ". CAT-DN2");
             this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
         }
 
