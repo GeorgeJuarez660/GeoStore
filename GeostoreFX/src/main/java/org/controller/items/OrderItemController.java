@@ -48,7 +48,7 @@ public class OrderItemController implements Initializable {
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setValues(Ordine ordine){
+    public void setValues(Ordine ordine, ResourceBundle resLang){
 
         id.setText(ordine.getId().toString());
 
@@ -73,7 +73,7 @@ public class OrderItemController implements Initializable {
         String meseEsatto = String.format("%02d", mese);
 
         orderDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
-        status.setText(ordine.getStato().getDescrizione());
+        status.setText(ordine.dynamicStatus(ordine.getStato().getDescrizione(), resLang));
         orderQuantity.setText(ordine.getQuantita().toString());
         productPrice.setText(Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()) + " C");
 

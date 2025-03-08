@@ -3,6 +3,7 @@ package org.models;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class Ordine {
     private Integer id = 0;
@@ -123,5 +124,31 @@ public class Ordine {
 
         return canCU;
 
+    }
+
+    public String dynamicStatus(String stato, ResourceBundle resLang){
+        if(stato.equals("ELB") || stato.equals("In elaborazione")){
+            stato = resLang.getString("status.1st");
+        }
+        if(stato.equals("ACC") || stato.equals("Accettato")){
+            stato = resLang.getString("status.2nd");
+        }
+        if(stato.equals("RIF") || stato.equals("Rifiutato")){
+            stato = resLang.getString("status.3rd");
+        }
+        if(stato.equals("LCS") || stato.equals("In consegna")){
+            stato = resLang.getString("status.4th");
+        }
+        if(stato.equals("YCS") || stato.equals("Consegnato")){
+            stato = resLang.getString("status.5th");
+        }
+        if(stato.equals("NCS") || stato.equals("Non consegnato")){
+            stato = resLang.getString("status.6th");
+        }
+        if(stato.equals("N/A") || stato.equals("No Data")){
+            stato = resLang.getString("status.7th");
+        }
+
+        return stato;
     }
 }

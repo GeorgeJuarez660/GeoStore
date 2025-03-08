@@ -562,7 +562,7 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public int updateProdottoWithDB(Integer id, Prodotto newP) {
-        String sql = "UPDATE `prodotti` SET `nome` = ?, `prezzo` = ?, `disponibilita` = ?, `categoria` = ?, `materia` = ?, `quantita_disp` = ? WHERE id = ? ";
+        String sql = "UPDATE `prodotti` SET `nome` = ?, `prezzo` = ?, `disponibilita` = ?, `categoria` = ?, `materiale` = ?, `quantita_disp` = ? WHERE id = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -648,7 +648,7 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public int updateIdBeforeDeleteMaterial(Integer idNew, Integer idOld) {
-        String sql = "UPDATE `prodotti` SET `materia` = ? WHERE materia = ? ";
+        String sql = "UPDATE `prodotti` SET `materiale` = ? WHERE materiale = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;

@@ -499,7 +499,7 @@ public class Service {
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
-                if(!p.getCategoria().equals(product.getCategoria())){
+                if(!p.getCategoria().getId().equals(product.getCategoria().getId())){
                     notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
@@ -508,7 +508,7 @@ public class Service {
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
-                if(!p.getDisponibilita().equals(product.getDisponibilita())){
+                if(!p.getDisponibilita().getId().equals(product.getDisponibilita().getId())){
                     notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));

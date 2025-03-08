@@ -206,7 +206,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                         HBox productItem = loader.load();
                         ProductItemController productItemController = loader.getController();
                         productItemController.save(fxmlLoader, user);
-                        productItemController.setValues(prodotto);
+                        productItemController.setValues(prodotto, resLang);
                         if(this.itemScene.equals("product-O")){ //per l'ordinazione prodotto
                             productItemController.enableButtonsForOrder();
                         }
@@ -239,7 +239,7 @@ public class ReadController {// Questo è il BorderPane di menu.fxml
                         HBox productItem = loader.load();
                         OrderItemController orderItemController = loader.getController();
                         orderItemController.save(fxmlLoader, user);
-                        orderItemController.setValues(ordine);
+                        orderItemController.setValues(ordine, resLang);
                         orderItemController.enableButtons();
                         itemList.getChildren().add(productItem);
 

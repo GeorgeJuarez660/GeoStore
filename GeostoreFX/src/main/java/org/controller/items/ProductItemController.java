@@ -45,12 +45,12 @@ public class ProductItemController implements Initializable {
         this.fxmlLoader = fxmlLoader;
     }
 
-    public void setValues(Prodotto prodotto){
+    public void setValues(Prodotto prodotto, ResourceBundle resLang){
 
         id.setText(prodotto.getId().toString());
         name.setText(prodotto.getNome());
         price.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()) + " C");
-        available.setText(prodotto.getDisponibilita().getDescrizione());
+        available.setText(prodotto.dynamicAvailability(prodotto.getDisponibilita().getDescrizione(), resLang));
         category.setText(prodotto.getCategoria().getNome());
         material.setText(prodotto.getMateriale().getNome());
         quantity.setText(prodotto.getQuantita_disp().toString());

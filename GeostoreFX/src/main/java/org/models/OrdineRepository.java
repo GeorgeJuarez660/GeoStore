@@ -43,7 +43,7 @@ public class OrdineRepository implements ordiniCRUD {
 
     @Override
     public HashMap<Integer, Ordine> getOrdiniWithDB() {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id ) \n" +
@@ -115,6 +115,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
 
                 ordini.put(ord.getId(), ord);
@@ -131,7 +132,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByEmailWithDB(String email) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, ac.codice AS code_admin, u.portafoglio AS portafoglio_utente, og.id AS id_prodotto, og.nome AS nome_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id )\n" +
@@ -205,6 +206,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
 
                 ordini.put(ord.getId(), ord);
@@ -221,7 +223,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByUserWithDB(Integer idUtente) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id = og.id )\n" +
@@ -293,6 +295,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
 
                 ordini.put(ord.getId(), ord);
@@ -309,7 +312,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByUserAndKeywordWithDB(Integer idUtente, String keyword) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id )\n" +
@@ -383,6 +386,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
 
                 ordini.put(ord.getId(), ord);
@@ -399,7 +403,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public HashMap<Integer, Ordine> getOrdiniByProductWithDB(Integer idProdotto) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id = og.id )\n" +
@@ -471,6 +475,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
 
                 ordini.put(ord.getId(), ord);
@@ -487,7 +492,7 @@ public class OrdineRepository implements ordiniCRUD {
     }
 
     public Ordine getOrdineByUserWithDB(Integer idUtente, Integer idOrdine) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id=og.id)\n" +
@@ -559,6 +564,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
             }
             //chiudi la connessione
@@ -574,7 +580,7 @@ public class OrdineRepository implements ordiniCRUD {
 
     @Override
     public Ordine getOrdineWithDB(Integer id) {
-        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code " +
+        String sql = "SELECT o.id, u.id AS id_utente, u.nome AS nome_utente, u.cognome AS cognome_utente, u.genere AS genere_utente, u.data_nascita AS dataNascita_utente, u.email AS email_utente, u.telefono AS telefono_utente, u.portafoglio AS portafoglio_utente, ac.codice AS code_admin, og.nome AS nome_prodotto, og.id AS id_prodotto, og.quantita_disp AS quant_disp_prod, o.data_ordine, o.quantita, o.prezzo_unitario, s.id as st_id, s.code as st_code, s.descrizione as st_desc " +
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id=og.id)\n" +
@@ -645,6 +651,7 @@ public class OrdineRepository implements ordiniCRUD {
                 Stato stato = new Stato();
                 stato.setId(rs.getInt("st_id"));
                 stato.setCode(rs.getString("st_code"));
+                stato.setDescrizione(rs.getString("st_desc"));
                 ord.setStato(stato);
             }
             //chiudi la connessione

@@ -119,6 +119,7 @@ public class ProductMaskController implements Initializable {
 
         if(category.getValue() != null){
             categoria.setId(Integer.parseInt(category.getValue().replaceAll("[^0-9]", "")));
+            categoria.setNome(category.getValue().replaceAll(".*[^a-zA-Z]", ""));
         }
 
         prodotto.setCategoria(categoria);
@@ -127,6 +128,7 @@ public class ProductMaskController implements Initializable {
 
         if(material.getValue() != null){
             materiale.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
+            materiale.setNome(material.getValue().replaceAll(".*[^a-zA-Z]", ""));
         }
 
         prodotto.setMateriale(materiale);
@@ -160,6 +162,7 @@ public class ProductMaskController implements Initializable {
 
         if(available.getValue() != null){
             disponibilita.setId(Integer.parseInt(available.getValue().replaceAll("[^0-9]", "")));
+            disponibilita.setCode(available.getValue().replaceAll(".*[^a-zA-Z]", ""));
         }
 
         prodotto.setDisponibilita(disponibilita);
@@ -168,6 +171,7 @@ public class ProductMaskController implements Initializable {
 
         if(category.getValue() != null){
             categoria.setId(Integer.parseInt(category.getValue().replaceAll("[^0-9]", "")));
+            categoria.setNome(category.getValue().replaceAll(".*[^a-zA-Z]", ""));
         }
 
         prodotto.setCategoria(categoria);
@@ -176,6 +180,7 @@ public class ProductMaskController implements Initializable {
 
         if(material.getValue() != null){
             materiale.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
+            materiale.setNome(material.getValue().replaceAll(".*[^a-zA-Z]", ""));
         }
 
         prodotto.setMateriale(materiale);

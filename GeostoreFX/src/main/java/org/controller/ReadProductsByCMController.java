@@ -126,7 +126,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
                         HBox productItem = loader.load();
                         ProductItemController productItemController = loader.getController();
                         productItemController.save(fxmlLoader, user);
-                        productItemController.setValues(prodotto);
+                        productItemController.setValues(prodotto, resLang);
                         productItemController.enableButtons();
                         itemList.getChildren().add(productItem);
 

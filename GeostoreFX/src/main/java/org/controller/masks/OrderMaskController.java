@@ -186,7 +186,11 @@ public class OrderMaskController implements Initializable {
         }
 
         Stato stato = new Stato();
-        stato.setId(Integer.parseInt(status.getValue().substring(0,1)));
+
+        if(status.getValue() != null){
+            stato.setId(Integer.parseInt(status.getValue().replaceAll("[^0-9]", "")));
+            stato.setCode(status.getValue().replaceAll(".*[^a-zA-Z]", ""));
+        }
 
         ordine.setStato(stato);
 

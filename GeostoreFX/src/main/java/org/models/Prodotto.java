@@ -2,6 +2,7 @@ package org.models;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class Prodotto {
     private Integer id = 0;
@@ -130,5 +131,25 @@ public class Prodotto {
         }
 
         return canCU;
+    }
+
+    public String dynamicAvailability(String disponibilita, ResourceBundle resLang){
+        if(disponibilita.equals("DIS") || disponibilita.equals("Disponibile")){
+            disponibilita = resLang.getString("availability.1st");
+        }
+        if(disponibilita.equals("ARR") || disponibilita.equals("In arrivo")){
+            disponibilita = resLang.getString("availability.2nd");
+        }
+        if(disponibilita.equals("ESM") || disponibilita.equals("In esaurimento")){
+            disponibilita = resLang.getString("availability.3rd");
+        }
+        if(disponibilita.equals("ESR") || disponibilita.equals("Esaurito")){
+            disponibilita = resLang.getString("availability.4th");
+        }
+        if(disponibilita.equals("N/A") || disponibilita.equals("No Data")){
+            disponibilita = resLang.getString("availability.5th");
+        }
+
+        return disponibilita;
     }
 }
