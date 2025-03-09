@@ -127,26 +127,53 @@ public class Ordine {
     }
 
     public String dynamicStatus(String stato, ResourceBundle resLang){
-        if(stato.equals("ELB") || stato.equals("In elaborazione")){
-            stato = resLang.getString("status.1st");
+        if(stato.contains("ELB")){
+            stato = stato.replace("ELB", resLang.getString("status.1st"));
         }
-        if(stato.equals("ACC") || stato.equals("Accettato")){
-            stato = resLang.getString("status.2nd");
+        else if(stato.contains("In elaborazione")){
+            stato = stato.replace("In elaborazione", resLang.getString("status.1st"));
         }
-        if(stato.equals("RIF") || stato.equals("Rifiutato")){
-            stato = resLang.getString("status.3rd");
+
+        if(stato.contains("ACC")){
+            stato = stato.replace("ACC", resLang.getString("status.2nd"));
         }
-        if(stato.equals("LCS") || stato.equals("In consegna")){
-            stato = resLang.getString("status.4th");
+        else if(stato.contains("Accettato")){
+            stato = stato.replace("Accettato", resLang.getString("status.2nd"));
         }
-        if(stato.equals("YCS") || stato.equals("Consegnato")){
-            stato = resLang.getString("status.5th");
+
+        if(stato.contains("RIF")){
+            stato = stato.replace("RIF", resLang.getString("status.3rd"));
         }
-        if(stato.equals("NCS") || stato.equals("Non consegnato")){
-            stato = resLang.getString("status.6th");
+        else if(stato.contains("Rifiutato")){
+            stato = stato.replace("Rifiutato", resLang.getString("status.3rd"));
         }
-        if(stato.equals("N/A") || stato.equals("No Data")){
-            stato = resLang.getString("status.7th");
+
+        if(stato.contains("LCS")){
+            stato = stato.replace("LCS", resLang.getString("status.4th"));
+        }
+        else if(stato.contains("In consegna")){
+            stato = stato.replace("In consegna", resLang.getString("status.4th"));
+        }
+
+        if(stato.contains("YCS")){
+            stato = stato.replace("YCS", resLang.getString("status.5th"));
+        }
+        else if(stato.contains("Consegnato")){
+            stato = stato.replace("Consegnato", resLang.getString("status.5th"));
+        }
+
+        if(stato.contains("NCS")){
+            stato = stato.replace("NCS", resLang.getString("status.6th"));
+        }
+        else if(stato.contains("Non consegnato")){
+            stato = stato.replace("Non consegnato", resLang.getString("status.6th"));
+        }
+
+        if(stato.contains("N/A")){
+            stato = stato.replace("N/A", resLang.getString("status.7th"));
+        }
+        else if(stato.contains("No Data")){
+            stato = stato.replace("No Data", resLang.getString("status.7th"));
         }
 
         return stato;

@@ -6,32 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/OrderItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/OrderItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/OrderMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/OrderMaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/ProductMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/ProductMaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/News.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/News.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Ordine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Prodotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Prodotto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/ProdottoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/ProdottoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/OrderItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/OrderItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/categoryMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/categoryMask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/materialMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/materialMask.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/models/News.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/News.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/models/Prodotto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/Prodotto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/models/ProdottoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/ProdottoRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -307,7 +298,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>645</line>
+          <line>582</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -322,17 +313,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>673</line>
+          <line>610</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>764</line>
+          <line>701</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>770</line>
+          <line>707</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -347,7 +338,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>1063</line>
+          <line>997</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -427,7 +418,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java</url>
-          <line>35</line>
+          <line>36</line>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -537,12 +528,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>501</line>
+          <line>499</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>510</line>
+          <line>508</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

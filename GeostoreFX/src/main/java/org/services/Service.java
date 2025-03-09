@@ -442,7 +442,6 @@ public class Service {
             num = pr.insertProdottoWithDB(product.getId(), product);
 
             if(num > 0){
-                //TODO: spostare la creazione notizia senza risposta in AnswerController?
                 //notizia per la creazione prodotto
                 News notiziaCreazione = new News();
                 notiziaCreazione.setUtente(user);
@@ -470,7 +469,6 @@ public class Service {
             num = pr.updateProdottoWithDB(product.getId(), product);
 
             if(num > 0){
-                //TODO: spostare la creazione notizia senza risposta in AnswerController?
                 //notizia per la modifica prodotto
                 News notiziaCreazione;
 
@@ -530,66 +528,6 @@ public class Service {
                         notiziaCreazione.setTesto("PRD-UNA1 " + product.getNome() + " PRD-UNO2 " + product.getDisponibilita().getCode() + ". PRD-UNO3");
                     }
 
-                    /*if(!p.getDisponibilita().getId().equals(product.getDisponibilita().getId())){
-
-                    }
-                    else if(p.getDisponibilita().getId() == 2){
-                        if(product.getDisponibilita().getId() == 1){
-                            notiziaCreazione.setTesto("Ora il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 3){
-                            notiziaCreazione.setTesto("Ora il prodotto " + product.getNome() + " è disponibile su GeoStore ma è IN " + product.getDisponibilita().getCode() + ". Approfittane! Sono rimasti solo " + product.getQuantita_disp() + " pezzi");
-                        }
-                        else if(product.getDisponibilita().getId() == 4){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                        else{
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è in stato " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                    }
-                    else if(p.getDisponibilita().getId() == 3){
-                        if(product.getDisponibilita().getId() == 1){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è di nuovo " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 2){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + ". su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 4){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                        else{
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è in stato " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                    }
-                    else if(p.getDisponibilita().getId() == 4){
-                        if(product.getDisponibilita().getId() == 1){
-                            notiziaCreazione.setTesto("Ora il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 2){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 3){
-                            notiziaCreazione.setTesto("Ora il prodotto " + product.getNome() + " è disponibile su GeoStore ma è IN " + product.getDisponibilita().getCode() + ". Approfittane! Sono rimasti solo " + product.getQuantita_disp() + " pezzi");
-                        }
-                        else{
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è in stato " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                    }
-                    else{
-                        if(product.getDisponibilita().getId() == 1){
-                            notiziaCreazione.setTesto("Ora il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 2){
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è IN " + product.getDisponibilita().getCode() + " su GeoStore");
-                        }
-                        else if(product.getDisponibilita().getId() == 3){
-                            notiziaCreazione.setTesto("Ora il prodotto " + product.getNome() + " è disponibile su GeoStore ma è IN " + product.getDisponibilita().getCode() + ". Approfittane! Sono rimasti solo " + product.getQuantita_disp() + " pezzi");
-                        }
-                        else{
-                            notiziaCreazione.setTesto("Il prodotto " + product.getNome() + " è " + product.getDisponibilita().getCode() + ". Presto sarà di nuovo disponibile su GeoStore");
-                        }
-                    }*/
-
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
             }
@@ -629,7 +567,6 @@ public class Service {
         num = pr.deleteProdottoWithDB(Integer.parseInt(IDkey));
 
         if(num > 0){
-            //TODO: spostare la creazione notizia senza risposta in AnswerController?
             //notizia per l'eliminazione prodotto
             News notiziaCreazione = new News();
             notiziaCreazione.setUtente(user);
@@ -957,7 +894,6 @@ public class Service {
                 num = cr.insertCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
-                    //TODO: spostare la creazione notizia senza risposta in AnswerController?
                     //notizia per la creazione categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -991,7 +927,6 @@ public class Service {
                 num = cr.updateCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
-                    //TODO: spostare la creazione notizia senza risposta in AnswerController?
                     //notizia per la modifica categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -1027,7 +962,6 @@ public class Service {
         num = cr.deleteCategoriaWithDB(category.getId());
 
         if(num > 0){
-            //TODO: spostare la creazione notizia senza risposta in AnswerController?
             //notizia per l'eliminazione categoria
             News notiziaCreazione = new News();
             notiziaCreazione.setUtente(user);

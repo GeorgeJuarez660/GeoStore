@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import org.models.Amministratore;
 import org.models.Cliente;
 import org.models.News;
+import org.models.Prodotto;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
@@ -59,8 +60,9 @@ public class NewsItemController implements Initializable {
 
         date.setText(giornoEsatto+"/"+meseEsatto+"/"+anno+":");
 
-        //TODO: spezzettare la stringa text e vedere in base a cosa sta scritto fare la traduzione
-        text.setText(notizia.dynamicText(notizia.getTesto(), resLang));
+        Prodotto prodNews = new Prodotto();
+
+        text.setText(prodNews.dynamicAvailability(notizia.dynamicText(notizia.getTesto(), resLang), resLang));
         id.setText("#"+notizia.getId().toString());
     }
 

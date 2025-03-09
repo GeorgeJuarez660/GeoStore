@@ -134,20 +134,39 @@ public class Prodotto {
     }
 
     public String dynamicAvailability(String disponibilita, ResourceBundle resLang){
-        if(disponibilita.equals("DIS") || disponibilita.equals("Disponibile")){
-            disponibilita = resLang.getString("availability.1st");
+        if(disponibilita.contains("DIS")){
+            disponibilita = disponibilita.replace("DIS", resLang.getString("availability.1st"));
         }
-        if(disponibilita.equals("ARR") || disponibilita.equals("In arrivo")){
-            disponibilita = resLang.getString("availability.2nd");
+        else if(disponibilita.contains("Disponibile")){
+            disponibilita = disponibilita.replace("Disponibile", resLang.getString("availability.1st"));
         }
-        if(disponibilita.equals("ESM") || disponibilita.equals("In esaurimento")){
-            disponibilita = resLang.getString("availability.3rd");
+
+        if(disponibilita.contains("ARR")){
+            disponibilita = disponibilita.replace("ARR", resLang.getString("availability.2nd"));
         }
-        if(disponibilita.equals("ESR") || disponibilita.equals("Esaurito")){
-            disponibilita = resLang.getString("availability.4th");
+        else if(disponibilita.contains("In arrivo")){
+            disponibilita = disponibilita.replace("In arrivo", resLang.getString("availability.2nd"));
         }
-        if(disponibilita.equals("N/A") || disponibilita.equals("No Data")){
-            disponibilita = resLang.getString("availability.5th");
+
+        if(disponibilita.contains("ESM")){
+            disponibilita = disponibilita.replace("ESM", resLang.getString("availability.3rd"));
+        }
+        else if(disponibilita.contains("In esaurimento")){
+            disponibilita = disponibilita.replace("In esaurimento", resLang.getString("availability.3rd"));
+        }
+
+        if(disponibilita.contains("ESR")){
+            disponibilita = disponibilita.replace("ESR", resLang.getString("availability.4th"));
+        }
+        else if(disponibilita.contains("Esaurito")){
+            disponibilita = disponibilita.replace("Esaurito", resLang.getString("availability.4th"));
+        }
+
+        if(disponibilita.contains("N/A")){
+            disponibilita = disponibilita.replace("N/A", resLang.getString("availability.5th"));
+        }
+        else if(disponibilita.contains("No Data")){
+            disponibilita = disponibilita.replace("No Data", resLang.getString("availability.5th"));
         }
 
         return disponibilita;

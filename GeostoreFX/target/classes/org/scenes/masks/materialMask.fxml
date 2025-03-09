@@ -6,9 +6,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="41.0" prefWidth="300.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.MaterialMaskController">
+<?import javafx.scene.control.Button?>
+<VBox alignment="TOP_CENTER" prefHeight="103.0" prefWidth="300.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.MaterialMaskController">
    <children>
-      <HBox alignment="TOP_CENTER" maxWidth="500.0" prefHeight="50.0" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
+      <HBox alignment="TOP_CENTER" maxWidth="500.0" prefHeight="103.0" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
          <children>
             <VBox alignment="CENTER" prefHeight="42.0" prefWidth="260.0" spacing="10.0">
                <children>
@@ -24,6 +25,25 @@
                               <Font size="11.0" />
                            </font>
                         </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%mask.material.img" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="7.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="imgBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fileChoosing" prefHeight="25.0" style="-fx-background-color: #0495CD; -fx-background-radius: 7;" styleClass="label-font-min-btn" text="%mask.cm.button" textFill="WHITE" wrapText="true" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                     <children>
+                        <Label fx:id="img" alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="immagine.png" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="7.0" />
+                           </font>
+                        </Label>
                      </children>
                   </HBox>
                </children>
