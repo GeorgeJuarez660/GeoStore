@@ -6,24 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Ordine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Prodotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Prodotto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/categoryMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/categoryMask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/materialMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/materialMask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/models/Prodotto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/Prodotto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,7 +321,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>997</line>
+          <line>999</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

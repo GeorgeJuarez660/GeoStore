@@ -894,6 +894,8 @@ public class Service {
                 num = cr.insertCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
+                    //spostare il file da download
+                    //TODO: se la creazione è andata con successo prenderà il file png da download e lo inserisce nella cartella "interna"
                     //notizia per la creazione categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -927,6 +929,8 @@ public class Service {
                 num = cr.updateCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
+                    //spostare il file da download
+                    //TODO: se la modifica è andata con successo prenderà il file png da download e lo mette nella cartella "interna" e rimuoverà il file png vecchio
                     //notizia per la modifica categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
@@ -1027,6 +1031,11 @@ public class Service {
             if(num == 0){
                 num = mr.insertMaterialeWithDB(material.getId(), material);
 
+                if(num > 0){
+                    //spostare il file da download
+                    //TODO: se la creazione è andata con successo prenderà il file png da download e lo inserisce nella cartella "interna"
+                }
+
                 Utility.sendResponse(num, "MAT-C", user);
             }
             else {
@@ -1047,6 +1056,11 @@ public class Service {
 
             if(num == 0){
                 num = mr.updateMaterialeWithDB(material.getId(), material);
+
+                if(num > 0){
+                    //spostare il file da download
+                    //TODO: se la modifica è andata con successo prenderà il file png da download e lo mette nella cartella "interna" e rimuoverà il file png vecchio
+                }
 
                 Utility.sendResponse(num, "MAT-U", user);
             }
