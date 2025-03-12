@@ -7,6 +7,12 @@ import org.models.Cliente;
 import org.models.News;
 import org.models.Utente;
 import org.services.LoadPage;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.Period;
 
 import java.math.BigDecimal;
@@ -126,6 +132,27 @@ public class Utility {
         }
 
         return canRegister;
+    }
+
+    public static boolean setImage(String origineImg, String destinazioneImg){
+        Path origine = Paths.get(origineImg);
+        Path destinazione = Paths.get(destinazioneImg);
+        boolean setted;
+
+        if(Files.exists(origine)){ //controlla se esiste il file origine
+            try{
+                Files.move(origine, destinazione, StandardCopyOption.REPLACE_EXISTING);
+                setted = true;
+            }catch(IOException e){
+                System.err.println("Errore find file png: " + e.getMessage());
+                setted = false;
+            }
+        }
+        else{
+            setted = false;
+        }
+
+        return setted;
     }
 
     public static String getStringFirstLetterMaiusc(String text){

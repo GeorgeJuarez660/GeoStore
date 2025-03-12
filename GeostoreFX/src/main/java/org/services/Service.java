@@ -895,7 +895,7 @@ public class Service {
 
                 if(num > 0){
                     //spostare il file da download
-                    //TODO: se la creazione è andata con successo prenderà il file png da download e lo inserisce nella cartella "interna"
+
                     //notizia per la creazione categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
