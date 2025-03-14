@@ -75,10 +75,7 @@ public class MaterialMaskController implements Initializable {
 
     //------------------BUTTONS-----------------------
 
-    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
-    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
-
-    @FXML
+    /*@FXML
     private void fileChoosing(ActionEvent event){ //button per andare alla pagina di modifica categoria
         System.out.println("Choosing img...");
 
@@ -98,8 +95,11 @@ public class MaterialMaskController implements Initializable {
             img.setText(selectedFile.getName()); //se si allora valorizza il label
         }
     }
-
+*/
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
+
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
     @FXML
     private void showPopOver(MouseEvent event){

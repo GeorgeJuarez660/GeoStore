@@ -25,15 +25,15 @@ import org.utility.Translater;
 import java.io.File;
 import java.net.URL;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class CategoryMaskController implements Initializable {
 
     @FXML
-    private TextField name;
-    @FXML
-    private Label img;
+    private TextField nameIt, nameEn, nameJa, uniqueName;
 
     private PopOver popOver;
 
@@ -57,30 +57,66 @@ public class CategoryMaskController implements Initializable {
     //------------------GETTING FROM CRUD CONTROLLER-----------------------
 
     //per la creazione categoria
-    public Categoria setValues() throws ParseException { //recuperato da mask
-        Categoria categoria = new Categoria();
+    public List<Categoria> setValues() throws ParseException { //recuperato da mask
+        List<Categoria> categorie = new ArrayList<>();
 
-        categoria.setNome(name.getText().toUpperCase());
+        Categoria categoria1 = new Categoria();
 
-        return categoria;
+        categoria1.setNome(nameIt.getText().toUpperCase());
+        categoria1.setLingua("it");
+
+        categorie.add(categoria1);
+
+        Categoria categoria2 = new Categoria();
+
+        categoria2.setNome(nameEn.getText().toUpperCase());
+        categoria2.setLingua("en");
+
+        categorie.add(categoria2);
+
+        Categoria categoria3 = new Categoria();
+
+        categoria3.setNome(nameJa.getText().toUpperCase());
+        categoria3.setLingua("ja");
+
+        categorie.add(categoria3);
+
+        return categorie;
     }
 
     //per la modifica categoria
-    public Categoria setValuesWithID() throws ParseException { //recuperato da mask
-        Categoria categoria = new Categoria();
+    public List<Categoria> setValuesWithID() throws ParseException { //recuperato da mask
+        List<Categoria> categorie = new ArrayList<>();
 
-        categoria.setId(Integer.parseInt(IDkey));
-        categoria.setNome(name.getText().toUpperCase());
+        Categoria categoria1 = new Categoria();
 
-        return categoria;
+        categoria1.setId(Integer.parseInt(IDkey));
+        categoria1.setNome(nameIt.getText().toUpperCase());
+
+        categorie.add(categoria1);
+
+        Categoria categoria2 = new Categoria();
+
+        categoria2.setId(Integer.parseInt(IDkey));
+        categoria2.setNome(nameEn.getText().toUpperCase());
+        categoria2.setLingua("en");
+
+        categorie.add(categoria2);
+
+        Categoria categoria3 = new Categoria();
+
+        categoria3.setId(Integer.parseInt(IDkey));
+        categoria3.setNome(nameJa.getText().toUpperCase());
+        categoria3.setLingua("ja");
+
+        categorie.add(categoria3);
+
+        return categorie;
     }
 
     //------------------BUTTONS-----------------------
 
-    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
-    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
-
-    @FXML
+    /*@FXML
     private void fileChoosing(ActionEvent event){ //button per andare alla pagina di modifica categoria
         System.out.println("Choosing img...");
 
@@ -96,9 +132,12 @@ public class CategoryMaskController implements Initializable {
             System.out.println(selectedFile.getName());
             img.setText(selectedFile.getName());
         }
-    }
+    }*/
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
+
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
     @FXML
     private void showPopOver(MouseEvent event){

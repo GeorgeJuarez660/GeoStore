@@ -6,6 +6,7 @@ public class Categoria {
     private Integer id = 0;
     private static Integer count=0;
     private String nome;
+    private String lingua;
 
     public Integer getId() {
         return id;
@@ -24,6 +25,14 @@ public class Categoria {
         return nome;
     }
 
+    public String getLingua() {
+        return lingua;
+    }
+
+    public void setLingua(String lingua) {
+        this.lingua = lingua;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -33,25 +42,27 @@ public class Categoria {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Categoria categoria = (Categoria) o;
-        return Objects.equals(id, categoria.id) && Objects.equals(nome, categoria.nome);
+        return Objects.equals(id, categoria.id) && Objects.equals(nome, categoria.nome) && Objects.equals(lingua, categoria.lingua);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome);
+        return Objects.hash(id, nome, lingua);
     }
 
     public Categoria() {
     }
 
-    public Categoria(String nome) {
+    public Categoria(String nome, String lingua) {
         this.nome = nome;
+        this.lingua = lingua;
     }
 
     @Override
     public String toString() {
         return "Categoria{" +
                 "nome='" + nome + '\'' +
+                "lingua='" + lingua + '\'' +
                 '}';
     }
 

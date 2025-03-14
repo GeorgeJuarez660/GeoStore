@@ -134,7 +134,7 @@ public class Utility {
         return canRegister;
     }
 
-    public static boolean setImage(String origineImg, String destinazioneImg){
+    /*public static boolean setImage(String origineImg, String destinazioneImg){
         Path origine = Paths.get(origineImg);
         Path destinazione = Paths.get(destinazioneImg);
         boolean setted;
@@ -153,7 +153,7 @@ public class Utility {
         }
 
         return setted;
-    }
+    }*/
 
     public static String getStringFirstLetterMaiusc(String text){
         if (text == null || text.isEmpty()) {

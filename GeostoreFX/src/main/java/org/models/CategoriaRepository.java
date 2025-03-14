@@ -60,7 +60,7 @@ public class CategoriaRepository implements categorieCRUD {
 
     @Override
     public int insertCategoriaWithDB(Integer id, Categoria c) {
-        String sql = "INSERT INTO `categorie`(`nome`) VALUES (?) ";
+        String sql = "INSERT INTO `categorie`(`nome`, `lingua`) VALUES (?,?) ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -71,6 +71,7 @@ public class CategoriaRepository implements categorieCRUD {
             //int num = 0;
 
             preparedStatement.setString(1, c.getNome());
+            preparedStatement.setString(2, c.getLingua());
             num = preparedStatement.executeUpdate();
             //chiudi la connessione
             preparedStatement.close();

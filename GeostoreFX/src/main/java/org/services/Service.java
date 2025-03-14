@@ -1,16 +1,14 @@
 package org.services;
 
 import org.models.*;
+import org.utility.Translater;
 import org.utility.Utility;
 
 
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Service {
 
@@ -883,25 +881,35 @@ public class Service {
         }
     }
 
-    public void creazioneCategoria(Categoria category, Cliente user){
+    public void creazioneCategoria(List<Categoria> categoryList, Cliente user){
         int num = 0;
+        boolean isNotNull = true;
 
-        if(category.checkNotNullCategoria(category)){
-            num = cr.checkDuplicatesCategoria(category);
+        for(Categoria category : categoryList){
+            isNotNull = category.checkNotNullCategoria(category);
+        }
+
+        if(isNotNull){
+            for(Categoria category : categoryList) {
+                num = cr.checkDuplicatesCategoria(category);
+            }
 
             if(num == 0){
-
-                num = cr.insertCategoriaWithDB(category.getId(), category);
+                for(Categoria category : categoryList) {
+                    num = cr.insertCategoriaWithDB(category.getId(), category);
+                }
 
                 if(num > 0){
-                    //spostare il file da download
-
                     //notizia per la creazione categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("CAT-CN1: " + category.getNome() + ". CAT-CN2");
+                    for(Categoria category : categoryList) {
+                        if(category.getLingua().equals(Translater.getLanguage())){
+                            notiziaCreazione.setTesto("CAT-CN1: " + category.getNome() + ". CAT-CN2");
+                        }
+                    }
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -917,26 +925,41 @@ public class Service {
 
     }
 
-    public void modificaCategoria(Categoria category, Cliente user){
+    public void modificaCategoria(List<Categoria> categoryList, Cliente user){
         int num = 0;
+        boolean isNotNull = true;
 
-        if(category.checkNotNullCategoria(category)) {
-            Categoria c = cr.getCategoriaWithDB(category.getId()); //per la notizia della modifica
+        for(Categoria category : categoryList){
+            isNotNull = category.checkNotNullCategoria(category);
+        }
 
-            num = cr.checkDuplicatesCategoria(category);
+        if(isNotNull) {
+            List<Categoria> oldCategoryList = new ArrayList<>();
+            for(Categoria category : categoryList){
+                Categoria c = cr.getCategoriaWithDB(category.getId()); //per la notizia della modifica
+                oldCategoryList.add(c);
+            }
+
+            for(Categoria category : categoryList) {
+                num = cr.checkDuplicatesCategoria(category);
+            }
 
             if(num == 0){
-                num = cr.updateCategoriaWithDB(category.getId(), category);
+                for(Categoria category : categoryList) {
+                    num = cr.updateCategoriaWithDB(category.getId(), category);
+                }
 
                 if(num > 0){
-                    //spostare il file da download
-                    //TODO: se la modifica è andata con successo prenderà il file png da download e lo mette nella cartella "interna" e rimuoverà il file png vecchio
                     //notizia per la modifica categoria
                     News notiziaCreazione = new News();
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    notiziaCreazione.setTesto("CAT-UN1: CAT-UN2 " + c.getNome() + " CAT-UN3 " + category.getNome());
+                    for(int i = 0; i < categoryList.size(); i++) {
+                        if (categoryList.get(i).getLingua().equals(Translater.getLanguage())){
+                            notiziaCreazione.setTesto("CAT-UN1: CAT-UN2 " + oldCategoryList.get(i).getNome() + " CAT-UN3 " + categoryList.get(i).getNome());
+                        }
+                    }
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 

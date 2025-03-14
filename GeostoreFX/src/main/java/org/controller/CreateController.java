@@ -14,6 +14,7 @@ import org.services.Service;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CreateController {// Questo è il BorderPane di menu.fxml
@@ -309,9 +310,9 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         }
         else if(maskController instanceof CategoryMaskController){
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;
-            Categoria c = categoryMaskController.setValues();
+            List<Categoria> cl = categoryMaskController.setValues();
 
-            service.creazioneCategoria(c, user);
+            service.creazioneCategoria(cl, user);
         }
         else if(maskController instanceof MaterialMaskController){
             MaterialMaskController materialMaskController = (MaterialMaskController) maskController;

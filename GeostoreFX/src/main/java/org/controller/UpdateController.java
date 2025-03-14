@@ -15,6 +15,7 @@ import org.utility.PartialSceneDTO;
 
 import java.net.URL;
 import java.text.ParseException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class UpdateController {// Questo è il BorderPane di menu.fxml
@@ -318,8 +319,8 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         }
         else if(maskController instanceof CategoryMaskController) {
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;
-            Categoria c = categoryMaskController.setValuesWithID();
-            service.modificaCategoria(c, user);
+            List<Categoria> cl = categoryMaskController.setValuesWithID();
+            service.modificaCategoria(cl, user);
         }
         else if(maskController instanceof MaterialMaskController) {
             MaterialMaskController materialMaskController = (MaterialMaskController) maskController;
