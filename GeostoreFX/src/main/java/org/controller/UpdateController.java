@@ -319,8 +319,8 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         }
         else if(maskController instanceof CategoryMaskController) {
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;
-            List<Categoria> cl = categoryMaskController.setValuesWithID();
-            service.modificaCategoria(cl, user);
+            Categoria c = categoryMaskController.setValuesWithID();
+            service.modificaCategoria(c, user);
         }
         else if(maskController instanceof MaterialMaskController) {
             MaterialMaskController materialMaskController = (MaterialMaskController) maskController;

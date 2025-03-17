@@ -1,6 +1,7 @@
 package org.models;
 
 import org.services.DBConnection;
+import org.utility.Translater;
 import org.utility.Utility;
 import org.utility.crud.categorieCRUD;
 
@@ -9,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CategoriaRepository implements categorieCRUD {
 
@@ -60,7 +62,7 @@ public class CategoriaRepository implements categorieCRUD {
 
     @Override
     public int insertCategoriaWithDB(Integer id, Categoria c) {
-        String sql = "INSERT INTO `categorie`(`nome`, `lingua`) VALUES (?,?) ";
+        String sql = "INSERT INTO `categorie`(`nome_it`, `nome_en`, `nome_ja`, `codice`) VALUES (?,?,?,?) ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -70,8 +72,13 @@ public class CategoriaRepository implements categorieCRUD {
             preparedStatement = connection.prepareStatement(sql);
             //int num = 0;
 
-            preparedStatement.setString(1, c.getNome());
-            preparedStatement.setString(2, c.getLingua());
+            // Divide la stringa usando il simbolo "#"
+            String[] parti = c.getNome().split("#");
+
+            preparedStatement.setString(1, parti[0]);
+            preparedStatement.setString(2, parti[1]);
+            preparedStatement.setString(3, parti[2]);
+            preparedStatement.setString(4, c.getCodice());
             num = preparedStatement.executeUpdate();
             //chiudi la connessione
             preparedStatement.close();
@@ -101,7 +108,16 @@ public class CategoriaRepository implements categorieCRUD {
             while(rs.next()){
                 cat = new Categoria();
                 cat.setId(rs.getInt("id"));
-                cat.setNome(rs.getString("nome"));
+                cat.setCodice(rs.getString("codice"));
+                if(Translater.getLanguage().equals("it")){
+                    cat.setNome(rs.getString("nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    cat.setNome(rs.getString("nome_en"));
+                }
+                else{
+                    cat.setNome(rs.getString("nome_ja"));
+                }
 
                 categorie.put(cat.getId(), cat);
             }
@@ -117,8 +133,8 @@ public class CategoriaRepository implements categorieCRUD {
     }
 
     @Override
-    public Categoria getCategoriaWithDB(Integer id) {
-        String sql = "SELECT * FROM Categorie c WHERE c.ID = ?";
+    public Categoria getCategoriaWithDB(String codice, boolean multiLang) {
+        String sql = "SELECT * FROM Categorie c WHERE c.codice = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -128,13 +144,27 @@ public class CategoriaRepository implements categorieCRUD {
             //Connessione al db
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, codice);
             rs = preparedStatement.executeQuery();
 
             while(rs.next()){
                 cat = new Categoria();
                 cat.setId(rs.getInt("id"));
-                cat.setNome(rs.getString("nome"));
+                cat.setCodice(rs.getString("codice"));
+                if(multiLang){
+                    cat.setNome(rs.getString("nome_it") + "#" + rs.getString("nome_en") + "#" + rs.getString("nome_ja"));
+                }
+                else{
+                    if(Translater.getLanguage().equals("it")){
+                        cat.setNome(rs.getString("nome_it"));
+                    }
+                    else if(Translater.getLanguage().equals("en")){
+                        cat.setNome(rs.getString("nome_en"));
+                    }
+                    else{
+                        cat.setNome(rs.getString("nome_ja"));
+                    }
+                }
             }
             //chiudi la connessione
             rs.close();
@@ -147,8 +177,8 @@ public class CategoriaRepository implements categorieCRUD {
     }
 
     @Override
-    public int updateCategoriaWithDB(Integer id, Categoria newC) {
-        String sql = "UPDATE `categorie` SET `nome` = ? WHERE id = ? ";
+    public int updateCategoriaWithDB(String codice, Categoria newC) {
+        String sql = "UPDATE `categorie` SET `nome_it` = ?, `nome_en` = ?, `nome_ja` = ? WHERE codice = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -159,8 +189,14 @@ public class CategoriaRepository implements categorieCRUD {
             preparedStatement = connection.prepareStatement(sql);
             //int num = 0;
 
-            preparedStatement.setString(1, newC.getNome());
-            preparedStatement.setInt(2, id);
+            // Divide la stringa usando il simbolo "#"
+            String[] parti = newC.getNome().split("#");
+
+            preparedStatement.setString(1, parti[0]);
+            preparedStatement.setString(2, parti[1]);
+            preparedStatement.setString(3, parti[2]);
+            preparedStatement.setString(4, codice);
+
             num = preparedStatement.executeUpdate();
             //chiudi la connessione
             preparedStatement.close();
@@ -173,8 +209,8 @@ public class CategoriaRepository implements categorieCRUD {
     }
 
     @Override
-    public int deleteCategoriaWithDB(Integer id) {
-        String sql = "DELETE FROM `categorie` WHERE id = ? ";
+    public int deleteCategoriaWithDB(String codice) {
+        String sql = "DELETE FROM `categorie` WHERE codice = ? ";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         int num = 0;
@@ -183,7 +219,7 @@ public class CategoriaRepository implements categorieCRUD {
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, codice);
             num = preparedStatement.executeUpdate();
             //chiudi la connessione
             preparedStatement.close();
@@ -195,8 +231,8 @@ public class CategoriaRepository implements categorieCRUD {
         return num;
     }
 
-    public int checkDuplicatesCategoria(Categoria c) {
-        String sql = "select count(*) as duplicates from categorie c where nome = ?";
+    public int checkDuplicatesCategoria(String nomeIt, String nomeEn, String nomeJa) {
+        String sql = "select count(*) as duplicates from categorie c where nome_it = ? and nome_en = ? and nome_ja = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -207,7 +243,9 @@ public class CategoriaRepository implements categorieCRUD {
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
 
-            preparedStatement.setString(1, c.getNome());
+            preparedStatement.setString(1, nomeIt);
+            preparedStatement.setString(2, nomeEn);
+            preparedStatement.setString(3, nomeJa);
 
             rs = preparedStatement.executeQuery();
 

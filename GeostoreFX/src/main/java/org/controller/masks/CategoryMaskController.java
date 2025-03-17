@@ -25,20 +25,17 @@ import org.utility.Translater;
 import java.io.File;
 import java.net.URL;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CategoryMaskController implements Initializable {
 
     @FXML
-    private TextField nameIt, nameEn, nameJa, uniqueName;
+    private TextField nameIt, nameEn, nameJa;
 
     private PopOver popOver;
 
     private Service service;
-    private String IDkey; //usato per la ricerca/modifica/rimozione
+    private String IDkey, IDNumKey; //usato per la ricerca/modifica/rimozione
 
     //------------------INITIALIZE-----------------------
 
@@ -47,71 +44,50 @@ public class CategoryMaskController implements Initializable {
 
         service = new Service();
         Categoria categoria;
-        categoria = service.ottieniCategoria(Integer.parseInt(IDkey));
+        categoria = service.ottieniCategoria(IDkey, true);
 
-        name.setText(categoria.getNome());
+        // Divide la stringa usando il simbolo "#"
+        String[] parti = categoria.getNome().split("#");
+
+        nameIt.setText(parti[0]);
+        nameEn.setText(parti[1]);
+        nameJa.setText(parti[2]);
 
         this.IDkey = IDkey;
+        this.IDNumKey = categoria.getId().toString();
     }
 
     //------------------GETTING FROM CRUD CONTROLLER-----------------------
 
     //per la creazione categoria
-    public List<Categoria> setValues() throws ParseException { //recuperato da mask
-        List<Categoria> categorie = new ArrayList<>();
+    public Categoria setValues() throws ParseException { //recuperato da mask
 
-        Categoria categoria1 = new Categoria();
+        Categoria categoria = new Categoria();
 
-        categoria1.setNome(nameIt.getText().toUpperCase());
-        categoria1.setLingua("it");
+        String concatName = nameIt.getText().toUpperCase() + "#" + nameEn.getText().toUpperCase() + "#" + nameJa.getText().toUpperCase();
 
-        categorie.add(categoria1);
+        //funzione random che va da 100 a 999
+        Random random = new Random();
+        int num = random.nextInt(900) + 100;
 
-        Categoria categoria2 = new Categoria();
+        categoria.setNome(concatName);
+        categoria.setCodice("CAT" + num);
 
-        categoria2.setNome(nameEn.getText().toUpperCase());
-        categoria2.setLingua("en");
-
-        categorie.add(categoria2);
-
-        Categoria categoria3 = new Categoria();
-
-        categoria3.setNome(nameJa.getText().toUpperCase());
-        categoria3.setLingua("ja");
-
-        categorie.add(categoria3);
-
-        return categorie;
+        return categoria;
     }
 
     //per la modifica categoria
-    public List<Categoria> setValuesWithID() throws ParseException { //recuperato da mask
-        List<Categoria> categorie = new ArrayList<>();
+    public Categoria setValuesWithID() throws ParseException { //recuperato da mask
 
-        Categoria categoria1 = new Categoria();
+        Categoria categoria = new Categoria();
 
-        categoria1.setId(Integer.parseInt(IDkey));
-        categoria1.setNome(nameIt.getText().toUpperCase());
+        String concatName = nameIt.getText().toUpperCase() + "#" + nameEn.getText().toUpperCase() + "#" + nameJa.getText().toUpperCase();
 
-        categorie.add(categoria1);
+        categoria.setId(Integer.parseInt(IDNumKey));
+        categoria.setNome(concatName);
+        categoria.setCodice(IDkey);
 
-        Categoria categoria2 = new Categoria();
-
-        categoria2.setId(Integer.parseInt(IDkey));
-        categoria2.setNome(nameEn.getText().toUpperCase());
-        categoria2.setLingua("en");
-
-        categorie.add(categoria2);
-
-        Categoria categoria3 = new Categoria();
-
-        categoria3.setId(Integer.parseInt(IDkey));
-        categoria3.setNome(nameJa.getText().toUpperCase());
-        categoria3.setLingua("ja");
-
-        categorie.add(categoria3);
-
-        return categorie;
+        return categoria;
     }
 
     //------------------BUTTONS-----------------------

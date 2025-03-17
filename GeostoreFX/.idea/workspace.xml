@@ -8,14 +8,28 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/CreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/CreateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/UpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductTypeButtonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductTypeButtonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Categoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/models/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/CategoriaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/categoryMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/categoryMask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/materialMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/masks/materialMask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/crud/categorieCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/crud/categorieCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/buttonList.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/categoryButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/categoryButton.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/CreateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/CreateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/UpdateController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/masks/CategoryMaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/masks/CategoryMaskController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/masks/MaterialMaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/masks/MaterialMaskController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/Categoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/CategoriaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/buttonList.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/categoryButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/categoryButton.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/masks/categoryMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/masks/categoryMask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/masks/materialMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/masks/materialMask.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/crud/categorieCRUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/crud/categorieCRUD.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,16 +308,6 @@
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/models/ProdottoRepository.java</url>
-          <line>214</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/models/ProdottoRepository.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/controller/AccessController.java</url>
           <line>66</line>
           <option name="timeStamp" value="94" />
@@ -407,11 +411,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
           <line>231</line>
           <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/ProductMaskController.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/models/Prodotto.java</url>

@@ -310,9 +310,9 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         }
         else if(maskController instanceof CategoryMaskController){
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;
-            List<Categoria> cl = categoryMaskController.setValues();
+            Categoria c = categoryMaskController.setValues();
 
-            service.creazioneCategoria(cl, user);
+            service.creazioneCategoria(c, user);
         }
         else if(maskController instanceof MaterialMaskController){
             MaterialMaskController materialMaskController = (MaterialMaskController) maskController;

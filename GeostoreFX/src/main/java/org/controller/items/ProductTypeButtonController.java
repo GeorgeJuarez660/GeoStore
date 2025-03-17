@@ -19,7 +19,7 @@ public class ProductTypeButtonController implements Initializable {
     //category and material buttons
 
     @FXML
-    private Label id, name;
+    private Label id, name, code;
     @FXML
     private Button update, delete;
 
@@ -49,6 +49,7 @@ public class ProductTypeButtonController implements Initializable {
 
     public void setCategoryValues(Categoria categoria){
         id.setText("#" + categoria.getId().toString());
+        code.setText(categoria.getCodice());
         name.setText(categoria.getNome());
     }
 
@@ -75,7 +76,7 @@ public class ProductTypeButtonController implements Initializable {
         partialSceneDTO.setInnerScene("update");
         partialSceneDTO.setItemScene("category");
         partialSceneDTO.setUser(user);
-        String idKey = id.getText().replace("#", "");
+        String idKey = code.getText();
         LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
@@ -104,7 +105,7 @@ public class ProductTypeButtonController implements Initializable {
         //notizia per la creazione categoria
 
 
-        service.eliminazioneCategoria(id.getText().replace("#", ""), user);
+        service.eliminazioneCategoria(code.getText(), user);
     }
 
     @FXML

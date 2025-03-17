@@ -6,7 +6,7 @@ public class Categoria {
     private Integer id = 0;
     private static Integer count=0;
     private String nome;
-    private String lingua;
+    private String codice;
 
     public Integer getId() {
         return id;
@@ -25,16 +25,16 @@ public class Categoria {
         return nome;
     }
 
-    public String getLingua() {
-        return lingua;
-    }
-
-    public void setLingua(String lingua) {
-        this.lingua = lingua;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getCodice() {
+        return codice;
+    }
+
+    public void setCodice(String codice) {
+        this.codice = codice;
     }
 
     @Override
@@ -42,34 +42,42 @@ public class Categoria {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Categoria categoria = (Categoria) o;
-        return Objects.equals(id, categoria.id) && Objects.equals(nome, categoria.nome) && Objects.equals(lingua, categoria.lingua);
+        return Objects.equals(id, categoria.id) && Objects.equals(nome, categoria.nome) && Objects.equals(codice, categoria.codice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, lingua);
+        return Objects.hash(id, nome, codice);
     }
 
     public Categoria() {
     }
 
-    public Categoria(String nome, String lingua) {
+    public Categoria(String nome, String codice) {
         this.nome = nome;
-        this.lingua = lingua;
+        this.codice = codice;
     }
 
     @Override
     public String toString() {
         return "Categoria{" +
                 "nome='" + nome + '\'' +
-                "lingua='" + lingua + '\'' +
+                "codice='" + codice + '\'' +
                 '}';
     }
 
-    public boolean checkNotNullCategoria(Categoria c){
+    public boolean checkNotNullCategoria(String nomeIt, String nomeEn, String nomeJa){
         boolean canCU = true;
 
-        if(c.getNome() == null || c.getNome().isEmpty() || c.getNome().isBlank()){
+        if(nomeIt == null || nomeIt.isEmpty() || nomeIt.isBlank()){
+            canCU = false;
+        }
+
+        if(nomeEn == null || nomeEn.isEmpty() || nomeEn.isBlank()){
+            canCU = false;
+        }
+
+        if(nomeJa == null || nomeJa.isEmpty() || nomeJa.isBlank()){
             canCU = false;
         }
 

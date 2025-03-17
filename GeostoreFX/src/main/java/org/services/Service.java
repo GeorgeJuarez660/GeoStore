@@ -881,23 +881,20 @@ public class Service {
         }
     }
 
-    public void creazioneCategoria(List<Categoria> categoryList, Cliente user){
+    public void creazioneCategoria(Categoria category, Cliente user){
         int num = 0;
         boolean isNotNull = true;
 
-        for(Categoria category : categoryList){
-            isNotNull = category.checkNotNullCategoria(category);
-        }
+        // Divide la stringa usando il simbolo "#"
+        String[] parti = category.getNome().split("#");
+
+        isNotNull = category.checkNotNullCategoria(parti[0], parti[1], parti[2]);
 
         if(isNotNull){
-            for(Categoria category : categoryList) {
-                num = cr.checkDuplicatesCategoria(category);
-            }
+            num = cr.checkDuplicatesCategoria(parti[0], parti[1], parti[2]);
 
             if(num == 0){
-                for(Categoria category : categoryList) {
-                    num = cr.insertCategoriaWithDB(category.getId(), category);
-                }
+                num = cr.insertCategoriaWithDB(category.getId(), category);
 
                 if(num > 0){
                     //notizia per la creazione categoria
@@ -905,11 +902,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    for(Categoria category : categoryList) {
-                        if(category.getLingua().equals(Translater.getLanguage())){
-                            notiziaCreazione.setTesto("CAT-CN1: " + category.getNome() + ". CAT-CN2");
-                        }
-                    }
+                    notiziaCreazione.setTesto("CAT-CN1: " + category.getNome() + ". CAT-CN2");
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -925,29 +918,22 @@ public class Service {
 
     }
 
-    public void modificaCategoria(List<Categoria> categoryList, Cliente user){
+    public void modificaCategoria(Categoria category, Cliente user){
         int num = 0;
         boolean isNotNull = true;
 
-        for(Categoria category : categoryList){
-            isNotNull = category.checkNotNullCategoria(category);
-        }
+        // Divide la stringa usando il simbolo "#"
+        String[] parti = category.getNome().split("#");
+
+        isNotNull = category.checkNotNullCategoria(parti[0], parti[1], parti[2]);
 
         if(isNotNull) {
-            List<Categoria> oldCategoryList = new ArrayList<>();
-            for(Categoria category : categoryList){
-                Categoria c = cr.getCategoriaWithDB(category.getId()); //per la notizia della modifica
-                oldCategoryList.add(c);
-            }
+            Categoria c = cr.getCategoriaWithDB(category.getCodice(), true); //per la notizia della modifica
 
-            for(Categoria category : categoryList) {
-                num = cr.checkDuplicatesCategoria(category);
-            }
+            num = cr.checkDuplicatesCategoria(parti[0], parti[1], parti[2]);
 
             if(num == 0){
-                for(Categoria category : categoryList) {
-                    num = cr.updateCategoriaWithDB(category.getId(), category);
-                }
+                num = cr.updateCategoriaWithDB(category.getCodice(), category);
 
                 if(num > 0){
                     //notizia per la modifica categoria
@@ -955,11 +941,7 @@ public class Service {
                     notiziaCreazione.setUtente(user);
                     notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                    for(int i = 0; i < categoryList.size(); i++) {
-                        if (categoryList.get(i).getLingua().equals(Translater.getLanguage())){
-                            notiziaCreazione.setTesto("CAT-UN1: CAT-UN2 " + oldCategoryList.get(i).getNome() + " CAT-UN3 " + categoryList.get(i).getNome());
-                        }
-                    }
+                    notiziaCreazione.setTesto("CAT-UN1: CAT-UN2 " + c.getNome() + " CAT-UN3 " + category.getNome());
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
                 }
 
@@ -975,8 +957,8 @@ public class Service {
 
     }
 
-    public void eliminazioneCategoria(String IDKey, Cliente user){
-        Categoria category = cr.getCategoriaWithDB(Integer.parseInt(IDKey));
+    public void eliminazioneCategoria(String codeKey, Cliente user){
+        Categoria category = cr.getCategoriaWithDB(codeKey, true);
 
         int num = pr.updateIdBeforeDeleteCategory(0, category.getId());
         if(num > 0){
@@ -986,7 +968,7 @@ public class Service {
             Utility.msgInf("GEOSTORE", "Prodotti non aggiornati\n");
         }
 
-        num = cr.deleteCategoriaWithDB(category.getId());
+        num = cr.deleteCategoriaWithDB(category.getCodice());
 
         if(num > 0){
             //notizia per l'eliminazione categoria
@@ -1005,8 +987,8 @@ public class Service {
         return cr.getCategorieWithDB();
     }
 
-    public Categoria ottieniCategoria(Integer idCategoria) {
-        return cr.getCategoriaWithDB(idCategoria);
+    public Categoria ottieniCategoria(String codiceCategoria, boolean multiLang) {
+        return cr.getCategoriaWithDB(codiceCategoria, multiLang);
     }
 
     public void refundBeforeDeleteOrUpdateOrder(Ordine o, Utente u){
