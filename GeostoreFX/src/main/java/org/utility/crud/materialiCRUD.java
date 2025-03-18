@@ -11,8 +11,8 @@ public interface materialiCRUD {
     //metodi override per operazioni CRUD con database
     public int insertMaterialeWithDB(Integer id, Materiale m);
     public HashMap<Integer, Materiale> getMaterialiWithDB();
-    public Materiale getMaterialeWithDB(Integer id);
-    public int updateMaterialeWithDB(Integer id, Materiale newM);
-    public int deleteMaterialeWithDB(Integer id);
+    public Materiale getMaterialeWithDB(String codice, boolean multiLang);
+    public int updateMaterialeWithDB(String codice, Materiale newM);
+    public int deleteMaterialeWithDB(String codice);
 
 }

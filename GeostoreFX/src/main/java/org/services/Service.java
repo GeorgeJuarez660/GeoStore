@@ -886,12 +886,12 @@ public class Service {
         boolean isNotNull = true;
 
         // Divide la stringa usando il simbolo "#"
-        String[] parti = category.getNome().split("#");
+        String[] traduzioni = category.getNome().split("#");
 
-        isNotNull = category.checkNotNullCategoria(parti[0], parti[1], parti[2]);
+        isNotNull = category.checkNotNullCategoria(traduzioni[0], traduzioni[1], traduzioni[2]);
 
         if(isNotNull){
-            num = cr.checkDuplicatesCategoria(parti[0], parti[1], parti[2]);
+            num = cr.checkDuplicatesCategoria(traduzioni[0], traduzioni[1], traduzioni[2]);
 
             if(num == 0){
                 num = cr.insertCategoriaWithDB(category.getId(), category);
@@ -923,14 +923,14 @@ public class Service {
         boolean isNotNull = true;
 
         // Divide la stringa usando il simbolo "#"
-        String[] parti = category.getNome().split("#");
+        String[] traduzioni = category.getNome().split("#");
 
-        isNotNull = category.checkNotNullCategoria(parti[0], parti[1], parti[2]);
+        isNotNull = category.checkNotNullCategoria(traduzioni[0], traduzioni[1], traduzioni[2]);
 
         if(isNotNull) {
             Categoria c = cr.getCategoriaWithDB(category.getCodice(), true); //per la notizia della modifica
 
-            num = cr.checkDuplicatesCategoria(parti[0], parti[1], parti[2]);
+            num = cr.checkDuplicatesCategoria(traduzioni[0], traduzioni[1], traduzioni[2]);
 
             if(num == 0){
                 num = cr.updateCategoriaWithDB(category.getCodice(), category);
@@ -1029,17 +1029,18 @@ public class Service {
 
     public void creazioneMateriale(Materiale material, Cliente user){
         int num = 0;
+        boolean isNotNull = true;
 
-        if(material.checkNotNullMateria(material)){
-            num = mr.checkDuplicatesMateriale(material);
+        //divide la stringa usando il simbolo "#"
+        String[] traduzioni = material.getNome().split("#");
+
+        isNotNull = material.checkNotNullMateria(traduzioni[0], traduzioni[1], traduzioni[2]);
+
+        if(isNotNull){
+            num = mr.checkDuplicatesMateriale(traduzioni[0], traduzioni[1], traduzioni[2]);
 
             if(num == 0){
                 num = mr.insertMaterialeWithDB(material.getId(), material);
-
-                if(num > 0){
-                    //spostare il file da download
-                    //TODO: se la creazione è andata con successo prenderà il file png da download e lo inserisce nella cartella "interna"
-                }
 
                 Utility.sendResponse(num, "MAT-C", user);
             }
@@ -1055,17 +1056,18 @@ public class Service {
 
     public void modificaMateriale(Materiale material, Cliente user){
         int num = 0;
+        boolean isNotNull = true;
 
-        if(material.checkNotNullMateria(material)) {
-            num = mr.checkDuplicatesMateriale(material);
+        // Divide la stringa usando il simbolo "#"
+        String[] traduzioni = material.getNome().split("#");
+
+        isNotNull = material.checkNotNullMateria(traduzioni[0], traduzioni[1], traduzioni[2]);
+
+        if(isNotNull) {
+            num = mr.checkDuplicatesMateriale(traduzioni[0], traduzioni[1], traduzioni[2]);
 
             if(num == 0){
-                num = mr.updateMaterialeWithDB(material.getId(), material);
-
-                if(num > 0){
-                    //spostare il file da download
-                    //TODO: se la modifica è andata con successo prenderà il file png da download e lo mette nella cartella "interna" e rimuoverà il file png vecchio
-                }
+                num = mr.updateMaterialeWithDB(material.getCodice(), material);
 
                 Utility.sendResponse(num, "MAT-U", user);
             }
@@ -1079,8 +1081,8 @@ public class Service {
 
     }
 
-    public void eliminazioneMateriale(String IDKey, Cliente user){
-        Materiale material = mr.getMaterialeWithDB(Integer.parseInt(IDKey));
+    public void eliminazioneMateriale(String codeKey, Cliente user){
+        Materiale material = mr.getMaterialeWithDB(codeKey, true);
 
         int num = pr.updateIdBeforeDeleteMaterial(0, material.getId());
         if(num > 0){
@@ -1090,7 +1092,7 @@ public class Service {
             Utility.msgInf("GEOSTORE", "Prodotti non aggiornati\n");
         }
 
-        num = mr.deleteMaterialeWithDB(material.getId());
+        num = mr.deleteMaterialeWithDB(material.getCodice());
 
         Utility.sendResponseDeletedMaterials(num, user);
     }
@@ -1099,8 +1101,8 @@ public class Service {
         return mr.getMaterialiWithDB();
     }
 
-    public Materiale ottieniMateriale(Integer idMateria){
-        return mr.getMaterialeWithDB(idMateria);
+    public Materiale ottieniMateriale(String codiceMateriale, boolean multiLang){
+        return mr.getMaterialeWithDB(codiceMateriale, multiLang);
     }
 
     public HashMap<Integer, Prodotto> prodottiViaMateriale(String IDMaterialKey){

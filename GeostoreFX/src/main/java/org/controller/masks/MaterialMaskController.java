@@ -24,19 +24,18 @@ import java.io.File;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.Locale;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class MaterialMaskController implements Initializable {
 
     @FXML
-    private TextField name;
-    @FXML
-    private Label img;
+    private TextField nameIt, nameEn, nameJa;
 
     private PopOver popOver;
 
     private Service service;
-    private String IDkey; //usato per la ricerca/modifica/rimozione
+    private String IDkey, IDNumKey; //usato per la ricerca/modifica/rimozione
 
     //------------------INITIALIZE-----------------------
 
@@ -45,11 +44,17 @@ public class MaterialMaskController implements Initializable {
 
         service = new Service();
         Materiale materiale;
-        materiale = service.ottieniMateriale(Integer.parseInt(IDkey));
+        materiale = service.ottieniMateriale(IDkey, true);
 
-        name.setText(materiale.getNome());
+        // Divide la stringa usando il simbolo "#"
+        String[] traduzioni = materiale.getNome().split("#");
+
+        nameIt.setText(traduzioni[0]);
+        nameEn.setText(traduzioni[1]);
+        nameJa.setText(traduzioni[2]);
 
         this.IDkey = IDkey;
+        this.IDNumKey = materiale.getId().toString();
     }
 
     //------------------GETTING FROM CRUD CONTROLLER-----------------------
@@ -58,7 +63,14 @@ public class MaterialMaskController implements Initializable {
     public Materiale setValues() throws ParseException { //recuperato da mask
         Materiale materiale = new Materiale();
 
-        materiale.setNome(name.getText().toUpperCase());
+        String concatName = nameIt.getText().toUpperCase() + "#" + nameEn.getText().toUpperCase() + "#" + nameJa.getText().toUpperCase();
+
+        //funzione random che va da 100 a 999
+        Random random = new Random();
+        int num = random.nextInt(900) + 100;
+
+        materiale.setNome(concatName);
+        materiale.setCodice("MAT" + num);
 
         return materiale;
     }
@@ -67,8 +79,11 @@ public class MaterialMaskController implements Initializable {
     public Materiale setValuesWithID() throws ParseException { //recuperato da mask
         Materiale materiale = new Materiale();
 
-        materiale.setId(Integer.parseInt(IDkey));
-        materiale.setNome(name.getText().toUpperCase());
+        String concatName = nameIt.getText().toUpperCase() + "#" + nameEn.getText().toUpperCase() + "#" + nameJa.getText().toUpperCase();
+
+        materiale.setId(Integer.parseInt(IDNumKey));
+        materiale.setCodice(IDkey);
+        materiale.setNome(concatName);
 
         return materiale;
     }

@@ -47,11 +47,11 @@ public class CategoryMaskController implements Initializable {
         categoria = service.ottieniCategoria(IDkey, true);
 
         // Divide la stringa usando il simbolo "#"
-        String[] parti = categoria.getNome().split("#");
+        String[] traduzioni = categoria.getNome().split("#");
 
-        nameIt.setText(parti[0]);
-        nameEn.setText(parti[1]);
-        nameJa.setText(parti[2]);
+        nameIt.setText(traduzioni[0]);
+        nameEn.setText(traduzioni[1]);
+        nameJa.setText(traduzioni[2]);
 
         this.IDkey = IDkey;
         this.IDNumKey = categoria.getId().toString();
@@ -84,8 +84,8 @@ public class CategoryMaskController implements Initializable {
         String concatName = nameIt.getText().toUpperCase() + "#" + nameEn.getText().toUpperCase() + "#" + nameJa.getText().toUpperCase();
 
         categoria.setId(Integer.parseInt(IDNumKey));
-        categoria.setNome(concatName);
         categoria.setCodice(IDkey);
+        categoria.setNome(concatName);
 
         return categoria;
     }

@@ -73,11 +73,11 @@ public class CategoriaRepository implements categorieCRUD {
             //int num = 0;
 
             // Divide la stringa usando il simbolo "#"
-            String[] parti = c.getNome().split("#");
+            String[] traduzioni = c.getNome().split("#");
 
-            preparedStatement.setString(1, parti[0]);
-            preparedStatement.setString(2, parti[1]);
-            preparedStatement.setString(3, parti[2]);
+            preparedStatement.setString(1, traduzioni[0]);
+            preparedStatement.setString(2, traduzioni[1]);
+            preparedStatement.setString(3, traduzioni[2]);
             preparedStatement.setString(4, c.getCodice());
             num = preparedStatement.executeUpdate();
             //chiudi la connessione
@@ -190,11 +190,11 @@ public class CategoriaRepository implements categorieCRUD {
             //int num = 0;
 
             // Divide la stringa usando il simbolo "#"
-            String[] parti = newC.getNome().split("#");
+            String[] traduzioni = newC.getNome().split("#");
 
-            preparedStatement.setString(1, parti[0]);
-            preparedStatement.setString(2, parti[1]);
-            preparedStatement.setString(3, parti[2]);
+            preparedStatement.setString(1, traduzioni[0]);
+            preparedStatement.setString(2, traduzioni[1]);
+            preparedStatement.setString(3, traduzioni[2]);
             preparedStatement.setString(4, codice);
 
             num = preparedStatement.executeUpdate();

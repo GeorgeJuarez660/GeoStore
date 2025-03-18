@@ -6,6 +6,7 @@ public class Materiale {
     private Integer id = 0;
     private static Integer count=0;
     private String nome;
+    private String codice;
 
     public Integer getId() {
         return id;
@@ -28,6 +29,14 @@ public class Materiale {
         this.nome = nome;
     }
 
+    public String getCodice() {
+        return codice;
+    }
+
+    public void setCodice(String codice) {
+        this.codice = codice;
+    }
+
     public Materiale() {
     }
 
@@ -36,17 +45,18 @@ public class Materiale {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Materiale ordine1 = (Materiale) o;
-        return Objects.equals(id, ordine1.id) && Objects.equals(nome, ordine1.nome);
+        return Objects.equals(id, ordine1.id) && Objects.equals(nome, ordine1.nome) && Objects.equals(codice, ordine1.codice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome);
+        return Objects.hash(id, nome, codice);
     }
 
-    public Materiale(Integer id, String nome) {
+    public Materiale(Integer id, String nome, String codice) {
         this.id = id;
         this.nome = nome;
+        this.codice = codice;
     }
 
     @Override
@@ -54,13 +64,22 @@ public class Materiale {
         return "Ordine{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
+                ", codice='" + codice + '\'' +
                 '}';
     }
 
-    public boolean checkNotNullMateria(Materiale m){
+    public boolean checkNotNullMateria(String nomeIt, String nomeEn, String nomeJa){
         boolean canCU = true;
 
-        if(m.getNome() == null || m.getNome().isEmpty() || m.getNome().isBlank()){
+        if(nomeIt == null || nomeIt.isEmpty() || nomeIt.isBlank()){
+            canCU = false;
+        }
+
+        if(nomeEn == null || nomeEn.isEmpty() || nomeEn.isBlank()){
+            canCU = false;
+        }
+
+        if(nomeJa == null || nomeJa.isEmpty() || nomeJa.isBlank()){
             canCU = false;
         }
 

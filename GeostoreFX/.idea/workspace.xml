@@ -6,30 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/CreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/CreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/UpdateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductTypeButtonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductTypeButtonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/CategoryMaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/masks/MaterialMaskController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/models/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/CategoriaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/Materiale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/Materiale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/MaterialeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/MaterialeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/crud/categorieCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/crud/categorieCRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/buttonList.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/categoryButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/categoryButton.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/CreateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/CreateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/UpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/masks/CategoryMaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/masks/CategoryMaskController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/masks/MaterialMaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/masks/MaterialMaskController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/models/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/Categoria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/models/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/CategoriaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/buttonList.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/categoryButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/categoryButton.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/masks/categoryMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/masks/categoryMask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/masks/materialMask.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/masks/materialMask.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/crud/categorieCRUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/crud/categorieCRUD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/crud/materialiCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/crud/materialiCRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/materialButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/materialButton.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -55,6 +55,7 @@ public class ProductTypeButtonController implements Initializable {
 
     public void setMaterialValues(Materiale materiale){
         id.setText("#" + materiale.getId().toString());
+        code.setText(materiale.getCodice());
         name.setText(materiale.getNome());
     }
 
@@ -89,7 +90,7 @@ public class ProductTypeButtonController implements Initializable {
         partialSceneDTO.setInnerScene("update");
         partialSceneDTO.setItemScene("material");
         partialSceneDTO.setUser(user);
-        String idKey = id.getText().replace("#", "");
+        String idKey = code.getText();
         LoadPage.getPartialSceneCRU(partialSceneDTO, idKey, null);
     }
 
@@ -117,7 +118,7 @@ public class ProductTypeButtonController implements Initializable {
 
         Service service = new Service();
 
-        service.eliminazioneMateriale(id.getText().replace("#", ""), user);
+        service.eliminazioneMateriale(code.getText(), user);
     }
 
     @FXML
