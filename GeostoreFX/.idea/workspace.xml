@@ -15,6 +15,15 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/crud/materialiCRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/crud/materialiCRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/materialButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/materialButton.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/masks/CategoryMaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/masks/CategoryMaskController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/masks/MaterialMaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/masks/MaterialMaskController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/CategoriaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/Materiale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/Materiale.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/MaterialeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/MaterialeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/materialButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/materialButton.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/crud/materialiCRUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/crud/materialiCRUD.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
