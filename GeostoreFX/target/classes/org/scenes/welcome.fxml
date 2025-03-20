@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" fx:controller="org.controller.WelcomeController" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.WelcomeController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +21,7 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="750.0" styleClass="label-font-max-title" text="%welcome.title" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="750.0" styleClass="label-font-max-title" text="%welcome.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true">
                <font>
                   <Font name="Press Start 2P" size="24.0" />
                </font>
@@ -35,12 +31,12 @@
             </Label>
             <VBox alignment="BOTTOM_CENTER" prefHeight="173.0" prefWidth="800.0" spacing="30.0">
                <children>
-                  <Button text="%welcome.enter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50; -fx-background-color: #306FDB;" styleClass="label-font-max-btn"  textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50; -fx-background-color: #306FDB;" styleClass="label-font-max-btn" text="%welcome.enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Press Start 2P" size="14.0" />
                      </font>
                   </Button>
-                  <Button text="%welcome.exit" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="22.0" prefWidth="154.0" style="-fx-background-radius: 50; -fx-background-color: #FF5757;" styleClass="label-font" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="22.0" prefWidth="154.0" style="-fx-background-radius: 50; -fx-background-color: #FF5757;" styleClass="label-font" text="%welcome.exit" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                </children>
                <VBox.margin>
                   <Insets />
@@ -48,7 +44,7 @@
             </VBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="800.0">
                <children>
-                  <ImageView fitHeight="75.0" fitWidth="119.0" pickOnBounds="true" onMouseClicked="#goesToChangeLanguage" preserveRatio="true" style="-fx-cursor: hand;">
+                  <ImageView fitHeight="75.0" fitWidth="119.0" onMouseClicked="#goesToChangeLanguage" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                      <image>
                         <Image url="@../images/world.gif" />
                      </image>

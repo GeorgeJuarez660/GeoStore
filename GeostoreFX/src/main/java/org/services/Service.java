@@ -437,6 +437,10 @@ public class Service {
         boolean checkNN = product.checkNotNullProdotto(product);
 
         if(checkNN) {
+
+            product.getCategoria().setId(cr.getIdByCode(product.getCategoria().getCodice()));
+            product.getMateriale().setId(mr.getIdByCode(product.getMateriale().getCodice()));
+
             num = pr.insertProdottoWithDB(product.getId(), product);
 
             if(num > 0){
@@ -463,6 +467,9 @@ public class Service {
 
         if(checkNN) {
             Prodotto p = pr.getProdottoWithDB(product.getId()); //per la notizia della modifica da prodotto "old" a "new"
+
+            product.getCategoria().setId(cr.getIdByCode(product.getCategoria().getCodice()));
+            product.getMateriale().setId(mr.getIdByCode(product.getMateriale().getCodice()));
 
             num = pr.updateProdottoWithDB(product.getId(), product);
 

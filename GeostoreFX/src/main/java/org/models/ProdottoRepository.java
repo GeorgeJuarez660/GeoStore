@@ -1,6 +1,7 @@
 package org.models;
 
 import org.services.DBConnection;
+import org.utility.Translater;
 import org.utility.Utility;
 import org.utility.crud.prodottiCRUD;
 
@@ -47,7 +48,10 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public HashMap<Integer, Prodotto> getProdottiWithDB() {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n";
@@ -75,11 +79,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -97,7 +119,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiDispWithDB() {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n"+
@@ -126,11 +151,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -148,7 +191,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaCategoriaWithDB(Integer idCat) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -178,11 +224,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -200,7 +264,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaCategoriaByKeywordWithDB(Integer idCat, String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -232,11 +299,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -254,7 +339,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaMaterialeWithDB(Integer idMat) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -284,11 +372,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -306,7 +412,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottiViaMaterialeByKeywordWithDB(Integer idMat, String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -338,11 +447,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -361,7 +488,10 @@ public class ProdottoRepository implements prodottiCRUD {
 
     @Override
     public Prodotto getProdottoWithDB(Integer id) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -388,11 +518,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
             }
@@ -408,7 +556,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottoByKeywordWithDB(String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -439,11 +590,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 
@@ -461,7 +630,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public Prodotto getProdottoDispWithDB(Integer id) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -488,11 +660,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
             }
@@ -508,7 +698,10 @@ public class ProdottoRepository implements prodottiCRUD {
     }
 
     public HashMap<Integer, Prodotto> getProdottoDispByKeywordWithDB(String keyword) {
-        String sql = "select c.id as cat_id, c.nome as cat_nome, d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, m.id as mat_id, m.nome as mat_nome, o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
+        String sql = "select c.id as cat_id, c.codice as cat_code, c.nome_it as cat_nome_it, c.nome_en as cat_nome_en, c.nome_ja as cat_nome_ja, " +
+                "d.id as disp_id, d.code as disp_code, d.descrizione as disp_desc, " +
+                "m.id as mat_id, m.codice as mat_code, m.nome_it as mat_nome_it, m.nome_en as mat_nome_en, m.nome_ja as mat_nome_ja, " +
+                "o.id, o.nome, o.prezzo, o.disponibilita, o.categoria, o.materiale, o.quantita_disp \n" +
                 "from prodotti o join categorie c on(o.categoria=c.id)\n" +
                 "join materiali m on(o.materiale=m.id)\n" +
                 "join disponibilita d on(o.disponibilita=d.id)\n" +
@@ -539,11 +732,29 @@ public class ProdottoRepository implements prodottiCRUD {
                 prodotto.setDisponibilita(disponibilita);
                 Categoria categoria = new Categoria();
                 categoria.setId(rs.getInt("cat_id"));
-                categoria.setNome(rs.getString("cat_nome"));
+                categoria.setCodice(rs.getString("cat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    categoria.setNome(rs.getString("cat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    categoria.setNome(rs.getString("cat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    categoria.setNome(rs.getString("cat_nome_ja"));
+                }
                 prodotto.setCategoria(categoria);
                 Materiale materiale = new Materiale();
                 materiale.setId(rs.getInt("mat_id"));
-                materiale.setNome(rs.getString("mat_nome"));
+                materiale.setCodice(rs.getString("mat_code"));
+                if(Translater.getLanguage().equals("it")){
+                    materiale.setNome(rs.getString("mat_nome_it"));
+                }
+                else if(Translater.getLanguage().equals("en")){
+                    materiale.setNome(rs.getString("mat_nome_en"));
+                }
+                else if(Translater.getLanguage().equals("ja")){
+                    materiale.setNome(rs.getString("mat_nome_ja"));
+                }
                 prodotto.setMateriale(materiale);
                 prodotto.setQuantita_disp(rs.getInt("quantita_disp"));
 

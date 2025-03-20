@@ -263,4 +263,34 @@ public class CategoriaRepository implements categorieCRUD {
         return num;
     }
 
+    public int getIdByCode(String codice) {
+        String sql = "SELECT id FROM Categorie c WHERE c.codice = ?";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        int num = 0;
+
+        try{
+            //Connessione al db
+            connection = DBConnection.sqlConnect();
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, codice);
+
+            rs = preparedStatement.executeQuery();
+
+            while(rs.next()){
+                num = rs.getInt("id");
+            }
+            //chiudi la connessione
+            rs.close();
+            preparedStatement.close();
+            connection.close();
+        }catch(SQLException e){
+            Utility.msgInf("GEOSTORE", "Errore nel getIdByCode: " + e.getMessage());
+        }
+
+        return num;
+    }
+
 }

@@ -29,7 +29,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="96.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%prepage.title" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%prepage.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>

@@ -56,7 +56,7 @@ public class ProductMaskController implements Initializable {
         cat = service.ottieniCategorie();
 
         for(Categoria categoria : cat.values()){
-            category.getItems().add(categoria.getId() + " - " + categoria.getNome());
+            category.getItems().add(categoria.getCodice() + " - " + categoria.getNome());
         }
     }
 
@@ -66,7 +66,7 @@ public class ProductMaskController implements Initializable {
         mat = service.ottieniMateriali();
 
         for(Materiale materiale : mat.values()){
-            material.getItems().add(materiale.getId() + " - " + materiale.getNome());
+            material.getItems().add(materiale.getCodice() + " - " + materiale.getNome());
         }
     }
 
@@ -80,8 +80,8 @@ public class ProductMaskController implements Initializable {
         name.setText(prodotto.getNome());
         price.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()));
         available.setValue(prodotto.getDisponibilita().getId() + " - " + prodotto.getDisponibilita().getCode());
-        category.setValue(prodotto.getCategoria().getId() + " - " + prodotto.getCategoria().getNome());
-        material.setValue(prodotto.getMateriale().getId() + " - " + prodotto.getMateriale().getNome());
+        category.setValue(prodotto.getCategoria().getCodice() + " - " + prodotto.getCategoria().getNome());
+        material.setValue(prodotto.getMateriale().getCodice() + " - " + prodotto.getMateriale().getNome());
         quantity.setText(prodotto.getQuantita_disp().toString());
 
         this.IDkey = IDkey;
@@ -118,8 +118,8 @@ public class ProductMaskController implements Initializable {
         Categoria categoria = new Categoria();
 
         if(category.getValue() != null){
-            categoria.setId(Integer.parseInt(category.getValue().replaceAll("[^0-9]", "")));
-            categoria.setNome(category.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            categoria.setCodice(category.getValue().replaceAll(" - .*", ""));
+            categoria.setNome(category.getValue().replaceAll(".* - ", ""));
         }
 
         prodotto.setCategoria(categoria);
@@ -127,8 +127,8 @@ public class ProductMaskController implements Initializable {
         Materiale materiale = new Materiale();
 
         if(material.getValue() != null){
-            materiale.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
-            materiale.setNome(material.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            materiale.setCodice(material.getValue().replaceAll(" - .*", ""));
+            materiale.setNome(material.getValue().replaceAll(".* - ", ""));
         }
 
         prodotto.setMateriale(materiale);
@@ -170,8 +170,8 @@ public class ProductMaskController implements Initializable {
         Categoria categoria = new Categoria();
 
         if(category.getValue() != null){
-            categoria.setId(Integer.parseInt(category.getValue().replaceAll("[^0-9]", "")));
-            categoria.setNome(category.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            categoria.setCodice(category.getValue().replaceAll(" - .*", ""));
+            categoria.setNome(category.getValue().replaceAll(".* - ", ""));
         }
 
         prodotto.setCategoria(categoria);
@@ -179,8 +179,8 @@ public class ProductMaskController implements Initializable {
         Materiale materiale = new Materiale();
 
         if(material.getValue() != null){
-            materiale.setId(Integer.parseInt(material.getValue().replaceAll("[^0-9]", "")));
-            materiale.setNome(material.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            materiale.setCodice(material.getValue().replaceAll(" - .*", ""));
+            materiale.setNome(material.getValue().replaceAll(".* - ", ""));
         }
 
         prodotto.setMateriale(materiale);
