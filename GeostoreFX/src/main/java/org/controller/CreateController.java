@@ -275,7 +275,13 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
     }
 
     @FXML
-    private void create(ActionEvent event) throws ParseException { //button per creare
+    private void create(ActionEvent event){ //button per creare
+        LoadPage.questionScene("Q-CR", null, user, maskController);
+
+
+    }
+
+    public void startCreating(ActionEvent event, Cliente user, Object maskController) throws ParseException {
         System.out.println("Start creating");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-CRT", null);
@@ -326,6 +332,5 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
 
             service.creazioneNotizia(n, user);
         }
-
     }
 }

@@ -252,6 +252,44 @@ public class LoadPage {
     }
 
     @FXML
+    public static void questionScene(String request, String lang, Cliente user, Object maskController) {
+        try {
+            URL fileUrl = null;
+
+            lang = lang != null ? lang : Translater.getLanguage(); //per prima cosa controlla la lingua per impostarla
+            Locale locale = new Locale(lang); // Setti il linguaggio di default da prendere il resource
+            ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
+            // Costruisce il percorso completo del file FXML
+            fileUrl = GeostoreMain.class.getResource("/org/scenes/question.fxml");
+            if (fileUrl == null) {
+                throw new java.io.FileNotFoundException("Nessun file FXML trovato");
+            }
+
+            FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
+            Pane newScene = loader.load();
+
+            QuestionController questionController = (QuestionController) loader.getController(); //Ottieni il controller della scena caricata
+            questionController.request(request, resLang, user, maskController);
+
+            Translater.setLanguage(lang); //conserva la lingua per la prossima volta
+
+            //carica la scena
+            double prefWidth = savedStage.getWidth();
+            double prefHeight = savedStage.getHeight();
+            Scene scene = new Scene(newScene);
+            savedStage.setWidth(prefWidth);
+            savedStage.setHeight(prefHeight);
+            savedStage.setScene(scene);
+            savedStage.show();
+
+        } catch (Exception e) {
+            System.out.println("No page found. Please check FXMLLoader.");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public static void getPartialScene(BorderPane fxmlLoader, String innerScene, Cliente user, String lang) {
         Pane view = null;
         try {
