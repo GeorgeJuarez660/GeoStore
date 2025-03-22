@@ -290,8 +290,20 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
     }
 
     @FXML
-    private void update(ActionEvent event) throws ParseException { //button per modificare
-        System.out.println("Start creating");
+    private void update(ActionEvent event){ //button per modificare
+        System.out.println("question");
+        LoadPage.saveStage(event);
+
+        if(maskController instanceof OrderMaskController){ //nel caso di modifica ordine la question sarà diversa
+            LoadPage.questionScene("Q-UO", null, user, maskController, null);
+        }
+        else{
+            LoadPage.questionScene("Q-UP", null, user, maskController, null);
+        }
+    }
+
+    public void startUpdating(ActionEvent event, Cliente user, Object maskController) throws ParseException {
+        System.out.println("Start updating");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-UPT", null);
 

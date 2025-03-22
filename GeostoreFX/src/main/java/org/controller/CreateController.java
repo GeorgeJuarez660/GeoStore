@@ -276,9 +276,15 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
 
     @FXML
     private void create(ActionEvent event){ //button per creare
-        LoadPage.questionScene("Q-CR", null, user, maskController);
+        System.out.println("question");
+        LoadPage.saveStage(event);
 
-
+        if(maskController instanceof OrderMaskController){ //nel caso di ordinazione prodotto la question sarà diversa
+            LoadPage.questionScene("Q-CO", null, user, maskController, null);
+        }
+        else{
+            LoadPage.questionScene("Q-CR", null, user, maskController, null);
+        }
     }
 
     public void startCreating(ActionEvent event, Cliente user, Object maskController) throws ParseException {

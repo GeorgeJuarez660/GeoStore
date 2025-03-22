@@ -7,10 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.controller.masks.CodeAssociateMaskController;
-import org.models.Amministratore;
-import org.models.Cliente;
-import org.models.CodiceAssociateDTO;
+import org.controller.masks.*;
+import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 
@@ -92,7 +90,14 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
     }
 
     @FXML
-    private void update(ActionEvent event) throws ParseException { //button per modificare
+    private void updateAssociation(ActionEvent event) throws ParseException { //button per modificare
+        System.out.println("question");
+        LoadPage.saveStage(event);
+
+        LoadPage.questionScene("Q-US", null, user, maskController, null);
+    }
+
+    public void startUpdatingAssociation(ActionEvent event, Cliente user, Object maskController) throws ParseException {
         System.out.println("Start updating");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-USC", null);
@@ -105,6 +110,5 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
 
             service.modificaAssociazioneCodice(ca, user);
         }
-
     }
 }

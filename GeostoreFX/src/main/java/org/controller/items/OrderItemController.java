@@ -102,13 +102,17 @@ public class OrderItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare ordine
+        LoadPage.questionScene("Q-DO", null, user, null, id.getText());
+    }
+
+    public void startDeleting(String id, Cliente user){
         System.out.println("goes to delete order");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
-        service.eliminazioneOrdine(id.getText(), user);
+        service.eliminazioneOrdine(id, user);
     }
 
 

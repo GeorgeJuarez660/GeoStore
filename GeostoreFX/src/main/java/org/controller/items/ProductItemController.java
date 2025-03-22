@@ -1,10 +1,12 @@
 package org.controller.items;
 
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
@@ -91,13 +93,17 @@ public class ProductItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare prodotto
+        LoadPage.questionScene("Q-DP", null, user, null, id.getText());
+    }
+
+    public void startDeleting(String id, Cliente user){
         System.out.println("goes to delete product");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
-        service.eliminazioneProdotto(id.getText(), user);
+        service.eliminazioneProdotto(id, user);
     }
 
     @FXML

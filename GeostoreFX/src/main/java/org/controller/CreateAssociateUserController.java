@@ -92,8 +92,15 @@ public class CreateAssociateUserController {// Questo è il BorderPane di menu.f
     }
 
     @FXML
-    private void create(ActionEvent event) throws ParseException { //button per creare
-        System.out.println("Start creating");
+    private void associate(ActionEvent event){ //button per associare
+        System.out.println("question");
+        LoadPage.saveStage(event);
+
+        LoadPage.questionScene("Q-CS", null, user, maskController, null);
+    }
+
+    public void startAssociating(ActionEvent event, Cliente user, Object maskController) throws ParseException {
+        System.out.println("Start associating");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-CSC", null);
 
@@ -105,6 +112,5 @@ public class CreateAssociateUserController {// Questo è il BorderPane di menu.f
 
             service.associazioneCodice(ca, user);
         }
-
     }
 }

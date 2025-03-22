@@ -117,13 +117,17 @@ public class UserItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare utente
+        LoadPage.questionScene("Q-DU", null, user, null, id.getText());
+    }
+
+    public void startDeleting(String id, Cliente user){
         System.out.println("goes to delete user");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
-        if(id.getText().equals(user.getId().toString())){
+        if(id.equals(user.getId().toString())){
             LoadPage.answerScene("negative", "USR-DLN", null);
 
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
@@ -135,7 +139,7 @@ public class UserItemController implements Initializable {
             delay.play();
         }
         else{
-            service.eliminazioneUtente(id.getText(), user);
+            service.eliminazioneUtente(id, user);
         }
     }
 

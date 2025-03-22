@@ -55,7 +55,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#create" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%associate.button" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#associate" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%associate.button" textFill="WHITE" />
          </children>
          <VBox.margin>
             <Insets top="30.0" />

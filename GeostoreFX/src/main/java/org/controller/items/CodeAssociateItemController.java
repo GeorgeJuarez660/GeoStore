@@ -76,13 +76,17 @@ public class CodeAssociateItemController implements Initializable {
 
     @FXML
     private void dissociating(){ //button per dissociare codice
+        LoadPage.questionScene("Q-DS", null, user, null, email.getText());
+    }
+
+    public void startDissociating(String email, Cliente user){ //se la risposta alla domanda è SI allora si procede alla dissociazione del codice
         System.out.println("goes to dissociate code");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DSC", null);
 
         Service service = new Service();
 
-        service.dissociazioneCodice(email.getText(), user);
+        service.dissociazioneCodice(email, user);
     }
 
 

@@ -88,13 +88,17 @@ public class NewsItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare notizia
+        LoadPage.questionScene("Q-DN", null, user, null, id.getText());
+    }
+
+    public void startDeleting(String id, Cliente user){
         System.out.println("goes to delete news");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
-        service.eliminazioneNotizia(id.getText().replace("#", ""), user);
+        service.eliminazioneNotizia(id.replace("#", ""), user);
     }
 
 

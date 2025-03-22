@@ -96,29 +96,34 @@ public class ProductTypeButtonController implements Initializable {
 
     @FXML
     private void deletingCategory(ActionEvent event){ //button per eliminare categoria
-        System.out.println("goes to delete category");
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante categoria)
+        LoadPage.questionScene("Q-DC", null, user, null, code.getText());
+    }
+
+    public void startDeletingCategory(String code, Cliente user){
+        System.out.println("goes to delete category");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
-        //notizia per la creazione categoria
-
-
-        service.eliminazioneCategoria(code.getText(), user);
+        service.eliminazioneCategoria(code, user);
     }
 
     @FXML
     private void deletingMaterial(ActionEvent event){ //button per eliminare materia
-        System.out.println("goes to delete material");
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante materia)
+        LoadPage.questionScene("Q-DM", null, user, null, code.getText());
+    }
+
+    public void startDeletingMaterial(String code, Cliente user){
+        System.out.println("goes to delete material");
         System.out.println("Start deleting");
         LoadPage.loadingScene("LOAD-DLT", null);
 
         Service service = new Service();
 
-        service.eliminazioneMateriale(code.getText(), user);
+        service.eliminazioneMateriale(code, user);
     }
 
     @FXML

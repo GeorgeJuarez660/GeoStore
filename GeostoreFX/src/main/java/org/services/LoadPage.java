@@ -252,7 +252,7 @@ public class LoadPage {
     }
 
     @FXML
-    public static void questionScene(String request, String lang, Cliente user, Object maskController) {
+    public static void questionScene(String request, String lang, Cliente user, Object maskController, String idForDelete) {
         try {
             URL fileUrl = null;
 
@@ -270,7 +270,7 @@ public class LoadPage {
             Pane newScene = loader.load();
 
             QuestionController questionController = (QuestionController) loader.getController(); //Ottieni il controller della scena caricata
-            questionController.request(request, resLang, user, maskController);
+            questionController.request(request, resLang, user, maskController, idForDelete);
 
             Translater.setLanguage(lang); //conserva la lingua per la prossima volta
 
