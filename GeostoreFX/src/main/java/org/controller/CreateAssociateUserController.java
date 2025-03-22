@@ -4,16 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.controller.items.UserItemController;
 import org.controller.masks.*;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
-import org.utility.PartialSceneDTO;
 
 import java.net.URL;
 import java.text.ParseException;

@@ -15,7 +15,6 @@ import org.utility.PartialSceneDTO;
 
 import java.net.URL;
 import java.text.ParseException;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class UpdateController {// Questo è il BorderPane di menu.fxml

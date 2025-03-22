@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -19,7 +20,6 @@ import org.controlsfx.control.PopOver;
 import org.models.Amministratore;
 import org.models.Cliente;
 import org.models.Codice;
-import org.models.UtenteRepository;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.Translater;
@@ -46,13 +46,9 @@ public class AccessController {
 
     @FXML
     private void signup(ActionEvent event) {
-        System.out.println("Signing up");
         LoadPage.saveStage(event);
-        LoadPage.loadingScene("LOAD-REG", null);
 
-        Cliente user;
-        service = new Service();
-
+        //innanzitutto mi incapsulo i dati corretti
         if(!password.getText().equals(confirmPassword.getText())){
             LoadPage.answerScene("negative", "PWD-NOMATCH", null);
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
@@ -84,6 +80,7 @@ public class AccessController {
             delay.play();
         }
         else{
+            Cliente user;
             if(adminCode != null && adminCode.getText() != null && !adminCode.getText().isEmpty() && !adminCode.getText().isBlank()){
                 user = new Amministratore();
                 Amministratore admin = (Amministratore) user;
@@ -124,9 +121,16 @@ public class AccessController {
                 user.setPortafoglio(Utility.insertBigDecimal("50"));
             }
 
-            service.registerUtente(user);
+            LoadPage.questionScene("Q-RG", null, user, null, null);
         }
+    }
 
+    public void startSigningUp(Cliente user){
+        System.out.println("Signing up");
+        LoadPage.loadingScene("LOAD-REG", null);
+
+        service = new Service();
+        service.registerUtente(user);
     }
 
     @FXML

@@ -8,11 +8,9 @@ import javafx.scene.layout.BorderPane;
 import org.models.Amministratore;
 import org.models.Cliente;
 import org.models.Codice;
-import org.models.Prodotto;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
-import org.utility.Utility;
 
 import java.net.URL;
 import java.util.ResourceBundle;

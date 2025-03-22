@@ -155,6 +155,16 @@ public class QuestionController {
 
                 deletingMaterial.startDeletingMaterial(idForDelete, user);
                 break;
+            case "Q-RG":
+                AccessController accessToSignUp = new AccessController();
+
+                accessToSignUp.startSigningUp(user);
+                break;
+            case "Q-LG":
+                MenuController menuToLogout = new MenuController();
+
+                menuToLogout.startLoggingOut();
+                break;
             default:
                 break;
         }
@@ -165,7 +175,12 @@ public class QuestionController {
         System.out.println("NO");
         LoadPage.saveStage(event);
 
-        LoadPage.goesToMenu(user, null);
+        if(chooseByCode.equals("Q-RG")){
+            LoadPage.access("register", null);
+        }
+        else{
+            LoadPage.goesToMenu(user, null);
+        }
     }
 
 }

@@ -56,9 +56,12 @@ public class MenuController {
     //------------------BUTTONS-----------------------
 
     @FXML
-    private void logout(ActionEvent event){
+    private void logout(ActionEvent event){ //prima di procedere al logout, chiede se è sicuro farlo
         LoadPage.saveStage(event);
+        LoadPage.questionScene("Q-LG", null, user, null, null);
+    }
 
+    public void startLoggingOut(){
         LoadPage.answerScene("positive", "LOG-O", null);
 
         //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
@@ -68,7 +71,6 @@ public class MenuController {
             LoadPage.getFullScene("prepage", null);
         });
         delay.play();
-
     }
 
     @FXML

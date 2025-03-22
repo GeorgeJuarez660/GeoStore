@@ -1,12 +1,10 @@
 package org.controller.items;
 
-import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Duration;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;

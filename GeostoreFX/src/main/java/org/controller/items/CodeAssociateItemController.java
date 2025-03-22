@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import org.models.Amministratore;
 import org.models.Cliente;
-import org.models.Codice;
 import org.models.CodiceAssociateDTO;
 import org.services.LoadPage;
 import org.services.Service;
