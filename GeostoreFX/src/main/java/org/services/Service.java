@@ -604,13 +604,15 @@ public class Service {
         return or.getOrdineWithDB(idOrdine);
     }
 
-    public void ordinazioneProdotto(Ordine o, Cliente user){
+    public void ordinazioneProdotto(Ordine o, Cliente user, boolean downloadReceipt){
         if(o.checkNotNullOrdine(o)){
             String canOrder = checkAmountOrderAndSufficientWallet(o, user);
             char firstchar = canOrder.charAt(0);
             String response = canOrder.substring(4);
             if(firstchar == 'T'){
                 int num = or.insertOrdineWithDB(null, o);
+
+                //TODO: creare il pdf chiamato scontrino con l'ordine effettuato e salvarlo nella stessa cartella del programma
 
                 Utility.sendResponseOrderedProducts(num, response, user);
             }
@@ -623,7 +625,7 @@ public class Service {
         }
     }
 
-    public void modificaOrdine(Ordine order, Cliente user){
+    public void modificaOrdine(Ordine order, Cliente user, boolean downloadReceipt){
         if(order.checkNotNullOrdine(order)){
             Stato s = sr.getStatoWithDB(order.getStato().getId());
 
@@ -639,6 +641,8 @@ public class Service {
                     changeStatusProdottoAfterOrder(orderOld, order);
 
                     int num = or.updateOrdineWithDB(order.getId(), order);
+
+                    //TODO: creare il pdf chiamato scontrino con l'ordine modificato e salvarlo nella stessa cartella del programma
 
                     Utility.sendResponse(num, response, user);
                 }

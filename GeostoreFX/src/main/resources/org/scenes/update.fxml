@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.CheckBox?>
 <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.UpdateController">
    <children>
       <HBox alignment="CENTER" prefHeight="55.0">
@@ -53,9 +54,10 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="TOP_CENTER">
+      <HBox alignment="TOP_CENTER" spacing="10.0">
          <children>
             <Button onAction="#update" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%update.button" textFill="WHITE" />
+            <CheckBox fx:id="download" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" styleClass="label-font-min3-title" text="%receipt.checkBox" textFill="#2352a4" wrapText="true" />
          </children>
          <VBox.margin>
             <Insets top="30.0" />

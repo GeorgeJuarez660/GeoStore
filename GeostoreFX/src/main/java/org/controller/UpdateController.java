@@ -3,6 +3,8 @@ package org.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -24,6 +26,9 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
 
     @FXML
     private HBox updateMask;
+
+    @FXML
+    private CheckBox download;
 
     private Cliente user;
     private String isAdmin;
@@ -73,6 +78,19 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         }
         else{
             title.setText(resLang.getString("update.title.news"));
+        }
+    }
+
+    //se si tratta la pagina dell'ordinazione allora si abilita il checkbox per stampare lo scontrino
+    public void setDownloadRpt(String itemScene) {
+        if(itemScene != null && itemScene.equals("order")){
+            download.setVisible(true);
+            download.setManaged(true);
+        }
+
+        else{
+            download.setVisible(false);
+            download.setManaged(false);
         }
     }
 
@@ -326,7 +344,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         else if(maskController instanceof OrderMaskController) {
             OrderMaskController orderMaskController = (OrderMaskController) maskController;
             Ordine o = orderMaskController.setValuesWithID();
-            service.modificaOrdine(o, user);
+            service.modificaOrdine(o, user, download.isSelected());
         }
         else if(maskController instanceof CategoryMaskController) {
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;

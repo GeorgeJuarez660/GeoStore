@@ -3,6 +3,8 @@ package org.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -20,6 +22,12 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
 
     @FXML
     private Label title;
+
+    @FXML
+    private Button btnText;
+
+    @FXML
+    private CheckBox download;
 
     @FXML
     private HBox createMask;
@@ -72,6 +80,21 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         }
         else{
             title.setText(resLang.getString("create.title.news"));
+        }
+    }
+
+    //se si tratta la pagina dell'ordinazione allora il testo del pulsante è ORDINA e si abilita il checkbox per stampare lo scontrino
+    public void setButtonTextAndDownloadRpt(String itemScene) {
+        if(itemScene != null && itemScene.equals("order")){
+            btnText.setText(resLang.getString("order.button"));
+            download.setVisible(true);
+            download.setManaged(true);
+        }
+
+        else{
+            btnText.setText(resLang.getString("create.button"));
+            download.setVisible(false);
+            download.setManaged(false);
         }
     }
 
@@ -317,7 +340,7 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
             Ordine o = orderMaskController.setValues();
 
             //ordina prodotto
-            service.ordinazioneProdotto(o, user);
+            service.ordinazioneProdotto(o, user, download.isSelected());
         }
         else if(maskController instanceof CategoryMaskController){
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;

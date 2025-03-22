@@ -70,3 +70,24 @@
     -fx-opacity: 0.8;
 }
 
+/*CHECKBOX STYLIZE
+.custom-checkbox {
+ -fx-font-family: 'Press Start 2P', system-ui;
+    -fx-font-size: 9;
+    -fx-text-fill: #184a97; *//* Blu *//*
+}
+
+.custom-checkbox .box {
+    -fx-border-color: #184a97;
+    -fx-border-width: 2px;
+    -fx-background-color: white;
+    -fx-border-radius: 5px;
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+}
+
+.custom-checkbox:selected .box {
+    -fx-background-color: #184a97;
+}*/
+
+
