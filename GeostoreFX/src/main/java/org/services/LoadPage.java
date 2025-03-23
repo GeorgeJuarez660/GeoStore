@@ -419,7 +419,7 @@ public class LoadPage {
                 ReadOrderTotalPriceController readOrderTotalPriceController = (ReadOrderTotalPriceController) controller;
                 readOrderTotalPriceController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
                 readOrderTotalPriceController.setTitle(IDkey);
-                readOrderTotalPriceController.loadItem("orderItemTotalPrice", IDkey);
+                readOrderTotalPriceController.loadItem("orderItemTotalPrice", IDkey, Boolean.parseBoolean(partialSceneDTO.getItemScene()));
             }
             else if(controller instanceof ReadProductTypeController){
                 ReadProductTypeController readProductTypeController = (ReadProductTypeController) controller;

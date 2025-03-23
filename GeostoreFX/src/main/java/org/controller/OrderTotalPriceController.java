@@ -1,6 +1,7 @@
 package org.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.BorderPane;
 import org.models.Amministratore;
@@ -18,6 +19,9 @@ public class OrderTotalPriceController {
 
     @FXML
     private DatePicker date;
+
+    @FXML
+    private CheckBox download;
 
     private Cliente user;
     private Boolean isAdmin;
@@ -65,6 +69,7 @@ public class OrderTotalPriceController {
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readOrderTotalPrice");
         partialSceneDTO.setUser(user);
+        partialSceneDTO.setItemScene(String.valueOf(download.isSelected())); //per ora lo incapsulo come item scene se pur non si sta caricando la scena
 
         String choosedDate = String.valueOf(date.getValue());
 

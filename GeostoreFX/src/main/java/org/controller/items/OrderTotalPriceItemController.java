@@ -17,7 +17,7 @@ public class OrderTotalPriceItemController implements Initializable {
 
     //------------------INITIALIZE-----------------------
 
-    public void setValues(Ordine ordine){
+    public void setValues(Ordine ordine, boolean downloadRpt){
 
         userName.setText(ordine.getUtente().getNome());
         userSurname.setText(ordine.getUtente().getCognome());
@@ -33,6 +33,8 @@ public class OrderTotalPriceItemController implements Initializable {
 
         totalOrderDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
         totalOrderPrice.setText(Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()) + " C");
+
+        //TODO: creare il pdf chiamato scontrino con l'ordine modificato e salvarlo nella stessa cartella del programma
 
     }
 

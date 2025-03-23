@@ -72,7 +72,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
         title.setText(value);
     }
 
-    public void loadItem(String itemScene, String chooseDate){
+    public void loadItem(String itemScene, String chooseDate, boolean downloadRpt){
         service = new Service();
         Ordine ordine;
 
@@ -89,7 +89,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
                 FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
                 VBox userProfileItem = loader.load();
                 OrderTotalPriceItemController orderTotalPriceItemController = loader.getController();
-                orderTotalPriceItemController.setValues(ordine);
+                orderTotalPriceItemController.setValues(ordine, downloadRpt);
                 item.getChildren().add(userProfileItem);
 
                 // Carica il file FXML

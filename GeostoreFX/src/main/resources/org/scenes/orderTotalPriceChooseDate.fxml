@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.CheckBox?>
 <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.OrderTotalPriceController">
    <children>
       <HBox alignment="CENTER" prefHeight="55.0">
@@ -58,9 +59,10 @@
             <DatePicker fx:id="date" maxWidth="600.0" minWidth="20.0" prefHeight="38.0" prefWidth="579.0" promptText="DD/MM/YYYY" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 1; -fx-border-color: #2352A4; -fx-background-color: #D3F3FF;" styleClass="label-font" />
          </children>
       </HBox>
-      <HBox alignment="TOP_CENTER">
+      <HBox alignment="TOP_CENTER" spacing="10.0">
          <children>
             <Button onAction="#calculate" mnemonicParsing="false" prefHeight="30.0" prefWidth="270.0" style="-fx-background-radius: 7; -fx-background-color: #2352A4;" styleClass="label-font" text="%calculate.button" textFill="WHITE" />
+            <CheckBox fx:id="download" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" styleClass="label-font-min3-title" text="%receipt.checkBox" textFill="#2352a4" wrapText="true" />
          </children>
          <VBox.margin>
             <Insets top="30.0" />
