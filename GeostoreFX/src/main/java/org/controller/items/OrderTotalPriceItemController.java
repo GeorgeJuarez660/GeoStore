@@ -17,7 +17,7 @@ public class OrderTotalPriceItemController implements Initializable {
 
     //------------------INITIALIZE-----------------------
 
-    public void setValues(Ordine ordine, boolean downloadRpt){
+    public void setValues(Ordine ordine, boolean saveRpt){
 
         userName.setText(ordine.getUtente().getNome());
         userSurname.setText(ordine.getUtente().getCognome());

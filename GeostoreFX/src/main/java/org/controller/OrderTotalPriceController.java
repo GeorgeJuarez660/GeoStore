@@ -21,7 +21,7 @@ public class OrderTotalPriceController {
     private DatePicker date;
 
     @FXML
-    private CheckBox download;
+    private CheckBox saveRpt;
 
     private Cliente user;
     private Boolean isAdmin;
@@ -69,7 +69,7 @@ public class OrderTotalPriceController {
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readOrderTotalPrice");
         partialSceneDTO.setUser(user);
-        partialSceneDTO.setItemScene(String.valueOf(download.isSelected())); //per ora lo incapsulo come item scene se pur non si sta caricando la scena
+        partialSceneDTO.setItemScene(String.valueOf(saveRpt.isSelected())); //per ora lo incapsulo come item scene se pur non si sta caricando la scena
 
         String choosedDate = String.valueOf(date.getValue());
 

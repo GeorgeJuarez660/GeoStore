@@ -385,7 +385,7 @@ public class LoadPage {
                 CreateController createController = (CreateController) controller;
                 createController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
                 createController.setTitle(partialSceneDTO.getItemScene());
-                createController.setButtonTextAndDownloadRpt(partialSceneDTO.getItemScene());
+                createController.setButtonTextAndSaveRpt(partialSceneDTO.getItemScene());
                 createController.loadMask(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof CreateAssociateUserController){
@@ -439,7 +439,7 @@ public class LoadPage {
                 UpdateController updateController = (UpdateController) controller;
                 updateController.save(partialSceneDTO.getFxmlLoader(), partialSceneDTO.getUser(), resLang);
                 updateController.setTitle(partialSceneDTO.getItemScene());
-                updateController.setDownloadRpt(partialSceneDTO.getItemScene());
+                updateController.setSaveRpt(partialSceneDTO.getItemScene());
                 updateController.loadMask(partialSceneDTO.getItemScene(), IDkey);
             }
             else if(controller instanceof UpdateAssociateUserController){

@@ -407,4 +407,17 @@ public class Utility {
         }
     }
 
+    //------------------RECEIPT-----------------------
+
+    public static void savingReceiptAfterOrderedProduct(){ //salvo lo scontrino dopo l'ordinazione del prodotto
+
+    }
+
+    public static void savingReceiptAfterUpdatedOrder(){ //salvo lo scontrino dopo la modifica dell'ordine
+
+    }
+
+    public static void savingReceiptAfterOrderedTotalPrice(){ //salvo lo scontrino dopo aver saputo il prezzo totale speso
+
+    }
 }

@@ -604,7 +604,7 @@ public class Service {
         return or.getOrdineWithDB(idOrdine);
     }
 
-    public void ordinazioneProdotto(Ordine o, Cliente user, boolean downloadReceipt){
+    public void ordinazioneProdotto(Ordine o, Cliente user, boolean saveReceipt){
         if(o.checkNotNullOrdine(o)){
             String canOrder = checkAmountOrderAndSufficientWallet(o, user);
             char firstchar = canOrder.charAt(0);
@@ -625,7 +625,7 @@ public class Service {
         }
     }
 
-    public void modificaOrdine(Ordine order, Cliente user, boolean downloadReceipt){
+    public void modificaOrdine(Ordine order, Cliente user, boolean saveReceipt){
         if(order.checkNotNullOrdine(order)){
             Stato s = sr.getStatoWithDB(order.getStato().getId());
 

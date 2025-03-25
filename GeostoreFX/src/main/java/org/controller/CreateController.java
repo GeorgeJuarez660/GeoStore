@@ -27,7 +27,7 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
     private Button btnText;
 
     @FXML
-    private CheckBox download;
+    private CheckBox saveRpt;
 
     @FXML
     private HBox createMask;
@@ -83,18 +83,18 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         }
     }
 
-    //se si tratta la pagina dell'ordinazione allora il testo del pulsante è ORDINA e si abilita il checkbox per stampare lo scontrino
-    public void setButtonTextAndDownloadRpt(String itemScene) {
+    //se si tratta la pagina dell'ordinazione allora il testo del pulsante è ORDINA e si abilita il checkbox per salvare lo scontrino
+    public void setButtonTextAndSaveRpt(String itemScene) {
         if(itemScene != null && itemScene.equals("order")){
             btnText.setText(resLang.getString("order.button"));
-            download.setVisible(true);
-            download.setManaged(true);
+            saveRpt.setVisible(true);
+            saveRpt.setManaged(true);
         }
 
         else{
             btnText.setText(resLang.getString("create.button"));
-            download.setVisible(false);
-            download.setManaged(false);
+            saveRpt.setVisible(false);
+            saveRpt.setManaged(false);
         }
     }
 
@@ -340,7 +340,7 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
             Ordine o = orderMaskController.setValues();
 
             //ordina prodotto
-            service.ordinazioneProdotto(o, user, download.isSelected());
+            service.ordinazioneProdotto(o, user, saveRpt.isSelected());
         }
         else if(maskController instanceof CategoryMaskController){
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;
