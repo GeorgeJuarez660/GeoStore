@@ -409,7 +409,10 @@ public class Utility {
 
     //------------------RECEIPT-----------------------
 
-    public static void savingReceiptAfterOrderedProduct(){ //salvo lo scontrino dopo l'ordinazione del prodotto
+    private static final String path = System.getProperty("user.dir");
+    private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + ".pdf";
+
+    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity){ //salvo lo scontrino dopo l'ordinazione del prodotto
 
     }
 

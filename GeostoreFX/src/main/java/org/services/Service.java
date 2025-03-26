@@ -614,6 +614,10 @@ public class Service {
 
                 //TODO: creare il pdf chiamato scontrino con l'ordine effettuato e salvarlo nella stessa cartella del programma
 
+                if(num > 0){
+                    Utility.savingReceiptAfterOrderedProduct(o.getProdotto().getNome(), o.getPrezzo_unitario(), o.getQuantita());
+                }
+
                 Utility.sendResponseOrderedProducts(num, response, user);
             }
             else{
