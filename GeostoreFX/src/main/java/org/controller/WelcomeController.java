@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import org.services.LoadPage;
+import org.utility.Utility;
+
+import java.math.BigDecimal;
 
 public class WelcomeController {
 
@@ -63,6 +66,13 @@ public class WelcomeController {
         LoadPage.saveStage(event);
 
         LoadPage.getFullScene("language", null);
+    }
+
+    @FXML
+    private void tryPDF(ActionEvent event){
+        LoadPage.saveStage(event);
+
+        Utility.savingReceiptAfterOrderedProduct("NA", new BigDecimal(0), 0);
     }
 
 

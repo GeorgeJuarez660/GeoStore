@@ -12,6 +12,7 @@ module info {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires transitive org.xerial.sqlitejdbc;
+    requires itextpdf;
 
     opens org.controller to javafx.fxml;
     exports org.controller;

@@ -1,5 +1,9 @@
 package org.utility;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.util.Duration;
@@ -8,6 +12,9 @@ import org.models.News;
 import org.models.Utente;
 import org.services.LoadPage;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -409,11 +416,42 @@ public class Utility {
 
     //------------------RECEIPT-----------------------
 
-    private static final String path = System.getProperty("user.dir");
+    private static final String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
     private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + ".pdf";
+    private static final String imgName = "geostore_sign_with_saturation.png";
 
-    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity){ //salvo lo scontrino dopo l'ordinazione del prodotto
+    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity) { //salvo lo scontrino dopo l'ordinazione del prodotto
+        //creare il documento
+        Document doc = new Document();
 
+        //inizio a stabilire il percorso e il nome pdf
+        try{
+            PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream(new File(pdfPath + pdfNameOrderedProduct)));
+
+            //apre il documento
+            doc.open();
+
+            //stabilizzo la directory dell'img
+            Path imgPath = Paths.get(pdfPath + "src/main/resources/org/images/" + imgName);
+
+            //inizio a creare l'oggetto img recuperandolo dal path
+            Image img = Image.getInstance(imgPath.toAbsolutePath().toString());
+            img.scaleAbsolute(250f, 150f);
+            img.setAbsolutePosition(15, 700);
+
+            //inserisco il label e l'img nel documento
+            doc.add(img);
+
+            //creo il rettangolo
+
+            doc.close();
+
+            System.out.println("Creato il pdf: " + pdfPath);
+
+        }
+        catch(Exception e){
+            System.out.println("Errore savingReceiptAfterOrderedProduct: " + e.getMessage());
+        }
     }
 
     public static void savingReceiptAfterUpdatedOrder(){ //salvo lo scontrino dopo la modifica dell'ordine
