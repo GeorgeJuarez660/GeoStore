@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Scontrino GeoStore per l'ordinazione prodotto-->
+<!DOCTYPE Scontrino SYSTEM "formatReceipt.dtd">
+<Scontrino>
+    <Intestazione>
+        <nomeNegozio>GeoStore</nomeNegozio>
+        <via>Negozio virtuale</via>
+    </Intestazione>
+    <Corpo>
+        <TitoloTabella>
+            <colonnaT1>PRODOTTO</colonnaT1>
+            <colonnaT2>QUANTITÀ</colonnaT2>
+            <colonnaT3>PREZZO U.</colonnaT3>
+        </TitoloTabella>
+        <CorpoTabella>
+            <colonnaC1>Carta Softex</colonnaC1>
+            <colonnaC2>x2</colonnaC2>
+            <colonnaC3>C 2,00</colonnaC3>
+        </CorpoTabella>
+        <PiedeTabella>
+            <colonnaPT>TOTALE</colonnaPT>
+            <colonnaPC>4,00</colonnaPC>
+        </PiedeTabella>
+    </Corpo>
+    <DidascaliaTitolo>
+        <colonnaDT>N. Documento: </colonnaDT>
+        <colonnaNT>Cliente</colonnaNT>
+    </DidascaliaTitolo>
+    <DidascaliaCorpo>
+        <colonnaDC>26/07/2022</colonnaDC>
+        <colonnaNC>Giorgio Nocerino</colonnaNC>
+    </DidascaliaCorpo>
+</Scontrino>
