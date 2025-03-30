@@ -1,3 +1,4 @@
+<!--Regole di mappatura (di schematizzazione)-->
 <!ELEMENT Scontrino (Intestazione, Corpo, DidascaliaTitolo, DidascaliaCorpo)>
 <!ELEMENT Intestazione (nomeNegozio, via) >
 <!ELEMENT nomeNegozio (#PCDATA) >
