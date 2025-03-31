@@ -1,11 +1,9 @@
 <!--Regole di mappatura (di schematizzazione)-->
-<!ELEMENT Scontrino (Intestazione, Corpo, PiedeTotale, Didascalia)>
+<!ELEMENT Scontrino (Intestazione, Corpo, DidascaliaTitolo, DidascaliaCorpo)>
 <!ELEMENT Intestazione (nomeNegozio, via) >
 <!ELEMENT nomeNegozio (#PCDATA) >
 <!ELEMENT via (#PCDATA) >
-<!ELEMENT Corpo (TitoloTabella, CorpoTabella)>
-<!ELEMENT PiedeTotale (colonnaPT, colonnaPC)>
-<!ELEMENT Didascalia (DidascaliaTitolo, DidascaliaCorpo)>
+<!ELEMENT Corpo (TitoloTabella, CorpoTabella, PiedeTabella)>
 <!ELEMENT TitoloTabella (colonnaT1, colonnaT2, colonnaT3)>
 <!ELEMENT CorpoTabella (colonnaC1, colonnaC2, colonnaC3)>
 <!ELEMENT colonnaT1 (#PCDATA) >
@@ -14,6 +12,7 @@
 <!ELEMENT colonnaC1 (#PCDATA) >
 <!ELEMENT colonnaC2 (#PCDATA) >
 <!ELEMENT colonnaC3 (#PCDATA) >
+<!ELEMENT PiedeTabella (colonnaPT, colonnaPC)>
 <!ELEMENT colonnaPT (#PCDATA) >
 <!ELEMENT colonnaPC (#PCDATA) >
 <!ELEMENT DidascaliaTitolo (colonnaDT, colonnaNT)>

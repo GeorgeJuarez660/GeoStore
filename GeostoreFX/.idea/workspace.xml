@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/formatReceipt.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/formatReceipt.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receipt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receipt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/styleReceipt.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/styleReceipt.xsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GeostoreMain.executor": "Debug",
+    "Application.GeostoreMain.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainPreview.executor": "Run",
@@ -67,7 +69,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "featureDev/desktop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/images",
+    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/jar/fop-2.10-src.zip",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36666667",
