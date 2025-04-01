@@ -417,6 +417,7 @@ public class Utility {
     //------------------RECEIPT-----------------------
 
     private static final String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
+    private static final String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
     private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + ".pdf";
     private static final String imgName = "geostore_sign_with_saturation.png";
 

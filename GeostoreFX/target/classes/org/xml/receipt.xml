@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--Scontrino GeoStore per l'ordinazione prodotto-->
 <!DOCTYPE Scontrino SYSTEM "formatReceipt.dtd">
+<?xml-stylesheet type="text/xsl" href="styleReceipt.xsl" ?>
 <Scontrino>
     <Intestazione>
         <nomeNegozio>GeoStore</nomeNegozio>
@@ -17,17 +18,20 @@
             <colonnaC2>x2</colonnaC2>
             <colonnaC3>C 2,00</colonnaC3>
         </CorpoTabella>
-        <PiedeTabella>
-            <colonnaPT>TOTALE</colonnaPT>
-            <colonnaPC>4,00</colonnaPC>
-        </PiedeTabella>
     </Corpo>
-    <DidascaliaTitolo>
-        <colonnaDT>N. Documento: </colonnaDT>
-        <colonnaNT>Cliente</colonnaNT>
-    </DidascaliaTitolo>
-    <DidascaliaCorpo>
-        <colonnaDC>26/07/2022</colonnaDC>
-        <colonnaNC>Giorgio Nocerino</colonnaNC>
-    </DidascaliaCorpo>
+    <PiedeTotale>
+        <colonnaPT>TOTALE</colonnaPT>
+        <colonnaPC>4,00</colonnaPC>
+    </PiedeTotale>
+    <Didascalia>
+        <DidascaliaTitolo>
+            <colonnaDT>N. Documento:</colonnaDT>
+            <colonnaNT>Cliente</colonnaNT>
+        </DidascaliaTitolo>
+        <DidascaliaCorpo>
+            <colonnaDC>26/07/2022</colonnaDC>
+            <colonnaNC>Giorgio Nocerino</colonnaNC>
+        </DidascaliaCorpo>
+    </Didascalia>
+
 </Scontrino>
