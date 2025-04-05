@@ -14,14 +14,14 @@
             <colonnaT3>PREZZO U.</colonnaT3>
         </TitoloTabella>
         <CorpoTabella>
-            <colonnaC1>Carta Softex</colonnaC1>
-            <colonnaC2>x2</colonnaC2>
-            <colonnaC3>C 2,00</colonnaC3>
+            <colonnaC1>xxPRODUCTxx</colonnaC1>
+            <colonnaC2>xxQUANTITYxx</colonnaC2>
+            <colonnaC3>xxDEFPRICExx</colonnaC3>
         </CorpoTabella>
     </Corpo>
     <PiedeTotale>
         <colonnaPT>TOTALE</colonnaPT>
-        <colonnaPC>4,00</colonnaPC>
+        <colonnaPC>xxTOTALPRICExx</colonnaPC>
     </PiedeTotale>
     <Didascalia>
         <DidascaliaTitolo>
@@ -29,8 +29,8 @@
             <colonnaNT>Cliente</colonnaNT>
         </DidascaliaTitolo>
         <DidascaliaCorpo>
-            <colonnaDC>26/07/2022</colonnaDC>
-            <colonnaNC>Giorgio Nocerino</colonnaNC>
+            <colonnaDC>xxCHMxx</colonnaDC>
+            <colonnaNC>xxUSERxx</colonnaNC>
         </DidascaliaCorpo>
     </Didascalia>
 

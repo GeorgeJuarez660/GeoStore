@@ -1,25 +1,29 @@
 package org.utility;
 
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.ColumnText;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfWriter;
+
 import javafx.animation.PauseTransition;
-import javafx.event.ActionEvent;
 import javafx.util.Duration;
+import org.apache.fop.apps.FOUserAgent;
+import org.apache.fop.apps.Fop;
+import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.MimeConstants;
 import org.models.Cliente;
 import org.models.News;
 import org.models.Utente;
 import org.services.LoadPage;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.time.Period;
 
 import java.math.BigDecimal;
@@ -30,7 +34,6 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Utility {
 
@@ -419,39 +422,54 @@ public class Utility {
     private static final String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
     private static final String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
     private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + ".pdf";
-    private static final String imgName = "geostore_sign_with_saturation.png";
+    private static final String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
 
-    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity) { //salvo lo scontrino dopo l'ordinazione del prodotto
-        //creare il documento
-        Document doc = new Document();
+    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
+        Path xmlAbsPath = Paths.get(xmlPath + "receipt.xml");
+        File inputFile = xmlAbsPath.toFile();
 
-        //inizio a stabilire il percorso e il nome pdf
-        try{
-            PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream(new File(pdfPath + pdfNameOrderedProduct)));
+        // Parsing XML
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(inputFile);
 
-            //apre il documento
-            doc.open();
-
-            //stabilizzo la directory dell'img
-            Path imgPath = Paths.get(pdfPath + "src/main/resources/org/images/" + imgName);
-
-            //inizio a creare l'oggetto img recuperandolo dal path
-            Image img = Image.getInstance(imgPath.toAbsolutePath().toString());
-            img.scaleAbsolute(250f, 150f);
-            img.setAbsolutePosition(15, 700);
-
-            //inserisco il label e l'img nel documento
-            doc.add(img);
-
-            //creo il rettangolo
-
-            doc.close();
-
-            System.out.println("Creato il pdf: " + pdfPath);
-
+        // Modifica il valore di un nodo specifico
+        NodeList nodeList = doc.getElementsByTagName("via");
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent("Negozio virtuale prova");
         }
-        catch(Exception e){
-            System.out.println("Errore savingReceiptAfterOrderedProduct: " + e.getMessage());
+
+        // Scrivi il nuovo XML su file
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(inputFile);
+        transformer.transform(source, result);
+
+        System.out.println("XML modificato con successo.");
+
+        //File xconfFile = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/_test/Java/JavaFXTest/src/main/resources/org/example/javafxtest/xml/propReceipt.xconf");
+
+        // Configurazione di FOP
+        FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+        //System.out.println("FOP configuration file exists: " + xconfFile.exists() xconfFile.getAbsolutePath());
+        FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+        foUserAgent.setProducer("FOP with custom font debug");
+
+
+        // Creazione del PDF
+        try (OutputStream out = new FileOutputStream(new File(pdfPath + pdfNameOrderedProduct))) {
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
+
+            // Trasformazione XSLT: XML -> XSL-FO
+            TransformerFactory factory2 = TransformerFactory.newInstance();
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceipt.xsl")));// XSLT file che trasforma XML in XSL-FO
+
+            Source src = new StreamSource(inputFile); // XML di input
+            Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
+
+            transformer2.transform(src, res);
+            System.out.println("PDF generato con successo.");
         }
     }
 

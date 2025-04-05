@@ -69,7 +69,7 @@ public class WelcomeController {
     }
 
     @FXML
-    private void tryPDF(ActionEvent event){
+    private void tryPDF(ActionEvent event) throws Exception {
         LoadPage.saveStage(event);
 
         Utility.savingReceiptAfterOrderedProduct("NA", new BigDecimal(0), 0);
