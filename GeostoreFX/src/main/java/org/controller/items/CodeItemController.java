@@ -76,7 +76,7 @@ public class CodeItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare codice
-        LoadPage.questionScene("Q-DA", null, user, null, id.getText());
+        LoadPage.questionScene("Q-DA", null, user, null, id.getText(), false);
     }
 
     public void startDeleting(String id, Cliente user){

@@ -117,7 +117,7 @@ public class UserItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare utente
-        LoadPage.questionScene("Q-DU", null, user, null, id.getText());
+        LoadPage.questionScene("Q-DU", null, user, null, id.getText(), false);
     }
 
     public void startDeleting(String id, Cliente user){

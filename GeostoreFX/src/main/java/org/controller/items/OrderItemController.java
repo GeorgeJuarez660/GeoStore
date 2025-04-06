@@ -102,7 +102,7 @@ public class OrderItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare ordine
-        LoadPage.questionScene("Q-DO", null, user, null, id.getText());
+        LoadPage.questionScene("Q-DO", null, user, null, id.getText(), false);
     }
 
     public void startDeleting(String id, Cliente user){

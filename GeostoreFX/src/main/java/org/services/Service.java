@@ -175,6 +175,23 @@ public class Service {
                 if(Utility.getAge(u.getDataNascita())){
                     num = ur.updateUtenteWithDB(u.getId(), u);
 
+                    //aggiorno l'utente loggato
+                    if(userID.getId().equals(u.getId())){
+                        if(userID instanceof Amministratore && u instanceof Amministratore){
+                            Amministratore adminID = (Amministratore) userID;
+                            Amministratore a = (Amministratore) u;
+                            adminID = a;
+                            userID = adminID;
+                        }
+                        else{
+                            Cliente clienteID = (Cliente) userID;
+                            Cliente c = (Cliente) u;
+                            clienteID = c;
+                            userID = clienteID;
+                        }
+
+                    }
+
                     Utility.sendResponse(num, "USR-U", userID);
                 }
                 else{
@@ -614,18 +631,18 @@ public class Service {
 
                 //TODO: creare il pdf chiamato scontrino con l'ordine effettuato e salvarlo nella stessa cartella del programma
 
-                if(num > 0){
+                if(num > 0 && saveReceipt){
                     try{
-                        Utility.savingReceiptAfterOrderedProduct(o.getProdotto().getNome(), o.getPrezzo_unitario(), o.getQuantita());
+                        Utility.savingReceiptAfterOrderedProduct(o.getProdotto().getNome(), o.getPrezzo_unitario(), o.getQuantita(), user);
                     } catch (Exception e) {
-                        throw new RuntimeException(e);
+                        System.err.println("Errore salvataggio scontrino: " + e.getMessage());
                     }
                 }
 
-                Utility.sendResponseOrderedProducts(num, response, user);
+                Utility.sendResponseOrderedProducts(num, response, user, saveReceipt);
             }
             else{
-                Utility.sendResponseOrderedProducts(0, response, user);
+                Utility.sendResponseOrderedProducts(0, response, user, false);
             }
         }
         else{

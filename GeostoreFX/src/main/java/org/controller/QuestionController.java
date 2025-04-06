@@ -19,10 +19,11 @@ public class QuestionController {
     private String chooseByCode, idForDelete;
     private Cliente user;
     private Object maskController;
+    private boolean boolForReceipt;
 
     //------------------INITIALIZE-----------------------
 
-    public void request(String question, ResourceBundle resLang, Cliente user, Object maskController, String idForDelete) {
+    public void request(String question, ResourceBundle resLang, Cliente user, Object maskController, String idForDelete, boolean boolForReceipt) {
         System.out.println(question);
 
         switch(question) {
@@ -83,6 +84,7 @@ public class QuestionController {
         this.user = user;
         this.maskController = maskController;
         this.idForDelete = idForDelete;
+        this.boolForReceipt = boolForReceipt;
     }
 
     //------------------BUTTONS-----------------------
@@ -97,7 +99,7 @@ public class QuestionController {
             case "Q-CO":
                 CreateController creating = new CreateController();
 
-                creating.startCreating(event, user, maskController);
+                creating.startCreating(event, user, maskController, boolForReceipt);
                 break;
             case "Q-CS":
                 CreateAssociateUserController createAssociating = new CreateAssociateUserController();
@@ -108,7 +110,7 @@ public class QuestionController {
             case "Q-UO":
                 UpdateController updating = new UpdateController();
 
-                updating.startUpdating(event, user, maskController);
+                updating.startUpdating(event, user, maskController, boolForReceipt);
                 break;
             case "Q-US":
                 UpdateAssociateUserController updatingAssociation = new UpdateAssociateUserController();

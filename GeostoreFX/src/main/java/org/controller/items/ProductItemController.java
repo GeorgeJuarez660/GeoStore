@@ -91,7 +91,7 @@ public class ProductItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare prodotto
-        LoadPage.questionScene("Q-DP", null, user, null, id.getText());
+        LoadPage.questionScene("Q-DP", null, user, null, id.getText(), false);
     }
 
     public void startDeleting(String id, Cliente user){

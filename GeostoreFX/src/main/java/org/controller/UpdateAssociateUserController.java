@@ -94,7 +94,7 @@ public class UpdateAssociateUserController {// Questo è il BorderPane di menu.f
         System.out.println("question");
         LoadPage.saveStage(event);
 
-        LoadPage.questionScene("Q-US", null, user, maskController, null);
+        LoadPage.questionScene("Q-US", null, user, maskController, null, false);
     }
 
     public void startUpdatingAssociation(ActionEvent event, Cliente user, Object maskController) throws ParseException {

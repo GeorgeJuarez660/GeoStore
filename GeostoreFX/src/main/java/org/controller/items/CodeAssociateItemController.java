@@ -75,7 +75,7 @@ public class CodeAssociateItemController implements Initializable {
 
     @FXML
     private void dissociating(){ //button per dissociare codice
-        LoadPage.questionScene("Q-DS", null, user, null, email.getText());
+        LoadPage.questionScene("Q-DS", null, user, null, email.getText(), false);
     }
 
     public void startDissociating(String email, Cliente user){ //se la risposta alla domanda è SI allora si procede alla dissociazione del codice

@@ -97,7 +97,7 @@ public class ProductTypeButtonController implements Initializable {
     @FXML
     private void deletingCategory(ActionEvent event){ //button per eliminare categoria
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante categoria)
-        LoadPage.questionScene("Q-DC", null, user, null, code.getText());
+        LoadPage.questionScene("Q-DC", null, user, null, code.getText(), false);
     }
 
     public void startDeletingCategory(String code, Cliente user){
@@ -113,7 +113,7 @@ public class ProductTypeButtonController implements Initializable {
     @FXML
     private void deletingMaterial(ActionEvent event){ //button per eliminare materia
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante materia)
-        LoadPage.questionScene("Q-DM", null, user, null, code.getText());
+        LoadPage.questionScene("Q-DM", null, user, null, code.getText(), false);
     }
 
     public void startDeletingMaterial(String code, Cliente user){

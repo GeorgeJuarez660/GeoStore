@@ -312,14 +312,14 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         LoadPage.saveStage(event);
 
         if(maskController instanceof OrderMaskController){ //nel caso di modifica ordine la question sarà diversa
-            LoadPage.questionScene("Q-UO", null, user, maskController, null);
+            LoadPage.questionScene("Q-UO", null, user, maskController, null, saveRpt.isSelected());
         }
         else{
-            LoadPage.questionScene("Q-UP", null, user, maskController, null);
+            LoadPage.questionScene("Q-UP", null, user, maskController, null, false);
         }
     }
 
-    public void startUpdating(ActionEvent event, Cliente user, Object maskController) throws ParseException {
+    public void startUpdating(ActionEvent event, Cliente user, Object maskController, boolean boolForReceipt) throws ParseException {
         System.out.println("Start updating");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-UPT", null);
@@ -344,7 +344,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
         else if(maskController instanceof OrderMaskController) {
             OrderMaskController orderMaskController = (OrderMaskController) maskController;
             Ordine o = orderMaskController.setValuesWithID();
-            service.modificaOrdine(o, user, saveRpt.isSelected());
+            service.modificaOrdine(o, user, boolForReceipt);
         }
         else if(maskController instanceof CategoryMaskController) {
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;

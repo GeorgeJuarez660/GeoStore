@@ -93,7 +93,7 @@ public class CreateAssociateUserController {// Questo è il BorderPane di menu.f
         System.out.println("question");
         LoadPage.saveStage(event);
 
-        LoadPage.questionScene("Q-CS", null, user, maskController, null);
+        LoadPage.questionScene("Q-CS", null, user, maskController, null, false);
     }
 
     public void startAssociating(ActionEvent event, Cliente user, Object maskController) throws ParseException {

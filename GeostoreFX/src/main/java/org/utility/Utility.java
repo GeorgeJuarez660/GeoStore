@@ -24,6 +24,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalTime;
 import java.time.Period;
 
 import java.math.BigDecimal;
@@ -31,8 +32,10 @@ import java.sql.Date;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Utility {
@@ -187,6 +190,27 @@ public class Utility {
         return capitalized.toString().trim();
     }
 
+    public static String getFirstThreeLettersAndLastThreeNumbers(){
+        //funzione rand per ricavare l'id dello scontrino
+        Random random = new Random();
+
+        //genera tre lettere maiuscole casuali
+        StringBuilder letters = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            char letter = (char) ('A' + random.nextInt(26));
+            letters.append(letter);
+        }
+
+        //genera un numero tra 000 e 999, formattato sempre con 3 cifre
+        int number = random.nextInt(1000);
+        String formattedNumber = String.format("%03d", number);
+
+        String randID = letters + formattedNumber;
+
+        //Rimuovi l'ultimo spazio in eccesso
+        return randID;
+    }
+
     //------------------RESPONSE-----------------------
 
     public static void sendResponseLogin(Integer num, Cliente user){
@@ -318,7 +342,7 @@ public class Utility {
         }
     }
 
-    public static void sendResponseOrderedProducts(Integer num, String response, Cliente user){
+    public static void sendResponseOrderedProducts(Integer num, String response, Cliente user, boolean saveReceipt){
         if(num > 0){
             LoadPage.answerScene("positive", response + "Y", null);
 
@@ -330,8 +354,24 @@ public class Utility {
             });
             delay.play();
 
+            int pauseMenu = 0;
+            if(saveReceipt){
+                //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
+                PauseTransition delayS = new PauseTransition(Duration.seconds(9));
+                delayS.setOnFinished(event -> {
+                    // Dopo 2 secondi, carica la scena del salvataggio scontrino
+                    LoadPage.answerScene("info", "ODR-SAR", null);
+                });
+                delayS.play();
+
+                pauseMenu = 15; //pausa prima che venga mostrata la scena menu e nel frattempo viene mostrano l'info scontrino
+            }
+            else{
+                pauseMenu = 9;
+            }
+
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
-            PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
+            PauseTransition delay2 = new PauseTransition(Duration.seconds(pauseMenu));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
                 LoadPage.goesToMenu(user, null);
@@ -419,12 +459,14 @@ public class Utility {
 
     //------------------RECEIPT-----------------------
 
+    private static final String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers();
+
     private static final String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
     private static final String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-    private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + ".pdf";
+    private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
     private static final String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
 
-    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
+    public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
         Path xmlAbsPath = Paths.get(xmlPath + "receipt.xml");
         File inputFile = xmlAbsPath.toFile();
 
@@ -434,9 +476,51 @@ public class Utility {
         Document doc = builder.parse(inputFile);
 
         // Modifica il valore di un nodo specifico
-        NodeList nodeList = doc.getElementsByTagName("via");
+        NodeList nodeList = doc.getElementsByTagName("colonnaC1"); //in questo caso modifico il valore default con il nome del prodotto
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("Negozio virtuale prova");
+            nodeList.item(0).setTextContent(productName);
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaC2"); //successivamente modifico il valore default con la quantità ordinata
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent("x" + quantity.toString());
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaC3"); //poi modifico il valore default con il prezzo unitario del prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il prezzo unitario del prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(uniPrice.multiply(new BigDecimal(quantity))));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaDT"); //modifico il valore default con l'id dello scontrino
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent("N. Documento:   " + IDReceipt);
+        }
+
+        //ricavo la data e l'ora
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(Date.valueOf(LocalDate.now()));
+        int giorno = calendario.get(Calendar.DAY_OF_MONTH);
+        int mese = calendario.get(Calendar.MONTH) + 1;
+        int anno = calendario.get(Calendar.YEAR);
+
+        String giornoEsatto = String.format("%02d", giorno);
+        String meseEsatto = String.format("%02d", mese);
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        nodeList = doc.getElementsByTagName("colonnaDC"); //modifico il valore default con la data e l'ora
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(giornoEsatto+"/"+meseEsatto+"/"+anno + "  " + LocalTime.now().format(timeFormatter));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaNC"); //infine modifico il valore default con il nome e il cognome del cliente
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(user.getCognome() + " " + user.getNome());
         }
 
         // Scrivi il nuovo XML su file

@@ -58,7 +58,7 @@ public class MenuController {
     @FXML
     private void logout(ActionEvent event){ //prima di procedere al logout, chiede se è sicuro farlo
         LoadPage.saveStage(event);
-        LoadPage.questionScene("Q-LG", null, user, null, null);
+        LoadPage.questionScene("Q-LG", null, user, null, null, false);
     }
 
     public void startLoggingOut(){

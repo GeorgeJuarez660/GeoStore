@@ -261,6 +261,9 @@ public class AnswerController {
             case "ODR-IPR":
                 response.setText(resLang.getString("answer.order.infoPayment"));
                 break;
+            case "ODR-SAR":
+                response.setText(resLang.getString("answer.order.infoReceipt"));
+                break;
             case "ODR-UY":
                 responseText = resLang.getString("answer.order.payed");
                 responseText += " " + resLang.getString("answer.order.updatedOrder");

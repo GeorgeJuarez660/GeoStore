@@ -68,13 +68,6 @@ public class WelcomeController {
         LoadPage.getFullScene("language", null);
     }
 
-    @FXML
-    private void tryPDF(ActionEvent event) throws Exception {
-        LoadPage.saveStage(event);
-
-        Utility.savingReceiptAfterOrderedProduct("NA", new BigDecimal(0), 0);
-    }
-
 
     @FXML
     public void initialize() {

@@ -302,14 +302,14 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
         LoadPage.saveStage(event);
 
         if(maskController instanceof OrderMaskController){ //nel caso di ordinazione prodotto la question sarà diversa
-            LoadPage.questionScene("Q-CO", null, user, maskController, null);
+            LoadPage.questionScene("Q-CO", null, user, maskController, null, saveRpt.isSelected());
         }
         else{
-            LoadPage.questionScene("Q-CR", null, user, maskController, null);
+            LoadPage.questionScene("Q-CR", null, user, maskController, null, false);
         }
     }
 
-    public void startCreating(ActionEvent event, Cliente user, Object maskController) throws ParseException {
+    public void startCreating(ActionEvent event, Cliente user, Object maskController, boolean boolForReceipt) throws ParseException {
         System.out.println("Start creating");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-CRT", null);
@@ -340,7 +340,7 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
             Ordine o = orderMaskController.setValues();
 
             //ordina prodotto
-            service.ordinazioneProdotto(o, user, saveRpt.isSelected());
+            service.ordinazioneProdotto(o, user, boolForReceipt);
         }
         else if(maskController instanceof CategoryMaskController){
             CategoryMaskController categoryMaskController = (CategoryMaskController) maskController;

@@ -37,7 +37,6 @@
                      </font>
                   </Button>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="22.0" prefWidth="154.0" style="-fx-background-radius: 50; -fx-background-color: #FF5757;" styleClass="label-font" text="%welcome.exit" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-                  <Button onAction="#tryPDF" mnemonicParsing="false" text="PROVA PDF" />
                </children>
                <VBox.margin>
                   <Insets />

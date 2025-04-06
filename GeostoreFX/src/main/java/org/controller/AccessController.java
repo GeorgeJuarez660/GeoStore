@@ -121,7 +121,7 @@ public class AccessController {
                 user.setPortafoglio(Utility.insertBigDecimal("50"));
             }
 
-            LoadPage.questionScene("Q-RG", null, user, null, null);
+            LoadPage.questionScene("Q-RG", null, user, null, null, false);
         }
     }
 
