@@ -4,8 +4,8 @@
 <?xml-stylesheet type="text/xsl" href="styleReceipt.xsl" ?>
 <Scontrino>
     <Intestazione>
-        <nomeNegozio>GeoStore</nomeNegozio>
-        <via>Negozio virtuale</via>
+        <nomeNegozio>Negozio virtuale GeoStore</nomeNegozio>
+        <via>Sede virtuale</via>
     </Intestazione>
     <Corpo>
         <TitoloTabella>
