@@ -25,7 +25,7 @@
     </PiedeTotale>
     <Didascalia>
         <DidascaliaTitolo>
-            <colonnaDT>N. Documento:</colonnaDT>
+            <colonnaDT>ID Documento:</colonnaDT>
             <colonnaNT>Cliente</colonnaNT>
         </DidascaliaTitolo>
         <DidascaliaCorpo>
