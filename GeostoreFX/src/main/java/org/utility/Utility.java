@@ -498,7 +498,7 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaDT"); //modifico il valore default con l'id dello scontrino
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("N. Documento:   " + IDReceipt);
+            nodeList.item(0).setTextContent("ID Documento:   " + IDReceipt);
         }
 
         //ricavo la data e l'ora
