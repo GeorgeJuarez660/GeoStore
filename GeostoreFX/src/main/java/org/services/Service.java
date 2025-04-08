@@ -175,23 +175,6 @@ public class Service {
                 if(Utility.getAge(u.getDataNascita())){
                     num = ur.updateUtenteWithDB(u.getId(), u);
 
-                    //aggiorno l'utente loggato
-                    if(userID.getId().equals(u.getId())){
-                        if(userID instanceof Amministratore && u instanceof Amministratore){
-                            Amministratore adminID = (Amministratore) userID;
-                            Amministratore a = (Amministratore) u;
-                            adminID = a;
-                            userID = adminID;
-                        }
-                        else{
-                            Cliente clienteID = (Cliente) userID;
-                            Cliente c = (Cliente) u;
-                            clienteID = c;
-                            userID = clienteID;
-                        }
-
-                    }
-
                     Utility.sendResponse(num, "USR-U", userID);
                 }
                 else{

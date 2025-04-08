@@ -181,7 +181,7 @@ public class QuestionController {
             LoadPage.access("register", null);
         }
         else{
-            LoadPage.goesToMenu(user, null);
+            LoadPage.goesToMenu(user, null, false);
         }
     }
 

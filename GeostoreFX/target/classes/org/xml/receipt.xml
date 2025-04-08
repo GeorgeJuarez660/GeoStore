@@ -10,22 +10,22 @@
             <colonnaT3>PREZZO U.</colonnaT3>
         </TitoloTabella>
         <CorpoTabella>
-            <colonnaC1>Barca con vela</colonnaC1>
+            <colonnaC1>Candela rossa</colonnaC1>
             <colonnaC2>x1</colonnaC2>
-            <colonnaC3>500</colonnaC3>
+            <colonnaC3>10</colonnaC3>
         </CorpoTabella>
     </Corpo>
     <PiedeTotale>
         <colonnaPT>TOTALE</colonnaPT>
-        <colonnaPC>C          500</colonnaPC>
+        <colonnaPC>C          10</colonnaPC>
     </PiedeTotale>
     <Didascalia>
         <DidascaliaTitolo>
-            <colonnaDT>N. Documento:   PBJ364</colonnaDT>
+            <colonnaDT>ID Documento:   LYR544</colonnaDT>
             <colonnaNT>Cliente</colonnaNT>
         </DidascaliaTitolo>
         <DidascaliaCorpo>
-            <colonnaDC>06/04/2025  22:08</colonnaDC>
+            <colonnaDC>08/04/2025  22:12</colonnaDC>
             <colonnaNC>Ariella Monica Suzanne</colonnaNC>
         </DidascaliaCorpo>
     </Didascalia>

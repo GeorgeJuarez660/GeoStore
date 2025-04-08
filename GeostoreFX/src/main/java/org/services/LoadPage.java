@@ -10,7 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.controller.*;
+import org.models.Amministratore;
 import org.models.Cliente;
+import org.models.Utente;
 import org.utility.PartialSceneDTO;
 import org.utility.Translater;
 
@@ -69,9 +71,34 @@ public class LoadPage {
     }
 
     @FXML
-    public static void goesToMenu(Cliente user, String lang) {
+    public static void goesToMenu(Cliente user, String lang, boolean canRefreshUser) {
         Pane view = null;
         try {
+
+            //innanzitutto mi faccio un refresh dell'utente per aggiornare i dati in tempo reale
+
+            //aggiorno l'utente loggato se è possibile
+            if(canRefreshUser){
+                if(user.getId() != null){
+
+                    Service service = new Service();
+                    Utente utente = service.ottieniProfiloUtente(user.getId());
+
+                    if(utente instanceof Amministratore){
+                        Amministratore admin = (Amministratore) utente;
+                        user = admin;
+                    }
+                    else{
+                        Cliente cliente = (Cliente) utente;
+                        user = cliente;
+                    }
+
+                }
+                else{
+                    System.out.println("L'utente risulta inesistente");
+                }
+            }
+
             // Costruisce il percorso completo del file FXML
             lang = lang != null ? lang : Translater.getLanguage(); //per prima cosa controlla la lingua per impostarla
             Locale locale = new Locale(lang); // Setti il linguaggio di default da prendere il resource

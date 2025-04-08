@@ -33,10 +33,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Locale;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Utility {
 
@@ -226,7 +223,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, false);
             });
             delay.play();
         }
@@ -271,7 +268,7 @@ public class Utility {
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
             // Dopo 2 secondi, carica la terza scena
-            LoadPage.goesToMenu(user, null);
+            LoadPage.goesToMenu(user, null, true);
         });
         delay.play();
     }
@@ -292,7 +289,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user ,null);
+                LoadPage.goesToMenu(user ,null, true);
             });
             delay2.play();
         }
@@ -303,7 +300,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay.play();
         }
@@ -325,7 +322,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay2.play();
         }
@@ -336,7 +333,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay.play();
         }
@@ -374,7 +371,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(pauseMenu));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay2.play();
         }
@@ -385,7 +382,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(6));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay.play();
         }
@@ -407,7 +404,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay2.play();
         }
@@ -418,7 +415,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay.play();
         }
@@ -440,7 +437,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay2.play();
         }
@@ -451,7 +448,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null);
+                LoadPage.goesToMenu(user, null, true);
             });
             delay.play();
         }
@@ -459,14 +456,19 @@ public class Utility {
 
     //------------------RECEIPT-----------------------
 
-    private static final String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers();
 
-    private static final String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-    private static final String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-    private static final String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
-    private static final String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
 
     public static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
+        //mi setto il path dei pdf, xml e xsl
+        String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
+        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+
+        String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
+        String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
+        Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+        ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
         Path xmlAbsPath = Paths.get(xmlPath + "receipt.xml");
         File inputFile = xmlAbsPath.toFile();
 
@@ -476,7 +478,55 @@ public class Utility {
         Document doc = builder.parse(inputFile);
 
         // Modifica il valore di un nodo specifico
-        NodeList nodeList = doc.getElementsByTagName("colonnaC1"); //in questo caso modifico il valore default con il nome del prodotto
+        NodeList nodeList = doc.getElementsByTagName("nomeNegozio"); //in questo caso modifico il titolo nome negozio
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.name"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("via"); //in questo caso modifico il titolo via
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.location"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT1"); //in questo caso modifico il titolo prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.product"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT2"); //in questo caso modifico il titolo quantità
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.quantity"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT3"); //in questo caso modifico il titolo prezzo unitario
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.price"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaPT"); //in questo caso modifico il titolo totale
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.total"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaDT"); //in questo caso modifico il titolo id documento
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaNT"); //in questo caso modifico il titolo cliente
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.user"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaC1"); //in questo caso modifico il valore default con il nome del prodotto
         if (nodeList.getLength() > 0) {
             nodeList.item(0).setTextContent(productName);
         }
@@ -491,14 +541,14 @@ public class Utility {
             nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
         }
 
-        nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il prezzo unitario del prodotto
+        nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
         if (nodeList.getLength() > 0) {
             nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(uniPrice.multiply(new BigDecimal(quantity))));
         }
 
         nodeList = doc.getElementsByTagName("colonnaDT"); //modifico il valore default con l'id dello scontrino
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("ID Documento:   " + IDReceipt);
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id") + "   " + IDReceipt);
         }
 
         //ricavo la data e l'ora
