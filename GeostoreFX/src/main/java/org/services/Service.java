@@ -652,10 +652,20 @@ public class Service {
 
                     //TODO: creare il pdf chiamato scontrino con l'ordine modificato e salvarlo nella stessa cartella del programma
 
-                    Utility.sendResponse(num, response, user);
+                    if(num > 0 && saveReceipt){
+                        boolean itsRefund = responseCheckOrder.contains("ODR-UR");
+
+                        try{
+                            Utility.savingReceiptAfterUpdatedOrder(order.getProdotto().getNome(), order.getPrezzo_unitario(), orderOld.getQuantita(), order.getQuantita(), itsRefund, user);
+                        } catch (Exception e) {
+                            System.err.println("Errore salvataggio scontrino: " + e.getMessage());
+                        }
+                    }
+
+                    Utility.sendResponseUpdatedOrders(num, response, user, saveReceipt);
                 }
                 else{
-                    Utility.sendResponse(0, response, user);
+                    Utility.sendResponseUpdatedOrders(0, response, user, saveReceipt);
                 }
             }
         }

@@ -104,7 +104,7 @@ public class Utility {
         String formattedValue = "";
 
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.ITALIAN);
-        DecimalFormat df = new DecimalFormat("###,##0.##", dfs);
+        DecimalFormat df = new DecimalFormat("###,##0.00", dfs);
         formattedValue = df.format(value);
 
         return formattedValue;
@@ -388,6 +388,47 @@ public class Utility {
         }
     }
 
+    public static void sendResponseUpdatedOrders(Integer num, String response, Cliente user, boolean saveReceipt){
+        if(num > 0){
+            LoadPage.answerScene("positive", response + "Y", null);
+
+            int pauseMenu = 0;
+            if(saveReceipt){
+                //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
+                PauseTransition delayS = new PauseTransition(Duration.seconds(3));
+                delayS.setOnFinished(event -> {
+                    // Dopo 2 secondi, carica la scena del salvataggio scontrino
+                    LoadPage.answerScene("info", "ODR-SAR", null);
+                });
+                delayS.play();
+
+                pauseMenu = 9; //pausa prima che venga mostrata la scena menu e nel frattempo viene mostrano l'info scontrino
+            }
+            else{
+                pauseMenu = 3;
+            }
+
+            //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
+            PauseTransition delay2 = new PauseTransition(Duration.seconds(pauseMenu));
+            delay2.setOnFinished(event -> {
+                // Dopo 2 secondi, carica la terza scena
+                LoadPage.goesToMenu(user, null, true);
+            });
+            delay2.play();
+        }
+        else{
+            LoadPage.answerScene("negative", response + "N", null);
+
+            //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
+            PauseTransition delay = new PauseTransition(Duration.seconds(6));
+            delay.setOnFinished(event -> {
+                // Dopo 2 secondi, carica la terza scena
+                LoadPage.goesToMenu(user, null, true);
+            });
+            delay.play();
+        }
+    }
+
     public static void sendResponseDeletedCategories(Integer num, Cliente user){
         if(num > 0){
             LoadPage.answerScene("positive", "CAT-DY", null);
@@ -469,7 +510,7 @@ public class Utility {
         Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receipt.xml");
+        Path xmlAbsPath = Paths.get(xmlPath + "receiptOP.xml"); //mi prendo in considerazione l'xml dell'ordinazione prodotto
         File inputFile = xmlAbsPath.toFile();
 
         // Parsing XML
@@ -597,7 +638,7 @@ public class Utility {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceipt.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptOP.xsl")));// XSLT file che trasforma XML in XSL-FO
 
             Source src = new StreamSource(inputFile); // XML di input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
@@ -607,8 +648,175 @@ public class Utility {
         }
     }
 
-    public static void savingReceiptAfterUpdatedOrder(){ //salvo lo scontrino dopo la modifica dell'ordine
+    public static void savingReceiptAfterUpdatedOrder(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception{ //salvo lo scontrino dopo la modifica dell'ordine
+        //mi setto il path dei pdf, xml e xsl
+        String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
+        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
 
+        String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
+        String pdfNameOrderedProduct = "receiptUpdatedOrder" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
+        Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+        ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
+        Path xmlAbsPath = Paths.get(xmlPath + "receiptUO.xml"); //mi prendo in considerazione l'xml della modifica ordine
+        File inputFile = xmlAbsPath.toFile();
+
+        // Parsing XML
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(inputFile);
+
+        // Modifica il valore di un nodo specifico
+        NodeList nodeList = doc.getElementsByTagName("nomeNegozio"); //in questo caso modifico il titolo nome negozio
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.name"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("via"); //in questo caso modifico il titolo via
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.location"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT1"); //in questo caso modifico il titolo prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.product"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT2"); //in questo caso modifico il titolo quantità
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.quantity"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT3"); //in questo caso modifico il titolo prezzo unitario
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.price"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaPT"); //in questo caso modifico il titolo totale
+        if (nodeList.getLength() > 0) {
+            if(itsRefund){
+                nodeList.item(0).setTextContent(resLang.getString("receipt.totalR"));
+            }
+            else{
+                nodeList.item(0).setTextContent(resLang.getString("receipt.totalS"));
+            }
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaDT"); //in questo caso modifico il titolo id documento
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaNT"); //in questo caso modifico il titolo cliente
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.user"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaC1"); //in questo caso modifico il valore default con il nome del prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(productName);
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaC2"); //successivamente modifico il valore default con la quantità ordinata
+        if (nodeList.getLength() > 0) {
+            int quantity;
+            if(itsRefund){
+                quantity = quantityOld - quantityNew;
+                nodeList.item(0).setTextContent("-" + quantity);
+            }
+            else{
+                quantity = quantityNew - quantityOld;
+                nodeList.item(0).setTextContent("+" + quantity);
+            }
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaC3"); //poi modifico il valore default con il prezzo unitario del prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
+        if (nodeList.getLength() > 0) {
+            BigDecimal totalOld = uniPrice.multiply(new BigDecimal(quantityOld));
+            BigDecimal totalNew = uniPrice.multiply(new BigDecimal(quantityNew));
+
+            if(itsRefund){
+                nodeList.item(0).setTextContent("- C          " + Utility.formatValueBigDecimal(totalOld.subtract(totalNew)));
+            }
+            else{
+                nodeList.item(0).setTextContent("+ C          " + Utility.formatValueBigDecimal(totalNew.subtract(totalOld)));
+            }
+
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaDT"); //modifico il valore default con l'id dello scontrino
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id") + "   " + IDReceipt);
+        }
+
+        //ricavo la data e l'ora
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(Date.valueOf(LocalDate.now()));
+        int giorno = calendario.get(Calendar.DAY_OF_MONTH);
+        int mese = calendario.get(Calendar.MONTH) + 1;
+        int anno = calendario.get(Calendar.YEAR);
+
+        String giornoEsatto = String.format("%02d", giorno);
+        String meseEsatto = String.format("%02d", mese);
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        nodeList = doc.getElementsByTagName("colonnaDC"); //modifico il valore default con la data e l'ora
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(giornoEsatto+"/"+meseEsatto+"/"+anno + "  " + LocalTime.now().format(timeFormatter));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaNC"); //infine modifico il valore default con il nome e il cognome del cliente
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(user.getCognome() + " " + user.getNome());
+        }
+
+        // Scrivi il nuovo XML su file
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(inputFile);
+        transformer.transform(source, result);
+
+        System.out.println("XML modificato con successo.");
+
+        //File xconfFile = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/_test/Java/JavaFXTest/src/main/resources/org/example/javafxtest/xml/propReceipt.xconf");
+
+        // Configurazione di FOP
+        FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+        //System.out.println("FOP configuration file exists: " + xconfFile.exists() xconfFile.getAbsolutePath());
+        FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+        foUserAgent.setProducer("FOP with custom font debug");
+
+
+        // Creazione del PDF
+        try (OutputStream out = new FileOutputStream(new File(pdfPath + pdfNameOrderedProduct))) {
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
+
+            // Trasformazione XSLT: XML -> XSL-FO
+            TransformerFactory factory2 = TransformerFactory.newInstance();
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptUO.xsl")));// XSLT file che trasforma XML in XSL-FO
+
+            Source src = new StreamSource(inputFile); // XML di input
+            Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
+
+            transformer2.transform(src, res);
+            System.out.println("PDF generato con successo.");
+        }
     }
 
     public static void savingReceiptAfterOrderedTotalPrice(){ //salvo lo scontrino dopo aver saputo il prezzo totale speso

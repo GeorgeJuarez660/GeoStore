@@ -13,6 +13,7 @@ import org.models.Utente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Utility;
 
 import java.net.URL;
 import java.util.Calendar;
@@ -74,7 +75,7 @@ public class UserItemController implements Initializable {
             email.setText(admin.getEmail());
             password.setText(admin.getPassword());
             adminCode.setText(admin.getCodiceAdmin().getCodice());
-            wallet.setText(admin.getPortafoglio().toString()+" C");
+            wallet.setText(Utility.formatValueBigDecimal(admin.getPortafoglio()) + " C");
         }
         else{
             Cliente cliente = (Cliente) utente;
@@ -90,7 +91,7 @@ public class UserItemController implements Initializable {
             email.setText(cliente.getEmail());
             password.setText(cliente.getPassword());
             adminCode.setText("-");
-            wallet.setText(cliente.getPortafoglio().toString()+" C");
+            wallet.setText(Utility.formatValueBigDecimal(cliente.getPortafoglio()) + " C");
         }
     }
 

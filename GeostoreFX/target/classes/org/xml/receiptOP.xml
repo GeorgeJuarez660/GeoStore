@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Scontrino GeoStore per l'ordinazione prodotto--><?xml-stylesheet type="text/xsl" href="styleReceiptOP.xsl" ?><Scontrino>
+    <Intestazione>
+        <nomeNegozio>Negozio virtuale GeoStore</nomeNegozio>
+        <via>Sede virtuale</via>
+    </Intestazione>
+    <Corpo>
+        <TitoloTabella>
+            <colonnaT1>PRODOTTO</colonnaT1>
+            <colonnaT2>QUANTITÀ</colonnaT2>
+            <colonnaT3>PREZZO U.</colonnaT3>
+        </TitoloTabella>
+        <CorpoTabella>
+            <colonnaC1>Candela rossa</colonnaC1>
+            <colonnaC2>x2</colonnaC2>
+            <colonnaC3>10,00</colonnaC3>
+        </CorpoTabella>
+    </Corpo>
+    <PiedeTotale>
+        <colonnaPT>TOTALE</colonnaPT>
+        <colonnaPC>C          20,00</colonnaPC>
+    </PiedeTotale>
+    <Didascalia>
+        <DidascaliaTitolo>
+            <colonnaDT>ID Documento:   QFJ145</colonnaDT>
+            <colonnaNT>Cliente</colonnaNT>
+        </DidascaliaTitolo>
+        <DidascaliaCorpo>
+            <colonnaDC>09/04/2025  21:51</colonnaDC>
+            <colonnaNC>Ariella Monica Suzanne</colonnaNC>
+        </DidascaliaCorpo>
+    </Didascalia>
+
+</Scontrino>
