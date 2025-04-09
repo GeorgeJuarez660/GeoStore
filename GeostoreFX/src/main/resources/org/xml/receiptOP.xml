@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Scontrino GeoStore per l'ordinazione prodotto-->
+<!DOCTYPE Scontrino SYSTEM "formatReceiptOP.dtd">
+<?xml-stylesheet type="text/xsl" href="styleReceiptOP.xsl" ?>
+<Scontrino>
+    <Intestazione>
+        <nomeNegozio>Negozio virtuale GeoStore</nomeNegozio>
+        <via>Sede virtuale</via>
+    </Intestazione>
+    <Corpo>
+        <TitoloTabella>
+            <colonnaT1>PRODOTTO</colonnaT1>
+            <colonnaT2>QUANTITÀ</colonnaT2>
+            <colonnaT3>PREZZO U.</colonnaT3>
+        </TitoloTabella>
+        <CorpoTabella>
+            <colonnaC1>xxPRODUCTxx</colonnaC1>
+            <colonnaC2>xxQUANTITYxx</colonnaC2>
+            <colonnaC3>xxDEFPRICExx</colonnaC3>
+        </CorpoTabella>
+    </Corpo>
+    <PiedeTotale>
+        <colonnaPT>TOTALE</colonnaPT>
+        <colonnaPC>xxTOTALPRICExx</colonnaPC>
+    </PiedeTotale>
+    <Didascalia>
+        <DidascaliaTitolo>
+            <colonnaDT>ID Documento:</colonnaDT>
+            <colonnaNT>Cliente</colonnaNT>
+        </DidascaliaTitolo>
+        <DidascaliaCorpo>
+            <colonnaDC>xxCHMxx</colonnaDC>
+            <colonnaNC>xxUSERxx</colonnaNC>
+        </DidascaliaCorpo>
+    </Didascalia>
+
+</Scontrino>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--Scontrino GeoStore per l'ordinazione prodotto-->
-<!DOCTYPE Scontrino SYSTEM "formatReceipt.dtd">
-<?xml-stylesheet type="text/xsl" href="styleReceipt.xsl" ?>
+<!DOCTYPE Scontrino SYSTEM "formatReceiptUO.dtd">
+<?xml-stylesheet type="text/xsl" href="styleReceiptUO.xsl" ?>
 <Scontrino>
     <Intestazione>
         <nomeNegozio>Negozio virtuale GeoStore</nomeNegozio>
@@ -20,7 +20,7 @@
         </CorpoTabella>
     </Corpo>
     <PiedeTotale>
-        <colonnaPT>TOTALE</colonnaPT>
+        <colonnaPT>TOTALE XXX</colonnaPT>
         <colonnaPC>xxTOTALPRICExx</colonnaPC>
     </PiedeTotale>
     <Didascalia>
