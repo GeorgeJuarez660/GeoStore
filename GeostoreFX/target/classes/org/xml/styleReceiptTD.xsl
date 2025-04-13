@@ -73,10 +73,12 @@
                                         <!--mando a capo dal \n tramite linefeed e white-space-->
                                         <fo:block font-family="Arial, Helvetica, sans-serif" text-align="left" linefeed-treatment="preserve" white-space-collapse="false">
                                             <!--spezzetto in due fo:inline per gestire gli stili diversamente delimitato dal \n-->
+                                            <!--dove il primo sarà di size 16 (da string a \n)-->
                                             <fo:inline font-size="16pt" font-weight="normal" >
                                                 <xsl:value-of select="substring-before(colonnaC1, '&#10;')"/>
                                             </fo:inline>
 
+                                            <!--invece il secondo sarà di size 12 (da \n a string)-->
                                             <fo:inline font-size="12pt" font-weight="normal" >
                                                 <xsl:text>&#10;</xsl:text>
                                                 <xsl:value-of select="substring-after(colonnaC1, '&#10;')"/>

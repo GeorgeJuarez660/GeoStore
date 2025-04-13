@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!--Scontrino GeoStore per l'ordinazione prodotto-->
-<!DOCTYPE Scontrino SYSTEM "formatReceiptUO.dtd">
-<?xml-stylesheet type="text/xsl" href="styleReceiptUO.xsl" ?>
-<Scontrino>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Scontrino GeoStore per l'ordinazione prodotto--><?xml-stylesheet type="text/xsl" href="styleReceiptUO.xsl" ?><Scontrino>
     <Intestazione>
         <nomeNegozio>Negozio virtuale GeoStore</nomeNegozio>
         <via>Sede virtuale</via>
@@ -11,26 +7,26 @@
         <TitoloTabella>
             <colonnaT1>PRODOTTO</colonnaT1>
             <colonnaT2>QUANTITÀ</colonnaT2>
-            <colonnaT3>PREZZO U.</colonnaT3>
+            <colonnaT3>PREZZO U. (C)</colonnaT3>
         </TitoloTabella>
         <CorpoTabella>
-            <colonnaC1>xxPRODUCTxx</colonnaC1>
-            <colonnaC2>xxQUANTITYxx</colonnaC2>
-            <colonnaC3>xxDEFPRICExx</colonnaC3>
+            <colonnaC1>Candela rossa</colonnaC1>
+            <colonnaC2>+0</colonnaC2>
+            <colonnaC3>10,00</colonnaC3>
         </CorpoTabella>
     </Corpo>
     <PiedeTotale>
-        <colonnaPT>TOTALE XXX</colonnaPT>
-        <colonnaPC>xxTOTALPRICExx</colonnaPC>
+        <colonnaPT>TOTALE SPESO</colonnaPT>
+        <colonnaPC>+ C          0,00</colonnaPC>
     </PiedeTotale>
     <Didascalia>
         <DidascaliaTitolo>
-            <colonnaDT>ID Documento:</colonnaDT>
+            <colonnaDT>ID Documento:   JXB935</colonnaDT>
             <colonnaNT>Cliente</colonnaNT>
         </DidascaliaTitolo>
         <DidascaliaCorpo>
-            <colonnaDC>xxCHMxx</colonnaDC>
-            <colonnaNC>xxUSERxx</colonnaNC>
+            <colonnaDC>13/04/2025  20:23</colonnaDC>
+            <colonnaNC>Ariella Monica Suzanne</colonnaNC>
         </DidascaliaCorpo>
     </Didascalia>
 

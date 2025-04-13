@@ -11,7 +11,7 @@
         <TitoloTabella>
             <colonnaT1>PRODOTTO</colonnaT1>
             <colonnaT2>QUANTITÀ</colonnaT2>
-            <colonnaT3>PREZZO U.</colonnaT3>
+            <colonnaT3>PREZZO U. (C)</colonnaT3>
         </TitoloTabella>
         <CorpoTabella>
             <colonnaC1>xxPRODUCTxx</colonnaC1>
