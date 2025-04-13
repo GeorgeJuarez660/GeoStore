@@ -9,9 +9,12 @@ import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 import org.models.Cliente;
 import org.models.News;
+import org.models.Ordine;
 import org.models.Utente;
 import org.services.LoadPage;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -24,6 +27,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.time.Period;
 
@@ -530,6 +534,8 @@ public class Utility {
             nodeList.item(0).setTextContent(resLang.getString("receipt.location"));
         }
 
+        //------TITOLI------
+
         // Modifica il valore di un nodo specifico
         nodeList = doc.getElementsByTagName("colonnaT1"); //in questo caso modifico il titolo prodotto
         if (nodeList.getLength() > 0) {
@@ -565,6 +571,8 @@ public class Utility {
         if (nodeList.getLength() > 0) {
             nodeList.item(0).setTextContent(resLang.getString("receipt.user"));
         }
+
+        //------VALORI------
 
         // Modifica il valore di un nodo specifico
         nodeList = doc.getElementsByTagName("colonnaC1"); //in questo caso modifico il valore default con il nome del prodotto
@@ -667,6 +675,8 @@ public class Utility {
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(inputFile);
 
+        //------TITOLI------
+
         // Modifica il valore di un nodo specifico
         NodeList nodeList = doc.getElementsByTagName("nomeNegozio"); //in questo caso modifico il titolo nome negozio
         if (nodeList.getLength() > 0) {
@@ -719,6 +729,8 @@ public class Utility {
         if (nodeList.getLength() > 0) {
             nodeList.item(0).setTextContent(resLang.getString("receipt.user"));
         }
+
+        //------VALORI------
 
         // Modifica il valore di un nodo specifico
         nodeList = doc.getElementsByTagName("colonnaC1"); //in questo caso modifico il valore default con il nome del prodotto
@@ -819,7 +831,192 @@ public class Utility {
         }
     }
 
-    public static void savingReceiptAfterOrderedTotalPrice(){ //salvo lo scontrino dopo aver saputo il prezzo totale speso
+    public static void savingReceiptAfterOrderedTotalPrice(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception { //salvo lo scontrino dopo aver saputo il prezzo totale speso
+        //mi setto il path dei pdf, xml e xsl
+        String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
+        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
 
+        String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
+        String pdfNameOrderedProduct = "receiptTotalOrderPrice" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
+        Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+        ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
+        Path xmlAbsPath = Paths.get(xmlPath + "receiptTD.xml"); //mi prendo in considerazione l'xml della modifica ordine
+        File inputFile = xmlAbsPath.toFile();
+
+        // Parsing XML
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(inputFile);
+
+        //------TITOLI------
+
+        // Modifica il valore di un nodo specifico
+        NodeList nodeList = doc.getElementsByTagName("nomeNegozio"); //in questo caso modifico il titolo nome negozio
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.name"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("via"); //in questo caso modifico il titolo via
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.location"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT1"); //in questo caso modifico il titolo prodotto
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.product"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaT2"); //in questo caso modifico il titolo prezzo unitario
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.priceTD"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaPDT"); //in questo caso modifico il titolo data ordini
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.dateOrders"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaPT"); //in questo caso modifico il titolo totale
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.total"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaDT"); //in questo caso modifico il titolo id documento
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id"));
+        }
+
+        // Modifica il valore di un nodo specifico
+        nodeList = doc.getElementsByTagName("colonnaNT"); //in questo caso modifico il titolo cliente
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.user"));
+        }
+
+        //------VALORI------
+
+        Node corpoNodo = doc.getElementsByTagName("Corpo").item(0); //innanzitutto mi trovo la radice del ciclo for ovvero Corpo
+
+        NodeList tagEsistenti = doc.getElementsByTagName("CorpoTabella"); //trovo i tag che si chiamano CorpoTabella
+        for(int i = 0; i < tagEsistenti.getLength(); i++){ //li ciclo per quanti ne trovo
+            corpoNodo.removeChild(tagEsistenti.item(i)); //rimuove qualsiasi tag CorpoTabella dalla radice Corpo
+        }
+
+        //una volta rimosso le reinserisco con nuovo tag (chiamato allo stesso nome) e i figli dentro
+
+        for(Ordine ordine : listaOrdini.values()){
+            //mi creo un nuovo tag CorpoTabella
+            Element corpoTab = doc.createElement("CorpoTabella");
+
+            //creo il figlio tag colonnaC1
+            Element col1 = doc.createElement("colonnaC1");
+            if(Translater.getLanguage().equals("it")){ //se il programma è settato in italiano allora scrivo in italiano
+                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prz. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
+            }
+            else if(Translater.getLanguage().equals("en")){
+                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
+            }
+            else if(Translater.getLanguage().equals("ja")){
+                col1.setTextContent(ordine.getProdotto().getNome() + "\n額 " + ordine.getQuantita() + " 価格 C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
+            }
+            else{
+                System.err.println("ERRORE LINGUAGGIO PROGRAMMA");
+            }
+            corpoTab.appendChild(col1); //aggancio il tag figlio colonnaC1 al tag CorpoTabella
+
+            //creo il figlio tag colonnaC2
+            Element col2 = doc.createElement("colonnaC2");
+
+            BigDecimal totalOrder = ordine.getPrezzo_unitario().multiply(new BigDecimal(ordine.getQuantita()));
+            col2.setTextContent(Utility.formatValueBigDecimal(totalOrder)); //inserisco il totale dell'ordine
+            corpoTab.appendChild(col2); //aggancio anche la colonnaC2 nel tag CorpoTabella
+
+            corpoNodo.appendChild(corpoTab); //aggancio CorpoTabella nel tag radice Corpo
+        }
+
+        //ricavo la data e l'ora
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(totalDate);
+        int giorno = calendario.get(Calendar.DAY_OF_MONTH);
+        int mese = calendario.get(Calendar.MONTH) + 1;
+        int anno = calendario.get(Calendar.YEAR);
+
+        String giornoEsatto = String.format("%02d", giorno);
+        String meseEsatto = String.format("%02d", mese);
+
+        nodeList = doc.getElementsByTagName("colonnaPDC"); //modifico il valore default con il totale acquistato
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(giornoEsatto+"/"+meseEsatto+"/"+anno);
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(dailyTotalPrice));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaDT"); //modifico il valore default con l'id dello scontrino
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id") + "   " + IDReceipt);
+        }
+
+        //ricavo la data e l'ora
+        calendario = Calendar.getInstance();
+        calendario.setTime(Date.valueOf(LocalDate.now()));
+        giorno = calendario.get(Calendar.DAY_OF_MONTH);
+        mese = calendario.get(Calendar.MONTH) + 1;
+        anno = calendario.get(Calendar.YEAR);
+
+        giornoEsatto = String.format("%02d", giorno);
+        meseEsatto = String.format("%02d", mese);
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        nodeList = doc.getElementsByTagName("colonnaDC"); //modifico il valore default con la data e l'ora
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(giornoEsatto+"/"+meseEsatto+"/"+anno + "  " + LocalTime.now().format(timeFormatter));
+        }
+
+        nodeList = doc.getElementsByTagName("colonnaNC"); //infine modifico il valore default con il nome e il cognome del cliente
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(user.getCognome() + " " + user.getNome());
+        }
+
+        // Scrivi il nuovo XML su file
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(inputFile);
+        transformer.transform(source, result);
+
+        System.out.println("XML modificato con successo.");
+
+        // Configurazione di FOP
+        FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+        //System.out.println("FOP configuration file exists: " + xconfFile.exists() xconfFile.getAbsolutePath());
+        FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+        foUserAgent.setProducer("FOP with custom font debug");
+
+
+        // Creazione del PDF
+        try (OutputStream out = new FileOutputStream(new File(pdfPath + pdfNameOrderedProduct))) {
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
+
+            // Trasformazione XSLT: XML -> XSL-FO
+            TransformerFactory factory2 = TransformerFactory.newInstance();
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptTD.xsl")));// XSLT file che trasforma XML in XSL-FO
+
+            Source src = new StreamSource(inputFile); // XML di input
+            Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
+
+            transformer2.transform(src, res);
+            System.out.println("PDF generato con successo.");
+        }
     }
 }

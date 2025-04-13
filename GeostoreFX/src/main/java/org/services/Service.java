@@ -1048,6 +1048,10 @@ public class Service {
         return or.getOrdineTotGiorWithDB(u, chooseDate);
     }
 
+    public HashMap<Integer, Ordine> ottieniListaOrdiniAccettati(Utente u, String chooseDate){
+        return or.getAcceptedOrdersByUserAndDate(u, chooseDate);
+    }
+
     public Map<Integer, Prodotto> prodottiViaCategoria(String IDCategoryKey){
         return pr.getProdottiViaCategoriaWithDB(Integer.parseInt(IDCategoryKey));
     }

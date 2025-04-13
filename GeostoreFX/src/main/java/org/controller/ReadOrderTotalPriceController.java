@@ -13,10 +13,13 @@ import org.models.Cliente;
 import org.models.Ordine;
 import org.services.LoadPage;
 import org.services.Service;
+import org.utility.Utility;
 
 import java.net.URL;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.fxml
@@ -75,8 +78,12 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
     public void loadItem(String itemScene, String chooseDate, boolean saveRpt){
         service = new Service();
         Ordine ordine;
+        Map<Integer, Ordine> orderList = new HashMap<>();
 
         ordine = service.ordiniTotaliGiornalieri(user, chooseDate);
+        if(saveRpt){
+            orderList = service.ottieniListaOrdiniAccettati(user, chooseDate);
+        }
 
         if(ordine.getUtente() != null){
             try {
@@ -98,6 +105,14 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
             } catch (Exception e) {
                 System.out.println("No page found. Please check FXMLLoader.");
                 e.printStackTrace();
+            }
+        }
+
+        if(saveRpt){
+            try {
+                Utility.savingReceiptAfterOrderedTotalPrice(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
 

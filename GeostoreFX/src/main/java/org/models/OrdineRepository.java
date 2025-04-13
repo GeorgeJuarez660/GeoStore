@@ -774,4 +774,50 @@ public class OrdineRepository implements ordiniCRUD {
         return ordine;
     }
 
+    public HashMap<Integer, Ordine> getAcceptedOrdersByUserAndDate(Utente u, String data) {
+        String sql = "SELECT u.nome as nome_utente, u.cognome as cognome_utente, o.id as id_ordine, o.data_ordine as data_ordine, p.nome as nome_prodotto, o.quantita as quantita_ordinata, o.prezzo_unitario as prezzo_unitario " +
+                " FROM ordini o JOIN utenti u ON(o.utente_id =u.id) " +
+                " JOIN prodotti p ON(o.prodotto_id =p.id ) " +
+                " WHERE u.id = ? AND o.data_ordine LIKE ? AND o.stato_id = 2 ";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        ordini = new HashMap<>();
+
+        try{
+            //Connessione al db
+            connection = DBConnection.sqlConnect();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, u.getId());
+            preparedStatement.setString(2, data + "%");
+            rs = preparedStatement.executeQuery();
+            Ordine ordine;
+
+            while(rs.next()){
+                ordine = new Ordine();
+                Prodotto prodotto = new Prodotto();
+                Utente utente = new Utente();
+                utente.setNome(rs.getString("nome_utente"));
+                utente.setCognome(rs.getString("cognome_utente"));
+                prodotto.setNome(rs.getString("nome_prodotto"));
+                ordine.setId(rs.getInt("id_ordine"));
+                ordine.setUtente(utente);
+                ordine.setProdotto(prodotto);
+                ordine.setData_ordine(Timestamp.valueOf(rs.getString("data_ordine")));
+                ordine.setQuantita(rs.getInt("quantita_ordinata"));
+                ordine.setPrezzo_unitario(rs.getBigDecimal("prezzo_unitario"));
+
+                ordini.put(ordine.getId(), ordine);
+            }
+            //chiudi la connessione
+            rs.close();
+            preparedStatement.close();
+            connection.close();
+        }catch(SQLException e){
+            Utility.msgInf("GEOSTORE", "Errore nel getAcceptedOrdersByUserAndDate: " + e.getMessage());
+        }
+
+        return ordini;
+    }
+
 }
