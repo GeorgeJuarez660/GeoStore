@@ -1164,9 +1164,6 @@ public class Utility {
             else if(Translater.getLanguage().equals("en")){
                 col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
             }
-            else if(Translater.getLanguage().equals("ja")){
-                col1.setTextContent(ordine.getProdotto().getNome() + "\n額 " + ordine.getQuantita() + " 価格 C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
-            }
             else{
                 System.err.println("ERRORE LINGUAGGIO PROGRAMMA");
             }
@@ -1290,18 +1287,7 @@ public class Utility {
 
             //creo il figlio tag colonnaC1
             Element col1 = doc.createElement("colonnaC1");
-            if(Translater.getLanguage().equals("it")){ //se il programma è settato in italiano allora scrivo in italiano
-                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prz. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
-            }
-            else if(Translater.getLanguage().equals("en")){
-                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
-            }
-            else if(Translater.getLanguage().equals("ja")){
-                col1.setTextContent(ordine.getProdotto().getNome() + "\n額 " + ordine.getQuantita() + " 価格 C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
-            }
-            else{
-                System.err.println("ERRORE LINGUAGGIO PROGRAMMA");
-            }
+            col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
             corpoTab.appendChild(col1); //aggancio il tag figlio colonnaC1 al tag CorpoTabella
 
             //creo il figlio tag colonnaC2
