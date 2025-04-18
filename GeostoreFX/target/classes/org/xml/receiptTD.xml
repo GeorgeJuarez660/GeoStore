@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--Scontrino GeoStore per l'ordinazione prodotto-->
-<!DOCTYPE Scontrino SYSTEM "formatReceiptTD.dtd">
-<?xml-stylesheet type="text/xsl" href="styleReceiptTD.xsl" ?>
+<!DOCTYPE Scontrino SYSTEM
+        "C:\Users\giorg\OneDrive\Desktop\App\G&P\Programming\Java\GeostoreFX\src\main\resources\org\xml\rules\formatReceiptTD.dtd">
+<?xml-stylesheet type="text/xsl" href="stylesheets/styleReceiptTD.xsl" ?>
 <Scontrino>
     <Intestazione>
         <nomeNegozio>Negozio virtuale GeoStore</nomeNegozio>

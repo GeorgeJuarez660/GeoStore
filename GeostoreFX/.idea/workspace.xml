@@ -6,21 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/formatReceiptOP.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/rules/formatReceiptOP.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/formatReceiptTD.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/rules/formatReceiptTD.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/formatReceiptUO.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/rules/formatReceiptUO.dtd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOP.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOP.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTD.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTD.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUO.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/styleReceiptOP.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOP.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/styleReceiptTD.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTD.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/styleReceiptUO.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUO.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/formatReceiptOP.dtd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/formatReceiptTD.dtd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/formatReceiptUO.dtd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptOP.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptOP.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTD.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptTD.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptUO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptUO.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/styleReceiptTD.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/styleReceiptTD.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/styleReceiptOP.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/styleReceiptTD.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/styleReceiptUO.xsl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +87,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "featureDev/desktop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml",
+    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36666667",
@@ -89,18 +96,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml\stylesheets" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\images" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\scenes" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\jar" />
-      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml\_stylesheets" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml\_rules" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\language" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\scenes\masks" />
-      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org" />
-      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\jar" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.controller" />
@@ -455,54 +462,9 @@
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>358</line>
-          <option name="timeStamp" value="182" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>346</line>
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java</url>
           <line>44</line>
           <option name="timeStamp" value="184" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>525</line>
-          <option name="timeStamp" value="187" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>625</line>
-          <option name="timeStamp" value="189" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>577</line>
-          <option name="timeStamp" value="190" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>643</line>
-          <option name="timeStamp" value="191" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>653</line>
-          <option name="timeStamp" value="192" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>631</line>
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
-          <line>835</line>
-          <option name="timeStamp" value="194" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java</url>

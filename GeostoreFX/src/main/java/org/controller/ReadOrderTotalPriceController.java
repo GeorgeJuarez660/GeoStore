@@ -110,7 +110,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
 
         if(saveRpt){
             try {
-                Utility.savingReceiptAfterOrderedTotalPrice(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
+                Utility.checkLangBeforeSavingReceiptTD(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
