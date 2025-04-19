@@ -7,13 +7,14 @@
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOPJapanese.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOPJapanese.xsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTDJapanese.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTDJapanese.xsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUOJapanese.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUOJapanese.xsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/services/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/Service.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTDJapanese.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptTDJapanese.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptUOJapanese.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptUOJapanese.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOPJapanese.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOPJapanese.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTDJapanese.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTDJapanese.xsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GeostoreMain.executor": "Run",
+    "Application.GeostoreMain.executor": "Debug",
     "Application.HelloApplication.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.MainPreview.executor": "Run",
@@ -461,6 +462,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java</url>
           <line>788</line>
           <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
+          <line>525</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
+          <line>1281</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
+          <line>1285</line>
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>

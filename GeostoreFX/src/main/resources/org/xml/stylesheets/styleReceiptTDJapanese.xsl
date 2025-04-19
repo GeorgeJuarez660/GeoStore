@@ -134,7 +134,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell>
-                                    <fo:block font-family="Arial, Helvetica, sans-serif" font-size="16pt" font-weight="bold" text-align="right">
+                                    <fo:block font-family="Arial, Helvetica, sans-serif" font-size="16pt" font-weight="bold" text-align="right" margin-top="3%">
                                         <xsl:value-of select="Scontrino/PiedeDataOrdini/colonnaPDC"/>
                                     </fo:block>
                                 </fo:table-cell>
@@ -163,7 +163,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell>
-                                    <fo:block font-family="Arial, Helvetica, sans-serif" font-size="16pt" font-weight="bold" text-align="right">
+                                    <fo:block font-family="Arial, Helvetica, sans-serif" font-size="16pt" font-weight="bold" text-align="right" margin-top="2%">
                                         <xsl:value-of select="Scontrino/PiedeTotale/colonnaPC"/>
                                     </fo:block>
                                 </fo:table-cell>

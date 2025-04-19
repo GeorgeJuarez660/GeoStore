@@ -1145,9 +1145,13 @@ public class Utility {
 
         Node corpoNodo = doc.getElementsByTagName("Corpo").item(0); //innanzitutto mi trovo la radice del ciclo for ovvero Corpo
 
+        List<Node> checkedCorpoTab = new ArrayList<>();//creo una lista in modo da aggiornare quanti tag in tempo reale
         NodeList tagEsistenti = doc.getElementsByTagName("CorpoTabella"); //trovo i tag che si chiamano CorpoTabella
         for(int i = 0; i < tagEsistenti.getLength(); i++){ //li ciclo per quanti ne trovo
-            corpoNodo.removeChild(tagEsistenti.item(i)); //rimuove qualsiasi tag CorpoTabella dalla radice Corpo
+            checkedCorpoTab.add(tagEsistenti.item(i)); //li inserisce
+        }
+        for (Node n : checkedCorpoTab) { //lo ciclo
+            corpoNodo.removeChild(n);//rimuove qualsiasi tag CorpoTabella dalla radice Corpo
         }
 
         //una volta rimosso le reinserisco con nuovo tag (chiamato allo stesso nome) e i figli dentro
@@ -1274,9 +1278,13 @@ public class Utility {
 
         Node corpoNodo = doc.getElementsByTagName("Corpo").item(0); //innanzitutto mi trovo la radice del ciclo for ovvero Corpo
 
+        List<Node> checkedCorpoTab = new ArrayList<>();//creo una lista in modo da aggiornare quanti tag in tempo reale
         NodeList tagEsistenti = doc.getElementsByTagName("CorpoTabella"); //trovo i tag che si chiamano CorpoTabella
         for(int i = 0; i < tagEsistenti.getLength(); i++){ //li ciclo per quanti ne trovo
-            corpoNodo.removeChild(tagEsistenti.item(i)); //rimuove qualsiasi tag CorpoTabella dalla radice Corpo
+            checkedCorpoTab.add(tagEsistenti.item(i)); //li inserisce
+        }
+        for (Node n : checkedCorpoTab) { //lo ciclo
+            corpoNodo.removeChild(n);//rimuove qualsiasi tag CorpoTabella dalla radice Corpo
         }
 
         //una volta rimosso le reinserisco con nuovo tag (chiamato allo stesso nome) e i figli dentro
