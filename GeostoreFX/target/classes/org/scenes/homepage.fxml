@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.HomepageController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.HomepageController">
    <children>
       <HBox alignment="CENTER" prefHeight="55.0">
          <children>
@@ -65,12 +66,20 @@
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" spacing="30.0">
          <children>
-            <Button fx:id="createNews" mnemonicParsing="false" onAction="#creating" prefHeight="10.0" prefWidth="140.0" style="-fx-background-color: #0495CD; -fx-background-radius: 15;" styleClass="label-font-min-btn" text="%homepage.newsCreate" textFill="WHITE" wrapText="true">
+            <Button fx:id="createNews" mnemonicParsing="false" onAction="#creating" prefHeight="10.0" prefWidth="140.0" style=" -fx-background-radius: 15;" text="%homepage.newsCreate" textFill="WHITE" wrapText="true">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <styleClass>
+                  <String fx:value="label-font-min-btn" />
+                  <String fx:value="menuCyan" />
+               </styleClass>
             </Button>
-            <Button mnemonicParsing="false" onAction="#searching" prefHeight="10.0" prefWidth="140.0" style="-fx-background-color: #0495CD; -fx-background-radius: 15;" styleClass="label-font-min-btn" text="%homepage.newsSearch" textFill="WHITE" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#searching" prefHeight="10.0" prefWidth="140.0" style=" -fx-background-radius: 15;" text="%homepage.newsSearch" textFill="WHITE" wrapText="true">
+               <styleClass>
+                  <String fx:value="label-font-min-btn" />
+                  <String fx:value="menuCyan" />
+               </styleClass></Button>
          </children>
          <VBox.margin>
             <Insets top="30.0" />
@@ -78,7 +87,11 @@
       </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#loadInfo" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%homepage.info" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#loadInfo" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15;" text="%homepage.info" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="label-font" />
+                  <String fx:value="action" />
+               </styleClass></Button>
          </children>
          <VBox.margin>
             <Insets top="30.0" />

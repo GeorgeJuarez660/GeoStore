@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center;" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.PrepageController">
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center;" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.PrepageController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" BorderPane.alignment="CENTER">
          <children>
             <HBox maxWidth="1000.0" prefWidth="560.0" spacing="20.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #FF5757; -fx-background-radius: 6;" textAlignment="CENTER">
+                  <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -47,7 +47,7 @@
                            <font>
                               <Font size="13.0" />
                            </font></Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#register" prefHeight="103.0" prefWidth="280.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20;" textAlignment="CENTER" textFill="WHITE">
+                        <Button id="purple" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#register" prefHeight="103.0" prefWidth="280.0" style=" -fx-background-radius: 20;" textAlignment="CENTER" textFill="WHITE">
                            <graphic>
                               <VBox alignment="CENTER" prefHeight="164.0" prefWidth="194.0" spacing="10.0">
                                  <children>
@@ -68,7 +68,7 @@
                            <font>
                               <Font size="13.0" />
                            </font></Label>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="50.0" prefWidth="261.0" style="-fx-background-color: #03a8e8; -fx-background-radius: 15;" textAlignment="CENTER" wrapText="true">
+                        <Button styleClass="lightBlue" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="50.0" prefWidth="261.0" style=" -fx-background-radius: 15;" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="Arial" size="12.0" />
                            </font>
@@ -89,7 +89,7 @@
                               </HBox>
                            </graphic>
                         </Button>
-                        <Button contentDisplay="CENTER" layoutX="45.0" layoutY="71.0" mnemonicParsing="false" onAction="#loginCliente" prefHeight="50.0" prefWidth="261.0" style="-fx-background-color: #03a8e8; -fx-background-radius: 15;" textAlignment="CENTER" wrapText="true">
+                        <Button styleClass="lightBlue" contentDisplay="CENTER" layoutX="45.0" layoutY="71.0" mnemonicParsing="false" onAction="#loginCliente" prefHeight="50.0" prefWidth="261.0" style=" -fx-background-radius: 15;" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="Arial" size="12.0" />
                            </font>

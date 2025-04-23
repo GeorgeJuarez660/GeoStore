@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.WelcomeController">
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.WelcomeController">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,12 +31,12 @@
             </Label>
             <VBox alignment="BOTTOM_CENTER" prefHeight="173.0" prefWidth="800.0" spacing="30.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50; -fx-background-color: #306FDB;" styleClass="label-font-max-btn" text="%welcome.enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="enter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50;" styleClass="label-font-max-btn" text="%welcome.enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Press Start 2P" size="14.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="22.0" prefWidth="154.0" style="-fx-background-radius: 50; -fx-background-color: #FF5757;" styleClass="label-font" text="%welcome.exit" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                  <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="22.0" prefWidth="154.0" style="-fx-background-radius: 50;" styleClass="label-font" text="%welcome.exit" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                </children>
                <VBox.margin>
                   <Insets />

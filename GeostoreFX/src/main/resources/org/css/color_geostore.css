@@ -1,0 +1,74 @@
+/*WELCOME BUTTON*/
+
+#enter{
+    -fx-background-color: #306FDB;
+}
+
+#enter:hover{
+    -fx-background-color: #26539f;
+}
+
+/*GOING BACK BUTTON*/
+
+#back{
+    -fx-background-color: #FF5757;
+}
+
+#back:hover{
+    -fx-background-color: #ad3b3b;
+}
+
+/*ALL PURPLE BTNS*/
+
+#purple{
+    -fx-background-color: #3F51B5;
+}
+
+#purple:hover{
+    -fx-background-color: #303e8b;
+}
+
+.purple{
+    -fx-background-color: #3F51B5;
+}
+
+.purple:hover{
+    -fx-background-color: #303e8b;
+}
+
+/*ALL LIGHT BLUE BTNS*/
+
+.lightBlue{
+    -fx-background-color: #03a8e8;
+}
+
+.lightBlue:hover{
+    -fx-background-color: #0379a6;
+}
+
+/*ALL MENU BTNS*/
+
+.menuBlue{
+    -fx-background-color: #306FDB;
+}
+
+.menuBlue:hover{
+    -fx-background-color: #2352a4;
+}
+
+.menuCyan{
+    -fx-background-color: #0495cd;
+}
+
+.menuCyan:hover{
+    -fx-background-color: #01688f;
+}
+
+/*ACTION*/
+.action{
+    -fx-background-color: #2352A4;
+}
+
+.action:hover{
+    -fx-background-color: #1a3a72;
+}

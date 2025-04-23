@@ -13,7 +13,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.DatePicker?>
 
-<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center;" stylesheets="@../css/font_geostore.css" fx:controller="org.controller.AccessController" xmlns:fx="http://javafx.com/javafx/1" >
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center;" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" fx:controller="org.controller.AccessController" xmlns:fx="http://javafx.com/javafx/1" >
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -35,7 +35,7 @@
             </HBox>
             <HBox maxWidth="1000.0" prefWidth="560.0" spacing="20.0">
                <children>
-                  <Button onAction="#back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #FF5757; -fx-background-radius: 6;" textAlignment="CENTER">
+                  <Button fx:id="back" onAction="#back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -134,7 +134,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="30.0" layoutY="67.0" spacing="20.0">
                <children>
-                  <Button onAction="#signup" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="210.0" style="-fx-background-radius: 50; -fx-background-color: #3F51B5;" styleClass="label-font" text="%access.register.button" textAlignment="CENTER" textFill="WHITE" />
+                  <Button fx:id="purple" onAction="#signup" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="210.0" style="-fx-background-radius: 50;" styleClass="label-font" text="%access.register.button" textAlignment="CENTER" textFill="WHITE" />
                </children>
             </HBox>
          </children>
