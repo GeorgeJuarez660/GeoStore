@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.CheckBox?>
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.OrderTotalPriceController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.OrderTotalPriceController">
    <children>
       <HBox alignment="CENTER" prefHeight="55.0">
          <children>
@@ -25,7 +20,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" spacing="70.0">
          <children>
-            <Button onAction="#back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #FF5757; -fx-background-radius: 6;" textAlignment="CENTER">
+            <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -61,7 +56,11 @@
       </HBox>
       <HBox alignment="TOP_CENTER" spacing="10.0">
          <children>
-            <Button onAction="#calculate" mnemonicParsing="false" prefHeight="30.0" prefWidth="270.0" style="-fx-background-radius: 7; -fx-background-color: #2352A4;" styleClass="label-font" text="%calculate.button" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="270.0" style="-fx-background-radius: 7; " text="%calculate.button" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="label-font" />
+                  <String fx:value="action" />
+               </styleClass></Button>
             <CheckBox fx:id="saveRpt" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" styleClass="label-font-min3-title" text="%receipt.checkBox" textFill="#2352a4" wrapText="true" />
          </children>
          <VBox.margin>

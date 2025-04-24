@@ -6,32 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTCategoryAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTCategoryAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTCodeAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTCodeAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTMaterialAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTMaterialAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTOrderAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTOrderAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTOrderCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTOrderCliente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTProductAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTProductAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTProductCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTProductCliente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTUserAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/chooseTUserAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/homepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/homepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/info.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/css/color_geostore.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/css/color_geostore.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/create.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/create.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/createAssociateCode.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/createAssociateCode.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/language.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/language.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/loginAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/loginAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/loginCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/loginCliente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/prepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/prepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/welcome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/language.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/language.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/loginAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/loginAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/loginCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/loginCliente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/prepage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/prepage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/welcome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTDJapanese.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptTDJapanese.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUOJapanese.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUOJapanese.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/orderTotalPriceChooseDate.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/orderTotalPriceChooseDate.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/question.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/question.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/read.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/read.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/readCodes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/readCodes.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/readOrderTotalPrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/readOrderTotalPrice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/readProductType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/readProductType.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/readProductsByCM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/readProductsByCM.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/readProfileUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/readProfileUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/update.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/update.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/updateAssociateCode.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/updateAssociateCode.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

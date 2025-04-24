@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.ReadCodesController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.ReadCodesController">
    <children>
       <HBox alignment="CENTER" prefHeight="55.0">
          <children>
@@ -24,7 +20,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" spacing="70.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #FF5757; -fx-background-radius: 6;" textAlignment="CENTER">
+            <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -69,13 +65,17 @@
       </HBox>
       <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="567.0">
          <children>
-            <Button fx:id="associateUserBtn" mnemonicParsing="false" onAction="#associating" prefHeight="21.0" prefWidth="122.0" style="-fx-background-radius: 15; -fx-background-color: #0495cd;" styleClass="label-font-min2-btn" text="%read.associate.button" textFill="WHITE">
+            <Button fx:id="associateUserBtn" mnemonicParsing="false" onAction="#associating" prefHeight="21.0" prefWidth="122.0" style="-fx-background-radius: 15; " text="%read.associate.button" textFill="WHITE">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
                <font>
                   <Font size="8.0" />
                </font>
+               <styleClass>
+                  <String fx:value="label-font-min2-btn" />
+                  <String fx:value="menuCyan" />
+               </styleClass>
             </Button>
          </children>
          <VBox.margin>
@@ -84,7 +84,11 @@
       </HBox>
       <HBox alignment="TOP_CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#searching" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; -fx-background-color: #2352A4;" styleClass="label-font" text="%read.button" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#searching" prefHeight="30.0" prefWidth="170.0" style="-fx-background-radius: 15; " text="%read.button" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="label-font" />
+                  <String fx:value="action" />
+               </styleClass></Button>
          </children>
          <VBox.margin>
             <Insets top="10.0" />

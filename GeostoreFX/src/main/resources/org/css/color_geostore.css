@@ -72,3 +72,12 @@
 .action:hover{
     -fx-background-color: #1a3a72;
 }
+
+/*LANGUAGE BTNS*/
+.languageLB{
+    -fx-background-color: #d3f3ff;
+}
+
+.languageLB:hover{
+    -fx-background-color: #97afb8;
+}

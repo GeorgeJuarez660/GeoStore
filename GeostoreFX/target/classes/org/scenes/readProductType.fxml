@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.ReadProductTypeController">
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.ReadProductTypeController">
    <children>
       <HBox alignment="CENTER" prefHeight="55.0">
          <children>
@@ -24,7 +24,7 @@
       </HBox>
       <HBox fx:id="backBtn" alignment="CENTER_LEFT" spacing="70.0">
          <children>
-            <Button onAction="#back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" style="-fx-background-color: #FF5757; -fx-background-radius: 6;" textAlignment="CENTER">
+            <Button fx:id="back" onAction="#back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
