@@ -18,6 +18,16 @@
     -fx-background-color: #ad3b3b;
 }
 
+/*FOR DELETE BTNS*/
+
+.delete{
+    -fx-background-color: #FF5757;
+}
+
+.delete:hover{
+    -fx-background-color: #ad3b3b;
+}
+
 /*ALL PURPLE BTNS*/
 
 #purple{
@@ -76,8 +86,10 @@
 /*LANGUAGE BTNS*/
 .languageLB{
     -fx-background-color: #d3f3ff;
+    -fx-border-color: #2352A4;
 }
 
 .languageLB:hover{
     -fx-background-color: #97afb8;
+    -fx-border-color: #1a3a72;
 }

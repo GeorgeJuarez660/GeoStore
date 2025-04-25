@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="555.0" style="-fx-border-radius: 15; -fx-border-color: #306FDB; -fx-background-color: transparent; -fx-border-width: 2;" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.ProductItemController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="555.0" style="-fx-border-radius: 15; -fx-border-color: #306FDB; -fx-background-color: transparent; -fx-border-width: 2;" stylesheets="@../../css/font_geostore.css, @../../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.ProductItemController">
    <children>
       <VBox prefHeight="172.0" prefWidth="445.0" style="-fx-background-radius: 15 0 0 15; -fx-background-color: #D3F3FF;">
          <HBox.margin>
@@ -135,7 +135,7 @@
          <children>
             <HBox alignment="BOTTOM_CENTER" prefHeight="170.0" prefWidth="136.0" spacing="13.0">
                <children>
-                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updating" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; -fx-background-color: #2352A4;" textAlignment="CENTER">
+                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updating" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="action" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets bottom="5.0" />
                      </HBox.margin>
@@ -147,7 +147,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleting" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; -fx-background-color: #FF5757;" textAlignment="CENTER">
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleting" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="delete" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets bottom="5.0" />
                      </HBox.margin>
@@ -159,7 +159,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="shop" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#shopping" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; -fx-background-color: #2352A4;" textAlignment="CENTER">
+                  <Button fx:id="shop" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#shopping" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="action" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets bottom="5.0" />
                      </HBox.margin>

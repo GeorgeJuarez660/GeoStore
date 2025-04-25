@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookProductsByCategory" prefHeight="120.0" prefWidth="250.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10;" styleClass="label-font" stylesheets="@../../css/font_geostore.css" textAlignment="CENTER" textFill="WHITE" wrapText="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.ProductTypeButtonController">
+<Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookProductsByCategory" prefHeight="120.0" prefWidth="250.0" style=" -fx-background-radius: 10;" stylesheets="@../../css/font_geostore.css, @../../css/color_geostore.css" textAlignment="CENTER" textFill="WHITE" wrapText="true" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.ProductTypeButtonController">
    <padding>
       <Insets top="10.0" />
    </padding>
@@ -21,7 +22,7 @@
             <Label fx:id="name" alignment="BOTTOM_CENTER" text="XXX" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="250.0" spacing="13.0">
                <children>
-                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updatingCategory" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; -fx-background-color: #2352A4;" textAlignment="CENTER">
+                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updatingCategory" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="action" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -30,7 +31,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deletingCategory" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; -fx-background-color: #FF5757;" textAlignment="CENTER">
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deletingCategory" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="delete" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -44,4 +45,8 @@
          </children>
       </VBox>
    </graphic>
+   <styleClass>
+      <String fx:value="label-font" />
+      <String fx:value="purple" />
+   </styleClass>
 </Button>
