@@ -6,25 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/css/color_geostore.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/css/color_geostore.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/categoryButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/categoryButton.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/codeAssociateItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/codeAssociateItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/codeItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/codeItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/materialButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/materialButton.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/newsItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/newsItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/orderItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/orderItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/productItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/productItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/items/userItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/items/userItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/language.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/language.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/css/color_geostore.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/css/color_geostore.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/categoryButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/categoryButton.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/codeAssociateItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/codeAssociateItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/codeItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/codeItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/materialButton.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/materialButton.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/newsItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/newsItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/orderItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/orderItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/productItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/productItem.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/items/userItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/items/userItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,7 +432,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
-          <line>448</line>
+          <line>451</line>
           <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
