@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.PasswordField?>
-<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="582.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.UserMaskController">
+<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="582.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.UserMaskController">
    <children>
       <HBox alignment="TOP_CENTER" maxWidth="1000.0" prefHeight="250.0" prefWidth="560.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
          <children>
@@ -21,7 +17,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="name" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="name" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -35,7 +31,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="surname" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="surname" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -49,7 +45,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="gender" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverGender" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="gender" onMouseEntered="#showPopOverGender" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -63,7 +59,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="bornDate" prefHeight="26.0" prefWidth="166.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverBornDate" onMouseExited="#hidePopOver" styleClass="label-font-min2-title" />
+                        <DatePicker fx:id="bornDate" onMouseEntered="#showPopOverBornDate" onMouseExited="#hidePopOver" prefHeight="26.0" prefWidth="166.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
@@ -73,7 +69,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="phoneNumber" onKeyTyped="#patternPhoneNumber" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="phoneNumber" onKeyTyped="#patternPhoneNumber" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -91,7 +87,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="address" prefHeight="26.0" prefWidth="154.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="address" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="26.0" prefWidth="154.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -105,7 +101,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="email" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOverEmail" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                        <TextField fx:id="email" onMouseEntered="#showPopOverEmail" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>

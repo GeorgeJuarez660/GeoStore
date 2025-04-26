@@ -85,6 +85,11 @@ public class UserMaskController implements Initializable {
         this.IDkey = IDkey;
     }
 
+    public void setEditAdminCodeAndWallet(boolean editable){
+        adminCode.setDisable(editable);
+        wallet.setDisable(editable);
+    }
+
     //------------------GETTING FROM CRUD CONTROLLER-----------------------
 
     //per la creazione utente
