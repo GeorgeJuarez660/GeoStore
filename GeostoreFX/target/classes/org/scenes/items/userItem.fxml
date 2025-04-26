@@ -61,7 +61,7 @@
                         </HBox>
                         <HBox layoutX="10.0" layoutY="124.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="24.0" prefWidth="58.0" styleClass="label-font-min3-title" text="%item.user.gender" textFill="#0495cd" wrapText="true">
+                              <Label prefHeight="24.0" prefWidth="67.0" styleClass="label-font-min3-title" text="%item.user.gender" textFill="#0495cd" wrapText="true">
                                  <font>
                                     <Font size="8.0" />
                                  </font>

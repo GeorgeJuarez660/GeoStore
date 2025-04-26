@@ -134,7 +134,7 @@ public class AccessController {
     }
 
     @FXML
-    private void signin(ActionEvent event) {
+    private void signinAdmin(ActionEvent event) {
         System.out.println("Signing in");
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-LOG", null);
@@ -142,21 +142,31 @@ public class AccessController {
         Cliente user;
         service = new Service();
 
-        if(adminCode != null && adminCode.getText() != null && !adminCode.getText().isEmpty() && !adminCode.getText().isBlank()){
-            user = new Amministratore();
-            Amministratore admin = (Amministratore) user;
-            admin.setEmail(email.getText().toLowerCase());
-            admin.setPassword(password.getText());
-            Codice codice = new Codice();
-            codice.setCodice(adminCode.getText().toUpperCase());
-            admin.setCodeAdmin(codice);
-            user = admin;
-        }
-        else{
-            user = new Cliente();
-            user.setEmail(email.getText().toLowerCase());
-            user.setPassword(password.getText());
-        }
+        user = new Amministratore();
+        Amministratore admin = (Amministratore) user;
+        admin.setEmail(email.getText().toLowerCase());
+        admin.setPassword(password.getText());
+        Codice codice = new Codice();
+        codice.setCodice(adminCode.getText().toUpperCase());
+        admin.setCodeAdmin(codice);
+        user = admin;
+
+        service.loginUtente(user);
+
+    }
+
+    @FXML
+    private void signinCliente(ActionEvent event) {
+        System.out.println("Signing in");
+        LoadPage.saveStage(event);
+        LoadPage.loadingScene("LOAD-LOG", null);
+
+        Cliente user;
+        service = new Service();
+
+        user = new Cliente();
+        user.setEmail(email.getText().toLowerCase());
+        user.setPassword(password.getText());
 
         service.loginUtente(user);
 

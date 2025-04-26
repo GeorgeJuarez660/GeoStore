@@ -270,15 +270,8 @@ public class UtenteRepository implements utentiCRUD {
 
     public Cliente checkCliente(String email, String password) {
         String sql = "";
-        boolean pwdEmpty = false;
+        sql = "select * from utenti u left join admin_codes ac on(u.codice_id = ac.id) where u.email = ? and u.password = ? ";
 
-        if(password != null){
-            sql = "select * from utenti u where u.email = ? and u.password = ? ";
-        }
-        else{
-            sql = "select * from utenti u where u.email = ? and u.password is null ";
-            pwdEmpty = true;
-        }
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -288,22 +281,26 @@ public class UtenteRepository implements utentiCRUD {
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, email);
-            if(!pwdEmpty){
-                preparedStatement.setString(2, password);
-            }
+            preparedStatement.setString(2, password);
+
             rs = preparedStatement.executeQuery();
 
             while(rs.next()){
-                foundCliente.setId(rs.getInt("id"));
-                foundCliente.setNome(rs.getString("nome"));
-                foundCliente.setCognome(rs.getString("cognome"));
-                foundCliente.setGenere(rs.getString("genere"));
-                foundCliente.setDataNascita(rs.getDate("data_nascita"));
-                foundCliente.setEmail(rs.getString("email"));
-                foundCliente.setPassword(rs.getString("password"));
-                foundCliente.setIndirizzo(rs.getString("indirizzo"));
-                foundCliente.setTelefono(rs.getString("telefono"));
-                foundCliente.setPortafoglio(rs.getBigDecimal("portafoglio"));
+                //controllo se l'utente trovato ha il codice admin: se affermativo, allora non mi valorizza niente
+                String codiceAdmin = rs.getString("codice");
+                if(codiceAdmin == null){
+                    foundCliente.setId(rs.getInt("id"));
+                    foundCliente.setNome(rs.getString("nome"));
+                    foundCliente.setCognome(rs.getString("cognome"));
+                    foundCliente.setGenere(rs.getString("genere"));
+                    foundCliente.setDataNascita(rs.getDate("data_nascita"));
+                    foundCliente.setEmail(rs.getString("email"));
+                    foundCliente.setPassword(rs.getString("password"));
+                    foundCliente.setIndirizzo(rs.getString("indirizzo"));
+                    foundCliente.setTelefono(rs.getString("telefono"));
+                    foundCliente.setPortafoglio(rs.getBigDecimal("portafoglio"));
+                }
+
             }
             //chiudi la connessione
             rs.close();
@@ -318,24 +315,8 @@ public class UtenteRepository implements utentiCRUD {
 
     public Amministratore checkAdmin(String email, String password, String codeAdmin) {
         String sql = "";
-        boolean pwdEmpty = false, codeEmpty = false;
+        sql = "select * from utenti u join admin_codes ac on(u.codice_id = ac.id) where u.email = ? and u.password = ? and ac.codice = ? ";
 
-        if(password != null && codeAdmin != null){
-            sql = "select * from utenti u join admin_codes ac on(u.codice_id = ac.id) where u.email = ? and u.password = ? and ac.codice = ? ";
-        }
-        else if(password != null && codeAdmin == null){
-            sql = "select * from utenti u where u.email = ? and u.password = ? and u.codice_id is null ";
-            codeEmpty = true;
-        }
-        else if(password == null && codeAdmin != null){
-            sql = "select * from utenti u join admin_codes ac on(u.codice_id = ac.id) where u.email = ? and u.password is null and ac.codice = ? ";
-            pwdEmpty = true;
-        }
-        else {
-            sql = "select * from utenti u where u.email = ? and u.password is null and u.codice_id is null ";
-            pwdEmpty = true;
-            codeEmpty = true;
-        }
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -345,16 +326,9 @@ public class UtenteRepository implements utentiCRUD {
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, email);
-            if(!pwdEmpty && !codeEmpty){
-                preparedStatement.setString(2, password);
-                preparedStatement.setString(3, codeAdmin);
-            }
-            else if(!pwdEmpty && codeEmpty){
-                preparedStatement.setString(2, password);
-            }
-            else if(pwdEmpty && !codeEmpty){
-                preparedStatement.setString(2, codeAdmin);
-            }
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, codeAdmin);
+
             rs = preparedStatement.executeQuery();
 
             while(rs.next()){

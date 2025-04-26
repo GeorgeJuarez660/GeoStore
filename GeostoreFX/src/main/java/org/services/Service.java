@@ -40,7 +40,7 @@ public class Service {
         // se affermativo, allora viene restituito un messaggio d'errore indicando che si deve inserire il codice admin per loggarti
 
         int num = 0;
-        if(user instanceof Amministratore){
+        if(user instanceof Amministratore){   //LOGIN ADMIN
             Amministratore admin = (Amministratore) user;
 
             boolean checkNN = user.checkNotNullLoginAdmin(admin);
@@ -48,7 +48,7 @@ public class Service {
             if(checkNN){
                 admin = ur.checkAdmin(admin.getEmail(), admin.getPassword(), admin.getCodiceAdmin().getCodice());
 
-                if(admin.getEmail() != null && admin.getCodiceAdmin().getCodice() != null){
+                if(admin.getEmail() != null && admin.getPassword() != null && admin.getCodiceAdmin().getCodice() != null) {
                     num = 1;
                 }
                 user = admin;
@@ -58,15 +58,19 @@ public class Service {
             }
 
         }
-        else{
+        else{   //LOGIN CLIENTE
             boolean checkNN = user.checkNotNullLoginCliente(user);
 
             if(checkNN){
                 user = ur.checkCliente(user.getEmail(), user.getPassword());
 
-                if(user.getEmail() != null){
+                if(user.getEmail() != null && user.getPassword() != null){
                     num = 1;
                 }
+
+                //non potendo gestire qui il check, altrimenti viene generato l'exc ClassCastException poichè è stato
+                //inizializzato come Cliente e non come Amministratore
+
             }
             else{
                 num = 0;
