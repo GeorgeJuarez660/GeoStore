@@ -92,31 +92,34 @@ public class DisponibilitaRepository implements disponibilitaCRUD {
 
     }
 
-    public String changeIntToStringDisponibilita(Integer id) {
-        String sql = "SELECT d.code FROM Disponibilita d WHERE d.ID = ?";
+    public int getIdByCode(String codice) {
+        String sql = "SELECT id FROM Disponibilita d WHERE d.code = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
-        String nome = "";
+        int num = 0;
 
         try{
             //Connessione al db
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+
+            preparedStatement.setString(1, codice);
+
             rs = preparedStatement.executeQuery();
 
             while(rs.next()){
-                nome = rs.getString("code");
+                num = rs.getInt("id");
             }
             //chiudi la connessione
             rs.close();
             preparedStatement.close();
             connection.close();
         }catch(SQLException e){
-            Utility.msgInf("GEOSTORE", "Errore nel changeIntToStringDisponibilita: " + e.getMessage());
+            Utility.msgInf("GEOSTORE", "Errore nel getIdByCode: " + e.getMessage());
         }
-        return nome;
+
+        return num;
     }
 
     //metodi override per operazioni CRUD con database

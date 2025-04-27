@@ -75,7 +75,7 @@
                         </HBox>
                         <HBox layoutX="10.0" layoutY="137.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="24.0" prefWidth="54.0" styleClass="label-font-min3-title" text="%item.order.status" textFill="#0495cd" wrapText="true">
+                              <Label prefHeight="24.0" prefWidth="75.0" styleClass="label-font-min3-title" text="%item.order.status" textFill="#0495cd" wrapText="true">
                                  <font>
                                     <Font size="8.0" />
                                  </font>

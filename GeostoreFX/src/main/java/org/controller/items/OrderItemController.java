@@ -75,7 +75,7 @@ public class OrderItemController implements Initializable {
         orderDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
         status.setText(ordine.dynamicStatus(ordine.getStato().getDescrizione(), resLang));
         orderQuantity.setText(ordine.getQuantita().toString());
-        productPrice.setText(Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()) + " C");
+        productPrice.setText(Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()) + " C");
 
     }
 

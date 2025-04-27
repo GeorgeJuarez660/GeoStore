@@ -31,7 +31,7 @@
             </Label>
             <VBox alignment="BOTTOM_CENTER" prefHeight="173.0" prefWidth="800.0" spacing="30.0">
                <children>
-                  <Button fx:id="enter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50;" styleClass="label-font-max-btn" text="%welcome.enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="enter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50;"  styleClass="label-font-max-btn" text="%welcome.enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Press Start 2P" size="14.0" />
                      </font>

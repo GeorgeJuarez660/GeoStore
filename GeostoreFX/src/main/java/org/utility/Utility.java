@@ -8,7 +8,6 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 import org.models.Cliente;
-import org.models.News;
 import org.models.Ordine;
 import org.models.Utente;
 import org.services.LoadPage;
@@ -104,7 +103,7 @@ public class Utility {
 
     }
 
-    public static String formatValueBigDecimal(BigDecimal value){
+    public static String formatValueInStringWithZeros(BigDecimal value){
         String formattedValue = "";
 
         DecimalFormatSymbols dfs = new DecimalFormatSymbols(Locale.ITALIAN);
@@ -114,13 +113,13 @@ public class Utility {
         return formattedValue;
     }
 
-    public static BigDecimal formatValueString(String value){
+    public static BigDecimal formatValueInBigDecimalWithoutZeros(String value){
         BigDecimal formattedValue = new BigDecimal(0);
 
         value = value.replace(",", ".");
         formattedValue = new BigDecimal(value);
 
-        return formattedValue;
+        return formattedValue.stripTrailingZeros();
     }
 
     public static boolean getAge(Date userDate){
@@ -616,12 +615,12 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaC3"); //poi modifico il valore default con il prezzo unitario del prodotto
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
+            nodeList.item(0).setTextContent(Utility.formatValueInStringWithZeros(uniPrice));
         }
 
         nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(uniPrice.multiply(new BigDecimal(quantity))));
+            nodeList.item(0).setTextContent("C          " + Utility.formatValueInStringWithZeros(uniPrice.multiply(new BigDecimal(quantity))));
         }
 
         //ricavo la data e l'ora
@@ -712,12 +711,12 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaC3"); //poi modifico il valore default con il prezzo unitario del prodotto
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
+            nodeList.item(0).setTextContent(Utility.formatValueInStringWithZeros(uniPrice));
         }
 
         nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(uniPrice.multiply(new BigDecimal(quantity))));
+            nodeList.item(0).setTextContent("C          " + Utility.formatValueInStringWithZeros(uniPrice.multiply(new BigDecimal(quantity))));
         }
 
         //ricavo la data e l'ora
@@ -873,7 +872,7 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaC3"); //poi modifico il valore default con il prezzo unitario del prodotto
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
+            nodeList.item(0).setTextContent(Utility.formatValueInStringWithZeros(uniPrice));
         }
 
         nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
@@ -882,10 +881,10 @@ public class Utility {
             BigDecimal totalNew = uniPrice.multiply(new BigDecimal(quantityNew));
 
             if(itsRefund){
-                nodeList.item(0).setTextContent("- C          " + Utility.formatValueBigDecimal(totalOld.subtract(totalNew)));
+                nodeList.item(0).setTextContent("- C          " + Utility.formatValueInStringWithZeros(totalOld.subtract(totalNew)));
             }
             else{
-                nodeList.item(0).setTextContent("+ C          " + Utility.formatValueBigDecimal(totalNew.subtract(totalOld)));
+                nodeList.item(0).setTextContent("+ C          " + Utility.formatValueInStringWithZeros(totalNew.subtract(totalOld)));
             }
 
         }
@@ -999,7 +998,7 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaC3"); //poi modifico il valore default con il prezzo unitario del prodotto
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(Utility.formatValueBigDecimal(uniPrice));
+            nodeList.item(0).setTextContent(Utility.formatValueInStringWithZeros(uniPrice));
         }
 
         nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
@@ -1008,10 +1007,10 @@ public class Utility {
             BigDecimal totalNew = uniPrice.multiply(new BigDecimal(quantityNew));
 
             if(itsRefund){
-                nodeList.item(0).setTextContent("- C          " + Utility.formatValueBigDecimal(totalOld.subtract(totalNew)));
+                nodeList.item(0).setTextContent("- C          " + Utility.formatValueInStringWithZeros(totalOld.subtract(totalNew)));
             }
             else{
-                nodeList.item(0).setTextContent("+ C          " + Utility.formatValueBigDecimal(totalNew.subtract(totalOld)));
+                nodeList.item(0).setTextContent("+ C          " + Utility.formatValueInStringWithZeros(totalNew.subtract(totalOld)));
             }
 
         }
@@ -1163,10 +1162,10 @@ public class Utility {
             //creo il figlio tag colonnaC1
             Element col1 = doc.createElement("colonnaC1");
             if(Translater.getLanguage().equals("it")){ //se il programma è settato in italiano allora scrivo in italiano
-                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prz. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
+                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prz. C " + Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
             }
             else if(Translater.getLanguage().equals("en")){
-                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
+                col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
             }
             else{
                 System.err.println("ERRORE LINGUAGGIO PROGRAMMA");
@@ -1177,7 +1176,7 @@ public class Utility {
             Element col2 = doc.createElement("colonnaC2");
 
             BigDecimal totalOrder = ordine.getPrezzo_unitario().multiply(new BigDecimal(ordine.getQuantita()));
-            col2.setTextContent(Utility.formatValueBigDecimal(totalOrder)); //inserisco il totale dell'ordine
+            col2.setTextContent(Utility.formatValueInStringWithZeros(totalOrder)); //inserisco il totale dell'ordine
             corpoTab.appendChild(col2); //aggancio anche la colonnaC2 nel tag CorpoTabella
 
             corpoNodo.appendChild(corpoTab); //aggancio CorpoTabella nel tag radice Corpo
@@ -1200,7 +1199,7 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(dailyTotalPrice));
+            nodeList.item(0).setTextContent("C          " + Utility.formatValueInStringWithZeros(dailyTotalPrice));
         }
 
         //ricavo la data e l'ora
@@ -1295,14 +1294,14 @@ public class Utility {
 
             //creo il figlio tag colonnaC1
             Element col1 = doc.createElement("colonnaC1");
-            col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
+            col1.setTextContent(ordine.getProdotto().getNome() + "\nqt. " + ordine.getQuantita() + " prc. C " + Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()));//mando a capo la quantità e prezzo
             corpoTab.appendChild(col1); //aggancio il tag figlio colonnaC1 al tag CorpoTabella
 
             //creo il figlio tag colonnaC2
             Element col2 = doc.createElement("colonnaC2");
 
             BigDecimal totalOrder = ordine.getPrezzo_unitario().multiply(new BigDecimal(ordine.getQuantita()));
-            col2.setTextContent(Utility.formatValueBigDecimal(totalOrder)); //inserisco il totale dell'ordine
+            col2.setTextContent(Utility.formatValueInStringWithZeros(totalOrder)); //inserisco il totale dell'ordine
             corpoTab.appendChild(col2); //aggancio anche la colonnaC2 nel tag CorpoTabella
 
             corpoNodo.appendChild(corpoTab); //aggancio CorpoTabella nel tag radice Corpo
@@ -1325,7 +1324,7 @@ public class Utility {
 
         nodeList = doc.getElementsByTagName("colonnaPC"); //modifico il valore default con il totale acquistato
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent("C          " + Utility.formatValueBigDecimal(dailyTotalPrice));
+            nodeList.item(0).setTextContent("C          " + Utility.formatValueInStringWithZeros(dailyTotalPrice));
         }
 
         //ricavo la data e l'ora

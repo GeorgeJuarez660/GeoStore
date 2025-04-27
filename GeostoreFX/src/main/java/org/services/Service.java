@@ -1,7 +1,6 @@
 package org.services;
 
 import org.models.*;
-import org.utility.Translater;
 import org.utility.Utility;
 
 
@@ -445,6 +444,7 @@ public class Service {
 
         if(checkNN) {
 
+            product.getDisponibilita().setId(dr.getIdByCode(product.getDisponibilita().getCode()));
             product.getCategoria().setId(cr.getIdByCode(product.getCategoria().getCodice()));
             product.getMateriale().setId(mr.getIdByCode(product.getMateriale().getCodice()));
 
@@ -456,7 +456,7 @@ public class Service {
                 notiziaCreazione.setUtente(user);
                 notiziaCreazione.setDataPub(Date.valueOf(LocalDate.now()));
                 notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
-                notiziaCreazione.setTesto("PRD-CN1: " + product.getNome() + " PRD-CN2 " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C. " + product.getDisponibilita().getCode() + " PRD-CN3");
+                notiziaCreazione.setTesto("PRD-CN1: " + product.getNome() + " PRD-CN2 " + Utility.formatValueInStringWithZeros(product.getPrezzo()) + " C. " + product.getDisponibilita().getCode() + " PRD-CN3");
                 this.creazioneNotiziaSenzaRisposta(notiziaCreazione);
             }
 
@@ -475,6 +475,7 @@ public class Service {
         if(checkNN) {
             Prodotto p = pr.getProdottoWithDB(product.getId()); //per la notizia della modifica da prodotto "old" a "new"
 
+            product.getDisponibilita().setId(dr.getIdByCode(product.getDisponibilita().getCode()));
             product.getCategoria().setId(cr.getIdByCode(product.getCategoria().getCodice()));
             product.getMateriale().setId(mr.getIdByCode(product.getMateriale().getCodice()));
 
@@ -500,10 +501,10 @@ public class Service {
                     notiziaCreazione.setDataMod(Date.valueOf(LocalDate.now()));
 
                     if(p.getPrezzo().compareTo(product.getPrezzo()) > 0){
-                        notiziaCreazione.setTesto("PRD-UNPD " + product.getNome() + ": PRD-UNP2 " + Utility.formatValueBigDecimal(p.getPrezzo()) + " C PRD-UNP3 " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C");
+                        notiziaCreazione.setTesto("PRD-UNPD " + product.getNome() + ": PRD-UNP2 " + Utility.formatValueInStringWithZeros(p.getPrezzo()) + " C PRD-UNP3 " + Utility.formatValueInStringWithZeros(product.getPrezzo()) + " C");
                     }
                     else{
-                        notiziaCreazione.setTesto("PRD-UNPI " + product.getNome() + ": PRD-UNP2 " + Utility.formatValueBigDecimal(p.getPrezzo()) + " C PRD-UNP3 " + Utility.formatValueBigDecimal(product.getPrezzo()) + " C");
+                        notiziaCreazione.setTesto("PRD-UNPI " + product.getNome() + ": PRD-UNP2 " + Utility.formatValueInStringWithZeros(p.getPrezzo()) + " C PRD-UNP3 " + Utility.formatValueInStringWithZeros(product.getPrezzo()) + " C");
                     }
 
                     this.creazioneNotiziaSenzaRisposta(notiziaCreazione);

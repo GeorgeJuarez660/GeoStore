@@ -49,7 +49,7 @@ public class ProductItemController implements Initializable {
 
         id.setText(prodotto.getId().toString());
         name.setText(prodotto.getNome());
-        price.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()) + " C");
+        price.setText(Utility.formatValueInStringWithZeros(prodotto.getPrezzo()) + " C");
         available.setText(prodotto.dynamicAvailability(prodotto.getDisponibilita().getDescrizione(), resLang));
         category.setText(prodotto.getCategoria().getNome());
         material.setText(prodotto.getMateriale().getNome());

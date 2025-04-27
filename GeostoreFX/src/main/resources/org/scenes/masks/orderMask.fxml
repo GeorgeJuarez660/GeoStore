@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.DatePicker?>
-<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="300.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.OrderMaskController">
+<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="300.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.OrderMaskController">
    <children>
       <HBox alignment="TOP_CENTER" maxWidth="500.0" prefHeight="250.0" prefWidth="300.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
          <children>
@@ -15,12 +12,12 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.product" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="96.0" styleClass="label-font-min2-title" text="%mask.order.product" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="8.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="productName" disable="true" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                        <TextField fx:id="productName" disable="true" prefHeight="25.0" prefWidth="153.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -29,12 +26,12 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="96.0" styleClass="label-font-min2-title" text="%mask.order.email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="9.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="userEmail" disable="true" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                        <TextField fx:id="userEmail" disable="true" prefHeight="25.0" prefWidth="153.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -43,22 +40,22 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label styleClass="label-font-min2-title" text="%mask.order.date" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label prefHeight="24.0" prefWidth="96.0" styleClass="label-font-min2-title" text="%mask.order.date" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="orderDate" disable="true" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title" />
+                        <DatePicker fx:id="orderDate" disable="true" prefHeight="25.0" prefWidth="153.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.quantity" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="96.0" styleClass="label-font-min2-title" text="%mask.order.quantity" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="quantity" onKeyTyped="#patternNumberQuantity" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                        <TextField fx:id="quantity" onKeyTyped="#patternNumberQuantity" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" prefWidth="153.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -67,12 +64,12 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.order.price" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="96.0" styleClass="label-font-min2-title" text="%mask.order.price" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="7.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="productPrice" disable="true" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                        <TextField fx:id="productPrice" disable="true" prefHeight="25.0" prefWidth="153.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
                            <font>
                               <Font size="11.0" />
                            </font>

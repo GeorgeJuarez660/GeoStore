@@ -68,7 +68,7 @@ public class OrderMaskController implements Initializable {
         String meseEsatto = String.format("%02d", mese);
 
         orderDate.setPromptText(giornoEsatto+"/"+meseEsatto+"/"+anno);
-        productPrice.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()));
+        productPrice.setText(Utility.formatValueInStringWithZeros(prodotto.getPrezzo()));
 
         userOrder = user;
         productOrder = prodotto;
@@ -115,7 +115,7 @@ public class OrderMaskController implements Initializable {
 
         orderDate.setPromptText(giornoEsatto+"/"+meseEsatto+"/"+anno);
         quantity.setText(ordine.getQuantita().toString());
-        productPrice.setText(Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()));
+        productPrice.setText(Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()));
         status.setValue(ordine.getStato().getId() + " - " + ordine.getStato().getCode());
 
         this.IDkey = IDkey;
@@ -132,7 +132,7 @@ public class OrderMaskController implements Initializable {
         ordine.setProdotto(productOrder);
 
         if(productPrice != null && productPrice.getText() != null && !productPrice.getText().isEmpty() && !productPrice.getText().isBlank()) {
-            ordine.setPrezzo_unitario(Utility.formatValueString(productPrice.getText()));
+            ordine.setPrezzo_unitario(Utility.formatValueInBigDecimalWithoutZeros(productPrice.getText()));
         }
         else{
             ordine.setPrezzo_unitario(new BigDecimal(0));
@@ -167,7 +167,7 @@ public class OrderMaskController implements Initializable {
         ordine.setProdotto(productOrder);
 
         if(productPrice != null && productPrice.getText() != null && !productPrice.getText().isEmpty() && !productPrice.getText().isBlank()) {
-            ordine.setPrezzo_unitario(Utility.formatValueString(productPrice.getText()));
+            ordine.setPrezzo_unitario(Utility.formatValueInBigDecimalWithoutZeros(productPrice.getText()));
         }
         else{
             ordine.setPrezzo_unitario(new BigDecimal(0));

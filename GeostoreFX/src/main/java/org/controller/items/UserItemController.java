@@ -75,7 +75,7 @@ public class UserItemController implements Initializable {
             email.setText(admin.getEmail());
             password.setText(admin.getPassword());
             adminCode.setText(admin.getCodiceAdmin().getCodice());
-            wallet.setText(Utility.formatValueBigDecimal(admin.getPortafoglio()) + " C");
+            wallet.setText(Utility.formatValueInStringWithZeros(admin.getPortafoglio()) + " C");
         }
         else{
             Cliente cliente = (Cliente) utente;
@@ -91,7 +91,7 @@ public class UserItemController implements Initializable {
             email.setText(cliente.getEmail());
             password.setText(cliente.getPassword());
             adminCode.setText("-");
-            wallet.setText(Utility.formatValueBigDecimal(cliente.getPortafoglio()) + " C");
+            wallet.setText(Utility.formatValueInStringWithZeros(cliente.getPortafoglio()) + " C");
         }
     }
 

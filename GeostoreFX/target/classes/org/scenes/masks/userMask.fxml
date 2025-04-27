@@ -12,7 +12,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="Nome" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.name" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
                            <font>
                               <Font size="11.0" />
                            </font>

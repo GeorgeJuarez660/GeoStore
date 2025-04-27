@@ -73,13 +73,13 @@ public class UserMaskController implements Initializable {
             email.setText(admin.getEmail());
             password.setText(admin.getPassword());
             adminCode.setText(admin.getCodiceAdmin().getCodice());
-            wallet.setText(Utility.formatValueBigDecimal(admin.getPortafoglio()));
+            wallet.setText(Utility.formatValueInStringWithZeros(admin.getPortafoglio()));
         }
         else{
             Cliente cliente = (Cliente) utente;
             email.setText(cliente.getEmail());
             password.setText(cliente.getPassword());
-            wallet.setText(Utility.formatValueBigDecimal(cliente.getPortafoglio()));
+            wallet.setText(Utility.formatValueInStringWithZeros(cliente.getPortafoglio()));
         }
 
         this.IDkey = IDkey;
@@ -115,7 +115,7 @@ public class UserMaskController implements Initializable {
             admin.setEmail(email.getText().toLowerCase());
             admin.setPassword(password.getText());
             if(wallet != null && wallet.getText() != null && !wallet.getText().isEmpty() && !wallet.getText().isBlank()) {
-                admin.setPortafoglio(Utility.formatValueString(wallet.getText()));
+                admin.setPortafoglio(Utility.formatValueInBigDecimalWithoutZeros(wallet.getText()));
             }
             else {
                 admin.setPortafoglio(new BigDecimal(0));
@@ -137,7 +137,7 @@ public class UserMaskController implements Initializable {
             cliente.setEmail(email.getText().toLowerCase());
             cliente.setPassword(password.getText());
             if (wallet != null && wallet.getText() != null && !wallet.getText().isEmpty() && !wallet.getText().isBlank()) {
-                cliente.setPortafoglio(Utility.formatValueString(wallet.getText()));
+                cliente.setPortafoglio(Utility.formatValueInBigDecimalWithoutZeros(wallet.getText()));
             } else {
                 cliente.setPortafoglio(new BigDecimal(0));
             }
@@ -169,7 +169,7 @@ public class UserMaskController implements Initializable {
             admin.setEmail(email.getText().toLowerCase());
             admin.setPassword(password.getText());
             if(wallet != null && wallet.getText() != null && !wallet.getText().isEmpty() && !wallet.getText().isBlank()) {
-                admin.setPortafoglio(Utility.formatValueString(wallet.getText()));
+                admin.setPortafoglio(Utility.formatValueInBigDecimalWithoutZeros(wallet.getText()));
             }
             else {
                 admin.setPortafoglio(new BigDecimal(0));
@@ -192,7 +192,7 @@ public class UserMaskController implements Initializable {
             cliente.setEmail(email.getText().toLowerCase());
             cliente.setPassword(password.getText());
             if(wallet != null && wallet.getText() != null && !wallet.getText().isEmpty() && !wallet.getText().isBlank()) {
-                cliente.setPortafoglio(Utility.formatValueString(wallet.getText()));
+                cliente.setPortafoglio(Utility.formatValueInBigDecimalWithoutZeros(wallet.getText()));
             }
             else {
                 cliente.setPortafoglio(new BigDecimal(0));

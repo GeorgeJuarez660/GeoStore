@@ -39,6 +39,9 @@ public class ProductMaskController implements Initializable {
 
     //------------------INITIALIZE-----------------------
 
+    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
+
     //per la creazione/modifica prodotto
     public void setAvailable(){
         service = new Service();
@@ -46,7 +49,21 @@ public class ProductMaskController implements Initializable {
         disp = service.ottieniDisponibilita();
 
         for(Disponibilita disponibilita : disp.values()){
-            available.getItems().add(disponibilita.getId() + " - " + disponibilita.getCode());
+            if(disponibilita.getId() == 1){
+                available.getItems().add(disponibilita.getCode() + " - " + resLang.getString("availability.1st"));
+            }
+            else if(disponibilita.getId() == 2){
+                available.getItems().add(disponibilita.getCode() + " - " + resLang.getString("availability.2nd"));
+            }
+            else if(disponibilita.getId() == 3){
+                available.getItems().add(disponibilita.getCode() + " - " + resLang.getString("availability.3rd"));
+            }
+            else if(disponibilita.getId() == 4){
+                available.getItems().add(disponibilita.getCode() + " - " + resLang.getString("availability.4th"));
+            }
+            else if(disponibilita.getId() == 5){
+                available.getItems().add(disponibilita.getCode() + " - " + resLang.getString("availability.5th"));
+            }
         }
     }
 
@@ -78,8 +95,8 @@ public class ProductMaskController implements Initializable {
         prodotto = service.ottieniProdotto(Integer.parseInt(IDkey));
 
         name.setText(prodotto.getNome());
-        price.setText(Utility.formatValueBigDecimal(prodotto.getPrezzo()));
-        available.setValue(prodotto.getDisponibilita().getId() + " - " + prodotto.getDisponibilita().getCode());
+        price.setText(Utility.formatValueInStringWithZeros(prodotto.getPrezzo()));
+        available.setValue(prodotto.getDisponibilita().getCode() + " - " + prodotto.getDisponibilita().getDescrizione());
         category.setValue(prodotto.getCategoria().getCodice() + " - " + prodotto.getCategoria().getNome());
         material.setValue(prodotto.getMateriale().getCodice() + " - " + prodotto.getMateriale().getNome());
         quantity.setText(prodotto.getQuantita_disp().toString());
@@ -97,7 +114,7 @@ public class ProductMaskController implements Initializable {
         prodotto.setNome(name.getText());
 
         if(price != null && price.getText() != null && !price.getText().isEmpty() && !price.getText().isBlank()) {
-            prodotto.setPrezzo(Utility.formatValueString(price.getText()));
+            prodotto.setPrezzo(Utility.formatValueInBigDecimalWithoutZeros(price.getText()));
         }
         else{
             prodotto.setPrezzo(new BigDecimal(0));
@@ -106,8 +123,8 @@ public class ProductMaskController implements Initializable {
         Disponibilita disponibilita = new Disponibilita();
 
         if(available.getValue() != null){
-            disponibilita.setId(Integer.parseInt(available.getValue().replaceAll("[^0-9]", "")));
-            disponibilita.setCode(available.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            disponibilita.setCode(available.getValue().replaceAll(" - .*", ""));
+            disponibilita.setDescrizione(available.getValue().replaceAll(".* - ", ""));
         }
         else{
             disponibilita.setCode(null);
@@ -152,7 +169,7 @@ public class ProductMaskController implements Initializable {
         prodotto.setNome(name.getText());
 
         if(price != null && price.getText() != null && !price.getText().isEmpty() && !price.getText().isBlank()) {
-            prodotto.setPrezzo(Utility.formatValueString(price.getText()));
+            prodotto.setPrezzo(Utility.formatValueInBigDecimalWithoutZeros(price.getText()));
         }
         else{
             prodotto.setPrezzo(new BigDecimal(0));
@@ -161,8 +178,8 @@ public class ProductMaskController implements Initializable {
         Disponibilita disponibilita = new Disponibilita();
 
         if(available.getValue() != null){
-            disponibilita.setId(Integer.parseInt(available.getValue().replaceAll("[^0-9]", "")));
-            disponibilita.setCode(available.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            disponibilita.setCode(available.getValue().replaceAll(" - .*", ""));
+            disponibilita.setDescrizione(available.getValue().replaceAll(".* - ", ""));
         }
 
         prodotto.setDisponibilita(disponibilita);
@@ -222,9 +239,6 @@ public class ProductMaskController implements Initializable {
     }
 
     //------------------POP OVER (ON MOUSE ENTERED AND EXITED)-----------------------
-
-    Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
-    ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
     @FXML
     private void showPopOver(MouseEvent event){

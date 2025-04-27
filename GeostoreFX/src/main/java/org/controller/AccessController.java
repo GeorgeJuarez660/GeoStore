@@ -351,7 +351,7 @@ public class AccessController {
             info.setTextAlignment(TextAlignment.CENTER);
 
             Label info2 = new Label(); // Crea un label
-            info2.setText(resLang.getString("popover.code")); // Testo da visualizzare
+            info2.setText(resLang.getString("popover.codeWithNum")); // Testo da visualizzare
             info2.setTextFill(Color.rgb(35, 82, 164));
             info2.setFont(new Font("Press Start 2P", 8));
             info2.setWrapText(true);

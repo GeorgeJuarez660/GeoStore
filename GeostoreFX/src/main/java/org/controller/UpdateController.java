@@ -109,7 +109,7 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
                 VBox mask = loader.load();
                 UserMaskController userMaskController = loader.getController();// Ottieni il controller della scena caricata
                 userMaskController.getValues(IDkey);
-                userMaskController.setEditAdminCodeAndWallet(isAdmin == null);
+                userMaskController.setEditAdminCodeAndWallet(isAdmin == null);//si attivano i text field del portafoglio e del codice admin in base se è admin o meno
                 maskController = userMaskController;
                 updateMask.getChildren().add(mask);
 

@@ -32,7 +32,7 @@ public class OrderTotalPriceItemController implements Initializable {
         String meseEsatto = String.format("%02d", mese);
 
         totalOrderDate.setText(giornoEsatto+"/"+meseEsatto+"/"+anno);
-        totalOrderPrice.setText(Utility.formatValueBigDecimal(ordine.getPrezzo_unitario()) + " C");
+        totalOrderPrice.setText(Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()) + " C");
 
         //TODO: creare il pdf chiamato scontrino con l'ordine modificato e salvarlo nella stessa cartella del programma
 
