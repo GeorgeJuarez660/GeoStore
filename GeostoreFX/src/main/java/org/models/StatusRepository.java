@@ -54,8 +54,8 @@ public class StatusRepository implements statusCRUD {
     }
 
     @Override
-    public Stato getStatoWithDB(Integer id) {
-        String sql = "SELECT * FROM Stato s WHERE s.ID = ?";
+    public Stato getStatoWithDB(String code) {
+        String sql = "SELECT * FROM Stato s WHERE s.code = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
@@ -65,7 +65,7 @@ public class StatusRepository implements statusCRUD {
             //Connessione al db
             connection = DBConnection.sqlConnect();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, code);
             rs = preparedStatement.executeQuery();
 
             while(rs.next()){

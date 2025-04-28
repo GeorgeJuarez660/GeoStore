@@ -81,7 +81,27 @@ public class OrderMaskController implements Initializable {
         st = service.ottieniStato();
 
         for(Stato stato : st.values()){
-            status.getItems().add(stato.getId() + " - " + stato.getCode());
+            if(stato.getId() == 1){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.1st"));
+            }
+            else if(stato.getId() == 2){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.2nd"));
+            }
+            else if(stato.getId() == 3){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.3rd"));
+            }
+            else if(stato.getId() == 4){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.4th"));
+            }
+            else if(stato.getId() == 5){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.5th"));;
+            }
+            else if(stato.getId() == 6){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.6th"));;
+            }
+            else if(stato.getId() == 7){
+                status.getItems().add(stato.getCode() + " - " + resLang.getString("status.7th"));;
+            }
         }
     }
 
@@ -116,7 +136,7 @@ public class OrderMaskController implements Initializable {
         orderDate.setPromptText(giornoEsatto+"/"+meseEsatto+"/"+anno);
         quantity.setText(ordine.getQuantita().toString());
         productPrice.setText(Utility.formatValueInStringWithZeros(ordine.getPrezzo_unitario()));
-        status.setValue(ordine.getStato().getId() + " - " + ordine.getStato().getCode());
+        status.setValue(ordine.getStato().getCode() + " - " + ordine.getStato().getDescrizione());
 
         this.IDkey = IDkey;
         productOrder = ordine.getProdotto();
@@ -188,8 +208,8 @@ public class OrderMaskController implements Initializable {
         Stato stato = new Stato();
 
         if(status.getValue() != null){
-            stato.setId(Integer.parseInt(status.getValue().replaceAll("[^0-9]", "")));
-            stato.setCode(status.getValue().replaceAll(".*[^a-zA-Z]", ""));
+            stato.setCode(status.getValue().replaceAll(" - .*", ""));
+            stato.setDescrizione(status.getValue().replaceAll(".* - ", ""));
         }
 
         ordine.setStato(stato);

@@ -643,7 +643,8 @@ public class Service {
 
     public void modificaOrdine(Ordine order, Cliente user, boolean saveReceipt){
         if(order.checkNotNullOrdine(order)){
-            Stato s = sr.getStatoWithDB(order.getStato().getId());
+            Stato s = sr.getStatoWithDB(order.getStato().getCode());
+            order.getStato().setId(s != null ? s.getId() : 0); //inserisco l'id di stato poichè precedentemente non predisponeva
 
             if(s != null && s.getCode() != null){
                 Ordine orderOld = or.getOrdineWithDB(order.getId());
