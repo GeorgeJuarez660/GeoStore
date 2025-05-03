@@ -7,6 +7,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class ChooseTUserController {
     private Cliente user;
@@ -33,6 +34,8 @@ public class ChooseTUserController {
     @FXML
     private void lookUserProfile() {
         System.out.println("goes to look user profile");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readProfileUser");
@@ -43,6 +46,8 @@ public class ChooseTUserController {
     @FXML
     private void lookUsers() {
         System.out.println("goes to look users");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");
@@ -54,12 +59,16 @@ public class ChooseTUserController {
     @FXML
     private void lookCodes() {
         System.out.println("goes to code");
+        Sounds.soundGo();
+
         LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user, null);
     }
 
     @FXML
     private void createUser() {
         System.out.println("goes to create user");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");

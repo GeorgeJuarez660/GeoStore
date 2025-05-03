@@ -13,6 +13,7 @@ import org.controller.masks.*;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -268,6 +269,8 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
+
         if(this.itemScene != null && this.itemScene.equals("user")){
             LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
         }
@@ -299,6 +302,8 @@ public class CreateController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void create(ActionEvent event){ //button per creare
         System.out.println("question");
+        Sounds.soundGo();
+
         LoadPage.saveStage(event);
 
         if(maskController instanceof OrderMaskController){ //nel caso di ordinazione prodotto la question sarà diversa

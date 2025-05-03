@@ -12,6 +12,7 @@ import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.*;
@@ -149,6 +150,8 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
+
         if(this.itemScene != null && this.itemScene.contains("product")){
             if(this.itemScene.equals("product-C")){
                 System.out.println("goes to category");
@@ -174,6 +177,7 @@ public class ReadProductsByCMController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void searching(){ //button per cercare
         System.out.println("Start searching");
+        Sounds.soundGo();
 
         if(showSearch){
             if(this.itemScene != null && this.itemScene.equals("product-C")){ //per i prodotti di via categoria

@@ -7,6 +7,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class ChooseTCodeController {
     private Cliente user;
@@ -39,6 +40,8 @@ public class ChooseTCodeController {
     @FXML
     private void lookAssociatedCodes() {
         System.out.println("goes to look associated codes");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readCodes");
@@ -50,6 +53,8 @@ public class ChooseTCodeController {
     @FXML
     private void lookCodes() {
         System.out.println("goes to look codes");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readCodes");
@@ -61,6 +66,8 @@ public class ChooseTCodeController {
     @FXML
     private void createCode() {
         System.out.println("goes to create code");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");

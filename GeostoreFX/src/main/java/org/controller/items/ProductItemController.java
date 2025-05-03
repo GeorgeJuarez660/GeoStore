@@ -9,6 +9,7 @@ import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 import org.utility.Utility;
 
 import java.net.URL;
@@ -80,6 +81,8 @@ public class ProductItemController implements Initializable {
     @FXML
     private void updating(){ //button per andare alla pagina di modifica prodotto
         System.out.println("goes to update product");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -91,6 +94,8 @@ public class ProductItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare prodotto
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DP", null, user, null, id.getText(), false);
     }
 

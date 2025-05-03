@@ -11,6 +11,7 @@ import org.controller.masks.*;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -84,6 +85,7 @@ public class CreateAssociateUserController {// Questo è il BorderPane di menu.f
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
 
         LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user, null);
     }
@@ -91,6 +93,8 @@ public class CreateAssociateUserController {// Questo è il BorderPane di menu.f
     @FXML
     private void associate(ActionEvent event){ //button per associare
         System.out.println("question");
+        Sounds.soundGo();
+
         LoadPage.saveStage(event);
 
         LoadPage.questionScene("Q-CS", null, user, maskController, null, false);

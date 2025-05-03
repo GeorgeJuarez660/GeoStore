@@ -13,6 +13,7 @@ import org.models.Utente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 import org.utility.Utility;
 
 import java.net.URL;
@@ -107,6 +108,8 @@ public class UserItemController implements Initializable {
     @FXML
     private void updating(){ //button per andare alla pagina di modifica utente
         System.out.println("goes to update user");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -118,6 +121,8 @@ public class UserItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare utente
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DU", null, user, null, id.getText(), false);
     }
 

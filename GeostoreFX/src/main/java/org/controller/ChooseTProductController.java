@@ -7,6 +7,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class ChooseTProductController {
     private Cliente user;
@@ -33,6 +34,8 @@ public class ChooseTProductController {
     @FXML
     private void lookAvailableProducts() {
         System.out.println("goes to look available products");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");
@@ -44,6 +47,8 @@ public class ChooseTProductController {
     @FXML
     private void lookProducts() {
         System.out.println("goes to look products");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");
@@ -55,6 +60,8 @@ public class ChooseTProductController {
     @FXML
     private void createProduct() {
         System.out.println("goes to create product");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");

@@ -3,11 +3,10 @@ package org.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import org.controller.items.*;
 import org.models.Cliente;
-import org.models.Utente;
 import org.services.LoadPage;
+import org.utility.Sounds;
 
 import java.text.ParseException;
 import java.util.ResourceBundle;
@@ -92,6 +91,8 @@ public class QuestionController {
     @FXML
     private void accept(ActionEvent event) throws ParseException {
         System.out.println("YES");
+        Sounds.soundGo();
+
         LoadPage.saveStage(event);
 
         switch(chooseByCode) {
@@ -175,6 +176,8 @@ public class QuestionController {
     @FXML
     private void deny(ActionEvent event){
         System.out.println("NO");
+        Sounds.soundBack();
+
         LoadPage.saveStage(event);
 
         if(chooseByCode.equals("Q-RG")){

@@ -9,11 +9,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
-
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import org.utility.Sounds;
 
 public class OrderTotalPriceController {
 
@@ -53,6 +49,8 @@ public class OrderTotalPriceController {
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
+
         if(isAdmin){
             LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
         }
@@ -65,6 +63,8 @@ public class OrderTotalPriceController {
     @FXML
     private void calculate() {
         System.out.println("goes to look order total price");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readOrderTotalPrice");

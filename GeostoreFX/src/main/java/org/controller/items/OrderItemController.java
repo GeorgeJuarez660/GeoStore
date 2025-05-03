@@ -11,6 +11,7 @@ import org.models.Ordine;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 import org.utility.Utility;
 
 import java.net.URL;
@@ -91,6 +92,8 @@ public class OrderItemController implements Initializable {
     @FXML
     private void updating(){ //button per andare alla pagina di modifica ordine
         System.out.println("goes to update order");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -102,6 +105,8 @@ public class OrderItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare ordine
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DO", null, user, null, id.getText(), false);
     }
 

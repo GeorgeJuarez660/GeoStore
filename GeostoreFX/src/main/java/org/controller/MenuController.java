@@ -10,6 +10,7 @@ import org.models.Amministratore;
 import org.models.Cliente;
 import org.services.LoadPage;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class MenuController {
     @FXML
@@ -57,6 +58,8 @@ public class MenuController {
 
     @FXML
     private void logout(ActionEvent event){ //prima di procedere al logout, chiede se è sicuro farlo
+        Sounds.soundGo();
+
         LoadPage.saveStage(event);
         LoadPage.questionScene("Q-LG", null, user, null, null, false);
     }
@@ -75,6 +78,8 @@ public class MenuController {
 
     @FXML
     private void user(){
+        Sounds.soundGo();
+
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("U") || isAdmin.contains("N"))){
             System.out.println("goes to user");
             LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
@@ -91,6 +96,8 @@ public class MenuController {
 
     @FXML
     private void product(){
+        Sounds.soundGo();
+
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
             System.out.println("goes to product");
             LoadPage.getPartialScene(fxmlLoader, "chooseTProductAdmin", user, null);
@@ -103,6 +110,8 @@ public class MenuController {
 
     @FXML
     private void order(){
+        Sounds.soundGo();
+
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("Q") || isAdmin.contains("O"))){
             System.out.println("goes to order");
             LoadPage.getPartialScene(fxmlLoader, "chooseTOrderAdmin", user, null);
@@ -115,6 +124,8 @@ public class MenuController {
 
     @FXML
     private void category(){
+        Sounds.soundGo();
+
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
             System.out.println("goes to category");
             LoadPage.getPartialScene(fxmlLoader, "chooseTCategoryAdmin", user, null);
@@ -132,6 +143,8 @@ public class MenuController {
 
     @FXML
     private void material(){
+        Sounds.soundGo();
+
         if(isAdmin != null && (isAdmin.contains("A") || isAdmin.contains("P") || isAdmin.contains("Q"))){
             System.out.println("goes to material");
             LoadPage.getPartialScene(fxmlLoader, "chooseTMaterialAdmin", user, null);

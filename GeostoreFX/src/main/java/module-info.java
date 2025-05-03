@@ -13,6 +13,8 @@ module info {
     requires java.sql;
     requires transitive org.xerial.sqlitejdbc;
     requires fop;
+    requires javafx.media;
+    requires java.desktop;
 
     opens org.controller to javafx.fxml;
     exports org.controller;

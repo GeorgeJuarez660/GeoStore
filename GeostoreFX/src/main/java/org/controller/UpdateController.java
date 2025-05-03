@@ -3,7 +3,6 @@ package org.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -14,6 +13,7 @@ import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -271,6 +271,8 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
+
         if(this.itemScene != null && this.itemScene.equals("user")){
             LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
         }
@@ -310,6 +312,8 @@ public class UpdateController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void update(ActionEvent event){ //button per modificare
         System.out.println("question");
+        Sounds.soundGo();
+
         LoadPage.saveStage(event);
 
         if(maskController instanceof OrderMaskController){ //nel caso di modifica ordine la question sarà diversa

@@ -12,9 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import org.services.LoadPage;
-import org.utility.Utility;
-
-import java.math.BigDecimal;
+import org.utility.Sounds;
 
 public class WelcomeController {
 
@@ -29,6 +27,8 @@ public class WelcomeController {
     @FXML
     private void goesToPrepage(ActionEvent event) {
         System.out.println("goes to prepage");
+        Sounds.soundGo(); //parte la musica
+
         LoadPage.saveStage(event);
 
         LoadPage.getFullScene("prepage", null);
@@ -36,6 +36,7 @@ public class WelcomeController {
 
     @FXML
     private void exit(ActionEvent event) {
+        Sounds.soundClose(); //genera il suono della chiusura
 
         //trasforma l'evento in uno stage
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -63,6 +64,8 @@ public class WelcomeController {
     @FXML
     private void goesToChangeLanguage(MouseEvent event) {
         System.out.println("goes to change language");
+        Sounds.soundGo(); //parte la musica
+
         LoadPage.saveStage(event);
 
         LoadPage.getFullScene("language", null);

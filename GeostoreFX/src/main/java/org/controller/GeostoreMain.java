@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.services.LoadPage;
+import org.utility.Sounds;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -23,10 +24,13 @@ public class GeostoreMain extends Application {
         stage.setTitle("GeoStore");
         stage.setScene(scene);
         stage.show();
+        Sounds.soundOpen(); //genera il suono quando apre
 
         //regola la chiusura del programma
         stage.setOnCloseRequest(event -> {
             event.consume(); //utilizzato per ritardare la chiusura imminente
+            Sounds.soundClose(); //genera il suono quando chiude
+
             LoadPage.saveStageForClose(event);
             LoadPage.getFullScene("goodbye", null);
 

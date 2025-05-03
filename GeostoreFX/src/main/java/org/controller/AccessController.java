@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -22,6 +21,7 @@ import org.models.Cliente;
 import org.models.Codice;
 import org.services.LoadPage;
 import org.services.Service;
+import org.utility.Sounds;
 import org.utility.Translater;
 import org.utility.Utility;
 import java.sql.Date;
@@ -46,6 +46,8 @@ public class AccessController {
 
     @FXML
     private void signup(ActionEvent event) {
+        Sounds.soundGo(); //parte la musica
+
         LoadPage.saveStage(event);
 
         //innanzitutto mi incapsulo i dati corretti
@@ -136,6 +138,8 @@ public class AccessController {
     @FXML
     private void signinAdmin(ActionEvent event) {
         System.out.println("Signing in");
+        Sounds.soundGo(); //parte la musica
+
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-LOG", null);
 
@@ -158,6 +162,8 @@ public class AccessController {
     @FXML
     private void signinCliente(ActionEvent event) {
         System.out.println("Signing in");
+        Sounds.soundGo(); //parte la musica
+
         LoadPage.saveStage(event);
         LoadPage.loadingScene("LOAD-LOG", null);
 
@@ -175,6 +181,7 @@ public class AccessController {
     @FXML
     private void back(ActionEvent event) {
         System.out.println("Going back");
+        Sounds.soundBack(); //parte la musica
 
         LoadPage.getFullScene("prepage", null);
     }

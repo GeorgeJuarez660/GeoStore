@@ -12,6 +12,7 @@ import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.time.LocalTime;
@@ -134,12 +135,16 @@ public class HomepageController {
     @FXML
     private void loadInfo(){ //button per andare alla pagina info
         System.out.println("goes to info");
+        Sounds.soundGo();
+
         LoadPage.getPartialScene(fxmlLoader, "info", user, null);
     }
 
     @FXML
     private void creating(){ //button per andare alla pagina di creazione notizia
         System.out.println("goes to create news");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");
@@ -150,6 +155,8 @@ public class HomepageController {
     @FXML
     private void searching(){ //button per andare alla pagina di ricerca notizia
         System.out.println("goes to create news");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");

@@ -12,6 +12,7 @@ import org.models.Prodotto;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.Calendar;
@@ -78,6 +79,8 @@ public class NewsItemController implements Initializable {
     @FXML
     private void updating(){ //button per andare alla pagina di modifica notizia
         System.out.println("goes to update news");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -88,6 +91,8 @@ public class NewsItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare notizia
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DN", null, user, null, id.getText(), false);
     }
 

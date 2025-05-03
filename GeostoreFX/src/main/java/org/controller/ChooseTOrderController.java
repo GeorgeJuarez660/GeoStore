@@ -7,6 +7,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class ChooseTOrderController {
     private Cliente user;
@@ -33,6 +34,8 @@ public class ChooseTOrderController {
     @FXML
     private void lookYourOrders() {
         System.out.println("goes to look your orders");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");
@@ -44,6 +47,8 @@ public class ChooseTOrderController {
     @FXML
     private void lookAnotherOrders() {
         System.out.println("goes to look another orders");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");
@@ -55,6 +60,8 @@ public class ChooseTOrderController {
     @FXML
     private void orderProduct() {
         System.out.println("goes to order product");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("read");

@@ -10,6 +10,7 @@ import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -72,6 +73,8 @@ public class ProductTypeButtonController implements Initializable {
     private void updatingCategory(ActionEvent event){ //button per andare alla pagina di modifica categoria
         System.out.println("goes to update category");
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante categoria)
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -85,6 +88,8 @@ public class ProductTypeButtonController implements Initializable {
     private void updatingMaterial(ActionEvent event){ //button per andare alla pagina di modifica materia
         System.out.println("goes to update material");
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante materia)
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -97,6 +102,8 @@ public class ProductTypeButtonController implements Initializable {
     @FXML
     private void deletingCategory(ActionEvent event){ //button per eliminare categoria
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante categoria)
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DC", null, user, null, code.getText(), false);
     }
 
@@ -113,6 +120,8 @@ public class ProductTypeButtonController implements Initializable {
     @FXML
     private void deletingMaterial(ActionEvent event){ //button per eliminare materia
         event.consume(); //evita che si propaga al pulsante esterno (non viene cliccato il pusante materia)
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DM", null, user, null, code.getText(), false);
     }
 
@@ -129,6 +138,8 @@ public class ProductTypeButtonController implements Initializable {
     @FXML
     private void lookProductsByCategory(){ //button per cercare i prodotti via categoria
         System.out.println("goes to look products by category");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readProductsByCM");
@@ -141,6 +152,8 @@ public class ProductTypeButtonController implements Initializable {
     @FXML
     private void lookProductsByMaterial(){ //button per cercare i prodotti via materia
         System.out.println("goes to look products by category");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readProductsByCM");

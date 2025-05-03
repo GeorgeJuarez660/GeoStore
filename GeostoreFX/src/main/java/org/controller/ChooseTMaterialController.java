@@ -7,6 +7,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class ChooseTMaterialController {
     private Cliente user;
@@ -33,6 +34,8 @@ public class ChooseTMaterialController {
     @FXML
     private void lookMaterials() {
         System.out.println("goes to look materials");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readProductType");
@@ -44,6 +47,8 @@ public class ChooseTMaterialController {
     @FXML
     private void createMaterial() {
         System.out.println("goes to create material");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");

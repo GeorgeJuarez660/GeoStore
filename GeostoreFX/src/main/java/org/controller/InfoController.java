@@ -1,16 +1,12 @@
 package org.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import org.models.Amministratore;
 import org.models.Cliente;
 import org.services.LoadPage;
-
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import org.utility.Sounds;
 
 public class InfoController {
 
@@ -53,6 +49,7 @@ public class InfoController {
     @FXML
     private void back() { //button per andare alla homepage
         System.out.println("Going back");
+        Sounds.soundBack();
 
         LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
     }

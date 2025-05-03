@@ -13,6 +13,7 @@ import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.*;
@@ -188,6 +189,8 @@ public class ReadCodesController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
+
         if(this.itemScene != null && this.itemScene.contains("code")){
             LoadPage.getPartialScene(fxmlLoader, "chooseTCodeAdmin", user, null);
         }
@@ -196,6 +199,8 @@ public class ReadCodesController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void associating() {
         System.out.println("goes to associate code to user");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("createAssociateCode");
@@ -206,6 +211,7 @@ public class ReadCodesController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void searching(){ //button per cercare
         System.out.println("Start searching");
+        Sounds.soundGo();
 
         if(showSearch){
             if(this.itemScene != null && this.itemScene.equals("code-C")){

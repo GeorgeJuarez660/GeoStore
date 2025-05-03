@@ -14,6 +14,7 @@ import org.models.Utente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -103,6 +104,7 @@ public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
 
         LoadPage.getPartialScene(fxmlLoader, "chooseTUserAdmin", user, null);
     }
@@ -110,6 +112,8 @@ public class ReadProfileUserController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void updating(){ //button per andare alla pagina di modifica utente
         System.out.println("goes to update user");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");

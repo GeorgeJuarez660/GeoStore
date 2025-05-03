@@ -1,6 +1,7 @@
 package org.services;
 
 import org.models.*;
+import org.utility.Receipts;
 import org.utility.Utility;
 
 
@@ -624,7 +625,7 @@ public class Service {
 
                 if(num > 0 && saveReceipt){
                     try{
-                        Utility.checkLangBeforeSavingReceiptOP(o.getProdotto().getNome(), o.getPrezzo_unitario(), o.getQuantita(), user);
+                        Receipts.checkLangBeforeSavingReceiptOP(o.getProdotto().getNome(), o.getPrezzo_unitario(), o.getQuantita(), user);
                     } catch (Exception e) {
                         System.err.println("Errore salvataggio scontrino: " + e.getMessage());
                     }
@@ -665,7 +666,7 @@ public class Service {
                         boolean itsRefund = responseCheckOrder.contains("ODR-UR");
 
                         try{
-                            Utility.checkLangBeforeSavingReceiptUO(order.getProdotto().getNome(), order.getPrezzo_unitario(), orderOld.getQuantita(), order.getQuantita(), itsRefund, user);
+                            Receipts.checkLangBeforeSavingReceiptUO(order.getProdotto().getNome(), order.getPrezzo_unitario(), orderOld.getQuantita(), order.getQuantita(), itsRefund, user);
                         } catch (Exception e) {
                             System.err.println("Errore salvataggio scontrino: " + e.getMessage());
                         }

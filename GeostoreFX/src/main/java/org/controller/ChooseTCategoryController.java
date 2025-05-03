@@ -7,6 +7,7 @@ import org.models.Cliente;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 public class ChooseTCategoryController {
     private Cliente user;
@@ -33,6 +34,8 @@ public class ChooseTCategoryController {
     @FXML
     private void lookCategories() {
         System.out.println("goes to look categories");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("readProductType");
@@ -44,6 +47,8 @@ public class ChooseTCategoryController {
     @FXML
     private void createCategory() {
         System.out.println("goes to create category");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");

@@ -11,6 +11,7 @@ import org.models.CodiceAssociateDTO;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,6 +66,8 @@ public class CodeAssociateItemController implements Initializable {
     @FXML
     private void updating(){ //button per andare alla pagina di modifica associazione codice
         System.out.println("goes to update associate code");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("updateAssociateCode");
@@ -75,6 +78,8 @@ public class CodeAssociateItemController implements Initializable {
 
     @FXML
     private void dissociating(){ //button per dissociare codice
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DS", null, user, null, email.getText(), false);
     }
 

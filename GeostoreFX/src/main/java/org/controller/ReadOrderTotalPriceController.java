@@ -13,6 +13,8 @@ import org.models.Cliente;
 import org.models.Ordine;
 import org.services.LoadPage;
 import org.services.Service;
+import org.utility.Receipts;
+import org.utility.Sounds;
 import org.utility.Utility;
 
 import java.net.URL;
@@ -110,7 +112,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
 
         if(saveRpt){
             try {
-                Utility.checkLangBeforeSavingReceiptTD(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
+                Receipts.checkLangBeforeSavingReceiptTD(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -123,6 +125,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
     @FXML
     private void research() { //button per scegliere il giorno
         System.out.println("Going back");
+        Sounds.soundGo();
 
         LoadPage.getPartialScene(fxmlLoader, "orderTotalPriceChooseDate", user, null);
     }

@@ -11,6 +11,7 @@ import org.models.Codice;
 import org.services.LoadPage;
 import org.services.Service;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,6 +66,8 @@ public class CodeItemController implements Initializable {
     @FXML
     private void updating(){ //button per andare alla pagina di modifica codice
         System.out.println("goes to update code");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("update");
@@ -76,6 +79,8 @@ public class CodeItemController implements Initializable {
 
     @FXML
     private void deleting(){ //button per eliminare codice
+        Sounds.soundGo();
+
         LoadPage.questionScene("Q-DA", null, user, null, id.getText(), false);
     }
 

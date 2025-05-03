@@ -11,6 +11,7 @@ import org.controller.items.*;
 import org.models.*;
 import org.services.LoadPage;
 import org.services.Service;
+import org.utility.Sounds;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -146,6 +147,8 @@ public class ReadProductTypeController {// Questo è il BorderPane di menu.fxml
     @FXML
     private void back() { //button per tornare indietro
         System.out.println("Going back");
+        Sounds.soundBack();
+
         if(this.itemScene != null && this.itemScene.equals("category")){
             LoadPage.getPartialScene(fxmlLoader, "chooseTCategoryAdmin", user, null);
         }
