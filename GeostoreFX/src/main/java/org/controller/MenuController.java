@@ -49,12 +49,20 @@ public class MenuController {
     }
 
 
-    public void loadHomepage() {
+    public void loadHomepage() { //carica l'homepage una volta completato l'azione nel programma
         System.out.println("goes to homepage");
         LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
     }
 
     //------------------BUTTONS-----------------------
+
+    @FXML
+    public void homepage() { //carica l'homepage una volta cliccato il pulsante HOMEPAGE
+        System.out.println("goes to homepage");
+        Sounds.soundGo();
+
+        LoadPage.getPartialScene(fxmlLoader, "homepage", user, null);
+    }
 
     @FXML
     private void logout(ActionEvent event){ //prima di procedere al logout, chiede se è sicuro farlo

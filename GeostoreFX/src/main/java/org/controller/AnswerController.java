@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import org.models.Amministratore;
 import org.models.Cliente;
 import org.services.LoadPage;
+import org.utility.Sounds;
 
 import java.sql.Date;
 import java.util.ResourceBundle;
@@ -35,6 +36,7 @@ public class AnswerController {
                 break;
             case "LOG-O":
                 response.setText(resLang.getString("logout.title"));
+                Sounds.soundLogout(); //genera il suono quando si procede al logout
                 break;
             case "REG-N":
                 response.setText(resLang.getString("answer.register.negative"));

@@ -5,91 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utility/Receipts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/utility/Sounds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/back.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/close1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/close2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/go.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/info.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/open.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/back.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/close1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/close2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/go.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/info.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/open.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/logout.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/welcome.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/logout.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/welcome.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/AccessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/AccessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTMaterialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTMaterialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/CreateAssociateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/CreateAssociateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/CreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/CreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/GeostoreMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/GeostoreMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/HomepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/HomepageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/InfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/LanguageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/LanguageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/OrderTotalPriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/OrderTotalPriceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/PrepageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/PrepageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadCodesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadCodesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadProductTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadProductTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadProfileUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadProfileUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/UpdateAssociateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/UpdateAssociateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/WelcomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/CodeAssociateItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/CodeAssociateItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/CodeItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/CodeItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/OrderItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/OrderItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductTypeButtonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductTypeButtonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/UserItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/UserItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Sounds.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/AccessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/AccessController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCodeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTMaterialController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/CreateAssociateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/CreateAssociateUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/CreateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/CreateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/GeostoreMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/GeostoreMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/HomepageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/HomepageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/InfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/InfoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/LanguageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/LanguageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOP.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOP.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/controller/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/OrderTotalPriceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/OrderTotalPriceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/PrepageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/PrepageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadCodesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadCodesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadProductTypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadProductTypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadProductsByCMController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadProductsByCMController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadProfileUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadProfileUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/UpdateAssociateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/UpdateAssociateUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/UpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/UpdateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/WelcomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/WelcomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/CodeAssociateItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/CodeAssociateItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/CodeItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/CodeItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/NewsItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/NewsItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/OrderItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/OrderItemController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductTypeButtonController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/UserItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/UserItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Sounds.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Sounds.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptOP.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptOP.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +266,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>419</line>
+          <line>426</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -596,7 +536,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>391</line>
+          <line>398</line>
           <properties class="org.services.LoadPage" method="getPartialSceneCRU">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

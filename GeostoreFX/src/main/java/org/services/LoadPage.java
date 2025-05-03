@@ -14,6 +14,7 @@ import org.models.Amministratore;
 import org.models.Cliente;
 import org.models.Utente;
 import org.utility.PartialSceneDTO;
+import org.utility.Sounds;
 import org.utility.Translater;
 
 
@@ -71,7 +72,7 @@ public class LoadPage {
     }
 
     @FXML
-    public static void goesToMenu(Cliente user, String lang, boolean canRefreshUser) {
+    public static void goesToMenu(Cliente user, String lang, boolean canRefreshUser, boolean newEntry) {
         Pane view = null;
         try {
 
@@ -107,6 +108,10 @@ public class LoadPage {
             URL fileUrl = GeostoreMain.class.getResource("/org/scenes/menu.fxml");
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException("Nessun file FXML trovato");
+            }
+
+            if(newEntry){ //se viene effettuato l'accesso per la prima volta
+                Sounds.soundWelcome(); //genera il suono per la scena menu
             }
 
             FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
@@ -215,6 +220,8 @@ public class LoadPage {
                 if (fileUrl == null) {
                     throw new java.io.FileNotFoundException("Nessun file FXML trovato");
                 }
+
+                Sounds.soundInfo(); //genera il suono per le scene info
             }
 
             FXMLLoader loader = new FXMLLoader(fileUrl, resLang);

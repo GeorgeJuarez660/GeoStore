@@ -226,7 +226,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, false);
+                LoadPage.goesToMenu(user, null, false, true);
             });
             delay.play();
         }
@@ -271,7 +271,7 @@ public class Utility {
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
             // Dopo 2 secondi, carica la terza scena
-            LoadPage.goesToMenu(user, null, true);
+            LoadPage.goesToMenu(user, null, true, false);
         });
         delay.play();
     }
@@ -292,7 +292,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user ,null, true);
+                LoadPage.goesToMenu(user ,null, true, false);
             });
             delay2.play();
         }
@@ -303,7 +303,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay.play();
         }
@@ -325,7 +325,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay2.play();
         }
@@ -336,7 +336,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay.play();
         }
@@ -374,7 +374,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(pauseMenu));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay2.play();
         }
@@ -385,7 +385,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(6));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay.play();
         }
@@ -415,7 +415,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(pauseMenu));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay2.play();
         }
@@ -426,7 +426,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(6));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay.play();
         }
@@ -448,7 +448,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay2.play();
         }
@@ -459,7 +459,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay.play();
         }
@@ -481,7 +481,7 @@ public class Utility {
             PauseTransition delay2 = new PauseTransition(Duration.seconds(9));
             delay2.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay2.play();
         }
@@ -492,7 +492,7 @@ public class Utility {
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {
                 // Dopo 2 secondi, carica la terza scena
-                LoadPage.goesToMenu(user, null, true);
+                LoadPage.goesToMenu(user, null, true, false);
             });
             delay.play();
         }

@@ -82,4 +82,30 @@ public class Sounds {
             e.printStackTrace();
         }
     }
+
+    public static void soundWelcome(){ //suono generato quando si accede per la prima volta il menu
+        try {
+            File fileAudio = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/sounds/welcome.wav"); // Inserisci il tuo file WAV
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(fileAudio);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start(); // Riproduce il suono
+            //Thread.sleep(clip.getMicrosecondLength() / 1000); // Attendi la fine
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void soundLogout(){ //suono generato quando si accede per la prima volta il menu
+        try {
+            File fileAudio = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/sounds/logout.wav"); // Inserisci il tuo file WAV
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(fileAudio);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start(); // Riproduce il suono
+            //Thread.sleep(clip.getMicrosecondLength() / 1000); // Attendi la fine
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

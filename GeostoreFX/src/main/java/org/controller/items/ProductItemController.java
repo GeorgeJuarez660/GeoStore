@@ -112,6 +112,8 @@ public class ProductItemController implements Initializable {
     @FXML
     private void shopping(){ //button per andare alla pagina di ordinazione prodotto
         System.out.println("goes to update product");
+        Sounds.soundGo();
+
         PartialSceneDTO partialSceneDTO = new PartialSceneDTO();
         partialSceneDTO.setFxmlLoader(fxmlLoader);
         partialSceneDTO.setInnerScene("create");
