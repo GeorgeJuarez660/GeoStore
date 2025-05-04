@@ -5,31 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/logout.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/sounds/welcome.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/logout.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/sounds/welcome.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/ProductItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/items/UserItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/items/UserItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Sounds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/scenes/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOP.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOP.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/ProductItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/ProductItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/items/UserItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/items/UserItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/scenes/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/scenes/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Sounds.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Sounds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptOP.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptOP.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +244,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>426</line>
+          <line>428</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -536,7 +514,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>398</line>
+          <line>400</line>
           <properties class="org.services.LoadPage" method="getPartialSceneCRU">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

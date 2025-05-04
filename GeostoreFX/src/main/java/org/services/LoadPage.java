@@ -262,6 +262,8 @@ public class LoadPage {
                 throw new java.io.FileNotFoundException("Nessun file FXML trovato");
             }
 
+            Sounds.soundLoading(); //genera il suono per le scena caricamento
+
             FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
             Pane newScene = loader.load();
 

@@ -108,4 +108,17 @@ public class Sounds {
             e.printStackTrace();
         }
     }
+
+    public static void soundLoading(){ //suono generato quando compare la scena del caricamento
+        try {
+            File fileAudio = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/sounds/loading.wav"); // Inserisci il tuo file WAV
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(fileAudio);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start(); // Riproduce il suono
+            //Thread.sleep(clip.getMicrosecondLength() / 1000); // Attendi la fine
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
