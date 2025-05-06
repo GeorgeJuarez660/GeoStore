@@ -121,4 +121,30 @@ public class Sounds {
             e.printStackTrace();
         }
     }
+
+    public static void soundPositiveAndQuestionNotify(){ //suono generato quando compare la scena della risposta positiva e della domanda
+        try {
+            File fileAudio = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/sounds/positiveAndQuestionNotify.wav"); // Inserisci il tuo file WAV
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(fileAudio);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start(); // Riproduce il suono
+            //Thread.sleep(clip.getMicrosecondLength() / 1000); // Attendi la fine
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void soundNegativeNotify(){ //suono generato quando compare la scena della risposta negativa
+        try {
+            File fileAudio = new File("C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/sounds/negativeNotify.wav"); // Inserisci il tuo file WAV
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(fileAudio);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start(); // Riproduce il suono
+            //Thread.sleep(clip.getMicrosecondLength() / 1000); // Attendi la fine
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

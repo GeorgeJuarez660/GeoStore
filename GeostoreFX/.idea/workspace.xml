@@ -244,7 +244,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>428</line>
+          <line>434</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -514,7 +514,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
-          <line>400</line>
+          <line>406</line>
           <properties class="org.services.LoadPage" method="getPartialSceneCRU">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

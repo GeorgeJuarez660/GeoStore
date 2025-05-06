@@ -208,12 +208,16 @@ public class LoadPage {
                 if (fileUrl == null) {
                     throw new java.io.FileNotFoundException("Nessun file FXML trovato");
                 }
+
+                Sounds.soundPositiveAndQuestionNotify(); //genera il suono per le scena risposta positiva
             }
             else if(choose.equals("negative")){
                 fileUrl = GeostoreMain.class.getResource("/org/scenes/negativeAnswer.fxml");
                 if (fileUrl == null) {
                     throw new java.io.FileNotFoundException("Nessun file FXML trovato");
                 }
+
+                Sounds.soundNegativeNotify(); //genera il suono per le scena risposta negativa
             }
             else if(choose.equals("info")){
                 fileUrl = GeostoreMain.class.getResource("/org/scenes/infoAnswer.fxml");
@@ -301,6 +305,8 @@ public class LoadPage {
             if (fileUrl == null) {
                 throw new java.io.FileNotFoundException("Nessun file FXML trovato");
             }
+
+            Sounds.soundPositiveAndQuestionNotify(); //genera il suono per le scena domanda
 
             FXMLLoader loader = new FXMLLoader(fileUrl, resLang);
             Pane newScene = loader.load();
