@@ -20,6 +20,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.nio.file.Path;
@@ -69,21 +70,24 @@ public class Receipts {
     private static void savingReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+        //String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        //String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+
+        InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptOP.xml"); //prende dinamicamente il receiptOP.xml
+        InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptOP.xsl"); //prende dinamicamente il receiptOP.xml
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
         Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receiptOP.xml"); //mi prendo in considerazione l'xml dell'ordinazione prodotto
-        File inputFile = xmlAbsPath.toFile();
+        /*Path xmlAbsPath = Paths.get(xmlDyPath); //dalla directory vede se esiste il file cosi lo converte
+        File inputFile = xmlAbsPath.toFile();*/
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(xmlDyPath); //prende il file xml dinamico
 
         // Modifica il valore di un nodo specifico
         NodeList nodeList = doc.getElementsByTagName("nomeNegozio"); //in questo caso modifico il titolo nome negozio
@@ -184,7 +188,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(inputFile);
+        StreamResult result = new StreamResult(pdfPath + "receiptOP.xml"); //salva il nuovo xml nella stessa directory del pdf
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -204,9 +208,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptOP.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));//prende come stylesheet l'XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(inputFile); // XML di input
+            Source src = new StreamSource(new File(pdfPath + "receiptOP.xml")); //prende l'XML modificato come input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -217,19 +221,22 @@ public class Receipts {
     private static void savingJAReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+        //String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        //String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+
+        InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptOPJapanese.xml"); //prende dinamicamente il receiptOPJapanese.xml
+        InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptOPJapanese.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receiptOPJapanese.xml"); //mi prendo in considerazione l'xml giapponese dell'ordinazione prodotto
-        File inputFile = xmlAbsPath.toFile();
+        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptOPJapanese.xml"); //mi prendo in considerazione l'xml giapponese dell'ordinazione prodotto
+        File inputFile = xmlAbsPath.toFile();*/
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(xmlDyPath); //prende il file xml dinamico
 
         //------VALORI------
 
@@ -280,7 +287,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(inputFile);
+        StreamResult result = new StreamResult(pdfPath + "receiptOPJapanese.xml");
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -300,9 +307,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptOPJapanese.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(inputFile); // XML di input
+            Source src = new StreamSource(pdfPath + "receiptOPJapanese.xml"); //salva il nuovo xml nella stessa directory del pdf
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -313,21 +320,24 @@ public class Receipts {
     private static void savingReceiptAfterUpdatedOrder(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception{ //salvo lo scontrino dopo la modifica dell'ordine
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+        //String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        //String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+
+        InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptUO.xml"); //prende dinamicamente il receiptOPJapanese.xml
+        InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptUO.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptUpdatedOrder" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
         Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receiptUO.xml"); //mi prendo in considerazione l'xml della modifica ordine
-        File inputFile = xmlAbsPath.toFile();
+        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptUO.xml"); //mi prendo in considerazione l'xml della modifica ordine
+        File inputFile = xmlAbsPath.toFile();*/
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(xmlDyPath); //prende il file xml dinamico
 
         //------TITOLI------
 
@@ -450,7 +460,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(inputFile);
+        StreamResult result = new StreamResult(pdfPath + "receiptUO.xml");
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -470,9 +480,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptUO.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(inputFile); // XML di input
+            Source src = new StreamSource(pdfPath + "receiptUO.xml"); // XML di input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -483,19 +493,22 @@ public class Receipts {
     private static void savingJAReceiptAfterUpdatedOrder(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception{ //salvo lo scontrino dopo la modifica dell'ordine
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+        /*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*/
+
+        InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptUOJapanese.xml"); //prende dinamicamente il receiptOPJapanese.xml
+        InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptUOJapanese.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptUpdatedOrder" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receiptUOJapanese.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
-        File inputFile = xmlAbsPath.toFile();
+        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptUOJapanese.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
+        File inputFile = xmlAbsPath.toFile();*/
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(xmlDyPath);//prende il file xml dinamico
 
         //------TITOLI------
 
@@ -576,7 +589,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(inputFile);
+        StreamResult result = new StreamResult(pdfPath + "receiptUOJapanese.xml");
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -596,9 +609,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptUOJapanese.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(inputFile); // XML di input
+            Source src = new StreamSource(pdfPath + "receiptUOJapanese.xml"); // XML di input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -609,21 +622,24 @@ public class Receipts {
     private static void savingReceiptAfterOrderedTotalPrice(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception { //salvo lo scontrino dopo aver saputo il prezzo totale speso
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+        /*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*/
+
+        InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptTD.xml"); //prende dinamicamente il receiptOPJapanese.xml
+        InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptTD.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptTotalOrderPrice" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
         Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receiptTD.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
-        File inputFile = xmlAbsPath.toFile();
+        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptTD.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
+        File inputFile = xmlAbsPath.toFile();*/
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(xmlDyPath);//prende il file xml dinamico
 
         //------TITOLI------
 
@@ -763,7 +779,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(inputFile);
+        StreamResult result = new StreamResult(pdfPath + "receiptTD.xml");
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -781,9 +797,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptTD.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(inputFile); // XML di input
+            Source src = new StreamSource(pdfPath + "receiptTD.xml"); // XML di input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -794,19 +810,22 @@ public class Receipts {
     private static void savingJAReceiptAfterOrderedTotalPrice(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception { //salvo lo scontrino dopo aver saputo il prezzo totale speso
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";
+        /*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*/
+
+        InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptTDJapanese.xml"); //prende dinamicamente il receiptOPJapanese.xml
+        InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptTDJapanese.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptTotalOrderPrice" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
 
-        Path xmlAbsPath = Paths.get(xmlPath + "receiptTDJapanese.xml"); //mi prendo in considerazione l'xml della modifica ordine
-        File inputFile = xmlAbsPath.toFile();
+        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptTDJapanese.xml"); //mi prendo in considerazione l'xml della modifica ordine
+        File inputFile = xmlAbsPath.toFile();*/
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(inputFile);
+        Document doc = builder.parse(xmlDyPath);//prende il file xml dinamico
 
         //------VALORI------
 
@@ -888,7 +907,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(inputFile);
+        StreamResult result = new StreamResult(pdfPath + "receiptTDJapanese.xml");
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -906,9 +925,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(new File(xslPath + "styleReceiptTDJapanese.xsl")));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(inputFile); // XML di input
+            Source src = new StreamSource(pdfPath + "receiptTDJapanese.xml"); // XML di input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
