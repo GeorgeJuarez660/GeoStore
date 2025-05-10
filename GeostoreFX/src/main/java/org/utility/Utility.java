@@ -24,6 +24,8 @@ import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
@@ -496,5 +498,20 @@ public class Utility {
             });
             delay.play();
         }
+    }
+
+    //------------------CHECK INTERNET-----------------------
+
+    public static boolean checkInternet(){
+        boolean isConnected;
+
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress("8.8.8.8", 53), 2000); //cerca di connettere a google come prova
+            isConnected = true;
+        } catch (IOException e) {
+            isConnected = false;
+        }
+
+        return isConnected;
     }
 }
