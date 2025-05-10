@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.services.LoadPage;
@@ -12,6 +13,7 @@ import org.utility.Sounds;
 
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class GeostoreMain extends Application {
@@ -22,6 +24,7 @@ public class GeostoreMain extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/scenes/welcome.fxml"), resLang);
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("GeoStore");
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/images/geostore_icon.png")))); //legge l'img come icona
         stage.setScene(scene);
         stage.show();
         Sounds.soundOpen(); //genera il suono quando apre
