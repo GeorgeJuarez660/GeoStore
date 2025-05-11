@@ -223,7 +223,7 @@ public class Utility {
             LoadPage.answerScene("negative", "LOG-N", null);
         }
 
-        if(num>0){
+        if(num > 0){
             //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
             PauseTransition delay = new PauseTransition(Duration.seconds(3));
             delay.setOnFinished(event -> {

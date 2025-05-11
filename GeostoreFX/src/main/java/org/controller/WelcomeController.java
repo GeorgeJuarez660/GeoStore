@@ -31,7 +31,15 @@ public class WelcomeController {
 
         LoadPage.saveStage(event);
 
-        LoadPage.getFullScene("prepage", null);
+        LoadPage.answerScene("info", "WLC-I", null);
+
+        //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        delay.setOnFinished(event2 -> {
+            // Dopo 2 secondi, carica la terza scena
+            LoadPage.getFullScene("prepage", null);
+        });
+        delay.play();
     }
 
     @FXML

@@ -27,7 +27,7 @@ public class LoadPage {
     private static Stage savedStage; // Questo è il BorderPane di menu.fxml
 
     public static void saveStage(Event event) {
-        //carica lo stage per cambiare scene
+        //carica lo stage per cambiare scene mantenendo le dimensioni dalla finestra
         savedStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     }
 

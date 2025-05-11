@@ -36,8 +36,6 @@ public class Service {
     }
 
     public void loginUtente(Cliente user){
-        //TODO: inserire il check se l'utente trovato dalla query è un admin:
-        // se affermativo, allora viene restituito un messaggio d'errore indicando che si deve inserire il codice admin per loggarti
 
         int num = 0;
         if(user instanceof Amministratore){   //LOGIN ADMIN

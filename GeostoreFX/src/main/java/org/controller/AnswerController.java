@@ -25,6 +25,9 @@ public class AnswerController {
         String responseText = "";
 
         switch(answer) {
+            case "WLC-I":
+                response.setText(resLang.getString("welcome.infoSingleplayer"));
+                break;
             case "REG-Y":
                 response.setText(resLang.getString("answer.register.positive"));
                 break;
