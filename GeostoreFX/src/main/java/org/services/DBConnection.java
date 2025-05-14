@@ -17,14 +17,15 @@ import java.sql.SQLException;
 public class DBConnection {
     //Directory automatica del db
     private static final String currentDir = System.getProperty("user.dir");
-    private static final Path folder = Paths.get(currentDir + "/geostoreDB");
-    private static final Path file = folder.resolve("geostore.db");
     //private static final String URL = "jdbc:sqlite:" + currentDir + "/" + "geostore.db";
     //Directory fissa del db
     //private static final String URL = "jdbc:sqlite:C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/DB/geostore.db";
 
     //Metodo per ottenere la connessione al db
     public static Connection sqlConnect(){
+        Path folder = Paths.get(currentDir + "/geostoreDB");
+        Path file = folder.resolve("geostore.db");
+
         Connection connection = null;
 
         try{
