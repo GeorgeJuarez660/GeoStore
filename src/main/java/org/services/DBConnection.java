@@ -15,8 +15,8 @@ import java.sql.SQLException;
 
 
 public class DBConnection {
-    //Directory automatica del db
-    private static final String currentDir = System.getProperty("user.dir");
+    //Directory home automatica del db
+    private static final String currentDir = System.getProperty("user.home");
     //private static final String URL = "jdbc:sqlite:" + currentDir + "/" + "geostore.db";
     //Directory fissa del db
     //private static final String URL = "jdbc:sqlite:C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/DB/geostore.db";
@@ -44,7 +44,7 @@ public class DBConnection {
                 // Copia lo stream nel file temporaneo
                 Files.copy(inputDB, file, StandardCopyOption.REPLACE_EXISTING);
 
-                Utility.msgInf("GEOSTORE", "File db ccopiato nella seguente directory: " + folder);
+                Utility.msgInf("GEOSTORE", "File db copiato nella seguente directory: " + folder);
             }
 
             // Costruisci la connessione SQLite con il file temporaneo

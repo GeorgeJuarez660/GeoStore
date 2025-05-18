@@ -16,7 +16,7 @@ codice admin -> GSA742
 
 Per scaricare il file .exe dovete cliccare il file e in alto a dx troverete l'icona del download
 
-ATTENZIONE: assicuratevi di avere sia la versione JDK 22, altrimenti non viene eseguito il file exe, che una buona connessione internet
+ATTENZIONE: assicuratevi di avere sia la versione JDK 24, altrimenti non viene eseguito il file exe, che una buona connessione internet
 
 Invece, se volete scaricare l'intero codice del programma, è necessario:
 
