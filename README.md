@@ -1,7 +1,7 @@
 # GeoStore
 Programma che permette di simulare il funzionamento di uno store virtuale
 
-RELEASE v1.6.1
+RELEASE v1.0.1
 
 ora è stato creato un programma JavaFX
 
@@ -16,7 +16,11 @@ codice admin -> GSA742
 
 Per scaricare il file .exe dovete cliccare il file e in alto a dx troverete l'icona del download
 
-ATTENZIONE: assicuratevi di avere sia la versione JDK 24, altrimenti non viene eseguito il file exe, che una buona connessione internet
+ATTENZIONE: assicuratevi di avere sia la versione JDK 24 (altrimenti non viene eseguito il file exe), che una buona connessione internet
+
+Di seguito il link di JDK:
+
+https://www.oracle.com/it/java/technologies/downloads/#java24
 
 Invece, se volete scaricare l'intero codice del programma, è necessario:
 
