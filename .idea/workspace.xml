@@ -10,17 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/GeostoreMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/GeostoreMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/WelcomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/WelcomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/services/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/LoadingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/LoadingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/db/geostore.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/db/geostore.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/GeostoreFX-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/GeostoreFX-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/LoadingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/LoadingController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/db/geostore.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/db/geostore.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-GeostoreFX-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-GeostoreFX-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +82,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "featureDev/desktop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/db",
+    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/TechMedia/Programming/Java/GeoStoreFX",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36666667",
@@ -92,11 +91,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\TechMedia\Programming\Java\GeoStoreFX" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\TechMedia\Programming\Java\GeoStoreFX\src\main\resources\org\db" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\db" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\images" />
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\scenes" />
-      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\sounds" />
-      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\giorg\OneDrive\Desktop\App\TechMedia\Programming\Java\GeoStoreFX\src" />

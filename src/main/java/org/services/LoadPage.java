@@ -361,7 +361,7 @@ public class LoadPage {
             else if(controller instanceof InfoController){
                 InfoController infoController = (InfoController) controller;
                 infoController.save(fxmlLoader, user);
-                infoController.setVersion("1.6.0");
+                infoController.setVersion("1.0.1");
             }
             else if(controller instanceof ChooseTUserController){
                 ChooseTUserController chooseTUserController = (ChooseTUserController) controller;
