@@ -1,7 +1,7 @@
 # GeoStore
 Programma che permette di simulare il funzionamento di uno store virtuale
 
-RELEASE v1.5.1
+RELEASE v0.0.1
 
 nel programma GeostoreTerminal è stata introdotta la registrazione, dando la possibilità agli utenti nuovi di registrarsi
 
