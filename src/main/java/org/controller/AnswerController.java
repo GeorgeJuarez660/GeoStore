@@ -322,6 +322,9 @@ public class AnswerController {
             case "ODR-IRR":
                 response.setText(resLang.getString("answer.order.infoRefund"));
                 break;
+            case "ODR-AON":
+                response.setText(resLang.getString("answer.order.noAcceptedOrders"));
+                break;
             case "CAT-CY":
                 response.setText(resLang.getString("answer.category.createdCategory"));
                 break;

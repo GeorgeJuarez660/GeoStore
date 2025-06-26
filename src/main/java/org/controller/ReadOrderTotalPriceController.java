@@ -19,10 +19,7 @@ import org.utility.Utility;
 
 import java.net.URL;
 import java.sql.Date;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.fxml
 
@@ -51,8 +48,8 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
             user = admin;
             isAdmin = admin.getCodiceAdmin().getCodice() != null && !admin.getCodiceAdmin().getCodice().isEmpty() && !admin.getCodiceAdmin().getCodice().isBlank() &&
                     (admin.getCodiceAdmin().getCodice().contains("A")
-                    || admin.getCodiceAdmin().getCodice().contains("Q")
-                    || admin.getCodiceAdmin().getCodice().contains("O"));
+                            || admin.getCodiceAdmin().getCodice().contains("Q")
+                            || admin.getCodiceAdmin().getCodice().contains("O"));
         }
         else{
             user = utente;
@@ -83,9 +80,7 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
         Map<Integer, Ordine> orderList = new HashMap<>();
 
         ordine = service.ordiniTotaliGiornalieri(user, chooseDate);
-        if(saveRpt){
-            orderList = service.ottieniListaOrdiniAccettati(user, chooseDate);
-        }
+        orderList = service.ottieniListaOrdiniAccettati(user, chooseDate);
 
         if(ordine.getUtente() != null){
             try {
@@ -110,12 +105,17 @@ public class ReadOrderTotalPriceController {// Questo è il BorderPane di menu.f
             }
         }
 
-        if(saveRpt){
-            try {
-                Receipts.checkLangBeforeSavingReceiptTD(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+        if(Objects.nonNull(orderList) && !orderList.isEmpty()){ //se lista di ordini è stata accettata, allora procede con lo scontrino
+            if(saveRpt){
+                try {
+                    Receipts.checkLangBeforeSavingReceiptTD(ordine.getPrezzo_unitario(), ordine.getData_ordine(), orderList, user);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }
+        else{
+            Utility.sendResponse(0, "ODR-AO", user);
         }
 
     }

@@ -227,7 +227,7 @@ public class OrdineRepository implements ordiniCRUD {
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id = og.id )\n" +
-                " JOIN admin_codes ac ON(u.codice_id = ac.id )\n" +
+                " LEFT JOIN admin_codes ac ON(u.codice_id = ac.id )\n" +
                 "WHERE o.utente_id = ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -316,7 +316,7 @@ public class OrdineRepository implements ordiniCRUD {
                 " FROM ordini o JOIN utenti u ON(o.utente_id =u.id ) \n" +
                 " JOIN stato s ON(o.stato_id=s.id)\n" +
                 " JOIN prodotti og ON(o.prodotto_id =og.id )\n" +
-                " JOIN admin_codes ac ON(u.codice_id = ac.id )\n" +
+                " LEFT JOIN admin_codes ac ON(u.codice_id = ac.id )\n" +
                 "WHERE o.utente_id = ? AND og.nome LIKE ?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;

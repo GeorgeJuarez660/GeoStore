@@ -11,15 +11,56 @@
   <component name="ChangeListManager">
     <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/LoadingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/LoadingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/services/LoadPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/db/geostore.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/db/geostore.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeoStore.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GeoStore.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/GeostoreFX_jar/GeostoreFX.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Receipts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Receipts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOPJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTD.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTD.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTDJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUOJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOP.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOP.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOPJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTD.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTD.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTDJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUO.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUO.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUOJapanese.xsl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/GeostoreFX-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/GeostoreFX-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/LoadingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/LoadingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/db/geostore.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/db/geostore.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/services/LoadPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCodeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/OrdineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/OrdineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Receipts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Receipts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptOPJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTD.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptTD.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTDJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptUO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptUO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptUOJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOP.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOP.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOPJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTD.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTD.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTDJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUO.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUO.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUOJapanese.xsl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-GeostoreFX-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-GeostoreFX-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GeostoreTerminal" beforeDir="false" afterPath="$PROJECT_DIR$/../GeostoreTerminal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +123,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "featureDev/desktop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/giorg/OneDrive/Desktop/App/TechMedia/Programming/Java/GeoStoreFX",
+    "last_opened_file_path": "C:/Users/giorg/Progetti/Programming/Java/GeoStoreFX",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36666667",
@@ -463,11 +504,6 @@
           <option name="timeStamp" value="184" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="195" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java</url>
           <line>788</line>
           <option name="timeStamp" value="197" />
@@ -539,32 +575,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
-          <line>44</line>
+          <line>40</line>
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
-          <line>75</line>
+          <line>58</line>
           <option name="timeStamp" value="217" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
-          <line>89</line>
+          <line>72</line>
           <option name="timeStamp" value="219" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
-          <line>190</line>
+          <line>173</line>
           <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
-          <line>212</line>
+          <line>195</line>
           <option name="timeStamp" value="221" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
-          <line>187</line>
+          <line>170</line>
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -578,14 +614,39 @@
           <option name="timeStamp" value="224" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>606</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/DBConnection.java</url>
           <line>31</line>
-          <option name="timeStamp" value="225" />
+          <option name="timeStamp" value="235" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
           <line>406</line>
-          <properties class="org.services.LoadPage">
+          <properties class="org.services.LoadPage" method="getPartialSceneCRU">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

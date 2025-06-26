@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Date;
@@ -37,33 +38,15 @@ public class Receipts {
     //------------------RECEIPT-----------------------
 
     public static void checkLangBeforeSavingReceiptOP(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception {
-        //per prima cosa controllo se la lingua del programma è impostata in giapponese
-        if(Translater.getLanguage().equals("ja")){
-            savingJAReceiptAfterOrderedProduct(productName, uniPrice, quantity, user);
-        }
-        else{
-            savingReceiptAfterOrderedProduct(productName, uniPrice, quantity, user);
-        }
+        savingReceiptAfterOrderedProduct(productName, uniPrice, quantity, user);
     }
 
     public static void checkLangBeforeSavingReceiptUO(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception {
-        //per prima cosa controllo se la lingua del programma è impostata in giapponese
-        if(Translater.getLanguage().equals("ja")){
-            savingJAReceiptAfterUpdatedOrder(productName, uniPrice, quantityOld, quantityNew, itsRefund, user);
-        }
-        else{
-            savingReceiptAfterUpdatedOrder(productName, uniPrice, quantityOld, quantityNew, itsRefund, user);
-        }
+        savingReceiptAfterUpdatedOrder(productName, uniPrice, quantityOld, quantityNew, itsRefund, user);
     }
 
     public static void checkLangBeforeSavingReceiptTD(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception {
-        //per prima cosa controllo se la lingua del programma è impostata in giapponese
-        if(Translater.getLanguage().equals("ja")){
-            savingJAReceiptAfterOrderedTotalPrice(dailyTotalPrice, totalDate, listaOrdini, user);
-        }
-        else{
-            savingReceiptAfterOrderedTotalPrice(dailyTotalPrice, totalDate, listaOrdini, user);
-        }
+        savingReceiptAfterOrderedTotalPrice(dailyTotalPrice, totalDate, listaOrdini, user);
     }
 
 
@@ -78,7 +61,7 @@ public class Receipts {
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
-        Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+        Locale locale = new Locale(Translater.getLanguage().equals("ja") ? "en" : Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
         /*Path xmlAbsPath = Paths.get(xmlDyPath); //dalla directory vede se esiste il file cosi lo converte
@@ -130,7 +113,7 @@ public class Receipts {
         // Modifica il valore di un nodo specifico
         nodeList = doc.getElementsByTagName("colonnaDT"); //in questo caso modifico il titolo id documento
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(resLang.getString("receipt.id"));
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id") + " " + IDReceipt);
         }
 
         // Modifica il valore di un nodo specifico
@@ -218,7 +201,7 @@ public class Receipts {
         }
     }
 
-    private static void savingJAReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
+    /*private static void savingJAReceiptAfterOrderedProduct(String productName, BigDecimal uniPrice, Integer quantity, Utente user) throws Exception { //salvo lo scontrino dopo l'ordinazione del prodotto
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
         //String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
@@ -230,8 +213,8 @@ public class Receipts {
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptOrderedProduct" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
 
-        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptOPJapanese.xml"); //mi prendo in considerazione l'xml giapponese dell'ordinazione prodotto
-        File inputFile = xmlAbsPath.toFile();*/
+        *//*Path xmlAbsPath = Paths.get(xmlPath + "receiptOPJapanese.xml"); //mi prendo in considerazione l'xml giapponese dell'ordinazione prodotto
+        File inputFile = xmlAbsPath.toFile();*//*
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -315,7 +298,7 @@ public class Receipts {
             transformer2.transform(src, res);
             System.out.println("PDF generato con successo.");
         }
-    }
+    }*/
 
     private static void savingReceiptAfterUpdatedOrder(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception{ //salvo lo scontrino dopo la modifica dell'ordine
         //mi setto il path dei pdf, xml e xsl
@@ -328,7 +311,7 @@ public class Receipts {
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptUpdatedOrder" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
-        Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+        Locale locale = new Locale(Translater.getLanguage().equals("ja") ? "en" : Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
         /*Path xmlAbsPath = Paths.get(xmlPath + "receiptUO.xml"); //mi prendo in considerazione l'xml della modifica ordine
@@ -385,7 +368,7 @@ public class Receipts {
         // Modifica il valore di un nodo specifico
         nodeList = doc.getElementsByTagName("colonnaDT"); //in questo caso modifico il titolo id documento
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(resLang.getString("receipt.id"));
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id") + " " + IDReceipt);
         }
 
         // Modifica il valore di un nodo specifico
@@ -460,7 +443,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(pdfPath + "receiptUO.xml");
+        StreamResult result = new StreamResult(pdfPath + "receiptUO.xml"); //salva il nuovo xml nella stessa directory del pdf
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -480,9 +463,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));//prende come stylesheet l'XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(pdfPath + "receiptUO.xml"); // XML di input
+            Source src = new StreamSource(new File(pdfPath + "receiptUO.xml")); // prende l'XML modificato come input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -490,11 +473,11 @@ public class Receipts {
         }
     }
 
-    private static void savingJAReceiptAfterUpdatedOrder(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception{ //salvo lo scontrino dopo la modifica dell'ordine
+    /*private static void savingJAReceiptAfterUpdatedOrder(String productName, BigDecimal uniPrice, Integer quantityOld, Integer quantityNew, boolean itsRefund, Utente user) throws Exception{ //salvo lo scontrino dopo la modifica dell'ordine
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        /*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*/
+        *//*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*//*
 
         InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptUOJapanese.xml"); //prende dinamicamente il receiptOPJapanese.xml
         InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptUOJapanese.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
@@ -502,8 +485,8 @@ public class Receipts {
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptUpdatedOrder" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
 
-        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptUOJapanese.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
-        File inputFile = xmlAbsPath.toFile();*/
+        *//*Path xmlAbsPath = Paths.get(xmlPath + "receiptUOJapanese.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
+        File inputFile = xmlAbsPath.toFile();*//*
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -617,7 +600,7 @@ public class Receipts {
             transformer2.transform(src, res);
             System.out.println("PDF generato con successo.");
         }
-    }
+    }*/
 
     private static void savingReceiptAfterOrderedTotalPrice(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception { //salvo lo scontrino dopo aver saputo il prezzo totale speso
         //mi setto il path dei pdf, xml e xsl
@@ -630,7 +613,7 @@ public class Receipts {
 
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptTotalOrderPrice" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
-        Locale locale = new Locale(Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
+        Locale locale = new Locale(Translater.getLanguage().equals("ja") ? "en" : Translater.getLanguage()); // Setti il linguaggio di default da prendere il resource
         ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale); //prende la risorsa dove ci sono i messaggi già citati
 
         /*Path xmlAbsPath = Paths.get(xmlPath + "receiptTD.xml"); //mi prendo in considerazione l'xml giapponese della modifica ordine
@@ -682,7 +665,7 @@ public class Receipts {
         // Modifica il valore di un nodo specifico
         nodeList = doc.getElementsByTagName("colonnaDT"); //in questo caso modifico il titolo id documento
         if (nodeList.getLength() > 0) {
-            nodeList.item(0).setTextContent(resLang.getString("receipt.id"));
+            nodeList.item(0).setTextContent(resLang.getString("receipt.id") + " " + IDReceipt);
         }
 
         // Modifica il valore di un nodo specifico
@@ -779,7 +762,7 @@ public class Receipts {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "no");//evita di creare gli spazi
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(pdfPath + "receiptTD.xml");
+        StreamResult result = new StreamResult(pdfPath + "receiptTD.xml"); //salva il nuovo xml nella stessa directory del pdf
         transformer.transform(source, result);
 
         System.out.println("XML modificato con successo.");
@@ -797,9 +780,9 @@ public class Receipts {
 
             // Trasformazione XSLT: XML -> XSL-FO
             TransformerFactory factory2 = TransformerFactory.newInstance();
-            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));// XSLT file che trasforma XML in XSL-FO
+            Transformer transformer2 = factory2.newTransformer(new StreamSource(xslDyPath));//prende come stylesheet l'XSLT file che trasforma XML in XSL-FO
 
-            Source src = new StreamSource(pdfPath + "receiptTD.xml"); // XML di input
+            Source src = new StreamSource(new File(pdfPath + "receiptTD.xml")); // XML di input
             Result res = new SAXResult(fop.getDefaultHandler()); // PDF di output
 
             transformer2.transform(src, res);
@@ -807,11 +790,11 @@ public class Receipts {
         }
     }
 
-    private static void savingJAReceiptAfterOrderedTotalPrice(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception { //salvo lo scontrino dopo aver saputo il prezzo totale speso
+    /*private static void savingJAReceiptAfterOrderedTotalPrice(BigDecimal dailyTotalPrice, Timestamp totalDate, Map<Integer, Ordine> listaOrdini, Utente user) throws Exception { //salvo lo scontrino dopo aver saputo il prezzo totale speso
         //mi setto il path dei pdf, xml e xsl
         String pdfPath = System.getProperty("user.dir").replace("\\", "/") + "/";
-        /*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
-        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*/
+        *//*String xmlPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/";
+        String xslPath = "C:/Users/giorg/OneDrive/Desktop/App/G&P/Programming/Java/GeostoreFX/src/main/resources/org/xml/stylesheets/";*//*
 
         InputStream xmlDyPath = Receipts.class.getResourceAsStream("/org/xml/receiptTDJapanese.xml"); //prende dinamicamente il receiptOPJapanese.xml
         InputStream xslDyPath = Receipts.class.getResourceAsStream("/org/xml/stylesheets/styleReceiptTDJapanese.xsl"); //prende dinamicamente il styleReceiptOPJapanese.xsl
@@ -819,8 +802,8 @@ public class Receipts {
         String IDReceipt = Utility.getFirstThreeLettersAndLastThreeNumbers(); //recupero l'id random
         String pdfNameOrderedProduct = "receiptTotalOrderPrice" + LocalDate.now().toString().replace("-", "") + IDReceipt + ".pdf";
 
-        /*Path xmlAbsPath = Paths.get(xmlPath + "receiptTDJapanese.xml"); //mi prendo in considerazione l'xml della modifica ordine
-        File inputFile = xmlAbsPath.toFile();*/
+        *//*Path xmlAbsPath = Paths.get(xmlPath + "receiptTDJapanese.xml"); //mi prendo in considerazione l'xml della modifica ordine
+        File inputFile = xmlAbsPath.toFile();*//*
 
         // Parsing XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -933,5 +916,5 @@ public class Receipts {
             transformer2.transform(src, res);
             System.out.println("PDF generato con successo.");
         }
-    }
+    }*/
 }
