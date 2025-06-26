@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="555.0" style="-fx-border-radius: 15; -fx-border-color: #306FDB; -fx-background-color: transparent; -fx-border-width: 2;" stylesheets="@../../css/font_geostore.css, @../../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.OrderItemController">
+   <children>
+      <VBox prefHeight="172.0" prefWidth="445.0" style="-fx-background-radius: 15 0 0 15; -fx-background-color: #D3F3FF;">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <children>
+            <HBox alignment="TOP_CENTER" spacing="20.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="180.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="29.0" styleClass="label-font-min3-title" text="%item.id" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="id" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="67.0" styleClass="label-font-min3-title" text="%item.order.email" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="userEmail" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="95.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="88.0" styleClass="label-font-min3-title" text="%item.order.product" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="productName" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="124.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="67.0" styleClass="label-font-min3-title" text="%item.order.date" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="orderDate" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="137.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="75.0" styleClass="label-font-min3-title" text="%item.order.status" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="status" prefHeight="100.0" prefWidth="120.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="146.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="86.0" styleClass="label-font-min3-title" text="%item.order.quantity" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="orderQuantity" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="151.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="87.0" styleClass="label-font-min3-title" text="%item.order.price" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="productPrice" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children></VBox>
+                  <VBox prefHeight="200.0" prefWidth="180.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="95.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="124.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="137.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="146.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="151.0" prefHeight="100.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="172.0" prefWidth="167.0" style="-fx-background-radius: 0 15 15 0; -fx-background-color: #D3F3FF;">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="170.0" prefWidth="136.0" spacing="13.0">
+               <children>
+                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updating" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="action" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/update.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleting" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="delete" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="555.0" style="-fx-border-radius: 15; -fx-border-color: #306FDB; -fx-background-color: transparent; -fx-border-width: 2;" stylesheets="@../../css/font_geostore.css, @../../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.UserItemController">
+   <children>
+      <VBox prefHeight="172.0" prefWidth="445.0" style="-fx-background-radius: 15 0 0 15; -fx-background-color: #D3F3FF;">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <children>
+            <HBox alignment="TOP_CENTER" spacing="20.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="180.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="29.0" styleClass="label-font-min3-title" text="%item.id" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="id" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="45.0" styleClass="label-font-min3-title" text="%item.user.name" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="name" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="95.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="74.0" styleClass="label-font-min3-title" text="%item.user.surname" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="surname" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="124.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="67.0" styleClass="label-font-min3-title" text="%item.user.gender" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="gender" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="137.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="77.0" styleClass="label-font-min3-title" text="%item.user.bornDate" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="bornDate" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="146.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="88.0" styleClass="label-font-min3-title" text="%item.user.phoneNumber" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="phoneNumber" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="151.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="104.0" styleClass="label-font-min3-title" text="%item.user.address" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="address" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children></VBox>
+                  <VBox prefHeight="200.0" prefWidth="180.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="58.0" styleClass="label-font-min3-title" text="%item.user.email" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="email" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="86.0" styleClass="label-font-min3-title" text="%item.user.password" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="password" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="95.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="58.0" styleClass="label-font-min3-title" text="%item.user.code" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="adminCode" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="124.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="24.0" prefWidth="141.0" styleClass="label-font-min3-title" text="%item.user.wallet" textFill="#0495cd" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="wallet" prefHeight="100.0" prefWidth="100.0" styleClass="label-font-min3-title" text="XXX" textFill="#03A8E8" wrapText="true">
+                                 <font>
+                                    <Font size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="137.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="146.0" prefHeight="100.0" prefWidth="200.0" />
+                        <HBox layoutX="10.0" layoutY="151.0" prefHeight="100.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="172.0" prefWidth="167.0" style="-fx-background-radius: 0 15 15 0; -fx-background-color: #D3F3FF;">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="170.0" prefWidth="136.0" spacing="13.0">
+               <children>
+                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updating" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; " styleClass="action" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/update.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleting" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7; " styleClass="delete" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

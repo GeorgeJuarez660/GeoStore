@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="240.0" prefWidth="310.0" style="-fx-background-color: #3f51b5; -fx-background-radius: 12;" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.CodeMaskController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="310.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%mask.code.name" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <TextField fx:id="code" onMouseEntered="#showPopOverCode" onMouseExited="#hidePopOver" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 5;" styleClass="label-font-min-title">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="238.0" prefWidth="310.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="78.0" styleClass="label-font" text="%mask.code.description" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+            <TextArea fx:id="description" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="208.0" prefWidth="208.0" styleClass="label-font-min-title" wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextArea>
+         </children>
+      </HBox>
+   </children>
+</VBox>

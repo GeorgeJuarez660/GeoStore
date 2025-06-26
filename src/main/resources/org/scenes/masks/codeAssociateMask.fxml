@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="101.0" prefWidth="282.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.CodeAssociateMaskController">
+   <children>
+      <HBox alignment="TOP_CENTER" maxWidth="1000.0" prefHeight="101.0" prefWidth="60.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="82.0" prefWidth="260.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.code.name" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="adminCode" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" prefWidth="164.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="92.0" styleClass="label-font-min2-title" text="%mask.code.email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="userEmail" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" prefWidth="164.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

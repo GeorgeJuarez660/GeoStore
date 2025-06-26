@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ChoiceBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="582.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.ProductMaskController">
+   <children>
+      <HBox alignment="TOP_CENTER" maxWidth="1000.0" prefHeight="250.0" prefWidth="560.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="242.0" prefWidth="260.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.product.name" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="name" prefHeight="25.0" prefWidth="164.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.product.price" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="price" onKeyTyped="#patternNumberPrice" prefHeight="25.0" prefWidth="164.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label styleClass="label-font-min3-title" text="%mask.product.availability" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="8.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="available" prefWidth="130.0" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min3-title" text="%mask.product.category" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="category" prefHeight="26.0" prefWidth="164.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min3-title" text="%mask.product.material" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="material" prefHeight="25.0" prefWidth="164.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="260.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="120.0" styleClass="label-font-min3-title" text="%mask.product.quantity" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="quantity" onKeyTyped="#patternNumberQuantity" prefHeight="26.0" prefWidth="164.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0" />
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0" />
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0" />
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

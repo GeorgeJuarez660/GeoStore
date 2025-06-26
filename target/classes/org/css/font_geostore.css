@@ -1,0 +1,83 @@
+.label-font {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+}
+
+.label-font-max-btn {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 14;
+}
+
+.label-font-min-btn {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 10;
+}
+
+.label-font-min2-btn {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 8;
+}
+
+.label-font-max-title {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 24;
+}
+
+.label-font-min-title {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 10;
+}
+
+.label-font-min2-title {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 11;
+}
+.label-font-min3-title {
+      -fx-font-family: 'Press Start 2P', system-ui;
+      -fx-font-weight: 400;
+      -fx-font-size: 9;
+}
+
+.button{
+      -fx-cursor: hand;
+}
+
+/*CSS POPOVER*/
+.popover {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: white;
+    -fx-border-width: 0;
+    -fx-border-radius: 10;
+    -fx-pref-width: 130;
+    -fx-pref-height: 10;
+    -fx-opacity: 0.8;
+}
+
+/*CHECKBOX STYLIZE
+.custom-checkbox {
+ -fx-font-family: 'Press Start 2P', system-ui;
+    -fx-font-size: 9;
+    -fx-text-fill: #184a97; *//* Blu *//*
+}
+
+.custom-checkbox .box {
+    -fx-border-color: #184a97;
+    -fx-border-width: 2px;
+    -fx-background-color: white;
+    -fx-border-radius: 5px;
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+}
+
+.custom-checkbox:selected .box {
+    -fx-background-color: #184a97;
+}*/
+
+

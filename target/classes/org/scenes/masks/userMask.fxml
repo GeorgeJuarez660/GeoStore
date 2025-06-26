@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="582.0" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.masks.UserMaskController">
+   <children>
+      <HBox alignment="TOP_CENTER" maxWidth="1000.0" prefHeight="250.0" prefWidth="560.0" spacing="20.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 12;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="242.0" prefWidth="260.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.name" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="name" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.surname" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="surname" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label styleClass="label-font-min2-title" text="%mask.user.gender" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="gender" onMouseEntered="#showPopOverGender" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.bornDate" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="bornDate" onMouseEntered="#showPopOverBornDate" onMouseExited="#hidePopOver" prefHeight="26.0" prefWidth="166.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.phoneNumber" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="phoneNumber" onKeyTyped="#patternPhoneNumber" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="260.0" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="24.0" prefWidth="120.0" styleClass="label-font-min2-title" text="%mask.user.address" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="address" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="26.0" prefWidth="154.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.email" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="email" onMouseEntered="#showPopOverEmail" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="41.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label styleClass="label-font-min2-title" text="%mask.user.password" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="password" prefHeight="25.0" style="-fx-background-radius: 7;" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" styleClass="label-font-min2-title" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="72.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min2-title" text="%mask.user.code" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="adminCode" prefHeight="26.0" prefWidth="164.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="104.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font-min3-title" text="%mask.user.wallet" textAlignment="RIGHT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="wallet" onKeyTyped="#patternNumberWallet" prefHeight="26.0" prefWidth="144.0" style="-fx-background-radius: 7;" styleClass="label-font-min2-title">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

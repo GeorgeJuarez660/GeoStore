@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="555.0" style="-fx-border-radius: 15; -fx-border-color: #306FDB; -fx-background-color: transparent; -fx-border-width: 2;" stylesheets="@../../css/font_geostore.css, @../../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.NewsItemController">
+   <children>
+      <VBox prefHeight="72.0" prefWidth="445.0" style="-fx-background-radius: 15 0 0 15; -fx-background-color: #D3F3FF;">
+         <children>
+            <Label fx:id="date" alignment="TOP_LEFT" styleClass="label-font-min-title" text="DD/MM/YYYY:" textFill="#0495cd" wrapText="true">
+               <VBox.margin>
+                  <Insets left="10.0" top="2.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="text" alignment="TOP_LEFT" styleClass="label-font-min-title" text="Lorem ispum" textFill="#03a8e8" wrapText="true">
+               <VBox.margin>
+                  <Insets left="10.0" top="2.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+      <VBox prefHeight="72.0" prefWidth="167.0" style="-fx-background-radius: 0 15 15 0; -fx-background-color: #D3F3FF;">
+         <children>
+            <HBox alignment="BOTTOM_CENTER" prefWidth="200.0" spacing="13.0">
+               <children>
+                  <Label fx:id="id" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="24.0" styleClass="label-font-min-tile" text="#2" textFill="#03a8e8" visible="false" wrapText="true" />
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="13.0">
+               <children>
+                  <Button fx:id="update" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updating" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="action" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/update.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#deleting" prefHeight="35.0" prefWidth="40.0" style="-fx-background-radius: 7;" styleClass="delete" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

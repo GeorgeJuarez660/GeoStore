@@ -1,0 +1,67 @@
+package org.controller;
+
+import javafx.animation.PauseTransition;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.services.LoadPage;
+import org.utility.Sounds;
+import org.utility.Utility;
+
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.ResourceBundle;
+
+public class GeostoreMain extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        Locale locale = new Locale("it"); // Setti il linguaggio di default da prendere il resource
+        ResourceBundle resLang = ResourceBundle.getBundle("org.languages.language", locale);
+
+
+        FXMLLoader fxmlLoader;
+        if(Utility.checkInternet()){ //controlla se c'è connessione
+            Utility.msgInf("GEOSTORE", "C'è connessione");
+            fxmlLoader = new FXMLLoader(getClass().getResource("/org/scenes/welcome.fxml"), resLang);
+        }
+        else{
+            Utility.msgInf("GEOSTORE", "Non c'è connessione");
+            fxmlLoader = new FXMLLoader(getClass().getResource("/org/scenes/noInternet.fxml"), resLang);
+        }
+
+        Font.loadFont(getClass().getResourceAsStream("/org/fonts/PressStart2P-Regular.ttf"), 12); //inizio a caricare il font con il size default per le scene
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("GeoStore");
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/org/images/geostore_icon.png")))); //legge l'img come icona
+        stage.setScene(scene);
+        stage.show();
+        Sounds.soundOpen(); //genera il suono quando apre
+
+        //regola la chiusura del programma
+        stage.setOnCloseRequest(event -> {
+            event.consume(); //utilizzato per ritardare la chiusura imminente
+            Sounds.soundClose(); //genera il suono quando chiude
+
+            LoadPage.saveStageForClose(event);
+            LoadPage.getFullScene("goodbye", null);
+
+            //PauseTransition serve per ritardare il caricamento della nuova scena, permettendo di mostrare temporaneamente la precedente (s-1)
+            PauseTransition delay = new PauseTransition(Duration.seconds(3));
+            delay.setOnFinished(event2 -> {
+                // Dopo 3 secondi, carica la scena goodbye
+                Platform.exit();
+            });
+            delay.play();
+        });
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}

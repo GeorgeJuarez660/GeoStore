@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center;" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.PrepageController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox maxWidth="1000.0" prefWidth="560.0" spacing="20.0">
+               <children>
+                  <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/come_back_sym.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="96.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%prepage.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="162.0" spacing="60.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="330.0" spacing="26.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="320.0" styleClass="label-font" text="%prepage.register.title" textAlignment="CENTER" textFill="#3f51b5" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Button id="purple" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#register" prefHeight="103.0" prefWidth="280.0" style=" -fx-background-radius: 20;" textAlignment="CENTER" textFill="WHITE">
+                           <graphic>
+                              <VBox alignment="CENTER" prefHeight="164.0" prefWidth="194.0" spacing="10.0">
+                                 <children>
+                                    <ImageView fitHeight="47.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/new_user_bit.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%prepage.register" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </graphic></Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="330.0" spacing="16.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="320.0" styleClass="label-font" text="%prepage.login.title" textAlignment="CENTER" textFill="#03a8e8" wrapText="true">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                        <Button styleClass="lightBlue" contentDisplay="CENTER" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="50.0" prefWidth="261.0" style=" -fx-background-radius: 15;" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="label-font" />
+                              <String fx:value="text_field_white-font" />
+                           </styleClass>
+                           <graphic>
+                              <HBox alignment="CENTER" prefHeight="49.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/user_bit.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="160.0" styleClass="label-font" text="%prepage.login.admin" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </Button>
+                        <Button styleClass="lightBlue" contentDisplay="CENTER" layoutX="45.0" layoutY="71.0" mnemonicParsing="false" onAction="#loginCliente" prefHeight="50.0" prefWidth="261.0" style=" -fx-background-radius: 15;" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="label-font" />
+                              <String fx:value="text_field_white-font" />
+                           </styleClass>
+                           <graphic>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/user_bit.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="160.0" styleClass="label-font" text="%prepage.login.user" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="55.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/geostore_sign.png" />
+               </image>
+            </ImageView>
+         </children></HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #306FDB;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

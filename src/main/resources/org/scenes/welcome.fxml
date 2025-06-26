@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.WelcomeController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/geostore_sign.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="83.0" prefWidth="750.0" styleClass="label-font-max-title" text="%welcome.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true">
+               <font>
+                  <Font name="Press Start 2P" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="173.0" prefWidth="800.0" spacing="30.0">
+               <children>
+                  <Button fx:id="enter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goesToPrepage" prefHeight="27.0" prefWidth="236.0" style="-fx-background-radius: 50;"  styleClass="label-font-max-btn" text="%welcome.enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Press Start 2P" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="22.0" prefWidth="154.0" style="-fx-background-radius: 50;" styleClass="label-font" text="%welcome.exit" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="80.0" prefWidth="800.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="119.0" onMouseClicked="#goesToChangeLanguage" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                     <image>
+                        <Image url="@../images/world.gif" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

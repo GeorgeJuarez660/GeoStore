@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.OrderTotalPriceController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="55.0">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/geostore_sign.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="70.0">
+         <children>
+            <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/come_back_sym.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="50.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%calculate.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" minWidth="20.0" prefWidth="610.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <DatePicker fx:id="date" maxWidth="600.0" minWidth="20.0" prefHeight="38.0" prefWidth="579.0" promptText="DD/MM/YYYY" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 1; -fx-border-color: #2352A4; -fx-background-color: #D3F3FF;" styleClass="label-font" />
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#calculate" prefHeight="30.0" prefWidth="270.0" style="-fx-background-radius: 7; " text="%calculate.button" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="label-font" />
+                  <String fx:value="action" />
+               </styleClass></Button>
+            <CheckBox fx:id="saveRpt" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" styleClass="label-font-min3-title" text="%receipt.checkBox" textFill="#2352a4" wrapText="true" />
+         </children>
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

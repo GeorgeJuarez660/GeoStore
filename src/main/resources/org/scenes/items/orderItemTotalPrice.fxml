@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="241.0" prefWidth="300.0" style="-fx-background-color: #D3F3FF; -fx-background-radius: 12; -fx-border-color: #2352A4; -fx-border-radius: 12; -fx-border-width: 2;" stylesheets="@../../css/font_geostore.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.items.OrderTotalPriceItemController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="241.0" prefWidth="290.0" spacing="10.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="270.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label styleClass="label-font" text="%item.calculate.name" wrapText="true" textFill="#0495cd"/>
+                        <Label fx:id="userName" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="XXX" wrapText="true" textFill="#03A8E8">
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="132.0" styleClass="label-font" text="%item.calculate.surname" wrapText="true" textFill="#0495cd"/>
+                        <Label fx:id="userSurname" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="XXX" wrapText="true" textFill="#03A8E8">
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="211.0" styleClass="label-font" text="%item.calculate.date" wrapText="true" textFill="#0495cd"/>
+                        <Label fx:id="totalOrderDate" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="X" wrapText="true" textFill="#03A8E8">
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="168.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="26.0" prefWidth="252.0" styleClass="label-font" text="%item.calculate.price" wrapText="true" textFill="#0495cd" />
+                        <Label fx:id="totalOrderPrice" prefHeight="35.0" prefWidth="200.0" styleClass="label-font" text="123 C" wrapText="true" textFill="#03A8E8">
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="610.0" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.ChooseTCodeController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="55.0">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/geostore_sign.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="70.0">
+         <children>
+            <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style=" -fx-background-radius: 6;" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/come_back_sym.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="50.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%choose.code.title" textAlignment="CENTER" textFill="#2352a4" wrapText="true" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" minWidth="20.0" prefHeight="350.0" prefWidth="610.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="350.0" prefWidth="610.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" prefHeight="175.0" prefWidth="610.0">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createCode" prefHeight="120.0" prefWidth="250.0" style=" -fx-background-radius: 10;" text="%choose.code.create" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <styleClass>
+                              <String fx:value="label-font" />
+                              <String fx:value="purple" />
+                           </styleClass></Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="175.0" prefWidth="610.0" spacing="50.0">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookAssociatedCodes" prefHeight="120.0" prefWidth="250.0" style=" -fx-background-radius: 10;" text="%choose.code.lookAssociatedUsers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <styleClass>
+                              <String fx:value="label-font" />
+                              <String fx:value="purple" />
+                           </styleClass></Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lookCodes" prefHeight="120.0" prefWidth="250.0" style=" -fx-background-radius: 10;" text="%choose.code.lookCodes" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <styleClass>
+                              <String fx:value="label-font" />
+                              <String fx:value="purple" />
+                           </styleClass></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

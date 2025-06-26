@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="GeostoreFX:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="AppJavaFx: creating example">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeoStore.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GeoStore.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/GeostoreFX_jar/GeostoreFX.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTCodeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ChooseTOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/utility/Receipts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/utility/Receipts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_it.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptOPJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTD.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTD.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptTDJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/receiptUOJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOP.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOP.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptOPJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTD.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTD.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptTDJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUO.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUO.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/xml/stylesheets/styleReceiptUOJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/GeostoreFX-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/GeostoreFX-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/AnswerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTCodeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ChooseTOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ChooseTOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/controller/ReadOrderTotalPriceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_it.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/languages/language_ja.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/models/OrdineRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/models/OrdineRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/utility/Receipts.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/utility/Receipts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptOPJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTD.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptTD.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptTDJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptUO.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/receiptUO.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/receiptUOJapanese.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOP.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOP.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptOPJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTD.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTD.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptTDJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUO.xsl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUO.xsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/xml/stylesheets/styleReceiptUOJapanese.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-GeostoreFX-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-GeostoreFX-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GeostoreTerminal" beforeDir="false" afterPath="$PROJECT_DIR$/../GeostoreTerminal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="desktop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="0f21a078-c9f4-47d1-b6aa-3d775a060413" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/22-ea+11/javafx-fxml-22-ea+11-win.jar!/javafx/fxml/FXMLLoader.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/22-ea+11/javafx-graphics-22-ea+11-win.jar!/javafx/scene/image/Image.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2neJgjihammYnadrtQgd3MubxO1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GeostoreMain.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainPreview.executor": "Run",
+    "Application.Second main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Maven.GeostoreFX [clean].executor": "Run",
+    "Maven.GeostoreFX [install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "featureDev/desktop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/giorg/Progetti/Programming/Java/GeoStoreFX",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.36666667",
+    "settings.editor.selected.configurable": "settings.sync"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\TechMedia\Programming\Java\GeoStoreFX" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\TechMedia\Programming\Java\GeoStoreFX\src\main\resources\org\db" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\db" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\images" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\scenes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\TechMedia\Programming\Java\GeoStoreFX\src" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml\_stylesheets" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml\_rules" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\xml" />
+      <recent name="C:\Users\giorg\OneDrive\Desktop\App\G&amp;P\Programming\Java\GeostoreFX\src\main\resources\org\language" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.controller" />
+      <recent name="org.controller.items" />
+      <recent name="org.controller.masks" />
+      <recent name="org.models" />
+      <recent name="org.utility" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Second main">
+    <configuration name="GeostoreMain" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.controller.GeostoreMain" />
+      <module name="GeostoreFX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Second main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.controller.Start" />
+      <module name="GeostoreFX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GeostoreMain" />
+      <item itemvalue="Application.Second main" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8273ca0a-1299-4b65-b52d-47dc6a793eae" name="Changes" comment="" />
+      <created>1729327723140</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729327723140</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Desktop">
+      <option name="closed" value="true" />
+      <created>1729327859604</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729327859604</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Desktop">
+      <option name="closed" value="true" />
+      <created>1729328109104</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729328109104</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Desktop">
+      <option name="closed" value="true" />
+      <created>1729328194570</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729328194570</updated>
+    </task>
+    <task id="LOCAL-00004" summary="managing">
+      <option name="closed" value="true" />
+      <created>1729328955253</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729328955253</updated>
+    </task>
+    <task id="LOCAL-00005" summary="managing">
+      <option name="closed" value="true" />
+      <created>1729329860766</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729329860766</updated>
+    </task>
+    <task id="LOCAL-00006" summary="AppJavaFx: creating example">
+      <option name="closed" value="true" />
+      <created>1729336256606</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1729336256606</updated>
+    </task>
+    <task id="LOCAL-00007" summary="AppJavaFx: creating example">
+      <option name="closed" value="true" />
+      <created>1729356096359</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1729356096359</updated>
+    </task>
+    <task id="LOCAL-00008" summary="AppJavaFx: creating example">
+      <option name="closed" value="true" />
+      <created>1729415483968</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729415483968</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Desktop" />
+    <MESSAGE value="managing" />
+    <MESSAGE value="AppJavaFx: creating example" />
+    <option name="LAST_COMMIT_MESSAGE" value="AppJavaFx: creating example" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/NewsMaskController.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadProfileUserController.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ChooseTUserController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>162</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>253</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>331</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
+          <line>434</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/OrderTotalPriceController.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/OrderTotalPriceController.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadProductsByCMController.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/UtenteRepository.java</url>
+          <line>484</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/UtenteRepository.java</url>
+          <line>470</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/UserMaskController.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/CodiceRepository.java</url>
+          <line>356</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/CodeAssociateMaskController.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/CodiceRepository.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/UtenteRepository.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/UtenteRepository.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/HomepageController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ChooseTCategoryController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>313</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>291</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/NewsMaskController.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/WelcomeController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/UserMaskController.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/UserMaskController.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Prodotto.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/UserMaskController.java</url>
+          <line>262</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/UserMaskController.java</url>
+          <line>324</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/LanguageController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/Utente.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/CreateController.java</url>
+          <line>317</line>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/CreateController.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
+          <line>454</line>
+          <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/CreateController.java</url>
+          <line>309</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/items/NewsItemController.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java</url>
+          <line>788</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
+          <line>516</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/UtenteRepository.java</url>
+          <line>290</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/UserMaskController.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="205" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
+          <line>495</line>
+          <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Utility.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/Service.java</url>
+          <line>644</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/masks/OrderMaskController.java</url>
+          <line>209</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/StatusRepository.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="210" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java</url>
+          <line>670</line>
+          <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/LanguageController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/LanguageController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="214" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/LanguageController.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="215" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="216" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="217" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="219" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>173</line>
+          <option name="timeStamp" value="220" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>195</line>
+          <option name="timeStamp" value="221" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="222" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/GeostoreMain.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="223" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/DBConnection.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="224" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/utility/Receipts.java</url>
+          <line>606</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadOrderTotalPriceController.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/controller/ReadController.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/models/OrdineRepository.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/DBConnection.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="235" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/services/LoadPage.java</url>
+          <line>406</line>
+          <properties class="org.services.LoadPage" method="getPartialSceneCRU">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GeostoreFX$Main.ic" NAME="Main Coverage Results" MODIFIED="1733950978556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  </component>
+</project>

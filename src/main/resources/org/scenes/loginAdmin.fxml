@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="800.0" maxWidth="1000.0" minHeight="0.0" minWidth="200.0" prefHeight="600.0" prefWidth="800.0" style="-fx-alignment: center;" stylesheets="@../css/font_geostore.css, @../css/color_geostore.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.controller.AccessController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/geostore_sign.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="76.0" prefWidth="800.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="label-font" text="%access.login.admin.title" textAlignment="CENTER" textFill="#03a8e8" wrapText="true" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox maxWidth="360.0" prefWidth="360.0" spacing="20.0">
+               <children>
+                  <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" prefHeight="22.0" prefWidth="46.0" style="-fx-background-radius: 6;" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/come_back_sym.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxWidth="360.0" prefHeight="170.0" prefWidth="360.0" style="-fx-background-color: #03A8E8; -fx-background-radius: 15;">
+               <children>
+                  <VBox alignment="CENTER" prefWidth="310.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="31.0" spacing="5.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%access.email" textAlignment="RIGHT" textFill="WHITE" />
+                              <TextField fx:id="email" onMouseEntered="#showPopOverEmail" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%access.password" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
+                              <PasswordField fx:id="password" onMouseEntered="#showPopOver" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="91.0" prefHeight="31.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" styleClass="label-font" text="%access.code" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
+                              <TextField fx:id="adminCode" onMouseEntered="#showPopOverCode" onMouseExited="#hidePopOver" prefHeight="25.0" style="-fx-background-radius: 7;" styleClass="label-font" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" layoutX="30.0" layoutY="67.0" spacing="20.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#signinAdmin" prefHeight="30.0" prefWidth="210.0" style="-fx-background-radius: 50; " text="%access.login.button" textAlignment="CENTER" textFill="WHITE">
+                     <styleClass>
+                        <String fx:value="label-font" />
+                        <String fx:value="lightBlue" />
+                     </styleClass></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #306FDB;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
